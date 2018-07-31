@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["react"],
+  "parser": "babel-eslint",
+  "globals": {
+    "window": true,
+    "document": true,
+    "process": true
+  }
+}

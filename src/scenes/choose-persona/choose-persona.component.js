@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { ChoosePersonaHeader } from "./choose-persona.styles";
 
@@ -19,3 +20,8 @@ export const SelectPersonaComponent = ({
     </div>
   </div>
 );
+
+SelectPersonaComponent.propTypes = {
+  setPersonaStageFilter: PropTypes.func.isRequired,
+  stageFilter: PropTypes.string
+};
