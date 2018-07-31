@@ -42,7 +42,6 @@ injectGlobal`
 `;
 
 const middlewares = [];
-
 if (process.env.NODE_ENV === `development`) {
   const loggerMiddleware = createLogger();
   middlewares.push(loggerMiddleware);
