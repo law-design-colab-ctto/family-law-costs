@@ -41,12 +41,18 @@ injectGlobal`
   }
 `;
 
+const middlewares = [];
+
+if (process.env.NODE_ENV === `development`) {
+  const loggerMiddleware = createLogger();
+  middlewares.push(loggerMiddleware);
+}
 const history = createBrowserHistory();
-const loggerMiddleware = createLogger();
+middlewares.push(routerMiddleware(history));
 const store = createStore(
   connectRouter(history)(rootReducer),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(routerMiddleware(history), loggerMiddleware)
+  applyMiddleware(...middlewares)
 );
 
 const ReduxApp = () => (
