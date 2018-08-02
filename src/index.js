@@ -42,15 +42,14 @@ injectGlobal`
 `;
 
 const middlewares = [];
-/*eslint no-process-env: 0*/
-console.log(process.env.NODE_ENV);
-console.log(createLogger);
+
 if (process.env.NODE_ENV === "development") {
-  // const loggerMiddleware = createLogger();
-  // middlewares.push(loggerMiddleware);
+  const loggerMiddleware = createLogger();
+  middlewares.push(loggerMiddleware);
 }
 const history = createBrowserHistory();
 middlewares.push(routerMiddleware(history));
+
 const store = createStore(
   connectRouter(history)(rootReducer),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
