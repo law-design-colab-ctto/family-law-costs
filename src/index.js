@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-// import { createLogger } from "redux-logger";
+import { createLogger } from "redux-logger";
 import { createBrowserHistory } from "history";
 import {
   connectRouter,
@@ -44,6 +44,7 @@ injectGlobal`
 const middlewares = [];
 /*eslint no-process-env: 0*/
 console.log(process.env.NODE_ENV);
+console.log(createLogger);
 if (process.env.NODE_ENV === "development") {
   // const loggerMiddleware = createLogger();
   // middlewares.push(loggerMiddleware);
