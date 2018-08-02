@@ -1,9 +1,7 @@
 import { CHOOSE_PERSONA_ACTION_TYPES } from "./choose-persona.constants";
-import { PERSONAS } from "src/data/personas";
 
 const CHOOSE_PERSONA_INITIAL_STATE = {
-  stageFilter: "",
-  personas: PERSONAS
+  stageFilter: ""
 };
 
 export const choosePersonaReducer = (
