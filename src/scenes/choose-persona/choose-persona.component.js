@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import {
   ChoosePersonaHeader,
@@ -9,7 +10,7 @@ import {
   PersonaStage
 } from "./choose-persona.styles";
 
-export const SelectPersonaComponent = ({
+export const ChoosePersonaComponent = ({
   setPersonaStageFilter,
   stageFilter,
   personasToDisplay
@@ -43,16 +44,18 @@ export const SelectPersonaComponent = ({
     </div>
     <PersonaCardsContainerDiv>
       {personasToDisplay.map(persona => (
-        <PersonaCardDiv key={persona.name}>
-          <PersonaName>{persona.name}</PersonaName>
-          <PersonaStage>{persona.stage}</PersonaStage>
-        </PersonaCardDiv>
+        <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
+          <PersonaCardDiv key={persona.name}>
+            <PersonaName>{persona.name}</PersonaName>
+            <PersonaStage>{persona.stage}</PersonaStage>
+          </PersonaCardDiv>
+        </Link>
       ))}
     </PersonaCardsContainerDiv>
   </div>
 );
 
-SelectPersonaComponent.propTypes = {
+ChoosePersonaComponent.propTypes = {
   setPersonaStageFilter: PropTypes.func.isRequired,
   stageFilter: PropTypes.string,
   personasToDisplay: PropTypes.array

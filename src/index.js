@@ -10,7 +10,8 @@ import {
   ConnectedRouter
 } from "connected-react-router";
 import { Route, Switch } from "react-router";
-import { SelectPersonaContainer } from "src/scenes/choose-persona";
+import { ChoosePersonaContainer } from "src/scenes/choose-persona";
+import { PersonaPageContainer } from "src/scenes/persona-page";
 import { injectGlobal } from "styled-components";
 import { rootReducer } from "./reducer";
 import registerServiceWorker from "./registerServiceWorker";
@@ -60,7 +61,8 @@ const ReduxApp = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" component={SelectPersonaContainer} />
+        <Route exact path="/" component={ChoosePersonaContainer} />
+        <Route exact path="/:personaName" component={PersonaPageContainer} />
       </Switch>
     </ConnectedRouter>
   </Provider>
