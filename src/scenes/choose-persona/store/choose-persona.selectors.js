@@ -11,16 +11,8 @@ const selectPersonas = createSelector(selectChoosePersona, path(["personas"]));
 const selectFilteredPersonas = createSelector(
   selectPersonas,
   selectPersonaStageFilter,
-  (personas, stage) => {
-    console.log(personas);
-    console.log(
-      noStageFilter(stage) ? personas : filter(personaHasStage(stage), personas)
-    );
-    // if stage filter is empty string, return all personas
-    return noStageFilter(stage)
-      ? personas
-      : filter(personaHasStage(stage), personas);
-  }
+  (personas, stage) =>
+    noStageFilter(stage) ? personas : filter(personaHasStage(stage), personas)
 );
 
 export const choosePersonaConnector = createStructuredSelector({
