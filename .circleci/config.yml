@@ -36,7 +36,7 @@ jobs:
       # run tests!
       - run: yarn test
 
-      # run linter
-      - run: yarn eslint --fix --ext=js --ext=jsx .
+      # lint!
+      - run: yarn lint
 
 
