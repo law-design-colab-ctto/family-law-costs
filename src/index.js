@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import registerServiceWorker from "./registerServiceWorker";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { rootReducer } from "./reducer";
 import { createLogger } from "redux-logger";
 import { createBrowserHistory } from "history";
 import {
@@ -12,8 +10,11 @@ import {
   ConnectedRouter
 } from "connected-react-router";
 import { Route, Switch } from "react-router";
-import { SelectPersonaContainer } from "src/scenes/choose-persona";
+import { ChoosePersonaContainer } from "src/scenes/choose-persona";
+import { PersonaPageContainer } from "src/scenes/persona-page";
 import { injectGlobal } from "styled-components";
+import { rootReducer } from "./reducer";
+import registerServiceWorker from "./registerServiceWorker";
 
 injectGlobal`
   *,
@@ -42,12 +43,14 @@ injectGlobal`
 `;
 
 const middlewares = [];
-if (process.env.NODE_ENV === `development`) {
+
+if (process.env.NODE_ENV === "development") {
   const loggerMiddleware = createLogger();
   middlewares.push(loggerMiddleware);
 }
 const history = createBrowserHistory();
 middlewares.push(routerMiddleware(history));
+
 const store = createStore(
   connectRouter(history)(rootReducer),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
@@ -58,7 +61,8 @@ const ReduxApp = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" component={SelectPersonaContainer} />
+        <Route exact path="/" component={ChoosePersonaContainer} />
+        <Route exact path="/:personaName" component={PersonaPageContainer} />
       </Switch>
     </ConnectedRouter>
   </Provider>

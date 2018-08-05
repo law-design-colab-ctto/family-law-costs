@@ -1,1 +1,1 @@
-export { SelectPersonaContainer } from "./choose-persona.container";
+export { ChoosePersonaContainer } from "./choose-persona.container";
