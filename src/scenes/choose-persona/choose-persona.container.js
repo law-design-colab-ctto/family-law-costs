@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { ChoosePersonaComponent } from "./choose-persona.component";
 import { choosePersonaConnector } from "./store/choose-persona.selectors";
-import { setPersonaStageFilter } from "./store/choose-persona.actions";
+import { setFilter } from "./store/choose-persona.actions";
 
 const dispatchers = {
-  setPersonaStageFilter
+  setFilter
 };
 
 export const ChoosePersonaContainer = connect(
