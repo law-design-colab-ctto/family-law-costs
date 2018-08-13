@@ -37,7 +37,7 @@ export const ChoosePersonaComponent = ({
         tries to facilitate that understanding.
       </div>
     </DescriptiveSection>
-    <ChoosePersonaMainSection item xs={12} container spacing={12}>
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>
         <OutOfPocketHeader>Out of pocket costs in family law</OutOfPocketHeader>
       </Grid>
@@ -48,7 +48,7 @@ export const ChoosePersonaComponent = ({
         researchers to understand the implications of family law.
       </Grid>
     </ChoosePersonaMainSection>
-    <ChoosePersonaMainSection item xs={12} container spacing={12}>
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>
         <OutOfPocketSubHeader>
           See family law impacts on a variety of litigants
