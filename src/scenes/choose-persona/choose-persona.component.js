@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { equals } from "ramda";
 import {
-  PersonaCardDiv,
   PersonaCardsContainerDiv,
-  PersonaName,
-  PersonaStage,
   MainHeader,
   DescriptiveSection,
   MissionHeader,
@@ -14,10 +10,13 @@ import {
   FilterButton,
   FilterButtonSet,
   FilterButtonSetLabel,
-  Divider
+  Divider,
+  OutOfPocketHeader,
+  OutOfPocketSubHeader
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import { FILTER_TYPES, FILTER_VALUES } from "./store/choose-persona.constants";
+import { PersonaCard } from "src/components";
 
 export const ChoosePersonaComponent = ({
   setFilter,
@@ -27,7 +26,7 @@ export const ChoosePersonaComponent = ({
 }) => (
   <Grid container direction="column">
     <MainHeader item xs={12} container justify="space-between">
-      <Grid item>Out of pocket costs</Grid>
+      <Grid item>Out-of-pocket costs</Grid>
       <Grid item>View report</Grid>
     </MainHeader>
     <DescriptiveSection item xs={12}>
@@ -38,9 +37,9 @@ export const ChoosePersonaComponent = ({
         tries to facilitate that understanding.
       </div>
     </DescriptiveSection>
-    <ChoosePersonaMainSection item xs={12} container spacing={24}>
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>
-        <h1>Out of pocket costs in family law</h1>
+        <OutOfPocketHeader>Out of pocket costs in family law</OutOfPocketHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
         This tool calculates and compares typical costs including the money
@@ -49,9 +48,11 @@ export const ChoosePersonaComponent = ({
         researchers to understand the implications of family law.
       </Grid>
     </ChoosePersonaMainSection>
-    <ChoosePersonaMainSection item xs={12} container spacing={24}>
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>
-        <h2>See family law impacts on a variety of litigants</h2>
+        <OutOfPocketSubHeader>
+          See family law impacts on a variety of litigants
+        </OutOfPocketSubHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
         <FilterButtonSetLabel>Job Stability</FilterButtonSetLabel>
@@ -135,15 +136,7 @@ export const ChoosePersonaComponent = ({
     <Grid item xs={12} container>
       <PersonaCardsContainerDiv>
         {personasToDisplay.map(persona => (
-          <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
-            <PersonaCardDiv key={persona.name}>
-              <PersonaName>{persona.name}</PersonaName>
-              Stage: <PersonaStage>{persona.stage}</PersonaStage>
-              Job Stability: <PersonaStage>{persona.jobStability}</PersonaStage>
-              Ability to handle stress:
-              <PersonaStage>{persona.stressCapacity}</PersonaStage>
-            </PersonaCardDiv>
-          </Link>
+          <PersonaCard key={persona.name} persona={persona} />
         ))}
       </PersonaCardsContainerDiv>
     </Grid>

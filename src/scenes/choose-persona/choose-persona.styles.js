@@ -3,34 +3,14 @@ import { colours, spacing } from "src/styles";
 import { fontSizes } from "../../styles/fontSizes";
 import Grid from "@material-ui/core/Grid";
 import { ButtonReset, HrReset } from "src/components";
+
 export const ChoosePersonaHeader = styled.h2`
   color: ${colours.red};
-`;
-
-export const PersonaCardDiv = styled.div`
-  background-color: ${colours.white};
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 3px;
-  padding: ${spacing.three};
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
-  height: 15rem;
-  margin: 1rem;
 `;
 
 export const PersonaCardsContainerDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
-
-export const PersonaName = styled.h3`
-  margin: 0;
-  padding-bottom: ${spacing.one};
-`;
-
-export const PersonaStage = styled.span`
-  color: ${colours.darkGrey};
 `;
 
 export const MainHeader = styled(Grid)`
@@ -106,4 +86,15 @@ export const Divider = styled(HrReset)`
   border-bottom: 1px solid ${colours.mediumDarkGray};
   width: 100%;
   margin-bottom: ${spacing.three};
+`;
+
+export const OutOfPocketHeader = styled.h1`
+  margin: 0;
+  padding-right: ${spacing.five};
+`;
+
+export const OutOfPocketSubHeader = styled.h2`
+  margin: 0;
+  padding-right: ${spacing.five};
+  font-weight: 400;
 `;
