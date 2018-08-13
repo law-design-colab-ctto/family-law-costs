@@ -15,6 +15,8 @@ import { PersonaPageContainer } from "src/scenes/persona-page";
 import { injectGlobal } from "styled-components";
 import { rootReducer } from "./reducer";
 import registerServiceWorker from "./registerServiceWorker";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import "typeface-roboto";
 
 injectGlobal`
   *,
@@ -38,7 +40,7 @@ injectGlobal`
   optgroup,
   select,
   textarea {
-    font-family: "Helvetica", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 `;
 
@@ -58,14 +60,17 @@ const store = createStore(
 );
 
 const ReduxApp = () => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Switch>
-        <Route exact path="/" component={ChoosePersonaContainer} />
-        <Route exact path="/:personaName" component={PersonaPageContainer} />
-      </Switch>
-    </ConnectedRouter>
-  </Provider>
+  <React.Fragment>
+    <CssBaseline />
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path="/" component={ChoosePersonaContainer} />
+          <Route exact path="/:personaName" component={PersonaPageContainer} />
+        </Switch>
+      </ConnectedRouter>
+    </Provider>
+  </React.Fragment>
 );
 
 ReactDOM.render(<ReduxApp />, document.getElementById("root"));

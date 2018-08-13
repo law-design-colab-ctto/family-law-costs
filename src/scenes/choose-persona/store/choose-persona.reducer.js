@@ -1,7 +1,9 @@
 import { CHOOSE_PERSONA_ACTION_TYPES } from "./choose-persona.constants";
 
 const CHOOSE_PERSONA_INITIAL_STATE = {
-  stageFilter: ""
+  stage: "",
+  jobStability: "",
+  stressCapacity: ""
 };
 
 export const choosePersonaReducer = (
@@ -9,10 +11,10 @@ export const choosePersonaReducer = (
   action
 ) => {
   switch (action.type) {
-    case CHOOSE_PERSONA_ACTION_TYPES.SET_PERSONA_STAGE_FILTER: {
+    case CHOOSE_PERSONA_ACTION_TYPES.SET_FILTER: {
       return {
         ...state,
-        stageFilter: action.payload.stage
+        [action.payload.filterType]: action.payload.filterValue
       };
     }
     default:
