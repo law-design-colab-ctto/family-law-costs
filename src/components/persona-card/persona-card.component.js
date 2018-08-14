@@ -1,24 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Link } from "react-router-dom";
 import {
-  PersonaCardDiv,
-  PersonaName,
-  PersonaStage
+  StyledCard,
+  StyledLink,
+  PersonaCardMedia,
+  PersonaAttr
 } from "./persona-card.styles";
 
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+
 export const PersonaCard = ({ persona }) => (
-  <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
-    <PersonaCardDiv key={persona.name}>
-      <PersonaName>{persona.name}</PersonaName>
-      Stage: <PersonaStage>{persona.stage}</PersonaStage>
-      Job Stability: <PersonaStage>{persona.jobStability}</PersonaStage>
-      Ability to handle stress:
-      <PersonaStage>{persona.stressCapacity}</PersonaStage>
-    </PersonaCardDiv>
-  </Link>
+  <StyledCard>
+    <StyledLink key={`link-${persona.name}`} to={`/${persona.name}`}>
+      <PersonaCardMedia
+        image="/static/images/cards/contemplative-reptile.jpg"
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="headline" color="primary" >
+          {persona.name}
+        </Typography>
+        <PersonaAttr>
+          Job Stability: {persona.jobStability} <br />
+          Stage: {persona.stage} <br />
+          Ability to handle stress: {persona.stressCapacity}
+        </PersonaAttr>
+      </CardContent>
+    </StyledLink>
+  </StyledCard>
 );
+
 
 PersonaCard.propTypes = {
   persona: PropTypes.object

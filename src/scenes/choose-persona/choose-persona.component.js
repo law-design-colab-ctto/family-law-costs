@@ -12,7 +12,9 @@ import {
   FilterButtonSetLabel,
   Divider,
   OutOfPocketHeader,
-  OutOfPocketSubHeader
+  OutOfPocketSubHeader,
+  ChoosePersonaPersonasSection,
+  PersonasHeader
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import { FILTER_TYPES, FILTER_VALUES } from "./store/choose-persona.constants";
@@ -133,14 +135,29 @@ export const ChoosePersonaComponent = ({
       </Grid>
     </ChoosePersonaMainSection>
 
-    <Grid item xs={12} container>
+    <ChoosePersonaPersonasSection item xs={12} spacing={16}>
+      <PersonasHeader>PERSONAS</PersonasHeader>
+
       <PersonaCardsContainerDiv>
         {personasToDisplay.map(persona => (
           <PersonaCard key={persona.name} persona={persona} />
         ))}
       </PersonaCardsContainerDiv>
-    </Grid>
+    </ChoosePersonaPersonasSection>
+
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
+      <Grid item sm={4} xs={12}>
+        <OutOfPocketHeader>Methodology</OutOfPocketHeader>
+      </Grid>
+      <Grid item sm={8} xs={12}>
+        The calculations included in this tool are based on research of litigants about their experiences
+        in family law disputes, as well as statistics from across the country about...
+      </Grid>
+    </ChoosePersonaMainSection>
+
   </Grid>
+
+
 );
 
 ChoosePersonaComponent.propTypes = {
