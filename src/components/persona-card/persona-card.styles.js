@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { colours, spacing } from "src/styles";
+import { colours, spacing, fontSizes } from "src/styles";
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
 
 export const PersonaCardDiv = styled.div`
   background-color: ${colours.white};
@@ -13,11 +17,28 @@ export const PersonaCardDiv = styled.div`
   margin: 1rem;
 `;
 
-export const PersonaName = styled.h3`
-  margin: 0;
-  padding-bottom: ${spacing.one};
+export const StyledCard = styled(Card)`
+  width: 247px;
+  height: 309px;
+  margin: 0 ${spacing.five} ${spacing.five}  0;
 `;
 
-export const PersonaStage = styled.span`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+export const PersonaCardMedia = styled(CardMedia)`
+  width: 247px;
+  height: 146px;
+`;
+
+//styled.h3
+export const PersonaName = styled.h3`
+  font-size: ${fontSizes.title};
+  //margin-top: ${spacing.one}
+`;
+
+//styled.span
+export const PersonaAttr = styled(Typography)`
   color: ${colours.darkGrey};
 `;

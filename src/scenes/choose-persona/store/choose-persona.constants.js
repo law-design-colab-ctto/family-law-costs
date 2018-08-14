@@ -13,3 +13,5 @@ export const FILTER_VALUES = {
   NEUTRAL: "neutral",
   BAD: "bad"
 };
+
+export default CHOOSE_PERSONA_ACTION_TYPES;
