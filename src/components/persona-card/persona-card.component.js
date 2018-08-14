@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Link } from "react-router-dom";
-
 import {
   StyledCard,
+  StyledLink,
   PersonaCardMedia,
-  PersonaName,
   PersonaAttr
 } from "./persona-card.styles";
 
@@ -15,19 +13,22 @@ import Typography from '@material-ui/core/Typography';
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
-    <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
+    <StyledLink key={`link-${persona.name}`} to={`/${persona.name}`}>
       <PersonaCardMedia
         image="/static/images/cards/contemplative-reptile.jpg"
         title="Contemplative Reptile"
       />
       <CardContent>
-        <PersonaName>{persona.name}</PersonaName>
-        Job Stability: <PersonaAttr>{persona.jobStability}</PersonaAttr>
-        Stage: <PersonaAttr>{persona.stage}</PersonaAttr>
-        Ability to handle stress:
-        <PersonaAttr>{persona.stressCapacity}</PersonaAttr>
+        <Typography gutterBottom variant="headline" color="primary" >
+          {persona.name}
+        </Typography>
+        <PersonaAttr>
+          Job Stability: {persona.jobStability} <br />
+          Stage: {persona.stage} <br />
+          Ability to handle stress: {persona.stressCapacity}
+        </PersonaAttr>
       </CardContent>
-    </Link>
+    </StyledLink>
   </StyledCard>
 );
 
@@ -35,18 +36,3 @@ export const PersonaCard = ({ persona }) => (
 PersonaCard.propTypes = {
   persona: PropTypes.object
 };
-
-
-/*
-
-within <Link>
-
-<PersonaCardDiv key={persona.name}>
-  <PersonaName>{persona.name}</PersonaName>
-  Stage: <PersonaStage>{persona.stage}</PersonaStage>
-  Job Stability: <PersonaStage>{persona.jobStability}</PersonaStage>
-  Ability to handle stress:
-  <PersonaStage>{persona.stressCapacity}</PersonaStage>
-</PersonaCardDiv>
-
-*/

@@ -144,6 +144,17 @@ export const ChoosePersonaComponent = ({
         ))}
       </PersonaCardsContainerDiv>
     </ChoosePersonaPersonasSection>
+
+    <ChoosePersonaMainSection item xs={12} container spacing={16}>
+      <Grid item sm={4} xs={12}>
+        <OutOfPocketHeader>Methodology</OutOfPocketHeader>
+      </Grid>
+      <Grid item sm={8} xs={12}>
+        The calculations included in this tool are based on research of litigants about their experiences
+        in family law disputes, as well as statistics from across the country about...
+      </Grid>
+    </ChoosePersonaMainSection>
+
   </Grid>
 
 
