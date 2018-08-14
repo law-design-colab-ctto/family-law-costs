@@ -1,28 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { equals } from "ramda";
 import {
   PersonaCardsContainerDiv,
   MainHeader,
   DescriptiveSection,
   MissionHeader,
   ChoosePersonaMainSection,
-  FilterButton,
-  FilterButtonSet,
-  FilterButtonSetLabel,
-  Divider,
   OutOfPocketHeader,
   OutOfPocketSubHeader,
   ChoosePersonaPersonasSection,
-  PersonasHeader
+  PersonasHeader,
+  ToolDescription
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
-import { FILTER_TYPES, FILTER_VALUES } from "./store/choose-persona.constants";
-import { PersonaCard } from "src/components";
+import {
+  JOB_STABILITY_OPTIONS,
+  STAGE_OPTIONS,
+  STRESS_CAPACITY_OPTIONS
+} from "./store/choose-persona.constants";
+import { PersonaCard, FilterSet } from "src/components";
 
 export const ChoosePersonaComponent = ({
   setFilter,
   jobStabilityFilter,
+  stageFilter,
   stressCapacityFilter,
   personasToDisplay
 }) => (
@@ -41,13 +42,20 @@ export const ChoosePersonaComponent = ({
     </DescriptiveSection>
     <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>
-        <OutOfPocketHeader>Out of pocket costs in family law</OutOfPocketHeader>
+        <OutOfPocketHeader>Out of Pocket Costs in Family Law</OutOfPocketHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
-        This tool calculates and compares typical costs including the money
-        people spend during their legal dispute and the money they lose through
-        missed work. This tool can help individuals, government, media, and
-        researchers to understand the implications of family law.
+        <ToolDescription>
+          <p>
+            This tool calculates and compares typical costs including the money
+            people spend during their legal dispute and the money they lose
+            through missed work.
+          </p>
+          <p>
+            This tool can help individuals, government, media, and researchers
+            to understand the implications of family law.
+          </p>
+        </ToolDescription>
       </Grid>
     </ChoosePersonaMainSection>
     <ChoosePersonaMainSection item xs={12} container spacing={16}>
@@ -57,81 +65,24 @@ export const ChoosePersonaComponent = ({
         </OutOfPocketSubHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
-        <FilterButtonSetLabel>Job Stability</FilterButtonSetLabel>
-        <FilterButtonSet>
-          <FilterButton
-            active={equals(jobStabilityFilter, FILTER_VALUES.GOOD)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.JOB_STABILITY,
-                filterValue: FILTER_VALUES.GOOD
-              })
-            }
-          >
-            Good
-          </FilterButton>
-          <FilterButton
-            active={equals(jobStabilityFilter, FILTER_VALUES.NEUTRAL)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.JOB_STABILITY,
-                filterValue: FILTER_VALUES.NEUTRAL
-              })
-            }
-          >
-            Neutral
-          </FilterButton>
-          <FilterButton
-            active={equals(jobStabilityFilter, FILTER_VALUES.BAD)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.JOB_STABILITY,
-                filterValue: FILTER_VALUES.BAD
-              })
-            }
-          >
-            Bad
-          </FilterButton>
-        </FilterButtonSet>
-        <Divider />
-
-        <FilterButtonSetLabel>Ability to Handle Stress</FilterButtonSetLabel>
-        <FilterButtonSet>
-          <FilterButton
-            active={equals(stressCapacityFilter, FILTER_VALUES.GOOD)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.STRESS_CAPACITY,
-                filterValue: FILTER_VALUES.GOOD
-              })
-            }
-          >
-            Good
-          </FilterButton>
-          <FilterButton
-            active={equals(stressCapacityFilter, FILTER_VALUES.NEUTRAL)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.STRESS_CAPACITY,
-                filterValue: FILTER_VALUES.NEUTRAL
-              })
-            }
-          >
-            Neutral
-          </FilterButton>
-          <FilterButton
-            active={equals(stressCapacityFilter, FILTER_VALUES.BAD)}
-            onClick={() =>
-              setFilter({
-                filterType: FILTER_TYPES.STRESS_CAPACITY,
-                filterValue: FILTER_VALUES.BAD
-              })
-            }
-          >
-            Bad
-          </FilterButton>
-        </FilterButtonSet>
-        <Divider />
+        <FilterSet
+          label="Job Stability"
+          options={JOB_STABILITY_OPTIONS}
+          setFilter={setFilter}
+          currentFilterValue={jobStabilityFilter}
+        />
+        <FilterSet
+          label="Stage"
+          options={STAGE_OPTIONS}
+          setFilter={setFilter}
+          currentFilterValue={stageFilter}
+        />
+        <FilterSet
+          label="Ability to Handle Stress"
+          options={STRESS_CAPACITY_OPTIONS}
+          setFilter={setFilter}
+          currentFilterValue={stressCapacityFilter}
+        />
       </Grid>
     </ChoosePersonaMainSection>
 
@@ -150,14 +101,12 @@ export const ChoosePersonaComponent = ({
         <OutOfPocketHeader>Methodology</OutOfPocketHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
-        The calculations included in this tool are based on research of litigants about their experiences
-        in family law disputes, as well as statistics from across the country about...
+        The calculations included in this tool are based on research of
+        litigants about their experiences in family law disputes, as well as
+        statistics from across the country about...
       </Grid>
     </ChoosePersonaMainSection>
-
   </Grid>
-
-
 );
 
 ChoosePersonaComponent.propTypes = {
