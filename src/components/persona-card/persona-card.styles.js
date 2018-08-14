@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { colours, spacing } from "src/styles";
+import { colours, spacing, fontSizes } from "src/styles";
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 
 export const PersonaCardDiv = styled.div`
   background-color: ${colours.white};
@@ -20,4 +23,29 @@ export const PersonaName = styled.h3`
 
 export const PersonaStage = styled.span`
   color: ${colours.darkGrey};
+`;
+
+//maxWidth: 345;
+export const StyledCard = styled(Card)`
+  width: 247px;
+  height: 309px;
+  margin: 10px;
+`;
+
+//height: 0;
+//paddingTop: '56.25%'; // 16:9
+export const PersonaCardMedia = styled(CardMedia)`
+  width: 247px;
+  height: 146px;
+`;
+
+export const PersonaCardContent = styled(CardContent)`
+
+`;
+
+export const PersonaName2 = styled.h3`
+  font-size: ${fontSizes.title};
+`;
+
+export const PersonaAttr = styled.span`
 `;
