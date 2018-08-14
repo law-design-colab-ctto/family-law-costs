@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colours, spacing, fontSizes } from "src/styles";
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 export const PersonaCardDiv = styled.div`
   background-color: ${colours.white};
@@ -16,36 +16,27 @@ export const PersonaCardDiv = styled.div`
   margin: 1rem;
 `;
 
-export const PersonaName = styled.h3`
-  margin: 0;
-  padding-bottom: ${spacing.one};
-`;
-
-export const PersonaStage = styled.span`
-  color: ${colours.darkGrey};
-`;
-
-//maxWidth: 345;
 export const StyledCard = styled(Card)`
   width: 247px;
   height: 309px;
-  margin: 10px;
+  margin: 0 ${spacing.five} ${spacing.five}  0;
 `;
 
-//height: 0;
-//paddingTop: '56.25%'; // 16:9
 export const PersonaCardMedia = styled(CardMedia)`
   width: 247px;
   height: 146px;
 `;
 
-export const PersonaCardContent = styled(CardContent)`
-
-`;
-
-export const PersonaName2 = styled.h3`
+//styled.h3
+export const PersonaName = styled(Typography)`
   font-size: ${fontSizes.title};
+  margin-top: ${spacing.one}
+  color: black;
 `;
 
-export const PersonaAttr = styled.span`
+//styled.span
+export const PersonaAttr = styled(Typography)`
+  color: ${colours.darkGrey};
+  display: flex;
+  flex-direction: row-reverse;;
 `;

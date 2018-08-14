@@ -6,36 +6,31 @@ import { Link } from "react-router-dom";
 import {
   StyledCard,
   PersonaCardMedia,
-  PersonaCardContent,
-  PersonaName2,
+  PersonaName,
   PersonaAttr
 } from "./persona-card.styles";
 
-import {
-  PersonaCardDiv,
-  PersonaName,
-  PersonaStage
-} from "./persona-card.styles";
+import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 export const PersonaCard = ({ persona }) => (
-  <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
-    <StyledCard>
+  <StyledCard>
+    <Link key={`link-${persona.name}`} to={`/${persona.name}`}>
       <PersonaCardMedia
         image="/static/images/cards/contemplative-reptile.jpg"
         title="Contemplative Reptile"
       />
-      <PersonaCardContent>
-        <PersonaName2>{persona.name}</PersonaName2>
-        <PersonaAttr>{persona.jobStability}</PersonaAttr>
-        <PersonaAttr>{persona.stage}</PersonaAttr>
+      <CardContent>
+        <PersonaName>{persona.name}</PersonaName>
+        Job Stability: <PersonaAttr>{persona.jobStability}</PersonaAttr>
+        Stage: <PersonaAttr>{persona.stage}</PersonaAttr>
+        Ability to handle stress:
         <PersonaAttr>{persona.stressCapacity}</PersonaAttr>
-      </PersonaCardContent>
-    </StyledCard>
-  </Link>
+      </CardContent>
+    </Link>
+  </StyledCard>
 );
 
-// export default withStyles(styles)(SimpleMediaCard);
 
 PersonaCard.propTypes = {
   persona: PropTypes.object

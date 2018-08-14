@@ -12,7 +12,9 @@ import {
   FilterButtonSetLabel,
   Divider,
   OutOfPocketHeader,
-  OutOfPocketSubHeader
+  OutOfPocketSubHeader,
+  ChoosePersonaPersonasSection,
+  PersonasHeader
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import { FILTER_TYPES, FILTER_VALUES } from "./store/choose-persona.constants";
@@ -133,14 +135,18 @@ export const ChoosePersonaComponent = ({
       </Grid>
     </ChoosePersonaMainSection>
 
-    <Grid item xs={12} container>
+    <ChoosePersonaPersonasSection item xs={12} spacing={16}>
+      <PersonasHeader>PERSONAS</PersonasHeader>
+
       <PersonaCardsContainerDiv>
         {personasToDisplay.map(persona => (
           <PersonaCard key={persona.name} persona={persona} />
         ))}
       </PersonaCardsContainerDiv>
-    </Grid>
+    </ChoosePersonaPersonasSection>
   </Grid>
+
+
 );
 
 ChoosePersonaComponent.propTypes = {

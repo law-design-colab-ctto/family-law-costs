@@ -98,3 +98,13 @@ export const OutOfPocketSubHeader = styled.h2`
   padding-right: ${spacing.five};
   font-weight: 400;
 `;
+
+export const ChoosePersonaPersonasSection = styled(Grid)`
+  padding: ${spacing.four} ${spacing.one} 0 ${spacing.five};
+  background-color: ${colours.lightGrey};
+`;
+
+export const PersonasHeader = styled.h3`
+  font-size: 14px;
+  margin-bottom: ${spacing.four}
+`;
