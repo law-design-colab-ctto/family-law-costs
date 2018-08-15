@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import {
   StyledCard,
   StyledLink,
-  PersonaCardMedia,
-  PersonaCardContent
+  PersonaCardMedia
 } from "./persona-card.styles";
 
+import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 
@@ -18,7 +18,7 @@ export const PersonaCard = ({ persona }) => (
         image="/static/images/cards/contemplative-reptile.jpg"
         title="Contemplative Reptile"
       />
-      <PersonaCardContent>
+      <CardContent>
         <Typography gutterBottom variant="headline" color="primary" >
           {persona.name}
         </Typography>
@@ -26,7 +26,7 @@ export const PersonaCard = ({ persona }) => (
         <Chip label={persona.jobStability} />
         <Chip label={persona.stage} />
         <Chip label={persona.stressCapacity} />
-      </PersonaCardContent>
+      </CardContent>
     </StyledLink>
   </StyledCard>
 );
