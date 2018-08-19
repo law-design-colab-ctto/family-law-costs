@@ -73,3 +73,9 @@ export const ToolDescription = styled.div`
     margin-top: 0;
   }
 `;
+
+export const MainFooter = styled.div`
+  background-color: ${colours.darkIndigo};
+  padding: ${spacing.four} ${spacing.five};
+  margin-top: ${spacing.four}
+`;
