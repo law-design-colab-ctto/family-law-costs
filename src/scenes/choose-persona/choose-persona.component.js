@@ -10,7 +10,8 @@ import {
   OutOfPocketSubHeader,
   ChoosePersonaPersonasSection,
   PersonasHeader,
-  ToolDescription
+  ToolDescription,
+  MainFooter
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -106,6 +107,9 @@ export const ChoosePersonaComponent = ({
         statistics from across the country about...
       </Grid>
     </ChoosePersonaMainSection>
+
+    <MainFooter item xs={12} container>
+    </MainFooter>
   </Grid>
 );
 
