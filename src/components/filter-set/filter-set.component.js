@@ -1,21 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { equals } from "ramda";
+import { equals, not, isEmpty, pipe } from "ramda";
 import {
   FilterButton,
   FilterButtonSet,
   FilterButtonSetLabel,
-  Divider
+  Divider,
+  ClearIcon
 } from "./filter-set.styles";
+import { colours } from "src/styles";
+
+const isFilterSelected = pipe(
+  isEmpty,
+  not
+);
 
 export const FilterSet = ({
   label,
   options,
   currentFilterValue,
-  setFilter
+  setFilter,
+  clearFilter
 }) => (
   <React.Fragment>
-    <FilterButtonSetLabel>{label}</FilterButtonSetLabel>
+    <FilterButtonSetLabel>
+      {label}
+      {isFilterSelected(currentFilterValue) ? (
+        <ClearIcon nativeColor={colours.darkGray} onClick={clearFilter} />
+      ) : null}
+    </FilterButtonSetLabel>
     <FilterButtonSet>
       {options.map(({ optionLabel, filterType, filterValue }) => (
         <FilterButton
@@ -40,5 +53,6 @@ FilterSet.propTypes = {
   label: PropTypes.string,
   options: PropTypes.array,
   currentFilterValue: PropTypes.string,
-  setFilter: PropTypes.func.isRequired
+  setFilter: PropTypes.func.isRequired,
+  clearFilter: PropTypes.func
 };
