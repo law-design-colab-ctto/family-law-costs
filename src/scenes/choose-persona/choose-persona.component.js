@@ -14,7 +14,8 @@ import {
   ToolDescription,
   MainFooter,
   InlineTextLinkSpan,
-  NoPersonasTextSpan
+  NoPersonasTextSpan,
+  FiltersSectionTitle
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -76,6 +77,7 @@ export const ChoosePersonaComponent = ({
         </OutOfPocketSubHeader>
       </Grid>
       <Grid item sm={8} xs={12}>
+        <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
         <FilterSet
           label="Job Stability"
           options={JOB_STABILITY_OPTIONS}

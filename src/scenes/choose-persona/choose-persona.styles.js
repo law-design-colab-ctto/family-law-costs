@@ -91,3 +91,9 @@ export const InlineTextLinkSpan = styled.span`
 export const NoPersonasTextSpan = styled.span`
   padding-bottom: ${spacing.three};
 `;
+
+export const FiltersSectionTitle = styled.div`
+  padding-bottom: ${spacing.three};
+  color: ${colours.black};
+  text-decoration: underline;
+`;
