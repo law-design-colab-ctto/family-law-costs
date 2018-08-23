@@ -9,7 +9,9 @@ export const ChoosePersonaHeader = styled.h2`
 
 export const PersonaCardsContainerDiv = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  width: 100%;
 `;
 
 export const MainHeader = styled(Grid)`
@@ -55,7 +57,7 @@ export const OutOfPocketSubHeader = styled.h2`
 `;
 
 export const ChoosePersonaPersonasSection = styled(Grid)`
-  padding: ${spacing.four} ${spacing.one} 0 ${spacing.five};
+  padding: ${spacing.four} ${spacing.one} ${spacing.four} ${spacing.five};
   background-color: ${colours.lightGrey};
   box-shadow: inset 0px 0px 30px 5px ${colours.mediumGray};
 `;
@@ -77,5 +79,15 @@ export const ToolDescription = styled.div`
 export const MainFooter = styled.div`
   background-color: ${colours.darkIndigo};
   padding: ${spacing.four} ${spacing.five};
-  margin-top: ${spacing.four}
+  margin-top: ${spacing.four};
+`;
+
+export const InlineTextLinkSpan = styled.span`
+  color: ${colours.darkIndigo};
+  cursor: pointer;
+  font-weight: 500;
+`;
+
+export const NoPersonasTextSpan = styled.span`
+  padding-bottom: ${spacing.three};
 `;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { colours, spacing, fontSizes } from "src/styles";
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
 export const PersonaCardDiv = styled.div`
@@ -20,7 +20,8 @@ export const PersonaCardDiv = styled.div`
 export const StyledCard = styled(Card)`
   width: 247px;
   height: 309px;
-  margin: 0 ${spacing.five} ${spacing.five}  0;
+  margin: 0 ${spacing.five} ${spacing.five} 0;
+  flex-shrink: 0;
 `;
 
 export const StyledLink = styled(Link)`

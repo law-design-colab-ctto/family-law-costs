@@ -31,15 +31,13 @@ const selectFilteredPersonas = createSelector(
   selectJobStabilityFilter,
   selectStressCapacityFilter,
   (personas, stage, jobStability, stressCapacity) =>
-    equals(stage, "") && equals(jobStability, "") && equals(stressCapacity, "")
-      ? []
-      : filter(
-          allPass([
-            personaHasStageIfSet(stage),
-            personaHasJobStabilityIfSet(jobStability),
-            personaHasStressCapacityIfSet(stressCapacity)
-          ])
-        )(personas)
+    filter(
+      allPass([
+        personaHasStageIfSet(stage),
+        personaHasJobStabilityIfSet(jobStability),
+        personaHasStressCapacityIfSet(stressCapacity)
+      ])
+    )(personas)
 );
 
 export const choosePersonaConnector = createStructuredSelector({

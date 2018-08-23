@@ -25,6 +25,15 @@ export const choosePersonaReducer = (
         [action.payload.filterType]: newFilterValue
       };
     }
+    case CHOOSE_PERSONA_ACTION_TYPES.CLEAR_FILTER: {
+      return {
+        ...state,
+        [action.payload.filterType]: ""
+      };
+    }
+    case CHOOSE_PERSONA_ACTION_TYPES.CLEAR_ALL_FILTERS: {
+      return CHOOSE_PERSONA_INITIAL_STATE;
+    }
     default:
       return state;
   }

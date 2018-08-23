@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { length, pipe, equals } from "ramda";
 import {
   PersonaCardsContainerDiv,
   MainHeader,
@@ -11,18 +12,27 @@ import {
   ChoosePersonaPersonasSection,
   PersonasHeader,
   ToolDescription,
-  MainFooter
+  MainFooter,
+  InlineTextLinkSpan,
+  NoPersonasTextSpan
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
   JOB_STABILITY_OPTIONS,
   STAGE_OPTIONS,
-  STRESS_CAPACITY_OPTIONS
+  STRESS_CAPACITY_OPTIONS,
+  FILTER_TYPES
 } from "./store/choose-persona.constants";
 import { PersonaCard, FilterSet } from "src/components";
 
+const noneToDisplay = pipe(
+  length,
+  equals(0)
+);
 export const ChoosePersonaComponent = ({
   setFilter,
+  clearFilter,
+  clearAllFilters,
   jobStabilityFilter,
   stageFilter,
   stressCapacityFilter,
@@ -71,29 +81,45 @@ export const ChoosePersonaComponent = ({
           options={JOB_STABILITY_OPTIONS}
           setFilter={setFilter}
           currentFilterValue={jobStabilityFilter}
+          clearFilter={() =>
+            clearFilter({ filterType: FILTER_TYPES.JOB_STABILITY })
+          }
         />
         <FilterSet
           label="Stage"
           options={STAGE_OPTIONS}
           setFilter={setFilter}
           currentFilterValue={stageFilter}
+          clearFilter={() => clearFilter({ filterType: FILTER_TYPES.STAGE })}
         />
         <FilterSet
           label="Ability to Handle Stress"
           options={STRESS_CAPACITY_OPTIONS}
           setFilter={setFilter}
           currentFilterValue={stressCapacityFilter}
+          clearFilter={() =>
+            clearFilter({ filterType: FILTER_TYPES.STRESS_CAPACITY })
+          }
         />
       </Grid>
     </ChoosePersonaMainSection>
 
-    <ChoosePersonaPersonasSection item xs={12} spacing={16}>
+    <ChoosePersonaPersonasSection item xs={12}>
       <PersonasHeader>PERSONAS</PersonasHeader>
 
       <PersonaCardsContainerDiv>
-        {personasToDisplay.map(persona => (
-          <PersonaCard key={persona.name} persona={persona} />
-        ))}
+        {noneToDisplay(personasToDisplay) ? (
+          <NoPersonasTextSpan>
+            {`Sorry, no personas match these criteria. `}
+            <InlineTextLinkSpan onClick={clearAllFilters}>
+              {`See all personas.`}
+            </InlineTextLinkSpan>
+          </NoPersonasTextSpan>
+        ) : (
+          personasToDisplay.map(persona => (
+            <PersonaCard key={persona.name} persona={persona} />
+          ))
+        )}
       </PersonaCardsContainerDiv>
     </ChoosePersonaPersonasSection>
 
@@ -108,8 +134,7 @@ export const ChoosePersonaComponent = ({
       </Grid>
     </ChoosePersonaMainSection>
 
-    <MainFooter item xs={12} container>
-    </MainFooter>
+    <MainFooter item xs={12} container />
   </Grid>
 );
 
@@ -118,5 +143,7 @@ ChoosePersonaComponent.propTypes = {
   stageFilter: PropTypes.string,
   jobStabilityFilter: PropTypes.string,
   stressCapacityFilter: PropTypes.string,
-  personasToDisplay: PropTypes.array
+  personasToDisplay: PropTypes.array,
+  clearFilter: PropTypes.func,
+  clearAllFilters: PropTypes.func
 };

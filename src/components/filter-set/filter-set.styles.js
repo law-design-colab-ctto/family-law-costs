@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colours, spacing } from "src/styles";
 import { fontSizes } from "../../styles/fontSizes";
 import { ButtonReset, HrReset } from "src/components";
+import { XIcon } from "src/assets/icons";
 
 export const FilterButtonSet = styled.div`
   border-radius: 5px;
@@ -41,10 +42,19 @@ export const FilterButtonSetLabel = styled.h3`
   margin: 0;
   font-weight: 500;
   font-size: ${fontSizes.title};
+  display: flex;
+  align-items: center;
 `;
 
 export const Divider = styled(HrReset)`
   border-bottom: 1px solid ${colours.mediumDarkGray};
   width: 100%;
   margin-bottom: ${spacing.three};
+`;
+
+export const ClearIcon = styled(XIcon)`
+  padding-left: ${spacing.two};
+  &:hover {
+    cursor: pointer;
+  }
 `;
