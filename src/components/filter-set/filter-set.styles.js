@@ -8,7 +8,8 @@ export const FilterButtonSet = styled.div`
   border-radius: 5px;
   display: flex;
   width: 100%;
-  margin-bottom: ${spacing.three};
+  flex-wrap: wrap;
+  margin-bottom: ${spacing.two};
 `;
 
 export const FilterButton = styled(ButtonReset)`
@@ -20,6 +21,7 @@ export const FilterButton = styled(ButtonReset)`
     props.active ? colours.darkIndigo : colours.mediumGray};
   color: ${props => (props.active ? colours.white : colours.darkGray)};
   border-right: 1px solid ${colours.white};
+  margin-bottom: ${spacing.two};
 
   &:hover {
     background-color: ${props =>

@@ -45,26 +45,26 @@ export const ChoosePersonaMainSection = styled(Grid)`
 
 export const OutOfPocketHeader = styled.h1`
   margin: 0;
-  padding-right: ${spacing.five};
   font-weight: 500;
   font-size: ${fontSizes.display};
 `;
 
 export const OutOfPocketSubHeader = styled.h2`
   margin: 0;
-  padding-right: ${spacing.five};
   font-weight: 400;
+  padding-bottom: ${spacing.five};
 `;
 
 export const ChoosePersonaPersonasSection = styled(Grid)`
-  padding: ${spacing.four} ${spacing.one} ${spacing.four} ${spacing.five};
+  padding: ${spacing.four} ${spacing.one} ${spacing.four} ${spacing.one};
   background-color: ${colours.lightGrey};
   box-shadow: inset 0px 0px 30px 5px ${colours.mediumGray};
 `;
 
 export const PersonasHeader = styled.h3`
-  font-size: 14px;
+  font-size: ${fontSizes.p};
   margin-bottom: ${spacing.four};
+  margin-left: ${spacing.four};
 `;
 
 export const ToolDescription = styled.div`

@@ -18,10 +18,9 @@ export const PersonaCardDiv = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  width: 247px;
-  height: 309px;
   margin: 0 ${spacing.five} ${spacing.five} 0;
   flex-shrink: 0;
+  min-width: 20rem;
 `;
 
 export const StyledLink = styled(Link)`

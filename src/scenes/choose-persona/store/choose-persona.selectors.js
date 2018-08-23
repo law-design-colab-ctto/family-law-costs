@@ -1,5 +1,5 @@
 import { createStructuredSelector, createSelector } from "reselect";
-import { path, filter, allPass, equals } from "ramda";
+import { path, filter, allPass } from "ramda";
 import {
   personaHasStageIfSet,
   personaHasStressCapacityIfSet,
