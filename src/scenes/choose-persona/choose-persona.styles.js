@@ -63,8 +63,8 @@ export const ChoosePersonaPersonasSection = styled(Grid)`
 
 export const PersonasHeader = styled.h3`
   font-size: ${fontSizes.p};
-  margin-bottom: ${spacing.four};
-  margin-left: ${spacing.four};
+  padding-bottom: ${spacing.four};
+  padding-left: ${spacing.four};
 `;
 
 export const ToolDescription = styled.div`
@@ -90,6 +90,7 @@ export const InlineTextLinkSpan = styled.span`
 
 export const NoPersonasTextSpan = styled.span`
   padding-bottom: ${spacing.three};
+  padding-left: ${spacing.four};
 `;
 
 export const FiltersSectionTitle = styled.div`
