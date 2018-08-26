@@ -113,5 +113,6 @@ PersonaPageComponent.propTypes = {
   personasByName: PropTypes.any,
   setIncome: PropTypes.func,
   income: PropTypes.number,
-  incomeDisplay: PropTypes.string
+  incomeDisplay: PropTypes.string,
+  setProvince: PropTypes.func
 };
