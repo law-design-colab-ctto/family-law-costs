@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { length, pipe, equals } from "ramda";
 import {
   PersonaCardsContainerDiv,
-  MainHeader,
   DescriptiveSection,
   MissionHeader,
   ChoosePersonaMainSection,
@@ -24,7 +23,7 @@ import {
   STRESS_CAPACITY_OPTIONS,
   FILTER_TYPES
 } from "./store/choose-persona.constants";
-import { PersonaCard, FilterSet } from "src/components";
+import { PersonaCard, FilterSet, SiteHeader } from "src/components";
 
 const noneToDisplay = pipe(
   length,
@@ -40,10 +39,7 @@ export const ChoosePersonaComponent = ({
   personasToDisplay
 }) => (
   <Grid container direction="column">
-    <MainHeader item xs={12} container justify="space-between">
-      <Grid item>Out-of-pocket costs</Grid>
-      <Grid item>View report</Grid>
-    </MainHeader>
+    <SiteHeader />
     <DescriptiveSection item xs={12}>
       <MissionHeader>Our mission</MissionHeader>
       <div>

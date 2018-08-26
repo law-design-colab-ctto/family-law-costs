@@ -32,6 +32,7 @@ injectGlobal`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6rem;
   }
 
   body,

@@ -12,6 +12,9 @@ export const PersonaCardsContainerDiv = styled.div`
   flex-wrap: nowrap;
   overflow: scroll;
   width: 100%;
+  & > div {
+    margin: 0 ${spacing.four} ${spacing.five} ${spacing.four};
+  }
 `;
 
 export const MainHeader = styled(Grid)`

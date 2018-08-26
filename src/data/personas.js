@@ -15,7 +15,16 @@ export const PERSONAS = [
     name: "Roberta",
     stage: "separation with children",
     jobStability: "bad",
-    stressCapacity: "neutral"
+    stressCapacity: "neutral",
+    income: 80000,
+    intro:
+      "Roberta and her partner Alice split up a year ago and are about to start the divorce proceedings.",
+    quote1:
+      "We are only just starting the divorce and I'm already losing sleep. I'm so stressed about going to court. I hate that I'm falling apart while alice seems just fine.",
+    moneyStoryText:
+      "I work as project manager for the government. I’ve had this job for the last ten years and now make",
+    lawyerChoiceText:
+      "My friend recommended a lawyer, but I’m not sure I want to hire one. I’ve heard how expensive lawyers can be, but I’m not confident in my ability to represent myself."
   },
   {
     name: "Pablo",
