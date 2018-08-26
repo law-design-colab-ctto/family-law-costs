@@ -4,5 +4,8 @@ export const fontSizes = {
   p: "1rem", // 16px
   subtitle: "1.125rem", // 18px
   title: "1.25rem", // 20px
-  heading: "1.35rem"
+  heading: "1.35rem",
+  display1: "2rem", // 32px
+  display2: "3rem", // 48px
+  display3: "4rem" // 64px
 };
