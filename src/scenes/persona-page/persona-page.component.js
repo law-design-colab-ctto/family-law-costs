@@ -20,7 +20,14 @@ import {
   SliderWrapper,
   DropdownWrapper,
   DropdownControlWrapper,
-  Subsection
+  Subsection,
+  ButtonSetWrapper,
+  ButtonOption,
+  ButtonControlWrapper,
+  ButtonLabelWrapper,
+  InformationNotice,
+  InformationCard,
+  SectionSmallSubheader
 } from "./persona-page.styles";
 
 export class PersonaPageComponent extends React.Component {
@@ -43,8 +50,12 @@ export class PersonaPageComponent extends React.Component {
       personasByName,
       income,
       incomeDisplay,
+      hasLawyer,
       setIncome,
-      setProvince
+      setProvince,
+      setLawyer,
+      isEligibleForLegalAid,
+      eligibilityReasons
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -102,6 +113,48 @@ export class PersonaPageComponent extends React.Component {
             </DropdownControlWrapper>
           </Subsection>
           <SectionSubheader>Legal Fees</SectionSubheader>
+          <PersonaTextRegular>
+            My friend recommended a lawyer, but I’m not sure I want to hire one.
+            I’ve heard how expensive lawyers can be, but I’m not confident in my
+            ability to represent myself.
+          </PersonaTextRegular>
+          <ButtonControlWrapper>
+            <ButtonLabelWrapper>
+              <strong>Should I hire a lawyer?</strong>
+            </ButtonLabelWrapper>
+            <ButtonSetWrapper>
+              <ButtonOption
+                active={hasLawyer}
+                onClick={() => setLawyer({ hasLawyer: true })}
+              >
+                Yes
+              </ButtonOption>
+              <ButtonOption
+                active={!hasLawyer}
+                onClick={() => setLawyer({ hasLawyer: false })}
+              >
+                No
+              </ButtonOption>
+            </ButtonSetWrapper>
+          </ButtonControlWrapper>
+          <SectionBlock>
+            <InformationNotice>
+              {`${persona.name} is`}
+              <strong>
+                {`${
+                  isEligibleForLegalAid ? " not" : ""
+                } eligible for legal aid because:`}
+              </strong>
+              {eligibilityReasons.map(reason => (
+                <div key={reason}>- {reason}</div>
+              ))}
+            </InformationNotice>
+          </SectionBlock>
+          <SectionBlock>
+            <InformationCard>
+              <SectionSmallSubheader>Hiring a Lawyer</SectionSmallSubheader>
+            </InformationCard>
+          </SectionBlock>
         </PersonaSection>
       </Grid>
     );
@@ -114,5 +167,9 @@ PersonaPageComponent.propTypes = {
   setIncome: PropTypes.func,
   income: PropTypes.number,
   incomeDisplay: PropTypes.string,
-  setProvince: PropTypes.func
+  setProvince: PropTypes.func,
+  setLawyer: PropTypes.func,
+  hasLawyer: PropTypes.bool,
+  isEligibleForLegalAid: PropTypes.bool,
+  eligibilityReasons: PropTypes.Array
 };

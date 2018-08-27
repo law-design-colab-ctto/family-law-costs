@@ -36,7 +36,13 @@ export const SectionSubheader = styled.h3`
   margin: 0;
   font-size: ${fontSizes.display1};
   font-weight: 400;
+  color: ${colours.black};
+`;
 
+export const SectionSmallSubheader = styled.h4`
+  margin: 0;
+  font-size: ${fontSizes.heading};
+  font-weight: 400;
   color: ${colours.black};
 `;
 
@@ -73,4 +79,63 @@ export const SliderWrapper = styled.div`
 export const DropdownWrapper = styled.div`
   flex-grow: 0;
   margin-left: ${spacing.two};
+`;
+
+export const ButtonControlWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: ${spacing.two} 0;
+`;
+
+export const ButtonSetWrapper = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+`;
+
+export const ButtonOption = styled(ButtonReset)`
+  font-size: ${fontSizes.p};
+  padding: ${spacing.three} ${spacing.five};
+  font-weight: 400;
+  background-color: ${props =>
+    props.active ? colours.darkIndigo : colours.lightIndigo};
+  color: ${props => (props.active ? colours.white : colours.black)};
+  margin-right: 3px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: ${props =>
+      props.active ? colours.darkIndigo : colours.mediumIndigo};
+    color: ${props => (props.active ? colours.white : colours.white)};
+  }
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    border-radius: 0 5px 5px 0;
+    margin-right: 0;
+  }
+`;
+export const ButtonLabelWrapper = styled.div`
+  display: flex;
+  flex-grow: 0;
+  justify-content: center;
+  padding: ${spacing.one} 0;
+`;
+
+export const InformationNotice = styled.div`
+  padding: ${spacing.one} 0;
+  font-size: ${fontSizes.description};
+`;
+
+export const InformationCard = styled.div`
+  border-radius: 3px;
+  border: 2px solid ${colours.darkIndigo};
+  padding: ${spacing.four};
+  width: 100%;
+  display: flex;
 `;

@@ -9,3 +9,8 @@ export const setProvince = ({ province }) => ({
   type: PERSONA_PAGE_ACTION_TYPES.SET_PROVINCE,
   payload: { province }
 });
+
+export const setLawyer = ({ hasLawyer }) => ({
+  type: PERSONA_PAGE_ACTION_TYPES.SET_LAWYER,
+  payload: { hasLawyer }
+});
