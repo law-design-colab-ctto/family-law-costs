@@ -142,7 +142,7 @@ export class PersonaPageComponent extends React.Component {
               {`${persona.name} is`}
               <strong>
                 {`${
-                  isEligibleForLegalAid ? " not" : ""
+                  isEligibleForLegalAid ? "" : " not"
                 } eligible for legal aid because:`}
               </strong>
               {eligibilityReasons.map(reason => (
