@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 import {
   StyledCard,
   StyledLink,
-  PersonaCardMedia
+  PersonaCardMedia,
+  PersonaLabel,
+  PersonaDetails
 } from "./persona-card.styles";
 
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import Chip from "@material-ui/core/Chip";
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
@@ -20,12 +21,12 @@ export const PersonaCard = ({ persona }) => (
       />
       <CardContent>
         <Typography gutterBottom variant="headline" color="primary">
-          {persona.name}
+          {persona.displayName}
         </Typography>
-        {persona.details} this will be the persona details <br />
-        <Chip label={persona.jobStability} />
-        <Chip label={persona.stage} />
-        <Chip label={persona.stressCapacity} />
+        <PersonaDetails>{persona.details}</PersonaDetails>
+        <PersonaLabel label={persona.jobStability} />
+        <PersonaLabel label={persona.stage} />
+        <PersonaLabel label={persona.stressCapacity} />
       </CardContent>
     </StyledLink>
   </StyledCard>

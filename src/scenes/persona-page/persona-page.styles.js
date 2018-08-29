@@ -138,4 +138,21 @@ export const InformationCard = styled.div`
   padding: ${spacing.four};
   width: 100%;
   display: flex;
+  flex-direction: column;
+`;
+
+export const Label = styled.div`
+  font-size: ${fontSizes.p};
+`;
+
+export const CostDisplay = styled.div`
+  font-size: ${fontSizes.display2};
+  font-weight: 500;
+`;
+
+export const TotalCostsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
 `;
