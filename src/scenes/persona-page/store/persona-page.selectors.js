@@ -1,7 +1,10 @@
 import { createStructuredSelector, createSelector } from "reselect";
 import { path } from "ramda";
 import { selectPersonas } from "src/scenes/personas/store/personas.selectors";
-import { createPersonasObject } from "./persona-page.utils";
+import {
+  createPersonasObject,
+  numberToMoneyDisplay
+} from "./persona-page.utils";
 import { LEGAL_AID_CUTOFF } from "src/data/by-province";
 
 const selectPersonaPage = path(["personaPage"]);
@@ -12,7 +15,7 @@ const selectProvince = createSelector(selectPersonaPage, path(["province"]));
 
 const selectPersonaIncomeDisplay = createSelector(
   selectPersonaIncome,
-  income => `$${income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+  numberToMoneyDisplay
 );
 
 const selectIsEligibleForLegalAid = createSelector(
@@ -39,11 +42,20 @@ const selectPersonasByName = createSelector(
   createPersonasObject
 );
 
+// TODO: replace this with real calculation
+const selectLegalFees = () => 45861;
+
+const selectLegalFeesDisplay = createSelector(
+  selectLegalFees,
+  numberToMoneyDisplay
+);
+
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
   incomeDisplay: selectPersonaIncomeDisplay,
   income: selectPersonaIncome,
   hasLawyer: selectHasLawyer,
   isEligibleForLegalAid: selectIsEligibleForLegalAid,
-  eligibilityReasons: selectReasonsForLegalAidEligibility
+  eligibilityReasons: selectReasonsForLegalAidEligibility,
+  legalFeesDisplay: selectLegalFeesDisplay
 });

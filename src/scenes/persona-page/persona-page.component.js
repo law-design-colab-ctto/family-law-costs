@@ -27,7 +27,10 @@ import {
   ButtonLabelWrapper,
   InformationNotice,
   InformationCard,
-  SectionSmallSubheader
+  SectionSmallSubheader,
+  Label,
+  CostDisplay,
+  TotalCostsWrapper
 } from "./persona-page.styles";
 
 export class PersonaPageComponent extends React.Component {
@@ -55,7 +58,8 @@ export class PersonaPageComponent extends React.Component {
       setProvince,
       setLawyer,
       isEligibleForLegalAid,
-      eligibilityReasons
+      eligibilityReasons,
+      legalFeesDisplay
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -139,7 +143,7 @@ export class PersonaPageComponent extends React.Component {
           </ButtonControlWrapper>
           <SectionBlock>
             <InformationNotice>
-              {`${persona.name} is`}
+              {`${persona.displayName} is`}
               <strong>
                 {`${
                   isEligibleForLegalAid ? "" : " not"
@@ -153,6 +157,10 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <InformationCard>
               <SectionSmallSubheader>Hiring a Lawyer</SectionSmallSubheader>
+              <TotalCostsWrapper>
+                <Label>Total Legal Fees</Label>
+                <CostDisplay>{legalFeesDisplay}</CostDisplay>
+              </TotalCostsWrapper>
             </InformationCard>
           </SectionBlock>
         </PersonaSection>
@@ -171,5 +179,6 @@ PersonaPageComponent.propTypes = {
   setLawyer: PropTypes.func,
   hasLawyer: PropTypes.bool,
   isEligibleForLegalAid: PropTypes.bool,
-  eligibilityReasons: PropTypes.Array
+  eligibilityReasons: PropTypes.Array,
+  legalFeesDisplay: PropTypes.string
 };
