@@ -1,11 +1,21 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 
-import { HeaderGrid } from "./site-header.styles";
+import {
+  HeaderGrid,
+  SiteTitleWrapper,
+  LinksWrapper,
+  NavLink
+} from "./site-header.styles";
 
 export const SiteHeader = () => (
   <HeaderGrid item xs={12} container justify="space-between">
-    <Grid item>Out-of-pocket costs</Grid>
-    <Grid item>View report</Grid>
+    <SiteTitleWrapper item>
+      <NavLink to="/">Out-of-pocket costs</NavLink>
+    </SiteTitleWrapper>
+    <LinksWrapper item>
+      <NavLink to="/about">About us</NavLink>
+      <NavLink to="/methodology">Methodology</NavLink>
+      <NavLink to="/report">View Report</NavLink>
+    </LinksWrapper>
   </HeaderGrid>
 );

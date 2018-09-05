@@ -11,6 +11,7 @@ export const colours = {
   indigoLighter: "#ECEEF6",
   indigoLight: "#CCD0EA",
   grayLight: "#F4F4F4",
+  grayMediumLight: "#EEEEEE",
   grayMedium: "#E0E0E0",
   grayMediumDark: "#C4C4C4",
   grayDark: "#676767",

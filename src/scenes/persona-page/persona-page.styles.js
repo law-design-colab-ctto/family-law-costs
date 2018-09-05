@@ -164,15 +164,16 @@ export const TotalCostsWrapper = styled.div`
 `;
 
 export const LabelledImageButton = styled(ButtonReset)`
-  border: 1px solid ${props =>
-    props.active ? colours.periwinkleBlue : colours.periwinkleBlueLight};
+  border: 1px solid
+    ${props =>
+      props.active ? colours.periwinkleBlue : colours.periwinkleBlueLight};
   border-radius: 3px;
   padding: ${spacing.three} ${spacing.three} 0 ${spacing.three};
   margin: ${spacing.two} ${spacing.three} ${spacing.two} 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: ${fontSizes.display5}
+  font-size: ${fontSizes.display5};
   background-color: ${props =>
     props.active ? colours.periwinkleBlueLight : colours.periwinkleBlueLighter};
   &:hover {
