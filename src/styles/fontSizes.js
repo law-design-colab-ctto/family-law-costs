@@ -8,5 +8,7 @@ export const fontSizes = {
   heading: "1.35rem",
   display1: "2rem", // 32px
   display2: "3rem", // 48px
-  display3: "4rem" // 64px
+  display3: "4rem", // 64px
+  display4: "5rem", // 80px
+  display5: "6rem" // 96px
 };

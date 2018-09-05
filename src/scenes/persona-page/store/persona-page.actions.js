@@ -14,3 +14,8 @@ export const setLawyer = ({ hasLawyer }) => ({
   type: PERSONA_PAGE_ACTION_TYPES.SET_LAWYER,
   payload: { hasLawyer }
 });
+
+export const setLocationType = ({ locationType }) => ({
+  type: PERSONA_PAGE_ACTION_TYPES.SET_LOCATION_TYPE,
+  payload: { locationType }
+});

@@ -12,6 +12,10 @@ const selectPersonaPage = path(["personaPage"]);
 const selectPersonaIncome = createSelector(selectPersonaPage, path(["income"]));
 const selectHasLawyer = createSelector(selectPersonaPage, path(["hasLawyer"]));
 const selectProvince = createSelector(selectPersonaPage, path(["province"]));
+const selectLocationType = createSelector(
+  selectPersonaPage,
+  path(["locationType"])
+);
 
 const selectPersonaIncomeDisplay = createSelector(
   selectPersonaIncome,
@@ -57,5 +61,6 @@ export const personasConnector = createStructuredSelector({
   hasLawyer: selectHasLawyer,
   isEligibleForLegalAid: selectIsEligibleForLegalAid,
   eligibilityReasons: selectReasonsForLegalAidEligibility,
-  legalFeesDisplay: selectLegalFeesDisplay
+  legalFeesDisplay: selectLegalFeesDisplay,
+  locationType: selectLocationType
 });

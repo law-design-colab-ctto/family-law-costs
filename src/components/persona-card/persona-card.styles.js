@@ -40,5 +40,5 @@ export const PersonaName = styled.h3`
 
 //styled.span
 export const PersonaAttr = styled(Typography)`
-  color: ${colours.darkGrey};
+  color: ${colours.grayDark};
 `;
