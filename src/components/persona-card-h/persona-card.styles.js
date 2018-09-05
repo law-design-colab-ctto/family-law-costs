@@ -29,6 +29,6 @@ export const PersonaLabel = styled(Chip)`
 export const PersonaDetails = styled.div`
   font-size: ${fontSizes.p};
   line-height: 1.4rem;
-  color: ${colours.darkGray};
+  color: ${colours.grayDark};
   padding-bottom: ${spacing.two};
 `;

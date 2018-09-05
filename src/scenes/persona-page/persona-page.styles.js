@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { spacing, fontSizes, colours } from "src/styles";
-import { ButtonReset } from "src/components";
+import { ButtonReset, HrReset } from "src/components";
 
 export const PersonaTextRegular = styled.div`
   padding: ${spacing.three} 0;
@@ -16,8 +16,8 @@ export const PersonaTextBold = styled.div`
 
 export const MoreDetailsButton = styled(ButtonReset)`
   border-radius: 3px;
-  background-color: ${colours.lighterIndigo};
-  color: ${colours.darkIndigo};
+  background-color: ${colours.periwinkleBlueLighter};
+  color: ${colours.periwinkleBlue};
   text-transform: uppercase;
   padding: ${spacing.two} ${spacing.three};
   font-size: ${fontSizes.p};
@@ -27,7 +27,7 @@ export const MoreDetailsButton = styled(ButtonReset)`
 export const SectionHeader = styled.h2`
   margin: 0;
   font-size: ${fontSizes.display2};
-  color: ${colours.black};
+  color: ${colours.periwinkleBlue};
   font-weight: 400;
   padding-bottom: ${spacing.three};
 `;
@@ -68,7 +68,7 @@ export const ControlWrapper = styled.div`
 export const DropdownControlWrapper = styled.div`
   display: flex;
   align-items: baseline;
-  padding: ${spacing.two} 0;
+  padding: ${spacing.two} 0 ${spacing.three} 0;
 `;
 
 export const SliderWrapper = styled.div`
@@ -100,14 +100,14 @@ export const ButtonOption = styled(ButtonReset)`
   padding: ${spacing.three} ${spacing.five};
   font-weight: 400;
   background-color: ${props =>
-    props.active ? colours.darkIndigo : colours.lightIndigo};
+    props.active ? colours.periwinkleBlue : colours.periwinkleBlueLight};
   color: ${props => (props.active ? colours.white : colours.black)};
   margin-right: 3px;
   text-transform: uppercase;
 
   &:hover {
     background-color: ${props =>
-      props.active ? colours.darkIndigo : colours.mediumIndigo};
+      props.active ? colours.periwinkleBlue : colours.periwinkleBlueMedium};
     color: ${props => (props.active ? colours.white : colours.white)};
   }
 
@@ -134,7 +134,7 @@ export const InformationNotice = styled.div`
 
 export const InformationCard = styled.div`
   border-radius: 3px;
-  border: 2px solid ${colours.darkIndigo};
+  border: 2px solid ${colours.periwinkleBlue};
   padding: ${spacing.four};
   width: 100%;
   display: flex;
@@ -146,6 +146,11 @@ export const Label = styled.div`
 `;
 
 export const CostDisplay = styled.div`
+  font-size: ${fontSizes.display1};
+  font-weight: 500;
+`;
+
+export const LargeCostDisplay = styled.div`
   font-size: ${fontSizes.display2};
   font-weight: 500;
 `;
@@ -155,4 +160,64 @@ export const TotalCostsWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   line-height: 1.2;
+  padding-top: ${spacing.three};
+`;
+
+export const LabelledImageButton = styled(ButtonReset)`
+  border: 1px solid ${props =>
+    props.active ? colours.periwinkleBlue : colours.periwinkleBlueLight};
+  border-radius: 3px;
+  padding: ${spacing.three} ${spacing.three} 0 ${spacing.three};
+  margin: ${spacing.two} ${spacing.three} ${spacing.two} 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: ${fontSizes.display5}
+  background-color: ${props =>
+    props.active ? colours.periwinkleBlueLight : colours.periwinkleBlueLighter};
+  &:hover {
+    background-color: ${colours.periwinkleBlueLight};
+    border-color: ${props =>
+      props.active ? colours.periwinkleBlue : colours.periwinkleBlueMedium};
+  }
+  &:first-child {
+    margin-left: 0;
+  }
+`;
+
+export const ImageButtonLabel = styled.label`
+  padding: ${spacing.one} 0;
+  font-size: ${fontSizes.p};
+`;
+
+export const DisplayItemsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: ${spacing.four};
+`;
+
+export const SectionDivider = styled(HrReset)`
+  border-bottom: 1px solid
+    ${props => (props.colour ? props.colour : colours.indigoDark)};
+  width: 100%;
+  margin: ${spacing.three} 0;
+`;
+
+export const OutlinedDisplayCard = styled.div`
+  border: 1px solid ${colours.grayMedium};
+  border-radius: 3px;
+  padding: ${spacing.three};
+  margin: ${spacing.two} ${spacing.three} ${spacing.two} 0;
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1.2rem;
+`;
+
+export const HighlightedNote = styled.div`
+  background-color: ${colours.yellowLight};
+  width: 100%;
+  padding: ${spacing.three} ${spacing.four};
 `;

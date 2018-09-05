@@ -4,3 +4,4 @@ export { FilterSet } from "./filter-set";
 export { PersonaCard } from "./persona-card-h";
 export { SiteHeader } from "./site-header";
 export { PersonaSection } from "./persona-section";
+export { SiteFooter } from "./site-footer";

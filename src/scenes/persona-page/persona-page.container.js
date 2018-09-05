@@ -4,10 +4,11 @@ import { personasConnector } from "./store/persona-page.selectors";
 import {
   setIncome,
   setProvince,
-  setLawyer
+  setLawyer,
+  setLocationType
 } from "./store/persona-page.actions";
 
-const dispatchers = { setIncome, setProvince, setLawyer };
+const dispatchers = { setIncome, setProvince, setLawyer, setLocationType };
 
 export const PersonaPageContainer = connect(
   personasConnector,

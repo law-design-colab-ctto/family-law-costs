@@ -18,7 +18,7 @@ export const PersonaCardsContainerDiv = styled.div`
 `;
 
 export const MainHeader = styled(Grid)`
-  background-color: ${colours.darkIndigo};
+  background-color: ${colours.periwinkleBlue};
   color: ${colours.white};
   font-weight: 400;
   font-size: ${fontSizes.p};
@@ -26,7 +26,7 @@ export const MainHeader = styled(Grid)`
 `;
 
 export const DescriptiveSection = styled(Grid)`
-  background-color: ${colours.mediumIndigo};
+  background-color: ${colours.periwinkleBlueMedium};
   color: ${colours.white};
   font-size: ${fontSizes.title};
   padding: ${spacing.four} ${spacing.five};
@@ -61,7 +61,7 @@ export const OutOfPocketSubHeader = styled.h2`
 export const ChoosePersonaPersonasSection = styled(Grid)`
   padding: ${spacing.four} ${spacing.one} ${spacing.four} ${spacing.one};
   background-color: ${colours.lightGrey};
-  box-shadow: inset 0px 0px 30px 5px ${colours.mediumGray};
+  box-shadow: inset 0px 0px 30px 5px ${colours.grayMedium};
 `;
 
 export const PersonasHeader = styled.h3`
@@ -80,13 +80,13 @@ export const ToolDescription = styled.div`
 `;
 
 export const MainFooter = styled.div`
-  background-color: ${colours.darkIndigo};
+  background-color: ${colours.periwinkleBlue};
   padding: ${spacing.four} ${spacing.five};
   margin-top: ${spacing.four};
 `;
 
 export const InlineTextLinkSpan = styled.span`
-  color: ${colours.darkIndigo};
+  color: ${colours.periwinkleBlue};
   cursor: pointer;
   font-weight: 500;
 `;

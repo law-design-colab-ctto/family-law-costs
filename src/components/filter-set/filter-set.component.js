@@ -26,7 +26,7 @@ export const FilterSet = ({
     <FilterButtonSetLabel>
       {label}
       {isFilterSelected(currentFilterValue) ? (
-        <ClearIcon nativeColor={colours.darkGray} onClick={clearFilter} />
+        <ClearIcon nativeColor={colours.grayDark} onClick={clearFilter} />
       ) : null}
     </FilterButtonSetLabel>
     <FilterButtonSet>

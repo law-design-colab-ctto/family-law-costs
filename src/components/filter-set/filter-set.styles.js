@@ -18,15 +18,15 @@ export const FilterButton = styled(ButtonReset)`
   font-weight: 400;
   flex-grow: 1;
   background-color: ${props =>
-    props.active ? colours.darkIndigo : colours.mediumGray};
-  color: ${props => (props.active ? colours.white : colours.darkGray)};
+    props.active ? colours.periwinkleBlue : colours.grayMedium};
+  color: ${props => (props.active ? colours.white : colours.grayDark)};
   border-right: 1px solid ${colours.white};
   margin-bottom: ${spacing.two};
 
   &:hover {
     background-color: ${props =>
-      props.active ? colours.darkIndigo : colours.lightIndigo};
-    color: ${props => (props.active ? colours.white : colours.darkIndigo)};
+      props.active ? colours.periwinkleBlue : colours.periwinkleBlueLight};
+    color: ${props => (props.active ? colours.white : colours.periwinkleBlue)};
   }
 
   &:first-child {
@@ -49,7 +49,7 @@ export const FilterButtonSetLabel = styled.h3`
 `;
 
 export const Divider = styled(HrReset)`
-  border-bottom: 1px solid ${colours.mediumDarkGray};
+  border-bottom: 1px solid ${colours.grayMediumDark};
   width: 100%;
   margin-bottom: ${spacing.three};
 `;

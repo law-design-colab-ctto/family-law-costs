@@ -3,7 +3,8 @@ import { PERSONA_PAGE_ACTION_TYPES } from "./persona-page.constants";
 const PERSONA_PAGE_INITIAL_STATE = {
   income: 0,
   province: "ontario",
-  hasLawyer: false
+  hasLawyer: false,
+  locationType: ""
 };
 
 export const personaPageReducer = (
@@ -27,6 +28,12 @@ export const personaPageReducer = (
       return {
         ...state,
         hasLawyer: action.payload.hasLawyer
+      };
+    }
+    case PERSONA_PAGE_ACTION_TYPES.SET_LOCATION_TYPE: {
+      return {
+        ...state,
+        locationType: action.payload.locationType
       };
     }
     default:
