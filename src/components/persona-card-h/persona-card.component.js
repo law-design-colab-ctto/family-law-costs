@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
-    <StyledLink key={`link-${persona.name}`} to={`/${persona.name}`}>
+    <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
       <PersonaCardMedia
         image="/static/images/cards/contemplative-reptile.jpg"
         title="Contemplative Reptile"

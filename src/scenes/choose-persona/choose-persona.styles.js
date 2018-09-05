@@ -26,12 +26,17 @@ export const MainHeader = styled(Grid)`
 `;
 
 export const DescriptiveSection = styled(Grid)`
-  background-color: ${colours.periwinkleBlueMedium};
-  color: ${colours.white};
-  font-size: ${fontSizes.title};
-  padding: ${spacing.four} ${spacing.five};
+  background-color: ${colours.grayMediumLight};
+  color: ${colours.black};
+  font-size: ${fontSizes.display1};
+  padding: ${spacing.five} ${spacing.five};
   font-weight: 500;
-  line-height: 1.8rem;
+  line-height: 2.5rem;
+`;
+
+export const DescriptionSectionImages = styled.div`
+  font-size: ${fontSizes.display4};
+  padding-top: ${spacing.three};
 `;
 
 export const MissionHeader = styled.h3`
@@ -39,7 +44,7 @@ export const MissionHeader = styled.h3`
   padding-bottom: ${spacing.two};
   text-transform: uppercase;
   font-weight: 400;
-  font-size: ${fontSizes.p};
+  font-size: ${fontSizes.subtitle};
 `;
 
 export const ChoosePersonaMainSection = styled(Grid)`

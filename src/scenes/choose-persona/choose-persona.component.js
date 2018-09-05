@@ -14,7 +14,8 @@ import {
   MainFooter,
   InlineTextLinkSpan,
   NoPersonasTextSpan,
-  FiltersSectionTitle
+  FiltersSectionTitle,
+  DescriptionSectionImages
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -24,6 +25,7 @@ import {
   FILTER_TYPES
 } from "./store/choose-persona.constants";
 import { PersonaCard, FilterSet, SiteHeader } from "src/components";
+import { PlaceholderImage } from "src/assets/icons";
 
 const noneToDisplay = pipe(
   length,
@@ -47,6 +49,11 @@ export const ChoosePersonaComponent = ({
         understanding of the costs to people in the family system. This site
         tries to facilitate that understanding.
       </div>
+      <DescriptionSectionImages>
+        <PlaceholderImage fontSize="inherit" />
+        <PlaceholderImage fontSize="inherit" />
+        <PlaceholderImage fontSize="inherit" />
+      </DescriptionSectionImages>
     </DescriptiveSection>
     <ChoosePersonaMainSection item xs={12} container spacing={16}>
       <Grid item sm={4} xs={12}>

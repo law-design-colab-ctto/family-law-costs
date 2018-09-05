@@ -67,7 +67,11 @@ const ReduxApp = () => (
       <ConnectedRouter history={history}>
         <Switch>
           <Route exact path="/" component={ChoosePersonaContainer} />
-          <Route exact path="/:personaName" component={PersonaPageContainer} />
+          <Route
+            exact
+            path="/persona/:personaName"
+            component={PersonaPageContainer}
+          />
         </Switch>
       </ConnectedRouter>
     </Provider>
