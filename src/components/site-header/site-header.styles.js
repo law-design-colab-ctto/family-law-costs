@@ -19,9 +19,6 @@ export const SiteTitleWrapper = styled(Grid)`
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: ${colours.white};
-  &:last-child {
-    padding-right: none;
-  }
 `;
 
 export const LinksWrapper = styled(Grid)`
@@ -32,5 +29,8 @@ export const LinksWrapper = styled(Grid)`
     white-space: nowrap;
     font-size: ${fontSizes.title};
     padding-right: ${spacing.three};
+  }
+  & > a:last-child {
+    padding-right: 0;
   }
 `;
