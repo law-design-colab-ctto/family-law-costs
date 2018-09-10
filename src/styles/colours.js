@@ -2,6 +2,7 @@ export const colours = {
   white: "#FFFFFF",
   red: "#CF021B",
   indigoDark: "#3B4BA5",
+  black: "#303030",
   periwinkleBlue: "#3255F4",
   periwinkleBlueLighter: "#EAEDFD",
   periwinkleBlueMedium: "#8EA0F8",
@@ -15,5 +16,9 @@ export const colours = {
   grayMedium: "#E0E0E0",
   grayMediumDark: "#C4C4C4",
   grayDark: "#676767",
-  yellowLight: "#FEF8E3"
+  yellowLight: "#FEF8E3",
+  violetLight: "#D8D3EC",
+  violet: "#5525E4",
+  greenDark: "#2E676A",
+  greenLight: "#2eb8ae"
 };

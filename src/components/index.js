@@ -1,7 +1,8 @@
 export { ButtonReset } from "./button-reset";
 export { HrReset } from "./hr-reset";
 export { FilterSet } from "./filter-set";
-export { PersonaCard } from "./persona-card-h";
+export { PersonaCard } from "./persona-card";
 export { SiteHeader } from "./site-header";
 export { PersonaSection } from "./persona-section";
 export { SiteFooter } from "./site-footer";
+export { PersonaCardDark } from "./persona-card-dark";

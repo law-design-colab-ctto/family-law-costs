@@ -7,7 +7,8 @@ export const CHOOSE_PERSONA_ACTION_TYPES = {
 export const FILTER_TYPES = {
   STAGE: "stage",
   JOB_STABILITY: "jobStability",
-  STRESS_CAPACITY: "stressCapacity"
+  STRESS_CAPACITY: "stressCapacity",
+  DEPENDENTS: "dependents"
 };
 
 export const FILTER_VALUES = {
@@ -18,7 +19,12 @@ export const FILTER_VALUES = {
   SEPARATION_WITH_CHILDREN: "separationWithChildren",
   DIVORCE: "divorce",
   TRIAL: "trial",
-  VARIATION: "variation"
+  VARIATION: "variation",
+  LOW: 0,
+  MEDIUM: 50,
+  HIGH: 100,
+  YES: "yes",
+  NO: "no"
 };
 
 export const FILTER_VALUE_LABELS = {
@@ -29,7 +35,10 @@ export const FILTER_VALUE_LABELS = {
   SEPARATION_WITH_CHILDREN: "Separation with Children",
   DIVORCE: "Divorce",
   TRIAL: "Trial",
-  VARIATION: "Variation"
+  VARIATION: "Variation",
+  [FILTER_VALUES.LOW]: "Low",
+  [FILTER_VALUES.MEDIUM]: "Medium",
+  [FILTER_VALUES.HIGH]: "High"
 };
 
 export const JOB_STABILITY_OPTIONS = [
@@ -46,24 +55,6 @@ export const JOB_STABILITY_OPTIONS = [
   {
     optionLabel: FILTER_VALUE_LABELS.BAD,
     filterType: FILTER_TYPES.JOB_STABILITY,
-    filterValue: FILTER_VALUES.BAD
-  }
-];
-
-export const STRESS_CAPACITY_OPTIONS = [
-  {
-    optionLabel: FILTER_VALUE_LABELS.GOOD,
-    filterType: FILTER_TYPES.STRESS_CAPACITY,
-    filterValue: FILTER_VALUES.GOOD
-  },
-  {
-    optionLabel: FILTER_VALUE_LABELS.NEUTRAL,
-    filterType: FILTER_TYPES.STRESS_CAPACITY,
-    filterValue: FILTER_VALUES.NEUTRAL
-  },
-  {
-    optionLabel: FILTER_VALUE_LABELS.BAD,
-    filterType: FILTER_TYPES.STRESS_CAPACITY,
     filterValue: FILTER_VALUES.BAD
   }
 ];
