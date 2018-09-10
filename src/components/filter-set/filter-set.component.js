@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { equals, not, isEmpty, pipe } from "ramda";
-import {
-  FilterButton,
-  FilterButtonSet,
-  FilterButtonSetLabel,
-  Divider,
-  ClearIcon
-} from "./filter-set.styles";
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import { ControlLabel, ClearIcon, FilterSetWrapper } from "./filter-set.styles";
 import { colours } from "src/styles";
 
 const isFilterSelected = pipe(
@@ -20,33 +17,38 @@ export const FilterSet = ({
   options,
   currentFilterValue,
   setFilter,
-  clearFilter
+  clearFilter,
+  styleColor = "gray"
 }) => (
-  <React.Fragment>
-    <FilterButtonSetLabel>
+  <FilterSetWrapper>
+    <ControlLabel>
       {label}
       {isFilterSelected(currentFilterValue) ? (
         <ClearIcon nativeColor={colours.grayDark} onClick={clearFilter} />
       ) : null}
-    </FilterButtonSetLabel>
-    <FilterButtonSet>
+    </ControlLabel>
+    <List component="ul">
       {options.map(({ optionLabel, filterType, filterValue }) => (
-        <FilterButton
+        <ListItem
+          button
           key={`${optionLabel}${filterType}${filterValue}`}
-          active={equals(currentFilterValue, filterValue)}
+          selected={equals(currentFilterValue, filterValue)}
           onClick={() =>
             setFilter({
               filterType,
               filterValue
             })
           }
+          classes={{
+            root: `filter-set-root-${styleColor}`,
+            selected: `selected`
+          }}
         >
           {optionLabel}
-        </FilterButton>
+        </ListItem>
       ))}
-    </FilterButtonSet>
-    <Divider />
-  </React.Fragment>
+    </List>
+  </FilterSetWrapper>
 );
 
 FilterSet.propTypes = {
@@ -54,5 +56,6 @@ FilterSet.propTypes = {
   options: PropTypes.array,
   currentFilterValue: PropTypes.string,
   setFilter: PropTypes.func.isRequired,
-  clearFilter: PropTypes.func
+  clearFilter: PropTypes.func,
+  styleColor: PropTypes.string
 };

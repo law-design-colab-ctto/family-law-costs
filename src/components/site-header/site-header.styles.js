@@ -14,6 +14,7 @@ export const HeaderGrid = styled(Grid)`
 export const SiteTitleWrapper = styled(Grid)`
   max-width: 8rem;
   font-size: ${fontSizes.subtitle};
+  line-height: 1.2;
 `;
 
 export const NavLink = styled(Link)`

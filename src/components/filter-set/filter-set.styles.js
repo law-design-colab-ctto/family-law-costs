@@ -39,7 +39,7 @@ export const FilterButton = styled(ButtonReset)`
   }
 `;
 
-export const FilterButtonSetLabel = styled.h3`
+export const ControlLabel = styled.h3`
   padding-bottom: ${spacing.three};
   margin: 0;
   font-weight: 500;
@@ -58,5 +58,25 @@ export const ClearIcon = styled(XIcon)`
   padding-left: ${spacing.two};
   &:hover {
     cursor: pointer;
+  }
+`;
+
+export const FilterSetWrapper = styled.div`
+  padding: ${spacing.three} 0;
+  width: 100%;
+  max-width: 30rem;
+  .filter-set-root-gray,
+  .filter-set-root-violet {
+    border-bottom: 1px solid ${colours.grayMedium};
+  }
+
+  .filter-set-root-gray.selected {
+    background-color: ${colours.grayMedium};
+  }
+  .filter-set-root-violet.selected {
+    background-color: ${colours.violetLight};
+  }
+  .filter-set-root-violet:hover {
+    background-color: ${colours.violetLight};
   }
 `;
