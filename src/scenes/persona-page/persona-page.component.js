@@ -9,7 +9,8 @@ import {
   SiteHeader,
   PersonaCard,
   PersonaSection,
-  SiteFooter
+  SiteFooter,
+  CostsIncomeWithBars
 } from "src/components";
 import { colours } from "src/styles";
 import { PlaceholderImage } from "src/assets/icons";
@@ -260,13 +261,13 @@ export class PersonaPageComponent extends React.Component {
         <PersonaSection colour={colours.white}>
           <SectionHeader>Time</SectionHeader>
           <PersonaTextRegular>
-            {`It’s been six months since we started the divorce proceedings. 
-            I’m thankful that I have a stable and flexible job, because I have been able to schedule day time appointments 
+            {`It’s been six months since we started the divorce proceedings.
+            I’m thankful that I have a stable and flexible job, because I have been able to schedule day time appointments
             with my lawyer and attend court without too much trouble.`}
           </PersonaTextRegular>
           <PersonaTextRegular>
-            {`Every time I have to go to court, I have to take a couple days 
-            off to prepare documents. The process is so stressful, that I often 
+            {`Every time I have to go to court, I have to take a couple days
+            off to prepare documents. The process is so stressful, that I often
             end up feeling sick to my stomach and have to take additional days off work to recover.`}
           </PersonaTextRegular>
           <SectionBlock>
@@ -355,6 +356,12 @@ export class PersonaPageComponent extends React.Component {
               {`Roberta prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
             </PersonaTextRegular>
           </SectionBlock>
+        </PersonaSection>
+        <PersonaSection colour={colours.grayLight}>
+          <CostsIncomeWithBars
+            totalDirectCosts={legalFeesDisplay}
+            income={incomeDisplay}
+          />
         </PersonaSection>
         <SiteFooter />
       </Grid>
