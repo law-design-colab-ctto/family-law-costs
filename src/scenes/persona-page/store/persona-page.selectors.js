@@ -1,11 +1,12 @@
 import { createStructuredSelector, createSelector } from "reselect";
-import { path } from "ramda";
+import { path, map, pipe } from "ramda";
 import { selectPersonas } from "src/scenes/personas/store/personas.selectors";
 import {
   createPersonasObject,
   numberToMoneyDisplay
 } from "./persona-page.utils";
 import { LEGAL_AID_CUTOFF } from "src/data/by-province";
+import { NUMBER_OF_COURT_EVENTS, TRANSPORT_FEES } from "src/data/by-province";
 
 const selectPersonaPage = path(["personaPage"]);
 
@@ -41,9 +42,23 @@ const selectReasonsForLegalAidEligibility = createSelector(
   }
 );
 
+const addTransportationFees = (personas, locationType) =>
+  map(persona => {
+    const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
+    const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
+    return {
+      ...persona,
+      transportationFees: isNaN(fees) ? "" : numberToMoneyDisplay(fees)
+    };
+  }, personas);
+
 const selectPersonasByName = createSelector(
   selectPersonas,
-  createPersonasObject
+  selectLocationType,
+  pipe(
+    addTransportationFees,
+    createPersonasObject
+  )
 );
 
 // TODO: replace this with real calculation

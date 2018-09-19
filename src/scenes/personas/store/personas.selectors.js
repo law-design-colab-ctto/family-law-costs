@@ -1,3 +1,3 @@
-import { path } from "ramda";
+import { PERSONAS } from "src/data/personas";
 
-export const selectPersonas = path(["personas"]);
+export const selectPersonas = () => PERSONAS;

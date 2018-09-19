@@ -3,7 +3,7 @@ import { PERSONA_PAGE_ACTION_TYPES } from "./persona-page.constants";
 const PERSONA_PAGE_INITIAL_STATE = {
   income: 0,
   province: "ontario",
-  hasLawyer: false,
+  hasLawyer: null,
   locationType: ""
 };
 

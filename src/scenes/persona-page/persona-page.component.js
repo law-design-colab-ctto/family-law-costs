@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { toLower, equals } from "ramda";
+import { toLower, equals, isNil } from "ramda";
 import Grid from "@material-ui/core/Grid";
 import Slider from "@material-ui/lab/Slider";
 import Select from "@material-ui/core/Select";
+import Collapse from "@material-ui/core/Collapse";
 
 import {
   SiteHeader,
@@ -18,7 +19,6 @@ import { PlaceholderImage } from "src/assets/icons";
 import {
   PersonaTextBold,
   PersonaTextRegular,
-  MoreDetailsButton,
   SectionHeader,
   SectionSubheader,
   SectionBlock,
@@ -31,9 +31,7 @@ import {
   ButtonSetWrapper,
   ButtonOption,
   ButtonControlWrapper,
-  ButtonLabelWrapper,
   InformationNotice,
-  InformationCard,
   SectionSmallSubheader,
   Label,
   CostDisplay,
@@ -46,6 +44,8 @@ import {
   OutlinedDisplayCard,
   HighlightedNote
 } from "./persona-page.styles";
+
+const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -83,23 +83,69 @@ export class PersonaPageComponent extends React.Component {
         <SiteHeader />
         <PersonaSection colours={colours.white}>
           <SectionBlock>
-            <PersonaCard persona={persona} />
+            <PersonaCard persona={persona} quote={persona.quote1} />
           </SectionBlock>
           <PersonaTextRegular>{persona.intro}</PersonaTextRegular>
-          <PersonaTextBold>{`"${persona.quote1}"`}</PersonaTextBold>
-          <CenteredContent>
-            <MoreDetailsButton>{`See ${
-              persona.name
-            }'s story`}</MoreDetailsButton>
-          </CenteredContent>
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <SectionHeader>Money</SectionHeader>
+          <SectionSubheader>{`Make choices for ${
+            persona.displayName
+          }`}</SectionSubheader>
           <SectionBlock>
+            <DropdownControlWrapper>
+              <div>{`${persona.displayName} lives in`}</div>
+              <DropdownWrapper>
+                <Select
+                  native
+                  value={"ontario"}
+                  onChange={e => setProvince({ province: e.target.value })}
+                  inputProps={{
+                    name: "province",
+                    id: "province-input"
+                  }}
+                >
+                  <option value="ontario">Ontario</option>
+                </Select>
+              </DropdownWrapper>
+            </DropdownControlWrapper>
+            <SectionBlock>
+              <div>{`${capitalize(
+                persona.pronouns.subjective
+              )} lives in a:`}</div>
+              <DisplayItemsWrapper>
+                <LabelledImageButton
+                  active={equals(locationType, "urban")}
+                  onClick={() => setLocationType({ locationType: "urban" })}
+                >
+                  <PlaceholderImage fontSize="inherit" />
+                  <ImageButtonLabel>Urban Area</ImageButtonLabel>
+                </LabelledImageButton>
+                <LabelledImageButton
+                  active={equals(locationType, "remote")}
+                  onClick={() => setLocationType({ locationType: "remote" })}
+                >
+                  <PlaceholderImage fontSize="inherit" />
+                  <ImageButtonLabel>Remote Area</ImageButtonLabel>
+                </LabelledImageButton>
+                <LabelledImageButton
+                  active={equals(locationType, "rural")}
+                  onClick={() => setLocationType({ locationType: "rural" })}
+                >
+                  <PlaceholderImage fontSize="inherit" />
+                  <ImageButtonLabel>Rural Area</ImageButtonLabel>
+                </LabelledImageButton>
+              </DisplayItemsWrapper>
+              <TotalCostsWrapper>
+                <Collapse in={persona.transportationFees}>
+                  <Label>Total Transportation Costs</Label>
+                  <CostDisplay>{persona.transportationFees}</CostDisplay>
+                </Collapse>
+              </TotalCostsWrapper>
+            </SectionBlock>
             <PersonaTextRegular>
-              {`${persona.moneyStoryText} `}
+              {`${persona.displayName} makes `}
               <strong>{incomeDisplay}</strong>
-              {`.`}
+              {` a year.`}
             </PersonaTextRegular>
             <ControlWrapper>
               <div>
@@ -115,47 +161,26 @@ export class PersonaPageComponent extends React.Component {
                 />
               </SliderWrapper>
             </ControlWrapper>
-            <DropdownControlWrapper>
-              <div>I live in</div>
-              <DropdownWrapper>
-                <Select
-                  native
-                  value={"ontario"}
-                  onChange={e => setProvince({ province: e.target.value })}
-                  inputProps={{
-                    name: "province",
-                    id: "province-input"
-                  }}
-                >
-                  <option value="ontario">Ontario</option>
-                </Select>
-              </DropdownWrapper>
-            </DropdownControlWrapper>
-          </SectionBlock>
-          <SectionDivider />
-          <Subsection>
-            <SectionSubheader>Legal Fees</SectionSubheader>
-            <PersonaTextRegular>
-              My friend recommended a lawyer, but I’m not sure I want to hire
-              one. I’ve heard how expensive lawyers can be, but I’m not
-              confident in my ability to represent myself.
-            </PersonaTextRegular>
+            <SectionBlock>
+              <SectionSmallSubheader>
+                <strong>{`In this case ${
+                  persona.pronouns.subjective
+                } is represented by`}</strong>
+              </SectionSmallSubheader>
+            </SectionBlock>
             <ButtonControlWrapper>
-              <ButtonLabelWrapper>
-                <strong>Should I hire a lawyer?</strong>
-              </ButtonLabelWrapper>
               <ButtonSetWrapper>
                 <ButtonOption
-                  active={hasLawyer}
+                  active={hasLawyer === true}
                   onClick={() => setLawyer({ hasLawyer: true })}
                 >
-                  Yes
+                  Lawyer
                 </ButtonOption>
                 <ButtonOption
-                  active={!hasLawyer}
+                  active={hasLawyer === false}
                   onClick={() => setLawyer({ hasLawyer: false })}
                 >
-                  No
+                  Self
                 </ButtonOption>
               </ButtonSetWrapper>
             </ButtonControlWrapper>
@@ -172,64 +197,30 @@ export class PersonaPageComponent extends React.Component {
                 ))}
               </InformationNotice>
             </SectionBlock>
-            <SectionBlock>
-              <InformationCard>
-                <SectionSmallSubheader>
-                  <strong>Hiring a Lawyer</strong>
-                </SectionSmallSubheader>
-                <PersonaTextRegular>
-                  {`Legal costs include lawyer's fee, professional fees (e.g.
-                accountants), and court fees.`}
-                </PersonaTextRegular>
+          </SectionBlock>
+          <SectionDivider />
+          <SectionBlock>
+            <SectionSubheader>Legal Fees</SectionSubheader>
+            <PersonaTextRegular>
+              {`Includes court fees, professional fees (e.g. accountants to help with financial disclosure), and lawyer fees (if ${
+                persona.displayName
+              } has a lawyer and is not eligible for legal aid)`}
+            </PersonaTextRegular>
+            {!isNil(hasLawyer) && (
+              <SectionBlock>
                 <TotalCostsWrapper>
                   <Label>Total Legal Fees</Label>
                   <CostDisplay>{legalFeesDisplay}</CostDisplay>
                 </TotalCostsWrapper>
-              </InformationCard>
-            </SectionBlock>
-          </Subsection>
+              </SectionBlock>
+            )}
+          </SectionBlock>
+          <SectionDivider />
+
           <SectionBlock>
             <SectionSubheader>Transportation Costs</SectionSubheader>
-            <SectionBlock>
-              <div>I live in a:</div>
-              <DisplayItemsWrapper>
-                <LabelledImageButton
-                  active={equals(locationType, "city")}
-                  onClick={() => setLocationType({ locationType: "city" })}
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>City</ImageButtonLabel>
-                </LabelledImageButton>
-                <LabelledImageButton
-                  active={equals(locationType, "town")}
-                  onClick={() => setLocationType({ locationType: "town" })}
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>Town</ImageButtonLabel>
-                </LabelledImageButton>
-                <LabelledImageButton
-                  active={equals(locationType, "remote area")}
-                  onClick={() =>
-                    setLocationType({ locationType: "remote area" })
-                  }
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>Remote Area</ImageButtonLabel>
-                </LabelledImageButton>
-              </DisplayItemsWrapper>
-              <TotalCostsWrapper>
-                <Label>Total Transportation Costs</Label>
-                <CostDisplay>{legalFeesDisplay}</CostDisplay>
-              </TotalCostsWrapper>
-            </SectionBlock>
-            <SectionDivider />
-          </SectionBlock>
-          <SectionBlock>
-            <SectionSubheader>Moving Costs</SectionSubheader>
             <PersonaTextRegular>
-              {`After Alice moved out last year, I couldn't afford the rent on my
-              own anymore. I've had to move to a smaller place. It cost me $3633
-              to move.`}
+              {`Includes travel to and from court.`}
             </PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Transportation Costs</Label>
@@ -238,10 +229,17 @@ export class PersonaPageComponent extends React.Component {
           </SectionBlock>
           <SectionDivider />
           <SectionBlock>
+            <SectionSubheader>Moving Costs</SectionSubheader>
+            <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
+            <TotalCostsWrapper>
+              <Label>Total Transportation Costs</Label>
+              <CostDisplay>{legalFeesDisplay}</CostDisplay>
+            </TotalCostsWrapper>
+          </SectionBlock>
+          <SectionDivider />
+          <SectionBlock>
             <SectionSubheader>Childcare Costs</SectionSubheader>
-            <PersonaTextRegular>
-              {`I have two children. Because I chose to hire a lawyer, I don't have to leave my kids with a babysitter as much.`}
-            </PersonaTextRegular>
+            <PersonaTextRegular>{persona.childcareCostText}</PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Childcare Costs</Label>
               <CostDisplay>{legalFeesDisplay}</CostDisplay>
@@ -260,16 +258,8 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader>Time</SectionHeader>
-          <PersonaTextRegular>
-            {`It’s been six months since we started the divorce proceedings.
-            I’m thankful that I have a stable and flexible job, because I have been able to schedule day time appointments
-            with my lawyer and attend court without too much trouble.`}
-          </PersonaTextRegular>
-          <PersonaTextRegular>
-            {`Every time I have to go to court, I have to take a couple days
-            off to prepare documents. The process is so stressful, that I often
-            end up feeling sick to my stomach and have to take additional days off work to recover.`}
-          </PersonaTextRegular>
+          <PersonaTextRegular>{persona.timeCostText}</PersonaTextRegular>
+          <PersonaTextRegular>{persona.daysOffWorkText}</PersonaTextRegular>
           <SectionBlock>
             <SectionSubheader>Days off work</SectionSubheader>
             <DisplayItemsWrapper>
@@ -308,22 +298,18 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.grayLight}>
           <SectionHeader>Wellness</SectionHeader>
-          <PersonaTextRegular>
-            {`The stress of everything has slowly been taking its toll on me. I feel like I’m not the fun parent anymore, because I spend my weekends and vacation days preparing court documents, instead of spending time with my kids.`}
-          </PersonaTextRegular>
-          <PersonaTextRegular>
-            {`Alice and I have shared custody of the kids, but when my kids aren’t around I don’t feel grounded. Lately I’ve been stress shopping and making impulse purchases of large items.`}
-          </PersonaTextRegular>
-          <PersonaTextRegular>
-            {`I’ve been dipping into my savings to pay for everything.`}
-          </PersonaTextRegular>
+          <PersonaTextRegular>{persona.stressText1}</PersonaTextRegular>
+          <PersonaTextRegular>{persona.stressText2}</PersonaTextRegular>
+          <PersonaTextRegular>{persona.stressText3}</PersonaTextRegular>
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader>Summary</SectionHeader>
           <Subsection>
             <SectionSubheader>Finances</SectionSubheader>
             <PersonaTextRegular>
-              {`Overall, Roberta’s financial costs are X % of her annual income.If her living expenses are X% of her income, then`}
+              {`Overall, ${
+                persona.displayName
+              }’s financial costs are X % of her annual income. If her living expenses are X% of her income, then`}
             </PersonaTextRegular>
             <PersonaTextBold>
               <div>{`This year she will be $ in debt.`}</div>
@@ -337,7 +323,9 @@ export class PersonaPageComponent extends React.Component {
               {`The level of conflict between ex-partners can exponentially increase or decrease the costs of the proceedings.`}
             </PersonaTextRegular>
             <PersonaTextRegular>
-              {`Roberta and Alice are on relatively civil terms. If they had chosen mediation, their costs would have been substantially less. If there was a higher level of conflict between them, and they fought over every issue, their costs would have been exponentially more.`}
+              {`${
+                persona.conflictText
+              } If they had chosen mediation, their costs would have been substantially less. If there was a higher level of conflict between them, and they fought over every issue, their costs would have been exponentially more.`}
             </PersonaTextRegular>
             <HighlightedNote>
               <CenteredContent>
@@ -353,7 +341,9 @@ export class PersonaPageComponent extends React.Component {
               {`The separation and divorce process can be very stressful for many people and can impact their emotional and mental health. It is important for parties who are struggling to ensure that they are utilizing support services they have access to.`}
             </PersonaTextRegular>
             <PersonaTextRegular>
-              {`Roberta prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
+              {`${
+                persona.displayName
+              } prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
             </PersonaTextRegular>
           </SectionBlock>
         </PersonaSection>
