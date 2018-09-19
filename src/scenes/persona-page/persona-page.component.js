@@ -73,7 +73,6 @@ export class PersonaPageComponent extends React.Component {
       setLawyer,
       isEligibleForLegalAid,
       eligibilityReasons,
-      legalFeesDisplay,
       locationType,
       setLocationType
     } = this.props;
@@ -210,7 +209,7 @@ export class PersonaPageComponent extends React.Component {
               <SectionBlock>
                 <TotalCostsWrapper>
                   <Label>Total Legal Fees</Label>
-                  <CostDisplay>{legalFeesDisplay}</CostDisplay>
+                  <CostDisplay>{persona.legalFees}</CostDisplay>
                 </TotalCostsWrapper>
               </SectionBlock>
             )}
@@ -224,7 +223,7 @@ export class PersonaPageComponent extends React.Component {
             </PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Transportation Costs</Label>
-              <CostDisplay>{legalFeesDisplay}</CostDisplay>
+              <CostDisplay>{persona.transportationFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -233,7 +232,7 @@ export class PersonaPageComponent extends React.Component {
             <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Transportation Costs</Label>
-              <CostDisplay>{legalFeesDisplay}</CostDisplay>
+              <CostDisplay>{persona.movingFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -242,7 +241,7 @@ export class PersonaPageComponent extends React.Component {
             <PersonaTextRegular>{persona.childcareCostText}</PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Childcare Costs</Label>
-              <CostDisplay>{legalFeesDisplay}</CostDisplay>
+              <CostDisplay>{persona.childcareFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -252,7 +251,7 @@ export class PersonaPageComponent extends React.Component {
             </PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Direct Costs</Label>
-              <LargeCostDisplay>{legalFeesDisplay}</LargeCostDisplay>
+              <LargeCostDisplay>{persona.totalDirectFees}</LargeCostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
         </PersonaSection>
@@ -291,7 +290,7 @@ export class PersonaPageComponent extends React.Component {
             <SectionBlock>
               <TotalCostsWrapper>
                 <Label>Total Lost Income</Label>
-                <CostDisplay>{legalFeesDisplay}</CostDisplay>
+                <CostDisplay>{persona.totalDirectFees}</CostDisplay>
               </TotalCostsWrapper>
             </SectionBlock>
           </SectionBlock>
@@ -349,7 +348,7 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.grayLight}>
           <CostsIncomeWithBars
-            totalDirectCosts={legalFeesDisplay}
+            totalDirectCosts={persona.totalDirectFees}
             income={incomeDisplay}
           />
         </PersonaSection>

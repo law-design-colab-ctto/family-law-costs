@@ -42,7 +42,7 @@ const selectReasonsForLegalAidEligibility = createSelector(
   }
 );
 
-const addTransportationFees = (personas, locationType) =>
+const addTransportationFees = locationType => personas =>
   map(persona => {
     const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
     const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
@@ -52,21 +52,42 @@ const addTransportationFees = (personas, locationType) =>
     };
   }, personas);
 
+const addLegalFees = () => personas =>
+  map(
+    persona => ({ ...persona, legalFees: numberToMoneyDisplay(45861) }),
+    personas
+  );
+
+const addMovingFees = () => personas =>
+  map(
+    persona => ({ ...persona, movingFees: numberToMoneyDisplay(500) }),
+    personas
+  );
+
+const addChildcareFees = () => personas =>
+  map(
+    persona => ({ ...persona, childcareFees: numberToMoneyDisplay(6000) }),
+    personas
+  );
+
+const addTotalDirectFees = () => personas =>
+  map(
+    persona => ({ ...persona, totalDirectFees: numberToMoneyDisplay(100000) }),
+    personas
+  );
+
 const selectPersonasByName = createSelector(
   selectPersonas,
   selectLocationType,
-  pipe(
-    addTransportationFees,
-    createPersonasObject
-  )
-);
-
-// TODO: replace this with real calculation
-const selectLegalFees = () => 45861;
-
-const selectLegalFeesDisplay = createSelector(
-  selectLegalFees,
-  numberToMoneyDisplay
+  (personas, locationType) =>
+    pipe(
+      addTransportationFees(locationType),
+      addLegalFees("provide stuff needed for calc"),
+      addMovingFees("provide stuff needed for calc"),
+      addChildcareFees("provide stuff needed for calc"),
+      addTotalDirectFees("provide stuff needed for calc"),
+      createPersonasObject
+    )(personas)
 );
 
 export const personasConnector = createStructuredSelector({
@@ -76,6 +97,5 @@ export const personasConnector = createStructuredSelector({
   hasLawyer: selectHasLawyer,
   isEligibleForLegalAid: selectIsEligibleForLegalAid,
   eligibilityReasons: selectReasonsForLegalAidEligibility,
-  legalFeesDisplay: selectLegalFeesDisplay,
   locationType: selectLocationType
 });
