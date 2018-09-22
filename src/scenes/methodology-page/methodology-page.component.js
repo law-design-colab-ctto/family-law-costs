@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { SiteHeader, SiteFooter } from "src/components";
 import { InfoParagraph } from "../../components/info-paragraph/info-paragraph.component";
 import { InfoHeader } from "../../components/info-header/info-header.component";
+import { InfoSubheader } from "../../components/info-subheader/info-subheader.component";
+import { InfoTable } from "../../components/info-table/info-table.component";
+import { InfoTh } from "../../components/info-th/info-th.component";
+import { InfoTr } from "../../components/info-tr/info-tr.component";
+import { InfoTd } from "../../components/info-td/info-td.component";
 
 export default class InfoPage extends Component {
   render() {
@@ -49,12 +54,44 @@ export default class InfoPage extends Component {
           that legal aid hours allotment are considered low. Most cases require
           more than the allotted hours. Lawyers working on a legal aid
           certificate often do additional work that is uncompensated. Therefore,
-          the legal fees generated in this calculation are on the low end. Hours
-          per legal stage Application: 12 hours Variation 7.5 Access / Support
-          order relating to children – 24 hours (access / support) Divorce with
-          no dependent children 12 Divorce with dependent children 34 Trial
-          (application + access / support order + two day trial= 82 hours
+          the legal fees generated in this calculation are on the low end.
         </InfoParagraph>
+        <InfoSubheader>Hours per legal stage</InfoSubheader>
+        <InfoTable>
+          <InfoTr>
+            <InfoTh>Stage</InfoTh>
+            <InfoTh>Hours</InfoTh>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Application</InfoTd>
+            <InfoTd>12</InfoTd>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Variation</InfoTd>
+            <InfoTd>7.5 </InfoTd>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Access / Support order relating to children</InfoTd>
+            <InfoTd>
+              24 <br /> (access / support)
+            </InfoTd>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Divorce with no dependent children</InfoTd>
+            <InfoTd>12</InfoTd>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Divorce with dependent children</InfoTd>
+            <InfoTd>34</InfoTd>
+          </InfoTr>
+          <InfoTr>
+            <InfoTd>Trial</InfoTd>
+            <InfoTd>
+              82 <br />
+              (application + access / support order + two day trial)
+            </InfoTd>
+          </InfoTr>
+        </InfoTable>
         <InfoParagraph>
           <strong>Legal Aid</strong> If the persona would be eligible for legal
           aid in the province or territory, the lawyers’ fees are removed from
@@ -65,7 +102,7 @@ export default class InfoPage extends Component {
         </InfoParagraph>
         <InfoParagraph>
           <strong>Court Fees</strong> are based on the published court fees in
-          each jurisdiction for each stage of the process, retrieved May 2018.
+          each jurisdiction for each stage of the process.
         </InfoParagraph>
         <InfoParagraph>
           <strong>Professional Fees</strong> are the child assessments or
