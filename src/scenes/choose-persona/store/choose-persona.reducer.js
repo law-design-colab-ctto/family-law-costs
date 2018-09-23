@@ -3,9 +3,7 @@ import { CHOOSE_PERSONA_ACTION_TYPES } from "./choose-persona.constants";
 
 const CHOOSE_PERSONA_INITIAL_STATE = {
   stage: "",
-  jobStability: "",
-  stressCapacity: null,
-  dependents: ""
+  jobStability: ""
 };
 
 export const choosePersonaReducer = (
