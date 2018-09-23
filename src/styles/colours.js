@@ -7,6 +7,7 @@ export const colours = {
   periwinkleBlueLighter: "#EAEDFD",
   periwinkleBlueMedium: "#8EA0F8",
   periwinkleBlueLight: "#C6CEFB",
+  periwinkleBlueDark: "#A0A9D6",
   indigoMedium: "#5E6DBA",
   indigoMediumLight: "#C6CEFB",
   indigoLighter: "#ECEEF6",

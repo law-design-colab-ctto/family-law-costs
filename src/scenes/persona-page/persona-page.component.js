@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { toLower, equals, isNil } from "ramda";
+import { toLower } from "ramda";
 import Grid from "@material-ui/core/Grid";
-import Slider from "@material-ui/lab/Slider";
-import Select from "@material-ui/core/Select";
-import Collapse from "@material-ui/core/Collapse";
 
 import {
   SiteHeader,
@@ -14,8 +11,6 @@ import {
   CostsIncomeWithBars
 } from "src/components";
 import { colours } from "src/styles";
-import { PlaceholderImage } from "src/assets/icons";
-import { hasValue } from "src/utils";
 
 import {
   PersonaTextBold,
@@ -24,29 +19,20 @@ import {
   SectionSubheader,
   SectionBlock,
   CenteredContent,
-  ControlWrapper,
-  SliderWrapper,
-  DropdownWrapper,
-  DropdownControlWrapper,
   Subsection,
-  ButtonSetWrapper,
-  ButtonOption,
-  ButtonControlWrapper,
-  InformationNotice,
-  SectionSmallSubheader,
   Label,
   CostDisplay,
   TotalCostsWrapper,
-  LabelledImageButton,
-  ImageButtonLabel,
   DisplayItemsWrapper,
   SectionDivider,
   LargeCostDisplay,
   OutlinedDisplayCard,
   HighlightedNote
 } from "./persona-page.styles";
-
-const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+import { PersonaChoices } from "./components/persona-choices.component";
+import { capitalize } from "src/utils";
+import { CostsSummaryDisplay } from "./components/costs-summary-display.component";
+import { LegalCosts } from "./components/legal-costs.component";
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -66,18 +52,8 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      income,
       incomeDisplay,
-      hasLawyer,
-      setIncome,
-      setProvince,
-      setLawyer,
-      isEligibleForLegalAid,
-      eligibilityReasons,
-      locationType,
-      setLocationType,
       transportationFees,
-      legalFees,
       movingFees,
       childcareFees,
       totalDirectFees
@@ -93,132 +69,17 @@ export class PersonaPageComponent extends React.Component {
           <PersonaTextRegular>{persona.intro}</PersonaTextRegular>
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <SectionSubheader>{`Make choices for ${capitalize(
-            persona.name
-          )}`}</SectionSubheader>
+          <PersonaChoices persona={persona} {...this.props} />
+        </PersonaSection>
+        <PersonaSection colour={colours.periwinkleBlueDark}>
+          <CostsSummaryDisplay persona={persona} {...this.props} />
+        </PersonaSection>
+        <PersonaSection colour={colours.periwinkleBlueLighter}>
+          <SectionHeader colour={colours.periwinkleBlue}>
+            Costs of the Case
+          </SectionHeader>
           <SectionBlock>
-            <DropdownControlWrapper>
-              <div>{`${capitalize(persona.name)} lives in`}</div>
-              <DropdownWrapper>
-                <Select
-                  native
-                  value={"ontario"}
-                  onChange={e => setProvince({ province: e.target.value })}
-                  inputProps={{
-                    name: "province",
-                    id: "province-input"
-                  }}
-                >
-                  <option value="ontario">Ontario</option>
-                </Select>
-              </DropdownWrapper>
-            </DropdownControlWrapper>
-            <SectionBlock>
-              <div>{`${capitalize(
-                persona.pronouns.subjective
-              )} lives in a:`}</div>
-              <DisplayItemsWrapper>
-                <LabelledImageButton
-                  active={equals(locationType, "urban")}
-                  onClick={() => setLocationType({ locationType: "urban" })}
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>Urban Area</ImageButtonLabel>
-                </LabelledImageButton>
-                <LabelledImageButton
-                  active={equals(locationType, "remote")}
-                  onClick={() => setLocationType({ locationType: "remote" })}
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>Remote Area</ImageButtonLabel>
-                </LabelledImageButton>
-                <LabelledImageButton
-                  active={equals(locationType, "rural")}
-                  onClick={() => setLocationType({ locationType: "rural" })}
-                >
-                  <PlaceholderImage fontSize="inherit" />
-                  <ImageButtonLabel>Rural Area</ImageButtonLabel>
-                </LabelledImageButton>
-              </DisplayItemsWrapper>
-              <TotalCostsWrapper>
-                <Collapse in={hasValue(transportationFees)}>
-                  <Label>Total Transportation Costs</Label>
-                  <CostDisplay>{transportationFees}</CostDisplay>
-                </Collapse>
-              </TotalCostsWrapper>
-            </SectionBlock>
-            <PersonaTextRegular>
-              {`${capitalize(persona.name)} makes `}
-              <strong>{incomeDisplay}</strong>
-              {` a year.`}
-            </PersonaTextRegular>
-            <ControlWrapper>
-              <div>
-                <strong>Adjust Income</strong>
-              </div>
-              <SliderWrapper>
-                <Slider
-                  value={income}
-                  min={0}
-                  max={100000}
-                  step={10000}
-                  onChange={(e, val) => setIncome({ income: val })}
-                />
-              </SliderWrapper>
-            </ControlWrapper>
-            <SectionBlock>
-              <SectionSmallSubheader>
-                <strong>{`In this case ${
-                  persona.pronouns.subjective
-                } is represented by`}</strong>
-              </SectionSmallSubheader>
-            </SectionBlock>
-            <ButtonControlWrapper>
-              <ButtonSetWrapper>
-                <ButtonOption
-                  active={hasLawyer === true}
-                  onClick={() => setLawyer({ hasLawyer: true })}
-                >
-                  Lawyer
-                </ButtonOption>
-                <ButtonOption
-                  active={hasLawyer === false}
-                  onClick={() => setLawyer({ hasLawyer: false })}
-                >
-                  Self
-                </ButtonOption>
-              </ButtonSetWrapper>
-            </ButtonControlWrapper>
-            <SectionBlock>
-              <InformationNotice>
-                {`${capitalize(persona.name)} is`}
-                <strong>
-                  {`${
-                    isEligibleForLegalAid ? "" : " not"
-                  } eligible for legal aid because:`}
-                </strong>
-                {eligibilityReasons.map(reason => (
-                  <div key={reason}>- {reason}</div>
-                ))}
-              </InformationNotice>
-            </SectionBlock>
-          </SectionBlock>
-          <SectionDivider />
-          <SectionBlock>
-            <SectionSubheader>Legal Fees</SectionSubheader>
-            <PersonaTextRegular>
-              {`Includes court fees, professional fees (e.g. accountants to help with financial disclosure), and lawyer fees (if ${capitalize(
-                persona.name
-              )} has a lawyer and is not eligible for legal aid)`}
-            </PersonaTextRegular>
-            {!isNil(hasLawyer) && (
-              <SectionBlock>
-                <TotalCostsWrapper>
-                  <Label>Total Legal Fees</Label>
-                  <CostDisplay>{legalFees}</CostDisplay>
-                </TotalCostsWrapper>
-              </SectionBlock>
-            )}
+            <LegalCosts persona={persona} {...this.props} />
           </SectionBlock>
           <SectionDivider />
 

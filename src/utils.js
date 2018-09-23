@@ -9,3 +9,6 @@ export const isNotEmpty = pipe(
   not
 );
 export const hasValue = allPass([isNotNil, isNotEmpty]);
+
+export const capitalize = str =>
+  `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
