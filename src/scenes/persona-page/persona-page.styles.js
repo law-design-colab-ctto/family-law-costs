@@ -6,12 +6,14 @@ import { ButtonReset, HrReset } from "src/components";
 export const PersonaTextRegular = styled.div`
   padding: ${spacing.three} 0;
   font-size: ${fontSizes.subtitle};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const PersonaTextBold = styled.div`
   font-size: ${fontSizes.subtitle};
   font-weight: 500;
   padding: ${spacing.three} 0;
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const MoreDetailsButton = styled(ButtonReset)`
@@ -27,7 +29,8 @@ export const MoreDetailsButton = styled(ButtonReset)`
 export const SectionHeader = styled.h2`
   margin: 0;
   font-size: ${fontSizes.display2};
-  color: ${colours.periwinkleBlue};
+  color: ${props =>
+    props.textColour ? props.textColour : colours.periwinkleBlue};
   font-weight: 400;
   padding-bottom: ${spacing.three};
 `;
@@ -36,14 +39,14 @@ export const SectionSubheader = styled.h3`
   margin: 0;
   font-size: ${fontSizes.display1};
   font-weight: 400;
-  color: ${colours.black};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const SectionSmallSubheader = styled.h4`
   margin: 0;
   font-size: ${fontSizes.heading};
   font-weight: 400;
-  color: ${colours.black};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const SectionBlock = styled.div`
@@ -143,6 +146,7 @@ export const InformationCard = styled.div`
 
 export const Label = styled.div`
   font-size: ${fontSizes.p};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const CostDisplay = styled.div`
@@ -205,7 +209,8 @@ export const SectionDivider = styled(HrReset)`
 `;
 
 export const OutlinedDisplayCard = styled.div`
-  border: 1px solid ${colours.grayMedium};
+  border: 1px solid
+    ${props => (props.borderColour ? props.borderColour : colours.grayMedium)};
   border-radius: 3px;
   padding: ${spacing.three};
   margin: ${spacing.two} ${spacing.three} ${spacing.two} 0;
