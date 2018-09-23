@@ -1,10 +1,25 @@
+const PRONOUNS = {
+  FEM: {
+    subjective: "she",
+    objective: "her",
+    possessive: "her"
+  },
+  MASC: {
+    subjective: "he",
+    objective: "him",
+    possessive: "his"
+  },
+  NEUTRAL: {
+    subjective: "they",
+    objective: "them",
+    possessive: "their"
+  }
+};
+
 export const PERSONAS = [
   {
     name: "Roberta",
-    pronouns: {
-      subjective: "she",
-      objective: "her"
-    },
+    pronouns: PRONOUNS.FEM,
     details:
       "I am 42 years old, I am a government worker, and I have two children. My wife and I separated a year ago.",
     stage: "separationWithChildren",
@@ -17,6 +32,7 @@ export const PERSONAS = [
     professionalFees: 10710,
     childcareFees: 1450,
     movingFees: 3401,
+    locationType: "rural",
     intro:
       "Roberta and her partner Alice split up a year ago and are about to start the divorce proceedings.",
     quote1:
@@ -38,10 +54,7 @@ export const PERSONAS = [
   },
   {
     name: "Aisha",
-    pronouns: {
-      subjective: "she",
-      objective: "her"
-    },
+    pronouns: PRONOUNS.FEM,
     stage: "application",
     jobStability: "bad",
     stressCapacity: 100,
@@ -56,10 +69,7 @@ export const PERSONAS = [
   },
   {
     name: "Marcus",
-    pronouns: {
-      subjective: "he",
-      objective: "him"
-    },
+    pronouns: PRONOUNS.MASC,
     stage: "separationWithChildren",
     jobStability: "neutral",
     stressCapacity: 100,
@@ -74,10 +84,7 @@ export const PERSONAS = [
   },
   {
     name: "Pablo",
-    pronouns: {
-      subjective: "he",
-      objective: "him"
-    },
+    pronouns: PRONOUNS.MASC,
     stage: "divorce",
     jobStability: "good",
     stressCapacity: 50,
@@ -92,10 +99,7 @@ export const PERSONAS = [
   },
   {
     name: "Priya",
-    pronouns: {
-      subjective: "she",
-      objective: "her"
-    },
+    pronouns: PRONOUNS.FEM,
     stage: "trial",
     jobStability: "good",
     stressCapacity: 100,
@@ -110,10 +114,7 @@ export const PERSONAS = [
   },
   {
     name: "Maria",
-    pronouns: {
-      subjective: "she",
-      objective: "her"
-    },
+    pronouns: PRONOUNS.FEM,
     stage: "variation",
     jobStability: "neutral",
     stressCapacity: 100,
@@ -128,10 +129,7 @@ export const PERSONAS = [
   },
   {
     name: "Philippe",
-    pronouns: {
-      subjective: "he",
-      objective: "him"
-    },
+    pronouns: PRONOUNS.MASC,
     stage: "variation",
     jobStability: "neutral",
     stressCapacity: 50,
@@ -146,10 +144,7 @@ export const PERSONAS = [
   },
   {
     name: "Ahmed",
-    pronouns: {
-      subjective: "he",
-      objective: "him"
-    },
+    pronouns: PRONOUNS.MASC,
     stage: "divorce",
     jobStability: "bad",
     stressCapacity: 0,
