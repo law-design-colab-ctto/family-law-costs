@@ -3,19 +3,16 @@ const PRONOUNS = {
     subjective: "she",
     objective: "her",
     possessive: "her",
-    possessiveUpper: "Her"
   },
   MASC: {
     subjective: "he",
     objective: "him",
     possessive: "his",
-    possessiveUpper: "His"
   },
   NEUTRAL: {
     subjective: "they",
     objective: "them",
     possessive: "their",
-    possessiveUpper: "Their"
   }
 };
 

@@ -8,6 +8,7 @@ import {
 } from "./persona-page.utils";
 import { LEGAL_AID_CUTOFF, LEGAL_AID_ELIGIBILITY } from "src/data/by-province";
 import { NUMBER_OF_COURT_EVENTS, TRANSPORT_FEES } from "src/data/by-province";
+import { capitalize } from "../../../utils";
 
 const selectCurrentPersonaName = pipe(
   path(["router", "location", "pathname"]),
@@ -62,7 +63,7 @@ const selectReasonsForLegalAidEligibility = createSelector(
     let reasons = [];
     if (income > LEGAL_AID_CUTOFF[province][persona.children]) {
       reasons.push(
-        `${persona.pronouns.possessiveUpper} 
+        `${capitalize(persona.pronouns.possessive)} 
         income is above the legal cut-off in 
         ${persona.pronouns.possessive} province.`
       );
