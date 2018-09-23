@@ -2,17 +2,17 @@ const PRONOUNS = {
   FEM: {
     subjective: "she",
     objective: "her",
-    possessive: "her"
+    possessive: "her",
   },
   MASC: {
     subjective: "he",
     objective: "him",
-    possessive: "his"
+    possessive: "his",
   },
   NEUTRAL: {
     subjective: "they",
     objective: "them",
-    possessive: "their"
+    possessive: "their",
   }
 };
 
@@ -58,6 +58,7 @@ export const PERSONAS = [
     stage: "application",
     jobStability: "bad",
     stressCapacity: 100,
+    children: 0,
     dependents: "yes",
     income: 80000,
     intro: "",
@@ -73,6 +74,7 @@ export const PERSONAS = [
     stage: "separationWithChildren",
     jobStability: "neutral",
     stressCapacity: 100,
+    children: 0,
     dependents: "yes",
     income: 80000,
     intro: "",
@@ -88,6 +90,7 @@ export const PERSONAS = [
     stage: "divorce",
     jobStability: "good",
     stressCapacity: 50,
+    children: 0,
     dependents: "yes",
     income: 80000,
     intro: "",
@@ -103,6 +106,7 @@ export const PERSONAS = [
     stage: "trial",
     jobStability: "good",
     stressCapacity: 100,
+    children: 0,
     dependents: "yes",
     income: 80000,
     intro: "",
@@ -118,6 +122,7 @@ export const PERSONAS = [
     stage: "variation",
     jobStability: "neutral",
     stressCapacity: 100,
+    children: 0,
     dependents: "no",
     income: 80000,
     intro: "",
@@ -133,6 +138,7 @@ export const PERSONAS = [
     stage: "variation",
     jobStability: "neutral",
     stressCapacity: 50,
+    children: 0,
     dependents: "no",
     income: 80000,
     intro: "",
@@ -148,6 +154,7 @@ export const PERSONAS = [
     stage: "divorce",
     jobStability: "bad",
     stressCapacity: 0,
+    children: 0,
     dependents: "no",
     income: 80000,
     intro: "",

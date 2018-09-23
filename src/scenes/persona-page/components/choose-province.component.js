@@ -14,14 +14,14 @@ export const ChooseProvince = ({ setProvince, persona }) => (
     <DropdownWrapper>
       <Select
         native
-        value={"ontario"}
+        value={"on"}
         onChange={e => setProvince({ province: e.target.value })}
         inputProps={{
           name: "province",
           id: "province-input"
         }}
       >
-        <option value="ontario">Ontario</option>
+        <option value="on">Ontario</option>
       </Select>
     </DropdownWrapper>
   </DropdownControlWrapper>
