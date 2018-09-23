@@ -15,6 +15,7 @@ import {
 } from "src/components";
 import { colours } from "src/styles";
 import { PlaceholderImage } from "src/assets/icons";
+import { hasValue } from "src/utils";
 
 import {
   PersonaTextBold,
@@ -74,7 +75,12 @@ export class PersonaPageComponent extends React.Component {
       isEligibleForLegalAid,
       eligibilityReasons,
       locationType,
-      setLocationType
+      setLocationType,
+      transportationFees,
+      legalFees,
+      movingFees,
+      childcareFees,
+      totalDirectFees
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -87,12 +93,12 @@ export class PersonaPageComponent extends React.Component {
           <PersonaTextRegular>{persona.intro}</PersonaTextRegular>
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <SectionSubheader>{`Make choices for ${
-            persona.displayName
-          }`}</SectionSubheader>
+          <SectionSubheader>{`Make choices for ${capitalize(
+            persona.name
+          )}`}</SectionSubheader>
           <SectionBlock>
             <DropdownControlWrapper>
-              <div>{`${persona.displayName} lives in`}</div>
+              <div>{`${capitalize(persona.name)} lives in`}</div>
               <DropdownWrapper>
                 <Select
                   native
@@ -135,14 +141,14 @@ export class PersonaPageComponent extends React.Component {
                 </LabelledImageButton>
               </DisplayItemsWrapper>
               <TotalCostsWrapper>
-                <Collapse in={persona.transportationFees}>
+                <Collapse in={hasValue(transportationFees)}>
                   <Label>Total Transportation Costs</Label>
-                  <CostDisplay>{persona.transportationFees}</CostDisplay>
+                  <CostDisplay>{transportationFees}</CostDisplay>
                 </Collapse>
               </TotalCostsWrapper>
             </SectionBlock>
             <PersonaTextRegular>
-              {`${persona.displayName} makes `}
+              {`${capitalize(persona.name)} makes `}
               <strong>{incomeDisplay}</strong>
               {` a year.`}
             </PersonaTextRegular>
@@ -185,7 +191,7 @@ export class PersonaPageComponent extends React.Component {
             </ButtonControlWrapper>
             <SectionBlock>
               <InformationNotice>
-                {`${persona.displayName} is`}
+                {`${capitalize(persona.name)} is`}
                 <strong>
                   {`${
                     isEligibleForLegalAid ? "" : " not"
@@ -201,15 +207,15 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <SectionSubheader>Legal Fees</SectionSubheader>
             <PersonaTextRegular>
-              {`Includes court fees, professional fees (e.g. accountants to help with financial disclosure), and lawyer fees (if ${
-                persona.displayName
-              } has a lawyer and is not eligible for legal aid)`}
+              {`Includes court fees, professional fees (e.g. accountants to help with financial disclosure), and lawyer fees (if ${capitalize(
+                persona.name
+              )} has a lawyer and is not eligible for legal aid)`}
             </PersonaTextRegular>
             {!isNil(hasLawyer) && (
               <SectionBlock>
                 <TotalCostsWrapper>
                   <Label>Total Legal Fees</Label>
-                  <CostDisplay>{persona.legalFees}</CostDisplay>
+                  <CostDisplay>{legalFees}</CostDisplay>
                 </TotalCostsWrapper>
               </SectionBlock>
             )}
@@ -223,7 +229,7 @@ export class PersonaPageComponent extends React.Component {
             </PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Transportation Costs</Label>
-              <CostDisplay>{persona.transportationFees}</CostDisplay>
+              <CostDisplay>{transportationFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -232,7 +238,7 @@ export class PersonaPageComponent extends React.Component {
             <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Transportation Costs</Label>
-              <CostDisplay>{persona.movingFees}</CostDisplay>
+              <CostDisplay>{movingFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -241,7 +247,7 @@ export class PersonaPageComponent extends React.Component {
             <PersonaTextRegular>{persona.childcareCostText}</PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Childcare Costs</Label>
-              <CostDisplay>{persona.childcareFees}</CostDisplay>
+              <CostDisplay>{childcareFees}</CostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
           <SectionDivider />
@@ -251,7 +257,7 @@ export class PersonaPageComponent extends React.Component {
             </PersonaTextRegular>
             <TotalCostsWrapper>
               <Label>Total Direct Costs</Label>
-              <LargeCostDisplay>{persona.totalDirectFees}</LargeCostDisplay>
+              <LargeCostDisplay>{totalDirectFees}</LargeCostDisplay>
             </TotalCostsWrapper>
           </SectionBlock>
         </PersonaSection>
@@ -290,7 +296,7 @@ export class PersonaPageComponent extends React.Component {
             <SectionBlock>
               <TotalCostsWrapper>
                 <Label>Total Lost Income</Label>
-                <CostDisplay>{persona.totalDirectFees}</CostDisplay>
+                <CostDisplay>{totalDirectFees}</CostDisplay>
               </TotalCostsWrapper>
             </SectionBlock>
           </SectionBlock>
@@ -306,9 +312,9 @@ export class PersonaPageComponent extends React.Component {
           <Subsection>
             <SectionSubheader>Finances</SectionSubheader>
             <PersonaTextRegular>
-              {`Overall, ${
-                persona.displayName
-              }’s financial costs are X % of her annual income. If her living expenses are X% of her income, then`}
+              {`Overall, ${capitalize(
+                persona.name
+              )}’s financial costs are X % of her annual income. If her living expenses are X% of her income, then`}
             </PersonaTextRegular>
             <PersonaTextBold>
               <div>{`This year she will be $ in debt.`}</div>
@@ -340,15 +346,15 @@ export class PersonaPageComponent extends React.Component {
               {`The separation and divorce process can be very stressful for many people and can impact their emotional and mental health. It is important for parties who are struggling to ensure that they are utilizing support services they have access to.`}
             </PersonaTextRegular>
             <PersonaTextRegular>
-              {`${
-                persona.displayName
-              } prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
+              {`${capitalize(
+                persona.name
+              )} prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
             </PersonaTextRegular>
           </SectionBlock>
         </PersonaSection>
         <PersonaSection colour={colours.grayLight}>
           <CostsIncomeWithBars
-            totalDirectCosts={persona.totalDirectFees}
+            totalDirectCosts={"$100000"}
             income={incomeDisplay}
           />
         </PersonaSection>
@@ -368,8 +374,13 @@ PersonaPageComponent.propTypes = {
   setLawyer: PropTypes.func,
   hasLawyer: PropTypes.bool,
   isEligibleForLegalAid: PropTypes.bool,
-  eligibilityReasons: PropTypes.Array,
   legalFeesDisplay: PropTypes.string,
   locationType: PropTypes.string,
-  setLocationType: PropTypes.func
+  setLocationType: PropTypes.func,
+  transportationFees: PropTypes.string,
+  legalFees: PropTypes.string,
+  childcareFees: PropTypes.string,
+  movingFees: PropTypes.string,
+  totalDirectFees: PropTypes.string,
+  eligibilityReasons: PropTypes.arrayOf(PropTypes.string)
 };
