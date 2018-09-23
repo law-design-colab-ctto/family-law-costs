@@ -2,12 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { equals } from "ramda";
 
-import { PlaceholderImage } from "src/assets/icons";
-
 import {
   DisplayItemsWrapper,
   LabelledImageButton,
-  ImageButtonLabel
+  ImageButtonLabel,
+  DistanceImage
 } from "../persona-page.styles";
 import { capitalize } from "src/utils";
 
@@ -17,29 +16,35 @@ export const ChooseLocationType = ({
   locationType
 }) => (
   <React.Fragment>
-    {" "}
     <div>{`${capitalize(persona.pronouns.subjective)} lives in a:`}</div>
     <DisplayItemsWrapper>
       <LabelledImageButton
         active={equals(locationType, "urban")}
         onClick={() => setLocationType({ locationType: "urban" })}
       >
-        <PlaceholderImage fontSize="inherit" />
-        <ImageButtonLabel>Urban Area</ImageButtonLabel>
+        <DistanceImage imageName="urban" />
+        <ImageButtonLabel>Under 20 km</ImageButtonLabel>
+      </LabelledImageButton>
+      <LabelledImageButton
+        active={equals(locationType, "suburban")}
+        onClick={() => setLocationType({ locationType: "suburban" })}
+      >
+        <DistanceImage imageName="suburban" />
+        <ImageButtonLabel>20-100 km</ImageButtonLabel>
       </LabelledImageButton>
       <LabelledImageButton
         active={equals(locationType, "remote")}
         onClick={() => setLocationType({ locationType: "remote" })}
       >
-        <PlaceholderImage fontSize="inherit" />
-        <ImageButtonLabel>Remote Area</ImageButtonLabel>
+        <DistanceImage imageName="remote" />
+        <ImageButtonLabel>100-250 km</ImageButtonLabel>
       </LabelledImageButton>
       <LabelledImageButton
         active={equals(locationType, "rural")}
         onClick={() => setLocationType({ locationType: "rural" })}
       >
-        <PlaceholderImage fontSize="inherit" />
-        <ImageButtonLabel>Rural Area</ImageButtonLabel>
+        <DistanceImage imageName="rural" />
+        <ImageButtonLabel>250 km or more</ImageButtonLabel>
       </LabelledImageButton>
     </DisplayItemsWrapper>
   </React.Fragment>

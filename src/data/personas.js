@@ -9,7 +9,7 @@ const PRONOUNS = {
     objective: "him",
     possessive: "his"
   },
-  contract: {
+  NEUTRAL: {
     subjective: "they",
     objective: "them",
     possessive: "their"

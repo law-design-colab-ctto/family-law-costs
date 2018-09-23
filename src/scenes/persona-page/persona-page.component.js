@@ -31,6 +31,8 @@ import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
 
+const costIsNotZero = costDisplay =>
+  parseInt(costDisplay.replace(/[,$]/g, ""), 10) > 0;
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
     const {
@@ -49,7 +51,9 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      incomeDisplay
+      incomeDisplay,
+      movingFees,
+      childcareFees
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -101,16 +105,24 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
-          <SectionDivider />
 
-          <SectionBlock>
-            <ChildcareCosts persona={persona} {...this.props} />
-          </SectionBlock>
-          <SectionDivider />
+          {costIsNotZero(childcareFees) && (
+            <React.Fragment>
+              <SectionDivider />
+              <SectionBlock>
+                <ChildcareCosts persona={persona} {...this.props} />
+              </SectionBlock>
+            </React.Fragment>
+          )}
 
-          <SectionBlock>
-            <MovingCosts persona={persona} {...this.props} />
-          </SectionBlock>
+          {costIsNotZero(movingFees) && (
+            <React.Fragment>
+              <SectionDivider />
+              <SectionBlock>
+                <MovingCosts persona={persona} {...this.props} />
+              </SectionBlock>
+            </React.Fragment>
+          )}
           <CostsIncomeWithBars
             totalDirectCosts={"$100000"}
             income={incomeDisplay}

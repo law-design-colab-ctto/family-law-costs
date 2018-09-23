@@ -4,7 +4,8 @@ const PERSONA_PAGE_INITIAL_STATE = {
   income: 0,
   province: "on",
   hasLawyer: null,
-  locationType: ""
+  locationType: "",
+  modalIsOpen: false
 };
 
 export const personaPageReducer = (
@@ -34,6 +35,12 @@ export const personaPageReducer = (
       return {
         ...state,
         locationType: action.payload.locationType
+      };
+    }
+    case PERSONA_PAGE_ACTION_TYPES.SET_MODAL: {
+      return {
+        ...state,
+        modalIsOpen: action.payload.modalIsOpen
       };
     }
     default:

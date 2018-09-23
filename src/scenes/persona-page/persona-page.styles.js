@@ -246,3 +246,56 @@ export const QuoteBlock = styled.div`
   background-color: ${props =>
     props.bgColour ? props.bgColour : colours.periwinkleBlueLighter};
 `;
+
+export const DistanceImage = styled.div`
+    width: 6rem;
+    height: 6rem;
+    background-image: url("/assets/${props => props.imageName}@3x.png");
+  @media only screen and (max-device-width: 480px) {
+    background-image: url("/assets/${props => props.imageName}.png");
+  }
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+`;
+
+export const ModalContentWrapper = styled.div`
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ${colours.white};
+  color: ${colours.black};
+  position: relative;
+  padding: ${spacing.five};
+  border-radius: 1rem;
+  max-width: 60%;
+  max-height: 90%;
+  overflow-y: scroll;
+  outline: 0;
+  font-weight: 500;
+  @media only screen and (max-device-width: 480px) {
+    max-width: 90%;
+    padding: ${spacing.four};
+  }
+`;
+
+export const CloseModalButton = styled(ButtonReset)`
+  text-transform: uppercase;
+  font-size: ${fontSizes.p};
+  color: ${colours.periwinkleBlue};
+  background-color: ${colours.periwinkleBlueLighter};
+  padding: ${spacing.three};
+  margin-top: ${spacing.one};
+  &:hover {
+    background-color: ${colours.periwinkleBlueDark};
+    color: ${colours.white};
+  }
+`;
+export const OpenModalButton = styled(ButtonReset)`
+  font-size: ${fontSizes.subtitle};
+  color: ${colours.periwinkleBlue};
+  text-decoration: underline;
+  &:hover {
+    color: ${colours.violet};
+  }
+`;
