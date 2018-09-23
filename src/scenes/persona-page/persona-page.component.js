@@ -27,12 +27,18 @@ import {
   SectionDivider,
   LargeCostDisplay,
   OutlinedDisplayCard,
-  HighlightedNote
+  HighlightedNote,
+  QuoteBlock
 } from "./persona-page.styles";
 import { PersonaChoices } from "./components/persona-choices.component";
 import { capitalize } from "src/utils";
 import { CostsSummaryDisplay } from "./components/costs-summary-display.component";
 import { LegalCosts } from "./components/legal-costs.component";
+import { TransportationCosts } from "./components/transportation-costs.component";
+import { DaysOffWork } from "./components/days-off-work.component";
+import { TotalLostIncome } from "./components/total-lost-income.component";
+import { ChildcareCosts } from "./components/childcare-costs.component";
+import { MovingCosts } from "./components/moving-costs.component";
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -82,142 +88,86 @@ export class PersonaPageComponent extends React.Component {
             <LegalCosts persona={persona} {...this.props} />
           </SectionBlock>
           <SectionDivider />
+          <SectionBlock>
+            <TransportationCosts {...this.props} />
+          </SectionBlock>
+        </PersonaSection>
+        <PersonaSection colour={colours.white}>
+          <SectionHeader colour={colours.periwinkleBlue}>
+            Other Financial Impacts
+          </SectionHeader>
+          <SectionBlock>
+            <QuoteBlock>
+              <PersonaTextRegular>
+                <em>{`"${persona.timeCostText}"`}</em>
+              </PersonaTextRegular>
+              <PersonaTextRegular>
+                <em>{`"${persona.daysOffWorkText}"`}</em>
+              </PersonaTextRegular>
+            </QuoteBlock>
+          </SectionBlock>
 
           <SectionBlock>
-            <SectionSubheader>Transportation Costs</SectionSubheader>
-            <PersonaTextRegular>
-              {`Includes travel to and from court.`}
-            </PersonaTextRegular>
-            <TotalCostsWrapper>
-              <Label>Total Transportation Costs</Label>
-              <CostDisplay>{transportationFees}</CostDisplay>
-            </TotalCostsWrapper>
+            <DaysOffWork persona={persona} {...this.props} />
+          </SectionBlock>
+
+          <SectionBlock>
+            <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
           <SectionDivider />
+
           <SectionBlock>
-            <SectionSubheader>Moving Costs</SectionSubheader>
-            <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
-            <TotalCostsWrapper>
-              <Label>Total Transportation Costs</Label>
-              <CostDisplay>{movingFees}</CostDisplay>
-            </TotalCostsWrapper>
+            <ChildcareCosts persona={persona} {...this.props} />
           </SectionBlock>
           <SectionDivider />
+
           <SectionBlock>
-            <SectionSubheader>Childcare Costs</SectionSubheader>
-            <PersonaTextRegular>{persona.childcareCostText}</PersonaTextRegular>
-            <TotalCostsWrapper>
-              <Label>Total Childcare Costs</Label>
-              <CostDisplay>{childcareFees}</CostDisplay>
-            </TotalCostsWrapper>
+            <MovingCosts persona={persona} {...this.props} />
           </SectionBlock>
-          <SectionDivider />
-          <SectionBlock>
-            <PersonaTextRegular>
-              {`In adition to other living expenses such as rent, food, internet, etc. these all contribute to the total direct costs.`}
-            </PersonaTextRegular>
-            <TotalCostsWrapper>
-              <Label>Total Direct Costs</Label>
-              <LargeCostDisplay>{totalDirectFees}</LargeCostDisplay>
-            </TotalCostsWrapper>
-          </SectionBlock>
-        </PersonaSection>
-        <PersonaSection colour={colours.white}>
-          <SectionHeader>Time</SectionHeader>
-          <PersonaTextRegular>{persona.timeCostText}</PersonaTextRegular>
-          <PersonaTextRegular>{persona.daysOffWorkText}</PersonaTextRegular>
-          <SectionBlock>
-            <SectionSubheader>Days off work</SectionSubheader>
-            <DisplayItemsWrapper>
-              <OutlinedDisplayCard>
-                <Label>Prep days and court events</Label>
-                <CenteredContent>
-                  <PersonaTextBold>5 days</PersonaTextBold>
-                </CenteredContent>
-              </OutlinedDisplayCard>
-              <OutlinedDisplayCard>
-                <Label>Sick days</Label>
-                <CenteredContent>
-                  <PersonaTextBold>5 days</PersonaTextBold>
-                </CenteredContent>
-              </OutlinedDisplayCard>
-              <OutlinedDisplayCard>
-                <Label>Total days</Label>
-                <CenteredContent>
-                  <PersonaTextBold>10 days</PersonaTextBold>
-                </CenteredContent>
-              </OutlinedDisplayCard>
-            </DisplayItemsWrapper>
-          </SectionBlock>
-          <SectionBlock>
-            <SectionSubheader>Time has a cost</SectionSubheader>
-            <PersonaTextRegular>
-              {`Every time I take a day off, I lose income and also need to pay for childcare.`}
-            </PersonaTextRegular>
-            <SectionBlock>
-              <TotalCostsWrapper>
-                <Label>Total Lost Income</Label>
-                <CostDisplay>{totalDirectFees}</CostDisplay>
-              </TotalCostsWrapper>
-            </SectionBlock>
-          </SectionBlock>
-        </PersonaSection>
-        <PersonaSection colour={colours.grayLight}>
-          <SectionHeader>Wellness</SectionHeader>
-          <PersonaTextRegular>{persona.stressText1}</PersonaTextRegular>
-          <PersonaTextRegular>{persona.stressText2}</PersonaTextRegular>
-          <PersonaTextRegular>{persona.stressText3}</PersonaTextRegular>
-        </PersonaSection>
-        <PersonaSection colour={colours.white}>
-          <SectionHeader>Summary</SectionHeader>
-          <Subsection>
-            <SectionSubheader>Finances</SectionSubheader>
-            <PersonaTextRegular>
-              {`Overall, ${capitalize(
-                persona.name
-              )}’s financial costs are X % of her annual income. If her living expenses are X% of her income, then`}
-            </PersonaTextRegular>
-            <PersonaTextBold>
-              <div>{`This year she will be $ in debt.`}</div>
-              <div>{`This year her net income is $.`}</div>
-            </PersonaTextBold>
-          </Subsection>
-          <SectionDivider colour={colours.grayDark} />
-          <SectionBlock>
-            <SectionSubheader>What if</SectionSubheader>
-            <PersonaTextRegular>
-              {`The level of conflict between ex-partners can exponentially increase or decrease the costs of the proceedings.`}
-            </PersonaTextRegular>
-            <PersonaTextRegular>
-              {`${
-                persona.conflictText
-              } If they had chosen mediation, their costs would have been substantially less. If there was a higher level of conflict between them, and they fought over every issue, their costs would have been exponentially more.`}
-            </PersonaTextRegular>
-            <HighlightedNote>
-              <CenteredContent>
-                Note: Mediation is not an appropriate option for everyone. Some
-                disputes cannot be mediated.
-              </CenteredContent>
-            </HighlightedNote>
-          </SectionBlock>
-          <SectionDivider colour={colours.grayDark} />
-          <SectionBlock>
-            <SectionSubheader>Other</SectionSubheader>
-            <PersonaTextRegular>
-              {`The separation and divorce process can be very stressful for many people and can impact their emotional and mental health. It is important for parties who are struggling to ensure that they are utilizing support services they have access to.`}
-            </PersonaTextRegular>
-            <PersonaTextRegular>
-              {`${capitalize(
-                persona.name
-              )} prioritized her health by taking advantage of her flexible work hours and taking time off when required; however, she lacked emotional support from friends and family and did not have healthy coping mechanisms (her compulsive behaviour and impulsive spending). Without intervention, her situation (financial and emotional) could further deteriorate and have devastating consequences.`}
-            </PersonaTextRegular>
-          </SectionBlock>
-        </PersonaSection>
-        <PersonaSection colour={colours.grayLight}>
           <CostsIncomeWithBars
             totalDirectCosts={"$100000"}
             income={incomeDisplay}
           />
+        </PersonaSection>
+        <PersonaSection colour={colours.periwinkleBlueLighter}>
+          <SectionHeader textColour={colours.black}>
+            Impact on Stability
+          </SectionHeader>
+          <PersonaTextBold
+          >{`Legal processes affect people's health, employment, housing, and relationships, 
+          and can mean increased medical costs, risk of job loss or bankruptcy. Impact on stability 
+          recognizes how the non-monetary impacts of the court process vary depending on someone's 
+          circumstances and finances.`}</PersonaTextBold>
+        </PersonaSection>
+        <PersonaSection colour={colours.periwinkleBlueDark}>
+          <QuoteBlock>
+            <PersonaTextRegular>
+              <em>{`"${persona.stressText1}"`}</em>
+            </PersonaTextRegular>
+            <PersonaTextRegular>
+              <em>{`"${persona.stressText2}"`}</em>
+            </PersonaTextRegular>
+          </QuoteBlock>
+        </PersonaSection>
+        <PersonaSection colour={colours.white}>
+          <SectionHeader>What if</SectionHeader>
+          <PersonaTextRegular>
+            {`The costs and timing of a family law process can vary dramatically 
+            depending on how much conflict there is between partners. The legal costs 
+            in this scenario are based on a relatively low level of conflict. The legal 
+            costs can escalate quickly. Longer court processes also take a toll on 
+            people's well-being, increasing their health costs and other financial expenses.`}
+          </PersonaTextRegular>
+          <PersonaTextRegular>
+            {`Mediation is a way to resolve some or all of the issues earlier, with less 
+            conflict. Mediation can also be used at different points throughout the process, 
+            narrowing the issues and simplifying the court process. However, mediation 
+            is not an appropriate option for every situation. Some disputes cannot be mediated.`}
+          </PersonaTextRegular>
+          <PersonaTextRegular>
+            {`This chart demonstrates what might happen to the costs if this scenario was 
+            resolved early through mediation or if it escalated due to increasing conflict.`}
+          </PersonaTextRegular>
         </PersonaSection>
         <SiteFooter />
       </Grid>
