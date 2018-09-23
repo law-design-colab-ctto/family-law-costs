@@ -151,7 +151,7 @@ export const Label = styled.div`
 
 export const CostDisplay = styled.div`
   font-size: ${fontSizes.display1};
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const LargeCostDisplay = styled.div`
@@ -226,4 +226,23 @@ export const HighlightedNote = styled.div`
   background-color: ${colours.yellowLight};
   width: 100%;
   padding: ${spacing.three} ${spacing.four};
+`;
+
+export const CostSectionWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const CostTextContentWrapper = styled.div`
+  flex-grow: 1;
+  padding-right: ${spacing.three};
+`;
+export const CostNumberDisplayWrapper = styled.div`
+  flex-grow: 0;
+`;
+export const QuoteBlock = styled.div`
+  font-size: ${fontSizes.p};
+  margin: 0 ${spacing.five};
+  padding: 0 ${spacing.three};
+  background-color: ${props =>
+    props.bgColour ? props.bgColour : colours.periwinkleBlueLighter};
 `;
