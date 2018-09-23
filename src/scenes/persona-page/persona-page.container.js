@@ -5,10 +5,17 @@ import {
   setIncome,
   setProvince,
   setLawyer,
-  setLocationType
+  setLocationType,
+  setModal
 } from "./store/persona-page.actions";
 
-const dispatchers = { setIncome, setProvince, setLawyer, setLocationType };
+const dispatchers = {
+  setIncome,
+  setProvince,
+  setLawyer,
+  setLocationType,
+  setModal
+};
 
 export const PersonaPageContainer = connect(
   personasConnector,

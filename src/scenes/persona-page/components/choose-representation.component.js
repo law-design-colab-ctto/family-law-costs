@@ -42,19 +42,17 @@ export const ChooseRepresentation = ({
         </ButtonOption>
       </ButtonSetWrapper>
     </ButtonControlWrapper>
-    <SectionBlock>
-      <InformationNotice>
-        {`${capitalize(persona.name)} is`}
-        <strong>
-          {`${
-            isEligibleForLegalAid ? "" : " not"
-          } eligible for legal aid because:`}
-        </strong>
-        {eligibilityReasons.map(reason => (
-          <div key={reason}>- {reason}</div>
-        ))}
-      </InformationNotice>
-    </SectionBlock>
+    {!isEligibleForLegalAid && (
+      <SectionBlock>
+        <InformationNotice>
+          {`${capitalize(persona.name)} is`}
+          <strong>{` not eligible for legal aid because:`}</strong>
+          {eligibilityReasons.map(reason => (
+            <div key={reason}>- {reason}</div>
+          ))}
+        </InformationNotice>
+      </SectionBlock>
+    )}
   </React.Fragment>
 );
 

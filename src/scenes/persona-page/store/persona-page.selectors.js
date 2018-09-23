@@ -37,6 +37,10 @@ const selectLocationType = createSelector(
   (personaPageData, currentPersona) =>
     path(["locationType"])(personaPageData) || currentPersona.locationType
 );
+const selectModalIsOpen = createSelector(
+  selectPersonaPage,
+  path(["modalIsOpen"])
+);
 
 const selectPersonaIncomeDisplay = createSelector(
   selectPersonaIncome,
@@ -117,5 +121,6 @@ export const personasConnector = createStructuredSelector({
   legalFees: selectLegalFees,
   movingFees: selectMovingFees,
   childcareFees: selectChildcareFees,
-  totalDirectFees: selectTotalDirectFees
+  totalDirectFees: selectTotalDirectFees,
+  modalIsOpen: selectModalIsOpen
 });
