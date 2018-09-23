@@ -1,12 +1,29 @@
 import { createStructuredSelector, createSelector } from "reselect";
-import { path, map, pipe } from "ramda";
+import { path, pipe } from "ramda";
 import { selectPersonas } from "src/scenes/personas/store/personas.selectors";
 import {
   createPersonasObject,
-  numberToMoneyDisplay
+  numberToMoneyDisplay,
+  pathnameToPersona
 } from "./persona-page.utils";
 import { LEGAL_AID_CUTOFF } from "src/data/by-province";
 import { NUMBER_OF_COURT_EVENTS, TRANSPORT_FEES } from "src/data/by-province";
+
+const selectCurrentPersonaName = pipe(
+  path(["router", "location", "pathname"]),
+  pathnameToPersona
+);
+
+const selectPersonasByName = createSelector(
+  selectPersonas,
+  createPersonasObject
+);
+
+const selectCurrentPersona = createSelector(
+  selectCurrentPersonaName,
+  selectPersonasByName,
+  (name, personas) => personas[name]
+);
 
 const selectPersonaPage = path(["personaPage"]);
 
@@ -15,7 +32,9 @@ const selectHasLawyer = createSelector(selectPersonaPage, path(["hasLawyer"]));
 const selectProvince = createSelector(selectPersonaPage, path(["province"]));
 const selectLocationType = createSelector(
   selectPersonaPage,
-  path(["locationType"])
+  selectCurrentPersona,
+  (personaPageData, currentPersona) =>
+    path(["locationType"])(personaPageData) || currentPersona.locationType
 );
 
 const selectPersonaIncomeDisplay = createSelector(
@@ -42,52 +61,30 @@ const selectReasonsForLegalAidEligibility = createSelector(
   }
 );
 
-const addTransportationFees = locationType => personas =>
-  map(persona => {
+const selectTransportationFees = createSelector(
+  selectCurrentPersona,
+  selectLocationType,
+  (persona, locationType) => {
     const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
     const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
-    return {
-      ...persona,
-      transportationFees: isNaN(fees) ? "" : numberToMoneyDisplay(fees)
-    };
-  }, personas);
+    return isNaN(fees) ? "" : numberToMoneyDisplay(fees);
+  }
+);
 
-const addLegalFees = () => personas =>
-  map(
-    persona => ({ ...persona, legalFees: numberToMoneyDisplay(45861) }),
-    personas
-  );
+const selectLegalFees = createSelector(selectCurrentPersona, () =>
+  numberToMoneyDisplay(11000)
+);
 
-const addMovingFees = () => personas =>
-  map(
-    persona => ({ ...persona, movingFees: numberToMoneyDisplay(500) }),
-    personas
-  );
+const selectMovingFees = createSelector(selectCurrentPersona, () =>
+  numberToMoneyDisplay(7000)
+);
 
-const addChildcareFees = () => personas =>
-  map(
-    persona => ({ ...persona, childcareFees: numberToMoneyDisplay(6000) }),
-    personas
-  );
+const selectChildcareFees = createSelector(selectCurrentPersona, () =>
+  numberToMoneyDisplay(8000)
+);
 
-const addTotalDirectFees = () => personas =>
-  map(
-    persona => ({ ...persona, totalDirectFees: numberToMoneyDisplay(100000) }),
-    personas
-  );
-
-const selectPersonasByName = createSelector(
-  selectPersonas,
-  selectLocationType,
-  (personas, locationType) =>
-    pipe(
-      addTransportationFees(locationType),
-      addLegalFees("provide stuff needed for calc"),
-      addMovingFees("provide stuff needed for calc"),
-      addChildcareFees("provide stuff needed for calc"),
-      addTotalDirectFees("provide stuff needed for calc"),
-      createPersonasObject
-    )(personas)
+const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
+  numberToMoneyDisplay(90000)
 );
 
 export const personasConnector = createStructuredSelector({
@@ -97,5 +94,10 @@ export const personasConnector = createStructuredSelector({
   hasLawyer: selectHasLawyer,
   isEligibleForLegalAid: selectIsEligibleForLegalAid,
   eligibilityReasons: selectReasonsForLegalAidEligibility,
-  locationType: selectLocationType
+  locationType: selectLocationType,
+  transportationFees: selectTransportationFees,
+  legalFees: selectLegalFees,
+  movingFees: selectMovingFees,
+  childcareFees: selectChildcareFees,
+  totalDirectFees: selectTotalDirectFees
 });
