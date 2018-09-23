@@ -2,17 +2,17 @@ const PRONOUNS = {
   FEM: {
     subjective: "she",
     objective: "her",
-    possessive: "her",
+    possessive: "her"
   },
   MASC: {
     subjective: "he",
     objective: "him",
-    possessive: "his",
+    possessive: "his"
   },
-  NEUTRAL: {
+  contract: {
     subjective: "they",
     objective: "them",
-    possessive: "their",
+    possessive: "their"
   }
 };
 
@@ -72,7 +72,7 @@ export const PERSONAS = [
     name: "Marcus",
     pronouns: PRONOUNS.MASC,
     stage: "separationWithChildren",
-    jobStability: "neutral",
+    jobStability: "contract",
     stressCapacity: 100,
     children: 0,
     dependents: "yes",
@@ -88,7 +88,7 @@ export const PERSONAS = [
     name: "Pablo",
     pronouns: PRONOUNS.MASC,
     stage: "divorce",
-    jobStability: "good",
+    jobStability: "stable",
     stressCapacity: 50,
     children: 0,
     dependents: "yes",
@@ -104,7 +104,7 @@ export const PERSONAS = [
     name: "Priya",
     pronouns: PRONOUNS.FEM,
     stage: "trial",
-    jobStability: "good",
+    jobStability: "stable",
     stressCapacity: 100,
     children: 0,
     dependents: "yes",
@@ -120,7 +120,7 @@ export const PERSONAS = [
     name: "Maria",
     pronouns: PRONOUNS.FEM,
     stage: "variation",
-    jobStability: "neutral",
+    jobStability: "contract",
     stressCapacity: 100,
     children: 0,
     dependents: "no",
@@ -136,7 +136,7 @@ export const PERSONAS = [
     name: "Philippe",
     pronouns: PRONOUNS.MASC,
     stage: "variation",
-    jobStability: "neutral",
+    jobStability: "contract",
     stressCapacity: 50,
     children: 0,
     dependents: "no",
