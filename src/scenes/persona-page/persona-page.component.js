@@ -13,7 +13,6 @@ import {
 import { colours } from "src/styles";
 
 import {
-  PersonaTextBold,
   PersonaTextRegular,
   SectionHeader,
   SectionBlock,
@@ -28,6 +27,9 @@ import { DaysOffWork } from "./components/days-off-work.component";
 import { TotalLostIncome } from "./components/total-lost-income.component";
 import { ChildcareCosts } from "./components/childcare-costs.component";
 import { MovingCosts } from "./components/moving-costs.component";
+import { ImpactOnStability } from "./components/impact-on-stability.component";
+import { Stress } from "./components/stress.component";
+import { Conflict } from "./components/conflict.component";
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -115,44 +117,13 @@ export class PersonaPageComponent extends React.Component {
           />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <SectionHeader textColour={colours.black}>
-            Impact on Stability
-          </SectionHeader>
-          <PersonaTextBold
-          >{`Legal processes affect people's health, employment, housing, and relationships, 
-          and can mean increased medical costs, risk of job loss or bankruptcy. Impact on stability 
-          recognizes how the non-monetary impacts of the court process vary depending on someone's 
-          circumstances and finances.`}</PersonaTextBold>
+          <ImpactOnStability />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueDark}>
-          <QuoteBlock>
-            <PersonaTextRegular>
-              <em>{`"${persona.stressText1}"`}</em>
-            </PersonaTextRegular>
-            <PersonaTextRegular>
-              <em>{`"${persona.stressText2}"`}</em>
-            </PersonaTextRegular>
-          </QuoteBlock>
+          <Stress persona={persona} />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
-          <SectionHeader>What if</SectionHeader>
-          <PersonaTextRegular>
-            {`The costs and timing of a family law process can vary dramatically 
-            depending on how much conflict there is between partners. The legal costs 
-            in this scenario are based on a relatively low level of conflict. The legal 
-            costs can escalate quickly. Longer court processes also take a toll on 
-            people's well-being, increasing their health costs and other financial expenses.`}
-          </PersonaTextRegular>
-          <PersonaTextRegular>
-            {`Mediation is a way to resolve some or all of the issues earlier, with less 
-            conflict. Mediation can also be used at different points throughout the process, 
-            narrowing the issues and simplifying the court process. However, mediation 
-            is not an appropriate option for every situation. Some disputes cannot be mediated.`}
-          </PersonaTextRegular>
-          <PersonaTextRegular>
-            {`This chart demonstrates what might happen to the costs if this scenario was 
-            resolved early through mediation or if it escalated due to increasing conflict.`}
-          </PersonaTextRegular>
+          <Conflict />
         </PersonaSection>
         <SiteFooter />
       </Grid>
