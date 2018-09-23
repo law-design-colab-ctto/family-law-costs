@@ -16,22 +16,11 @@ import {
   PersonaTextBold,
   PersonaTextRegular,
   SectionHeader,
-  SectionSubheader,
   SectionBlock,
-  CenteredContent,
-  Subsection,
-  Label,
-  CostDisplay,
-  TotalCostsWrapper,
-  DisplayItemsWrapper,
   SectionDivider,
-  LargeCostDisplay,
-  OutlinedDisplayCard,
-  HighlightedNote,
   QuoteBlock
 } from "./persona-page.styles";
 import { PersonaChoices } from "./components/persona-choices.component";
-import { capitalize } from "src/utils";
 import { CostsSummaryDisplay } from "./components/costs-summary-display.component";
 import { LegalCosts } from "./components/legal-costs.component";
 import { TransportationCosts } from "./components/transportation-costs.component";
@@ -58,11 +47,7 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      incomeDisplay,
-      transportationFees,
-      movingFees,
-      childcareFees,
-      totalDirectFees
+      incomeDisplay
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
