@@ -109,6 +109,7 @@ export const COURT_FEES_BY_STAGE = {
 };
 
 export const LEGAL_AID_CUTOFF = {
+  //income level for legal aid cut off by province [ 0 children, 1 child, 2 or more children]
   bc: [null, null, null],
   ab: [19653, 24333, 34627],
   sk: [11820, 18300, 20280],
@@ -146,6 +147,13 @@ export const TRANSPORT_FEES = {
   //TODO: replace suburban (placeholder)
   suburban: 125,
   remote: 200
+// Update as follows:
+
+  // Under 20 km: 20,
+  // 20 - 100 km: 50,
+  // 100 - 250 km: 120,
+  // 250 or more km: 300,
+
 };
 
 export const LEGAL_FEES = {

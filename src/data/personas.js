@@ -28,6 +28,8 @@ export const PERSONAS = [
     children: 1,
     hasToMove: true,
     income: 50000,
+    // all incomes to be set to 50K by default
+    // should all other fees be set to 0 by default?
     legalFees: 10468,
     professionalFees: 10710,
     childcareFees: 1450,
@@ -51,6 +53,11 @@ export const PERSONAS = [
       "Alice and I have shared custody of the kids, but when my kids aren’t around I don’t feel grounded. Lately I’ve been stress shopping and making impulse purchases of large items.",
     stressText3: "I’ve been dipping into my savings to pay for everything.",
     conflictText: "Roberta and Alice are on relatively civil terms."
+
+// I will align these names with the latest version of text and add as comments here
+
+
+
   },
   {
     name: "Aisha",

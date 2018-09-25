@@ -89,6 +89,24 @@ const selectTransportationFees = createSelector(
   (persona, locationType) => {
     const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
     const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
+        // multiply transport fees by number of court events
+    return {
+      ...persona,
+      transportationFees: isNaN(fees) ? "" : numberToMoneyDisplay(fees)
+    };
+  }, personas);
+
+const addLegalFees = () => personas =>
+  map(
+    persona => ({ ...persona, legalFees: numberToMoneyDisplay(45861) }),
+    personas
+    //legalfess has three parts
+    // A. Calculate Lawyer fees
+    // B. Calculate leagl aid amount
+    // C. Calculate professional fees and court legalFees
+
+  );
+
     return isNaN(fees) ? "" : numberToMoneyDisplay(fees);
   }
 );
@@ -101,12 +119,36 @@ const selectMovingFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(7000)
 );
 
+const addTotalDirectFees = () => personas =>
+//Total Direct Fees is now displayed as "Costs of the Case"
+  map(
+    persona => ({ ...persona, totalDirectFees: numberToMoneyDisplay(100000) }),
+    personas
+  );
+
+  //Total Indirect Fees is now displayed as "Other Financial Impacts"
+  // this includes: Total Lost Income, Moving Costs (if applicable), Childcare Costs (if applicable)
+
+const selectPersonasByName = createSelector(
+  selectPersonas,
+  selectLocationType,
+  (personas, locationType) =>
+    pipe(
+      addTransportationFees(locationType),
+      addLegalFees("provide stuff needed for calc"),
+      addMovingFees("provide stuff needed for calc"),
+      addChildcareFees("provide stuff needed for calc"),
+      addTotalDirectFees("provide stuff needed for calc"),
+      createPersonasObject
+    )(personas)
+
 const selectChildcareFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(8000)
 );
 
 const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(90000)
+
 );
 
 export const personasConnector = createStructuredSelector({
