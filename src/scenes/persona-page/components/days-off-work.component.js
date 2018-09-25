@@ -16,18 +16,21 @@ export const DaysOffWork = () => (
         <Label>Prep days and court events</Label>
         <CenteredContent>
           <PersonaTextBold>5 days</PersonaTextBold>
+          // pull days off work from calculation
         </CenteredContent>
       </OutlinedDisplayCard>
       <OutlinedDisplayCard>
         <Label>Sick days</Label>
         <CenteredContent>
           <PersonaTextBold>5 days</PersonaTextBold>
+          // pull days off work from calculation
         </CenteredContent>
       </OutlinedDisplayCard>
       <OutlinedDisplayCard>
         <Label>Total days</Label>
         <CenteredContent>
           <PersonaTextBold>10 days</PersonaTextBold>
+          // pull days off work from calculation
         </CenteredContent>
       </OutlinedDisplayCard>
     </DisplayItemsWrapper>
