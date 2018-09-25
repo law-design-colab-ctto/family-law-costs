@@ -141,11 +141,14 @@ export const MOVING_FEES = {
 };
 
 export const TRANSPORT_FEES = {
-  rural: 18,
-  urban: 75,
+  rural: 20,
+  urban: 50,
   //TODO: replace suburban (placeholder)
-  suburban: 125,
-  remote: 200
+  suburban: 120,
+  remote: 300
+  // I revised these numbers to match final numbers from Sarah
+ 
+
 };
 
 export const LEGAL_FEES = {

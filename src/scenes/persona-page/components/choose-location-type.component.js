@@ -16,7 +16,13 @@ export const ChooseLocationType = ({
   locationType
 }) => (
   <React.Fragment>
-    <div>{`${capitalize(persona.pronouns.subjective)} lives in a:`}</div>
+    <div>{`${capitalize(persona.pronouns.subjective)} lives in a community that is:`}</div>
+// add text after the icons that says: "away from the nearest courthouse."
+// Together this displays:
+    // She lives in a community that is:
+    //under 20km s
+    // from the nearest courthouse.
+    
     <DisplayItemsWrapper>
       <LabelledImageButton
         active={equals(locationType, "urban")}

@@ -67,16 +67,16 @@ const selectReasonsForLegalAidEligibility = createSelector(
     let reasons = [];
     if (income > LEGAL_AID_CUTOFF[province][persona.children]) {
       reasons.push(
-        `${capitalize(persona.pronouns.possessive)} 
-        income is above the legal cut-off in 
+        `${capitalize(persona.pronouns.possessive)}
+        income is above the legal aid cut-off level in
         ${persona.pronouns.possessive} province.`
       );
     }
     if (!LEGAL_AID_ELIGIBILITY[persona.stage]) {
       reasons.push(
         `Legal aid in
-        ${persona.pronouns.possessive} 
-        province do not cover this type of proceeding`
+        ${persona.pronouns.possessive}
+        province does not cover this type of proceeding.`
       );
     }
     return reasons;

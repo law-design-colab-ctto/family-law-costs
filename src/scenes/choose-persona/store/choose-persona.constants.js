@@ -33,6 +33,7 @@ export const FILTER_VALUE_LABELS = {
   BAD: "Precarious work or unemployment",
   APPLICATION: "Application",
   SEPARATION_WITH_CHILDREN: "Separation with Children",
+  //change to display only the term "Separation"
   DIVORCE: "Divorce",
   TRIAL: "Trial",
   VARIATION: "Variation",
