@@ -63,7 +63,6 @@ export const ClearIcon = styled(XIcon)`
 
 export const FilterSetWrapper = styled.div`
   padding: ${spacing.three} 0;
-  width: 100%;
   max-width: 30rem;
   .filter-set-root-gray,
   .filter-set-root-violet {

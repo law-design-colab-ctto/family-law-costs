@@ -2,9 +2,7 @@ import { createStructuredSelector, createSelector } from "reselect";
 import { path, filter, allPass } from "ramda";
 import {
   personaHasStageIfSet,
-  personaHasStressCapacityIfSet,
-  personaHasJobStabilityIfSet,
-  personaHasDependentsIfSet
+  personaHasJobStabilityIfSet
 } from "./choose-persona.utils";
 import { selectPersonas } from "src/scenes/personas/store/personas.selectors";
 import { FILTER_TYPES } from "./choose-persona.constants";
@@ -21,29 +19,15 @@ const selectJobStabilityFilter = createSelector(
   path([FILTER_TYPES.JOB_STABILITY])
 );
 
-const selectStressCapacityFilter = createSelector(
-  selectChoosePersona,
-  path([FILTER_TYPES.STRESS_CAPACITY])
-);
-
-const selectDependentsFilter = createSelector(
-  selectChoosePersona,
-  path([FILTER_TYPES.DEPENDENTS])
-);
-
 const selectFilteredPersonas = createSelector(
   selectPersonas,
   selectStageFilter,
   selectJobStabilityFilter,
-  selectStressCapacityFilter,
-  selectDependentsFilter,
-  (personas, stage, jobStability, stressCapacity, dependents) =>
+  (personas, stage, jobStability) =>
     filter(
       allPass([
         personaHasStageIfSet(stage),
-        personaHasJobStabilityIfSet(jobStability),
-        personaHasStressCapacityIfSet(stressCapacity),
-        personaHasDependentsIfSet(dependents)
+        personaHasJobStabilityIfSet(jobStability)
       ])
     )(personas)
 );
@@ -51,7 +35,5 @@ const selectFilteredPersonas = createSelector(
 export const choosePersonaConnector = createStructuredSelector({
   stageFilter: selectStageFilter,
   jobStabilityFilter: selectJobStabilityFilter,
-  stressCapacityFilter: selectStressCapacityFilter,
-  personasToDisplay: selectFilteredPersonas,
-  dependentsFilter: selectDependentsFilter
+  personasToDisplay: selectFilteredPersonas
 });

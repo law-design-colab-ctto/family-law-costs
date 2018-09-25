@@ -19,3 +19,8 @@ export const setLocationType = ({ locationType }) => ({
   type: PERSONA_PAGE_ACTION_TYPES.SET_LOCATION_TYPE,
   payload: { locationType }
 });
+
+export const setModal = ({ modalIsOpen }) => ({
+  type: PERSONA_PAGE_ACTION_TYPES.SET_MODAL,
+  payload: { modalIsOpen }
+});
