@@ -9,6 +9,7 @@ import {
 import { LEGAL_AID_CUTOFF, LEGAL_AID_ELIGIBILITY } from "src/data/by-province";
 import { NUMBER_OF_COURT_EVENTS, TRANSPORT_FEES } from "src/data/by-province";
 import { COST_OF_CHILDCARE_PER_DAY, MOVING_FEES } from "src/data/by-province";
+import { COURT_FEES_BY_STAGE } from "src/data/by-province";
 import { capitalize } from "../../../utils";
 
 const selectCurrentPersonaName = pipe(
@@ -94,8 +95,15 @@ const selectTransportationFees = createSelector(
   }
 );
 
-const selectLegalFees = createSelector(selectCurrentPersona, () =>
-  numberToMoneyDisplay(11000)
+const selectLegalFees = createSelector(selectCurrentPersona,
+  selectHasLawyer,
+  (persona, withLawyer) => {
+    let money = 0;
+    if (withLawyer) {
+      money = 123
+    }
+    return numberToMoneyDisplay(money)
+  }
 );
 
 const selectMovingFees = createSelector(selectCurrentPersona,
