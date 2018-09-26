@@ -12,8 +12,8 @@ export const FILTER_TYPES = {
 };
 
 export const FILTER_VALUES = {
-  GOOD: "good",
-  NEUTRAL: "neutral",
+  STABLE: "stable",
+  CONTRACT: "contract",
   BAD: "bad",
   APPLICATION: "application",
   SEPARATION_WITH_CHILDREN: "separationWithChildren",
@@ -28,9 +28,9 @@ export const FILTER_VALUES = {
 };
 
 export const FILTER_VALUE_LABELS = {
-  GOOD: "Good",
-  NEUTRAL: "Neutral",
-  BAD: "Bad",
+  STABLE: "Stable employment",
+  CONTRACT: "Contract work",
+  BAD: "Precarious work or unemployment",
   APPLICATION: "Application",
   SEPARATION_WITH_CHILDREN: "Separation with Children",
   DIVORCE: "Divorce",
@@ -43,14 +43,14 @@ export const FILTER_VALUE_LABELS = {
 
 export const JOB_STABILITY_OPTIONS = [
   {
-    optionLabel: FILTER_VALUE_LABELS.GOOD,
+    optionLabel: FILTER_VALUE_LABELS.STABLE,
     filterType: FILTER_TYPES.JOB_STABILITY,
-    filterValue: FILTER_VALUES.GOOD
+    filterValue: FILTER_VALUES.STABLE
   },
   {
-    optionLabel: FILTER_VALUE_LABELS.NEUTRAL,
+    optionLabel: FILTER_VALUE_LABELS.CONTRACT,
     filterType: FILTER_TYPES.JOB_STABILITY,
-    filterValue: FILTER_VALUES.NEUTRAL
+    filterValue: FILTER_VALUES.CONTRACT
   },
   {
     optionLabel: FILTER_VALUE_LABELS.BAD,

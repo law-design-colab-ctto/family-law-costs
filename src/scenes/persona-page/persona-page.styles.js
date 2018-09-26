@@ -6,12 +6,14 @@ import { ButtonReset, HrReset } from "src/components";
 export const PersonaTextRegular = styled.div`
   padding: ${spacing.three} 0;
   font-size: ${fontSizes.subtitle};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const PersonaTextBold = styled.div`
   font-size: ${fontSizes.subtitle};
   font-weight: 500;
   padding: ${spacing.three} 0;
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const MoreDetailsButton = styled(ButtonReset)`
@@ -27,7 +29,8 @@ export const MoreDetailsButton = styled(ButtonReset)`
 export const SectionHeader = styled.h2`
   margin: 0;
   font-size: ${fontSizes.display2};
-  color: ${colours.periwinkleBlue};
+  color: ${props =>
+    props.textColour ? props.textColour : colours.periwinkleBlue};
   font-weight: 400;
   padding-bottom: ${spacing.three};
 `;
@@ -36,14 +39,14 @@ export const SectionSubheader = styled.h3`
   margin: 0;
   font-size: ${fontSizes.display1};
   font-weight: 400;
-  color: ${colours.black};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const SectionSmallSubheader = styled.h4`
   margin: 0;
   font-size: ${fontSizes.heading};
   font-weight: 400;
-  color: ${colours.black};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const SectionBlock = styled.div`
@@ -143,11 +146,12 @@ export const InformationCard = styled.div`
 
 export const Label = styled.div`
   font-size: ${fontSizes.p};
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
 `;
 
 export const CostDisplay = styled.div`
   font-size: ${fontSizes.display1};
-  font-weight: 500;
+  font-weight: 600;
 `;
 
 export const LargeCostDisplay = styled.div`
@@ -205,7 +209,8 @@ export const SectionDivider = styled(HrReset)`
 `;
 
 export const OutlinedDisplayCard = styled.div`
-  border: 1px solid ${colours.grayMedium};
+  border: 1px solid
+    ${props => (props.borderColour ? props.borderColour : colours.grayMedium)};
   border-radius: 3px;
   padding: ${spacing.three};
   margin: ${spacing.two} ${spacing.three} ${spacing.two} 0;
@@ -221,4 +226,76 @@ export const HighlightedNote = styled.div`
   background-color: ${colours.yellowLight};
   width: 100%;
   padding: ${spacing.three} ${spacing.four};
+`;
+
+export const CostSectionWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const CostTextContentWrapper = styled.div`
+  flex-grow: 1;
+  padding-right: ${spacing.three};
+`;
+export const CostNumberDisplayWrapper = styled.div`
+  flex-grow: 0;
+`;
+export const QuoteBlock = styled.div`
+  font-size: ${fontSizes.p};
+  margin: 0 ${spacing.five};
+  padding: 0 ${spacing.three};
+  background-color: ${props =>
+    props.bgColour ? props.bgColour : colours.periwinkleBlueLighter};
+`;
+
+export const DistanceImage = styled.div`
+    width: 6rem;
+    height: 6rem;
+    background-image: url("/assets/${props => props.imageName}@3x.png");
+  @media only screen and (max-device-width: 480px) {
+    background-image: url("/assets/${props => props.imageName}.png");
+  }
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+`;
+
+export const ModalContentWrapper = styled.div`
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ${colours.white};
+  color: ${colours.black};
+  position: relative;
+  padding: ${spacing.five};
+  border-radius: 1rem;
+  max-width: 60%;
+  max-height: 90%;
+  overflow-y: scroll;
+  outline: 0;
+  font-weight: 500;
+  @media only screen and (max-device-width: 480px) {
+    max-width: 90%;
+    padding: ${spacing.four};
+  }
+`;
+
+export const CloseModalButton = styled(ButtonReset)`
+  text-transform: uppercase;
+  font-size: ${fontSizes.p};
+  color: ${colours.periwinkleBlue};
+  background-color: ${colours.periwinkleBlueLighter};
+  padding: ${spacing.three};
+  margin-top: ${spacing.one};
+  &:hover {
+    background-color: ${colours.periwinkleBlueDark};
+    color: ${colours.white};
+  }
+`;
+export const OpenModalButton = styled(ButtonReset)`
+  font-size: ${fontSizes.subtitle};
+  color: ${colours.periwinkleBlue};
+  text-decoration: underline;
+  &:hover {
+    color: ${colours.violet};
+  }
 `;
