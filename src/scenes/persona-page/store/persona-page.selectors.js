@@ -98,17 +98,19 @@ const selectLegalFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(11000)
 );
 
-const selectMovingFees = createSelector(selectCurrentPersona,
+const selectMovingFees = createSelector(
+  selectCurrentPersona,
   selectProvince,
-  (persona, province) =>
-    numberToMoneyDisplay(MOVING_FEES[province])
+  (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
 );
 
-const selectChildcareFees = createSelector(selectCurrentPersona,
+const selectChildcareFees = createSelector(
+  selectCurrentPersona,
   selectProvince,
   (persona, province) =>
     numberToMoneyDisplay(
-      10 * COST_OF_CHILDCARE_PER_DAY[province] * persona.children)
+      10 * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
+    )
 );
 
 const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
