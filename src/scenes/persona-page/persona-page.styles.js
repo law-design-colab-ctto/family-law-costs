@@ -10,7 +10,7 @@ export const PersonaTextRegular = styled.div`
 `;
 
 export const PersonaTextBold = styled.div`
-  font-size: ${fontSizes.subtitle};
+  font-size: ${props => (props.fontSize ? props.fontSize : fontSizes.subtitle)};
   font-weight: 500;
   padding: ${spacing.three} 0;
   color: ${props => (props.textColour ? props.textColour : colours.black)};
@@ -61,6 +61,13 @@ export const CenteredContent = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+export const CenteredContentColumn = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ControlWrapper = styled.div`
@@ -209,7 +216,7 @@ export const SectionDivider = styled(HrReset)`
 `;
 
 export const OutlinedDisplayCard = styled.div`
-  border: 1px solid
+  border: ${props => (props.borderWidth ? props.borderWith : "1px")} solid
     ${props => (props.borderColour ? props.borderColour : colours.grayMedium)};
   border-radius: 3px;
   padding: ${spacing.three};
@@ -247,16 +254,19 @@ export const QuoteBlock = styled.div`
     props.bgColour ? props.bgColour : colours.periwinkleBlueLighter};
 `;
 
-export const DistanceImage = styled.div`
-    width: 6rem;
-    height: 6rem;
-    background-image: url("/assets/${props => props.imageName}@3x.png");
+export const ImageDiv = styled.div`
+  background-image: url("/assets/${props => props.imageName}@3x.png");
   @media only screen and (max-device-width: 480px) {
     background-image: url("/assets/${props => props.imageName}.png");
   }
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover; 
+`;
+
+export const DistanceImage = ImageDiv.extend`
+  width: 6rem;
+  height: 6rem;
 `;
 
 export const ModalContentWrapper = styled.div`
@@ -298,4 +308,21 @@ export const OpenModalButton = styled(ButtonReset)`
   &:hover {
     color: ${colours.violet};
   }
+`;
+
+export const TallOutlinedDisplayCard = OutlinedDisplayCard.extend`
+  height: 14rem;
+  width: 10rem;
+  padding-bottom: 0;
+`;
+
+export const DaysOffWorkImage = ImageDiv.extend`
+  width: 6rem;
+  height: 6rem;
+  margin: ${spacing.one} 0;
+`;
+
+export const ThermometerImage = ImageDiv.extend`
+  width: 4rem;
+  height: 7rem;
 `;
