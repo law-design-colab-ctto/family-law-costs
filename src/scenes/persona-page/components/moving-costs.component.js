@@ -12,7 +12,7 @@ import {
 export const MovingCosts = ({ movingFees, persona }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
-      <SectionSubheader>Total Moving Costs</SectionSubheader>
+      <SectionSubheader>Moving Costs</SectionSubheader>
       <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
     </CostTextContentWrapper>
 
