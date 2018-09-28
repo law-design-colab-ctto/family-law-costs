@@ -8,7 +8,6 @@ import {
   ImageButtonLabel,
   DistanceImage
 } from "../persona-page.styles";
-import { capitalize } from "src/utils";
 
 export const ChooseLocationType = ({
   persona,

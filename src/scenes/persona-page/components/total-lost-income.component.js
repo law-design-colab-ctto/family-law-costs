@@ -14,10 +14,6 @@ export const TotalLostIncome = ({ totalLostIncome = "$16,528" }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Total Lost Income</SectionSubheader>
-      //removed PersonaTextRegular below by making it a comment
-      //<PersonaTextRegular>
-      //  {`Includes travel to and from court.`}
-      //</PersonaTextRegular>
     </CostTextContentWrapper>
 
     <CostDisplay>{totalLostIncome}</CostDisplay>
