@@ -3,16 +3,23 @@ import PropTypes from "prop-types";
 
 import {
   SectionSmallSubheader,
-  OutlinedDisplayCard,
+  TallOutlinedDisplayCard,
   DisplayItemsWrapper,
   Label,
   CenteredContent,
-  PersonaTextBold
+  PersonaTextBold,
+  ThermometerImage
 } from "../persona-page.styles";
-import { colours } from "src/styles";
+import { colours, fontSizes } from "src/styles";
 import { capitalize } from "src/utils";
 
-export const CostsSummaryDisplay = ({ persona }) => (
+const impactToImage = {
+  low: "ThermoYellow",
+  medium: "ThermoOrange",
+  high: "ThermoRed"
+};
+
+export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
   <React.Fragment>
     <SectionSmallSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
@@ -20,24 +27,43 @@ export const CostsSummaryDisplay = ({ persona }) => (
       )}'s Out-of-Pocket Costs`}</strong>
     </SectionSmallSubheader>
     <DisplayItemsWrapper>
-      <OutlinedDisplayCard>
+      <TallOutlinedDisplayCard borderWidth="3px">
         <Label textColour={colours.white}>Costs of the Case</Label>
         <CenteredContent>
-          <PersonaTextBold textColour={colours.white}>$52,025</PersonaTextBold>
+          <PersonaTextBold
+            textColour={colours.white}
+            fontSize={fontSizes.display1}
+          >
+            $52,025
+          </PersonaTextBold>
         </CenteredContent>
-      </OutlinedDisplayCard>
-      <OutlinedDisplayCard>
+        <CenteredContent>
+          <PersonaTextBold textColour={colours.white}>See Why</PersonaTextBold>
+        </CenteredContent>
+      </TallOutlinedDisplayCard>
+      <TallOutlinedDisplayCard borderWidth="3px">
         <Label textColour={colours.white}>Other Financial Impacts</Label>
         <CenteredContent>
-          <PersonaTextBold textColour={colours.white}>$33,494</PersonaTextBold>
+          <PersonaTextBold
+            textColour={colours.white}
+            fontSize={fontSizes.display1}
+          >
+            $33,494
+          </PersonaTextBold>
         </CenteredContent>
-      </OutlinedDisplayCard>
-      <OutlinedDisplayCard>
+        <CenteredContent>
+          <PersonaTextBold textColour={colours.white}>See Why</PersonaTextBold>
+        </CenteredContent>
+      </TallOutlinedDisplayCard>
+      <TallOutlinedDisplayCard borderWidth="3px">
         <Label textColour={colours.white}>Impact on Stability</Label>
+        <CenteredContent>
+          <ThermometerImage imageName={impactToImage[impactOnStability]} />
+        </CenteredContent>
         <CenteredContent>
           <PersonaTextBold textColour={colours.white}>Medium</PersonaTextBold>
         </CenteredContent>
-      </OutlinedDisplayCard>
+      </TallOutlinedDisplayCard>
     </DisplayItemsWrapper>
   </React.Fragment>
 );
@@ -46,5 +72,6 @@ CostsSummaryDisplay.propTypes = {
   income: PropTypes.number,
   setIncome: PropTypes.func,
   persona: PropTypes.any,
-  incomeDisplay: PropTypes.string
+  incomeDisplay: PropTypes.string,
+  impactOnStability: PropTypes.string
 };
