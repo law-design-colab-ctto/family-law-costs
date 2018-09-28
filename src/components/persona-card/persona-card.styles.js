@@ -3,6 +3,7 @@ import { colours, spacing, fontSizes } from "src/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import Chip from '@material-ui/core/Chip';
 import { Link } from "react-router-dom";
 
 export const PersonaCardDiv = styled.div`
@@ -41,4 +42,14 @@ export const PersonaName = styled.h3`
 //styled.span
 export const PersonaAttr = styled(Typography)`
   color: ${colours.grayDark};
+`;
+
+export const StyledChip = styled(Chip)`
+  margin-right: 8px;
+`;
+
+export const StyledQuote = styled.h3`
+  color: ${colours.indigoMediumLight};
+  font-size: ${fontSizes.p};
+  font-style: italic;
 `;

@@ -5,11 +5,14 @@ import {
   StyledCard,
   StyledLink,
   PersonaCardMedia,
-  PersonaAttr
+  PersonaAttr,
+  StyledChip,
+  StyledQuote
 } from "./persona-card.styles";
 
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { capitalize } from "src/utils";
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
@@ -20,13 +23,17 @@ export const PersonaCard = ({ persona }) => (
       />
       <CardContent>
         <Typography gutterBottom variant="headline" color="primary" >
-          {persona.name}
+          {capitalize(persona.name)}
         </Typography>
+        {persona.details}
         <PersonaAttr>
-          Job Stability: {persona.jobStability} <br />
-          Stage: {persona.stage} <br />
-          Ability to handle stress: {persona.stressCapacity}
+          <StyledChip label= {persona.stage} />
+          <StyledChip label= {persona.jobStability} />
+          <StyledChip label= {persona.children} />
         </PersonaAttr>
+        <StyledQuote>
+          {persona.quote1}
+        </StyledQuote>
       </CardContent>
     </StyledLink>
   </StyledCard>
