@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import {
   SectionSubheader,
-  PersonaTextRegular,
   CostDisplay,
   CostSectionWrapper,
   CostTextContentWrapper
