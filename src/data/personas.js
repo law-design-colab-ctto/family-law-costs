@@ -112,12 +112,7 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote:
-      <p>
-      "The stress of everything has slowly been taking its toll on me. I feel like I’m not the fun parent anymore, because I spend my weekends and vacation days preparing court documents, instead of spending time with my kids."
-      </p>
-      <p>
-      "When my kids are with Alice, I don’t feel grounded. I’ve been spending too much money and making big impulse purchases. I’ve been dipping into my savings to pay for everything."
-      </p>
+      "<p>"The stress of everything has slowly been taking its toll on me. I feel like I’m not the fun parent anymore, because I spend my weekends and vacation days preparing court documents, instead of spending time with my kids."</p><p>"When my kids are with Alice, I don’t feel grounded. I’ve been spending too much money and making big impulse purchases. I’ve been dipping into my savings to pay for everything."</p>"
   },
 
   {
