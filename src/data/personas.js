@@ -64,7 +64,7 @@ export const PERSONAS = [
     professionalFees: 10710, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.68,
+    conflictMultiplier: 1.68,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -86,8 +86,8 @@ export const PERSONAS = [
       "Roberta is able to take time off work to make appointments.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 3,
-    daysfeelingunwell: 2,
+    daysToPrepAndAttend: 3,
+    daysFeelingUnwell: 2,
 
     //then display total lost income
 
@@ -111,10 +111,10 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "The stress of everything has slowly been taking its toll on me. I feel like I’m not the fun parent anymore, because I spend my weekends and vacation days preparing court documents, instead of spending time with my kids.",
 
-    instabiltiyQuote2:
+    instabilityQuote2:
       "When my kids are with Alice, I don’t feel grounded. I’ve been spending too much money and making big impulse purchases. I’ve been dipping into my savings to pay for everything."
   },
 
@@ -124,8 +124,7 @@ export const PERSONAS = [
     //SECTION 1 - Persona Card
 
     //Description displayed directly under persona name
-    details:
-      "Aisha is 28 years old IT worker with a two-year-old daughter.",
+    details: "Aisha is 28 years old IT worker with a two-year-old daughter.",
 
     //then display data from these 2 tags only
     stage: "application",
@@ -164,7 +163,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.01,
+    conflictMultiplier: 1.01,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -186,8 +185,8 @@ export const PERSONAS = [
       "Aisha has some flexibility to work from home one day a week, or to shift her hours if she checks in with her team first.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 2,
-    daysfeelingunwell: 1,
+    daysToPrepAndAttend: 2,
+    daysFeelingUnwell: 1,
 
     //then display total lost income
 
@@ -212,12 +211,11 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-        "Things have been really hard since the separation. I just started a new job with great colleagues but the hours are long. The work is challenging and I want to make a good impression, especially during my probation period,. I’m struggling to balance work, the separation, and making sure that I still pick my daughter up from daycare on time.",
+      "Things have been really hard since the separation. I just started a new job with great colleagues but the hours are long. The work is challenging and I want to make a good impression, especially during my probation period,. I’m struggling to balance work, the separation, and making sure that I still pick my daughter up from daycare on time.",
 
     instabiltiyQuote2:
-        "My sister and best friend live nearby. Sometimes they come over for a glass of wine, but a lot of the time I feel lonely. The stress is getting to me."
-      },
-
+      "My sister and best friend live nearby. Sometimes they come over for a glass of wine, but a lot of the time I feel lonely. The stress is getting to me."
+  },
 
   {
     name: "Marcus",
@@ -226,7 +224,7 @@ export const PERSONAS = [
 
     //Description displayed directly under persona name
     details:
-        "Marcus is a 32-year-old sales manager at a manufacturing company with custody of his three children, ages 5, 6, and 9.",
+      "Marcus is a 32-year-old sales manager at a manufacturing company with custody of his three children, ages 5, 6, and 9.",
 
     //then display data from these 2 tags only
     stage: "separationWithChildren",
@@ -265,7 +263,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.25,
+    conflictMultiplier: 1.25,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -287,8 +285,8 @@ export const PERSONAS = [
       "Marcus has little flexibility to take time off and is using up his vacation to prepare for and attend court.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 5,
-    daysfeelingunwell: 2,
+    daysToPrepAndAttend: 5,
+    daysFeelingUnwell: 2,
 
     //then display total lost income
 
@@ -304,8 +302,7 @@ export const PERSONAS = [
     //SUBSECTION - MOVING
 
     //display Moving quote (if moving quote = null, then don't display)
-    movingCostText:
-      null,
+    movingCostText: null,
 
     hasToMove: false,
     movingFees: 0, //should default value be zero?
@@ -313,13 +310,11 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-       "I was already struggling to deal with everything after Barb left, but things have just gotten worse. I’m anxious and preparing for court takes up so much of my time and energy. Every time I go to court, I’m losing time with my kids. They have so many school and sporting events I want to be at and now I have to make it to all the court dates too.",
+      "I was already struggling to deal with everything after Barb left, but things have just gotten worse. I’m anxious and preparing for court takes up so much of my time and energy. Every time I go to court, I’m losing time with my kids. They have so many school and sporting events I want to be at and now I have to make it to all the court dates too.",
 
     instabiltiyQuote2:
-       "My kids are upset with me. They complain that I’m always busy with “paperwork”. They tell me that their mom is more fun. I’ve been so stressed out and on-edge lately. I’ve snapped at my kids and even people at work. I hung up on a long-time client one day. I managed to smooth things over with my boss, but I’ve been warned to keep my problems at home."
+      "My kids are upset with me. They complain that I’m always busy with “paperwork”. They tell me that their mom is more fun. I’ve been so stressed out and on-edge lately. I’ve snapped at my kids and even people at work. I hung up on a long-time client one day. I managed to smooth things over with my boss, but I’ve been warned to keep my problems at home."
   },
-
-
 
   {
     name: "Pablo",
@@ -327,8 +322,7 @@ export const PERSONAS = [
     //SECTION 1 - Persona Card
 
     //Description displayed directly under persona name
-    details:
-        "Pablo is a 44 year-old high school teacher with no children.",
+    details: "Pablo is a 44 year-old high school teacher with no children.",
 
     //then display data from these 2 tags only
     stage: "divorce",
@@ -367,7 +361,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.01,
+    conflictMultiplier: 1.01,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -389,8 +383,8 @@ export const PERSONAS = [
       "Pablo called his union to see if he can miss a day but was told he will have to call in sick to attend court.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 2,
-    daysfeelingunwell: 3,
+    daysToPrepAndAttend: 2,
+    daysFeelingUnwell: 3,
 
     //then display total lost income
 
@@ -414,11 +408,10 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-       "So far, I have been able to pay for divorce costs each month, but soon I’ll have to dip into my savings.",
+      "So far, I have been able to pay for divorce costs each month, but soon I’ll have to dip into my savings.",
     instabiltiyQuote2:
-       "Ever since we started the divorce process, I’ve been having problems sleeping. My doctor prescribed me sleeping pills for my insomnia, but sometimes I wake up feeling awful. On bad days, I call in sick."
-    },
-
+      "Ever since we started the divorce process, I’ve been having problems sleeping. My doctor prescribed me sleeping pills for my insomnia, but sometimes I wake up feeling awful. On bad days, I call in sick."
+  },
 
   {
     name: "Priya",
@@ -427,7 +420,7 @@ export const PERSONAS = [
 
     //Description displayed directly under persona name
     details:
-        "Priya is 40 years old health care worker and has a nine-year-old child.",
+      "Priya is 40 years old health care worker and has a nine-year-old child.",
 
     //then display data from these 2 tags only
     stage: "trial",
@@ -466,7 +459,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 2.01,
+    conflictMultiplier: 2.01,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -488,8 +481,8 @@ export const PERSONAS = [
       "Pryia work is shift work and has some flexibility if she needs to appear in court during a scheduled work shift.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 4,
-    daysfeelingunwell: 1,
+    daysToPrepAndAttend: 4,
+    daysFeelingUnwell: 1,
 
     //then display total lost income
 
@@ -505,8 +498,7 @@ export const PERSONAS = [
     //SUBSECTION - MOVING
 
     //display Moving quote (if moving quote = null, then don't display)
-    movingCostText:
-      null,
+    movingCostText: null,
 
     hasToMove: false,
     movingFees: 0, //should default value be zero?
@@ -518,7 +510,7 @@ export const PERSONAS = [
 
     instabiltiyQuote2:
       "I get very anxious in the days leading up to my court dates. I lose my appetite and stop eating. I’m getting sick more frequently and spending more on my medical costs."
-    },
+  },
   {
     name: "Maria",
     pronouns: PRONOUNS.FEM,
@@ -526,7 +518,7 @@ export const PERSONAS = [
 
     //Description displayed directly under persona name
     details:
-        "Maria is 58 years old and is working as a part-time professional. Her two adult children frequently spend time at her place.",
+      "Maria is 58 years old and is working as a part-time professional. Her two adult children frequently spend time at her place.",
 
     //then display data from these 2 tags only
     stage: "variation",
@@ -565,7 +557,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.11,
+    conflictMultiplier: 1.11,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -587,16 +579,15 @@ export const PERSONAS = [
       "Maria’s work flexibility means that she does not have to take “time off” to attend court.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 1,
-    daysfeelingunwell: 2,
+    daysToPrepAndAttend: 1,
+    daysFeelingUnwell: 2,
 
     //then display total lost income
 
     //SUBSECTION - Childcare
 
     //display Childcare quote (if childcare quote = null, then don't display)
-    childcareCostText:
-      null,
+    childcareCostText: null,
 
     children: 0,
     childcareFees: 0, //should default value be zero?
@@ -604,8 +595,7 @@ export const PERSONAS = [
     //SUBSECTION - MOVING
 
     //display Moving quote (if moving quote = null, then don't display)
-    movingCostText:
-      null,
+    movingCostText: null,
 
     hasToMove: false,
     movingFees: 0, //should default value be zero?
@@ -613,11 +603,11 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-        "I’m happy to be working again, but it’s been hard since the court proceedings began. I am worried about my business. Going to court leaves me feeling exhausted and drained. I often cancel my appointments for the next day.  I can tell my clients are unhappy with me.",
+      "I’m happy to be working again, but it’s been hard since the court proceedings began. I am worried about my business. Going to court leaves me feeling exhausted and drained. I often cancel my appointments for the next day.  I can tell my clients are unhappy with me.",
 
-   instabiltiyQuote2:
+    instabiltiyQuote2:
       "Because English is my second language, I’m nervous that I might not understand what happens in court. I’ve hired someone from the local community centre to help translate for me in court. I pay for everything on my credit cards. All this pressure is putting a strain on my relationships."
-    },
+  },
   {
     name: "Philippe",
     pronouns: PRONOUNS.MASC,
@@ -625,7 +615,7 @@ export const PERSONAS = [
 
     //Description displayed directly under persona name
     details:
-        "Philippe is 36 years old seasonal worker who has been laid-off for the winter and has two children, ages 4 and 6.",
+      "Philippe is 36 years old seasonal worker who has been laid-off for the winter and has two children, ages 4 and 6.",
 
     //then display data from these 2 tags only
     stage: "variation",
@@ -664,7 +654,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 1.68,
+    conflictMultiplier: 1.68,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -678,16 +668,15 @@ export const PERSONAS = [
     //SUBSECTION -  Days Off Work
 
     //then display Daysff Quote in quote box (every persona has a daysoff quote)
-    daysOffWorkQuote:
-      "I still need to dedicate time to prepare for court",
+    daysOffWorkQuote: "I still need to dedicate time to prepare for court",
 
     //then display days off text as regular text (if days off work Text = null, then don't display)
     daysOffWorkText:
       "While he has the flexibility to manage court appearances and prep, he still has to organize care for his children.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 2,
-    daysfeelingunwell: 0,
+    daysToPrepAndAttend: 2,
+    daysFeelingUnwell: 0,
 
     //then display total lost income
 
@@ -703,8 +692,7 @@ export const PERSONAS = [
     //SUBSECTION - MOVING
 
     //display Moving quote (if moving quote = null, then don't display)
-    movingCostText:
-      null,
+    movingCostText: null,
 
     hasToMove: false,
     movingFees: 0, //should default value be zero?
@@ -712,14 +700,14 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-        "My work is seasonal and I was laid off for the winter. I’ve been paying for everything using my credit cards. I worry about how I will pay off my credit card bills every month.",
+      "My work is seasonal and I was laid off for the winter. I’ve been paying for everything using my credit cards. I worry about how I will pay off my credit card bills every month.",
 
     instabiltiyQuote2:
-       "Going to court is very stressful. A friend helps me review my paperwork and sometimes comes with me to court. My neighbour sometimes offers to watch my children when I go to court. I feel guilty imposing on people but I don’t know how I would do it without their help.",
+      "Going to court is very stressful. A friend helps me review my paperwork and sometimes comes with me to court. My neighbour sometimes offers to watch my children when I go to court. I feel guilty imposing on people but I don’t know how I would do it without their help.",
 
     instabiltiyQuote3:
-       "The stress is getting to me. I've started drinking heavily after the children go to bed to deal with everything."
-      },
+      "The stress is getting to me. I've started drinking heavily after the children go to bed to deal with everything."
+  },
   {
     name: "Ahmed",
     pronouns: PRONOUNS.MASC,
@@ -727,7 +715,7 @@ export const PERSONAS = [
 
     //Description displayed directly under persona name
     details:
-        "Ahmed is 52 years old, works in construction and has one child who is 20 and away at college.",
+      "Ahmed is 52 years old, works in construction and has one child who is 20 and away at college.",
 
     //then display data from these 2 tags only
     stage: "divorce",
@@ -766,7 +754,7 @@ export const PERSONAS = [
     professionalFees: 0, //should default value be zero?
     //do we need to add field for courtFees?
 
-    conflictmultiplier: 3.82,
+    conflictMultiplier: 3.82,
 
     //SUBSECTION - Transportation Costs
     //do we need to add field for transportationCosts?
@@ -788,16 +776,15 @@ export const PERSONAS = [
       "Ahmed has inconsistent hours in his construction job and any time he takes off work for court is unpaid.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
-    daystoprepandattend: 3,
-    daysfeelingunwell: 5,
+    daysToPrepAndAttend: 3,
+    daysFeelingUnwell: 5,
 
     //then display total lost income
 
     //SUBSECTION - Childcare
 
     //display Childcare quote (if childcare quote = null, then don't display)
-    childcareCostText:
-      null,
+    childcareCostText: null,
 
     children: 0,
     childcareFees: 0, //should default value be zero?
@@ -805,8 +792,7 @@ export const PERSONAS = [
     //SUBSECTION - MOVING
 
     //display Moving quote (if moving quote = null, then don't display)
-    movingCostText:
-      null,
+    movingCostText: null,
 
     hasToMove: false,
     movingFees: 0, //should default value be zero?
@@ -814,8 +800,8 @@ export const PERSONAS = [
     //SECTION - Impact on stability
 
     instabiltiyQuote1:
-       "I feel like I can’t talk to anyone about what I’m going through. I’ve lost so many friends over the past 4 years and I feel isolated and alone.",
+      "I feel like I can’t talk to anyone about what I’m going through. I’ve lost so many friends over the past 4 years and I feel isolated and alone.",
     instabiltiyQuote2:
-       "I have been using my retirement savings to pay the legal fees. I was hoping I could retire in the next 5 to 10 years, but now I’m worried that I won't be able to retire anytime soon."
+      "I have been using my retirement savings to pay the legal fees. I was hoping I could retire in the next 5 to 10 years, but now I’m worried that I won't be able to retire anytime soon."
   }
 ];
