@@ -16,7 +16,7 @@ export const ChooseLocationType = ({
   locationType
 }) => (
   <React.Fragment>
-    <div>{`${capitalize(persona.pronouns.subjective)} lives in a:`}</div>
+    <div>{`Distance from courthouse:`}</div>
     <DisplayItemsWrapper>
       <LabelledImageButton
         active={equals(locationType, "urban")}

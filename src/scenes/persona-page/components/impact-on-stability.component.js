@@ -9,9 +9,9 @@ export const ImpactOnStability = () => (
       Impact on Stability
     </SectionHeader>
     <PersonaTextBold
-    >{`Legal processes affect people's health, employment, housing, and relationships, 
-      and can mean increased medical costs, risk of job loss or bankruptcy. Impact on stability 
-      recognizes how the non-monetary impacts of the court process vary depending on someone's 
+    >{`Legal processes affect people's health, employment, housing, and relationships,
+      and can mean increased medical costs, risk of job loss or bankruptcy. Impact on Stability
+      recognizes how the non-monetary impacts of the court process vary depending on someone's
       circumstances and finances.`}</PersonaTextBold>
   </React.Fragment>
 );

@@ -7,9 +7,10 @@ export const CHOOSE_PERSONA_ACTION_TYPES = {
 export const FILTER_TYPES = {
   STAGE: "stage",
   JOB_STABILITY: "jobStability",
+  //stress capacity and depedents are no longer filters
   STRESS_CAPACITY: "stressCapacity",
   DEPENDENTS: "dependents"
-};
+  };
 
 export const FILTER_VALUES = {
   STABLE: "stable",
@@ -20,6 +21,7 @@ export const FILTER_VALUES = {
   DIVORCE: "divorce",
   TRIAL: "trial",
   VARIATION: "variation",
+  //stress capacity and depedents are no longer filters
   LOW: 0,
   MEDIUM: 50,
   HIGH: 100,
