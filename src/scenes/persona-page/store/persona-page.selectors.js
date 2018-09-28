@@ -69,7 +69,7 @@ const selectReasonsForLegalAidEligibility = createSelector(
     if (income > LEGAL_AID_CUTOFF[province][persona.children]) {
       reasons.push(
         `${capitalize(persona.pronouns.possessive)}
-        income is above the legal cut-off in
+        income is above the legal aid cut-off in
         ${persona.pronouns.possessive} province.`
       );
     }
@@ -77,7 +77,7 @@ const selectReasonsForLegalAidEligibility = createSelector(
       reasons.push(
         `Legal aid in
         ${persona.pronouns.possessive}
-        province do not cover this type of proceeding`
+        province does not cover this type of proceeding.`
       );
     }
     return reasons;
@@ -98,17 +98,19 @@ const selectLegalFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(11000)
 );
 
-const selectMovingFees = createSelector(selectCurrentPersona,
+const selectMovingFees = createSelector(
+  selectCurrentPersona,
   selectProvince,
-  (persona, province) =>
-    numberToMoneyDisplay(MOVING_FEES[province])
+  (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
 );
 
-const selectChildcareFees = createSelector(selectCurrentPersona,
+const selectChildcareFees = createSelector(
+  selectCurrentPersona,
   selectProvince,
   (persona, province) =>
     numberToMoneyDisplay(
-      10 * COST_OF_CHILDCARE_PER_DAY[province] * persona.children)
+      10 * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
+    )
 );
 
 const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>

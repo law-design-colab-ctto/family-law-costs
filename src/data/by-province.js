@@ -141,11 +141,10 @@ export const MOVING_FEES = {
 };
 
 export const TRANSPORT_FEES = {
-  rural: 18,
-  urban: 75,
-  //TODO: replace suburban (placeholder)
-  suburban: 125,
-  remote: 200
+  rural: 20,
+  urban: 50,
+  suburban: 120,
+  remote: 300
 };
 
 export const LEGAL_FEES = {
@@ -154,14 +153,17 @@ export const LEGAL_FEES = {
   divorce: 3780,
   trial: 25830,
   variation: 2362
+  //mediation: 4423
 };
 
 export const NUMBER_OF_COURT_EVENTS = {
+  //this is the average number of court events for a given stage
   application: 1,
   separationWithChildren: 10,
   divorce: 6.5,
   trial: 16,
   variation: 8.6
+  //mediation: 2
 };
 
 export const PROFESSIONAL_FEES = {
@@ -178,4 +180,25 @@ export const LEGAL_AID_ELIGIBILITY = {
   divorce: false,
   trial: true,
   variation: false
+};
+
+export const INCOME_BAND = {
+  //daily income is divided into 6 bands
+  //daily income is annual income / 252 working days per year
+  maxband1: 96,
+  maxband2: 192,
+  maxband3: 288,
+  maxband4: 384,
+  maxband5: 576
+  //maximum income is 250K p.a. for all personas
+  //if daily income >576, then income is in Band 6
+  //if 384 < daily income < 576, then income is in Band 5
+};
+
+export const INSTABILITY_SCORE = {
+  maxscorelow: 5,
+  maxscoremed: 10
+  //if instability score < maxscorelow, then Low Temp Picture
+  //if maxscorelow < instability score < maxscoremed, then Med Temp Picture
+  //if instability score > maxscoremed, then High Temp Picture
 };

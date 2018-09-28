@@ -1,35 +1,50 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   SectionSubheader,
   DisplayItemsWrapper,
-  OutlinedDisplayCard,
+  TallOutlinedDisplayCard,
   Label,
-  CenteredContent,
-  PersonaTextBold
+  CenteredContentColumn,
+  PersonaTextBold,
+  DaysOffWorkImage
 } from "../persona-page.styles";
-export const DaysOffWork = () => (
+export const DaysOffWork = ({
+  daysOffWork = { courtDays: 5, sickDays: 5, totalDays: 10 }
+}) => (
   <React.Fragment>
     <SectionSubheader>Days off work</SectionSubheader>
     <DisplayItemsWrapper>
-      <OutlinedDisplayCard>
+      <TallOutlinedDisplayCard>
         <Label>Prep days and court events</Label>
-        <CenteredContent>
-          <PersonaTextBold>5 days</PersonaTextBold>
-        </CenteredContent>
-      </OutlinedDisplayCard>
-      <OutlinedDisplayCard>
-        <Label>Sick days</Label>
-        <CenteredContent>
-          <PersonaTextBold>5 days</PersonaTextBold>
-        </CenteredContent>
-      </OutlinedDisplayCard>
-      <OutlinedDisplayCard>
-        <Label>Total days</Label>
-        <CenteredContent>
-          <PersonaTextBold>10 days</PersonaTextBold>
-        </CenteredContent>
-      </OutlinedDisplayCard>
+        <CenteredContentColumn>
+          <DaysOffWorkImage imageName="CourtDays" />
+          <PersonaTextBold>{daysOffWork.courtDays} days</PersonaTextBold>
+        </CenteredContentColumn>
+      </TallOutlinedDisplayCard>
+      <TallOutlinedDisplayCard>
+        <Label>Days missed for Health Reasons</Label>
+        <CenteredContentColumn>
+          <DaysOffWorkImage imageName="SickDays" />
+          <PersonaTextBold>{daysOffWork.sickDays} days</PersonaTextBold>
+        </CenteredContentColumn>
+      </TallOutlinedDisplayCard>
+      <TallOutlinedDisplayCard>
+        <Label>Total days missed</Label>
+        <CenteredContentColumn>
+          <DaysOffWorkImage imageName="TotalDays" />
+          <PersonaTextBold>{daysOffWork.totalDays} days</PersonaTextBold>
+        </CenteredContentColumn>
+      </TallOutlinedDisplayCard>
     </DisplayItemsWrapper>
   </React.Fragment>
 );
+
+DaysOffWork.propTypes = {
+  daysOffWork: {
+    courtDays: PropTypes.number,
+    sickDays: PropTypes.number,
+    totalDays: PropTypes.number
+  }
+};
