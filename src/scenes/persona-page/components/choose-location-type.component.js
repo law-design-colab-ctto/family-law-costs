@@ -9,11 +9,7 @@ import {
   DistanceImage
 } from "../persona-page.styles";
 
-export const ChooseLocationType = ({
-  persona,
-  setLocationType,
-  locationType
-}) => (
+export const ChooseLocationType = ({ setLocationType, locationType }) => (
   <React.Fragment>
     <div>{`Distance from courthouse:`}</div>
     <DisplayItemsWrapper>
