@@ -9,7 +9,11 @@ import {
 import { LEGAL_AID_CUTOFF, LEGAL_AID_ELIGIBILITY } from "src/data/by-province";
 import { NUMBER_OF_COURT_EVENTS, TRANSPORT_FEES } from "src/data/by-province";
 import { COST_OF_CHILDCARE_PER_DAY, MOVING_FEES } from "src/data/by-province";
-import { COURT_FEES_BY_STAGE } from "src/data/by-province";
+import {
+  LEGAL_FEES,
+  COURT_FEES_BY_STAGE,
+  PROFESSIONAL_FEES
+} from "src/data/by-province";
 import { capitalize } from "../../../utils";
 
 const selectCurrentPersonaName = pipe(
@@ -97,12 +101,17 @@ const selectTransportationFees = createSelector(
 
 const selectLegalFees = createSelector(selectCurrentPersona,
   selectHasLawyer,
-  (persona, withLawyer) => {
-    let money = 0;
+  selectIsEligibleForLegalAid,
+  selectProvince,
+  (persona, withLawyer, isEligibleForLegalAid, province) => {
+    let lawyer_fees = 0, legal_aid = 0, professional_court_fees = 0;
     if (withLawyer) {
-      money = 123
+      lawyer_fees = LEGAL_FEES[persona.stage] * persona.conflictmultiplier
+      isEligibleForLegalAid ? legal_aid = lawyer_fees : legal_aid = 0;
     }
-    return numberToMoneyDisplay(money)
+    professional_court_fees = COURT_FEES_BY_STAGE[province][persona.stage] +
+      PROFESSIONAL_FEES[persona.stage];
+    return numberToMoneyDisplay(lawyer_fees - legal_aid + professional_court_fees)
   }
 );
 
