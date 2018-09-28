@@ -6,10 +6,10 @@ import { PersonaTextRegular, QuoteBlock } from "../persona-page.styles";
 export const Stress = ({ persona }) => (
   <QuoteBlock>
     <PersonaTextRegular>
-      <em>{`"${persona.stressText1}"`}</em>
+      <em>{`"${persona.instabilityQuote1}"`}</em>
     </PersonaTextRegular>
     <PersonaTextRegular>
-      <em>{`"${persona.stressText2}"`}</em>
+      <em>{`"${persona.instabilityQuote2}"`}</em>
     </PersonaTextRegular>
   </QuoteBlock>
 );
