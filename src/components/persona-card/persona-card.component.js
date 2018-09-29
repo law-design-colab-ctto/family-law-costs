@@ -22,8 +22,9 @@ export const PersonaCard = ({ persona }) => (
         </Typography>
         <PersonaAttr>
           <p>{persona.details}</p>
-          Job Stability: {FILTER_VALUE_TO_LABEL[persona.jobStability]} <br />
-          Stage: {FILTER_VALUE_TO_LABEL[persona.stage]} <br />
+          <strong>Job Stability:</strong>
+          {FILTER_VALUE_TO_LABEL[persona.jobStability]} <br />
+          <strong>Stage:</strong> {FILTER_VALUE_TO_LABEL[persona.stage]} <br />
         </PersonaAttr>
       </CardContent>
     </StyledLink>
