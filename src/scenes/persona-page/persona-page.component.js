@@ -82,7 +82,6 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <TransportationCosts {...this.props} />
           </SectionBlock>
-          {/* GRAPH HERE */}
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader colour={colours.periwinkleBlue}>
@@ -130,7 +129,7 @@ export class PersonaPageComponent extends React.Component {
           />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <ImpactOnStability />
+          <ImpactOnStability persona={persona} />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueDark}>
           <Stress persona={persona} />
