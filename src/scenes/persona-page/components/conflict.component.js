@@ -5,7 +5,6 @@ import {
   YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  LineSeries,
   VerticalBarSeries
 } from 'react-vis';
 
