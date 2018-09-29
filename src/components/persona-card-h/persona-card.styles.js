@@ -3,6 +3,7 @@ import Card from "@material-ui/core/Card";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
 import CardContent from "@material-ui/core/CardContent";
+import { capitalize } from "src/utils";
 
 import { spacing, colours, fontSizes } from "src/styles";
 
@@ -18,9 +19,11 @@ export const StyledLink = styled(Link)`
 `;
 
 export const PersonaCardMedia = styled.div`
-  background-image: url("/assets/${props => props.name}.card@3x.png");
+  background-image: url("/assets/${props =>
+    capitalize(props.name)}-card@3x.png");
   @media only screen and (max-device-width: 480px) {
-    background-image: url("/assets/${props => props.name}.card@1x.png");
+    background-image: url("/assets/${props =>
+      capitalize(props.name)}-card@1x.png");
   }
   background-position: top; 
   background-repeat: no-repeat; 
