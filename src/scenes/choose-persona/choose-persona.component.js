@@ -37,33 +37,22 @@ export const ChoosePersonaComponent = props => {
         <Grid item sm={8} xs={12}>
           <ToolDescription>
             <p>
-              Its difficult to make changes to court processes or services
-              without an understanding of the costs to people in the family
-              system. This site tries to facilitate that understanding.
+              It is hard to calculate the real cost of a family law dispute in Canada. Without this information, it is hard for individuals, lawyers, governments and courts to understand the impact and to improve the system.
             </p>
             <p>
-              This tool calculates and compares typical costs including the
-              money people spend during their legal dispute and the money they
-              lose through missed work.
+              The Out-of-Pocket tool helps to put a dollar figure on the out-of-pocket costs to individuals and families during a family law dispute.
             </p>
             <p>
-              This tool can help individuals, government, media, and researchers
-              to understand the implications of family law.
-            </p>
-            <p>
-              The calculations included in this tool are based on research of
-              litigants about their experiences in family law disputes, as well
-              as statistics from across the country.
+              This tool uses typical stories and experiences to provide snapshots of family law costs.
             </p>
           </ToolDescription>
         </Grid>
       </ChoosePersonaMainSection>
       <ChoosePersonaMainSection colour={colours.grayMediumLight} item xs={12}>
         <OutOfPocketSubHeader>
-          See family law impacts on a variety of litigants. Let us pick one, or
-          get choices below:
+          To learn more, click on one of the stories below or use the filters to find stories about specific experiences.
         </OutOfPocketSubHeader>
-        <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
+        <FiltersSectionTitle>Filter stories by:</FiltersSectionTitle>
         <Grid xs={12} container spacing={40} item>
           <Grid item xs={12} sm={6}>
             <FilterSet
@@ -79,7 +68,7 @@ export const ChoosePersonaComponent = props => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FilterSet
-              label="Stage"
+              label="Stage of the Court Proceeding"
               options={STAGE_OPTIONS}
               setFilter={setFilter}
               currentFilterValue={stageFilter}

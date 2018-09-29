@@ -10,10 +10,10 @@ import {
 export const SiteHeader = () => (
   <HeaderGrid item xs={12} container justify="space-between">
     <SiteTitleWrapper item>
-      <NavLink to="/">Out-of-pocket costs</NavLink>
+      <NavLink to="/">Out-of-Pocket</NavLink>
     </SiteTitleWrapper>
     <LinksWrapper item>
-      <NavLink to="/about">About us</NavLink>
+      <NavLink to="/about">About Out-of-Pocket</NavLink>
       <NavLink to="/methodology">Methodology</NavLink>
     </LinksWrapper>
   </HeaderGrid>
