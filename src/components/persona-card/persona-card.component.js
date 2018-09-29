@@ -5,7 +5,8 @@ import {
   StyledCard,
   StyledLink,
   PersonaCardMedia,
-  PersonaAttr
+  PersonaAttr,
+  Details
 } from "./persona-card.styles";
 import { FILTER_VALUE_TO_LABEL } from "src/scenes/choose-persona/store/choose-persona.constants";
 
@@ -15,16 +16,16 @@ import Typography from "@material-ui/core/Typography";
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
     <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
-      <PersonaCardMedia name={persona.name} title="Contemplative Reptile" />
+      <PersonaCardMedia name={persona.name} title={persona.name} />
       <CardContent>
         <Typography gutterBottom variant="headline" color="primary">
           {persona.name}
         </Typography>
+        <Details>{persona.details}</Details>
         <PersonaAttr>
-          <p>{persona.details}</p>
-          <strong>Job Stability:</strong>
+          <strong>Job Stability: </strong>
           {FILTER_VALUE_TO_LABEL[persona.jobStability]} <br />
-          <strong>Stage:</strong> {FILTER_VALUE_TO_LABEL[persona.stage]} <br />
+          <strong>Stage: </strong> {FILTER_VALUE_TO_LABEL[persona.stage]} <br />
         </PersonaAttr>
       </CardContent>
     </StyledLink>

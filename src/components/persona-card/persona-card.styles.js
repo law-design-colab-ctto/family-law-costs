@@ -20,6 +20,7 @@ export const StyledCard = styled(Card)`
   margin: 0 ${spacing.five} ${spacing.five} 0;
   flex-shrink: 0;
   width: 20rem;
+  padding-top: ${spacing.four};
 `;
 
 export const StyledLink = styled(Link)`
@@ -27,24 +28,26 @@ export const StyledLink = styled(Link)`
 `;
 
 export const PersonaCardMedia = styled.div`
-  background-image: url("/assets/${props => props.name}@3x.png");
+  background-image: url("/assets/${props => props.name}-card@3x.png");
   @media only screen and (max-device-width: 480px) {
-    background-image: url("/assets/${props => props.name}.png");
+    background-image: url("/assets/${props => props.name}-card.png");
   }
   background-position: center; 
   background-repeat: no-repeat; 
-  background-size: cover; 
+  background-size: contain; 
   width: 100%;
-  height: 10rem;
+  height: 15rem;
 `;
 
-//styled.h3
 export const PersonaName = styled.h3`
   font-size: ${fontSizes.title};
-  //margin-top: ${spacing.one}
 `;
 
-//styled.span
 export const PersonaAttr = styled(Typography)`
   color: ${colours.grayDark};
+`;
+
+export const Details = styled.div`
+  padding: ${spacing.three} 0;
+  color: ${colours.black};
 `;

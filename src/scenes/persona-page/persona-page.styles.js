@@ -352,3 +352,8 @@ export const ThermometerImage = ImageDiv.extend`
   width: 4rem;
   height: 7rem;
 `;
+
+export const InstabilityImage = ImageDiv.extend`
+  width: 100%;
+  height: 30rem;
+`;
