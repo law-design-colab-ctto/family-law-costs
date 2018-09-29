@@ -10,11 +10,13 @@ import {
   PersonaTextBold,
   DaysOffWorkImage
 } from "../persona-page.styles";
-export const DaysOffWork = ({
-  daysOffWork = { courtDays: 5, sickDays: 5, totalDays: 10 }
-}) => (
+export const DaysOffWork = ({ daysOffWork, persona }) => (
   <React.Fragment>
     <SectionSubheader>Days off work</SectionSubheader>
+    <p>
+      <em>{`"${persona.daysOffWorkQuote}"`}</em>
+    </p>
+    <p>{persona.daysOffWorkText}</p>
     <DisplayItemsWrapper>
       <TallOutlinedDisplayCard>
         <Label>Prep days and court events</Label>
@@ -42,9 +44,6 @@ export const DaysOffWork = ({
 );
 
 DaysOffWork.propTypes = {
-  daysOffWork: {
-    courtDays: PropTypes.number,
-    sickDays: PropTypes.number,
-    totalDays: PropTypes.number
-  }
+  daysOffWork: PropTypes.objectOf(PropTypes.number),
+  persona: PropTypes.any
 };

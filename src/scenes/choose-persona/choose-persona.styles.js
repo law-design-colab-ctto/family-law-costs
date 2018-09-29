@@ -58,6 +58,8 @@ export const OutOfPocketHeader = styled.h1`
   font-weight: 500;
   font-size: ${fontSizes.display};
   line-height: 1.2;
+  padding-right: ${spacing.two};
+  color: ${colours.periwinkleBlue};
 `;
 
 export const OutOfPocketSubHeader = styled.h2`

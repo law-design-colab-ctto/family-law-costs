@@ -5,12 +5,11 @@ import { colours } from "src/styles";
 import { SiteFooter } from "src/components";
 import {
   DescriptiveSection,
-  MissionHeader,
   ChoosePersonaMainSection,
   OutOfPocketHeader,
   OutOfPocketSubHeader,
   ToolDescription,
-  FiltersSectionTitle,
+  FiltersSectionTitle
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
