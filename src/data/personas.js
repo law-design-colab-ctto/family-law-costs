@@ -609,7 +609,7 @@ export const PERSONAS = [
       "Because English is my second language, I’m nervous that I might not understand what happens in court. I’ve hired someone from the local community centre to help translate for me in court. I pay for everything on my credit cards. All this pressure is putting a strain on my relationships."
   },
   {
-    name: "Philippe",
+    name: "Phillipe",
     pronouns: PRONOUNS.MASC,
     //SECTION 1 - Persona Card
 
