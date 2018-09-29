@@ -5,13 +5,11 @@ import { colours } from "src/styles";
 import { SiteFooter } from "src/components";
 import {
   DescriptiveSection,
-  MissionHeader,
   ChoosePersonaMainSection,
   OutOfPocketHeader,
   OutOfPocketSubHeader,
   ToolDescription,
-  FiltersSectionTitle,
-  DescriptionSectionImages
+  FiltersSectionTitle
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -20,7 +18,6 @@ import {
   FILTER_TYPES
 } from "./store/choose-persona.constants";
 import { FilterSet, SiteHeader } from "src/components";
-import { PlaceholderImage } from "src/assets/icons";
 import { PersonaResults } from "./components/persona-results.component";
 
 export const ChoosePersonaComponent = props => {
@@ -29,56 +26,33 @@ export const ChoosePersonaComponent = props => {
     <Grid container direction="column">
       <SiteHeader />
       <DescriptiveSection item xs={12}>
-        <MissionHeader>Our mission</MissionHeader>
-        <div>
-          Its difficult to make changes to court processes or services without
-          an understanding of the costs to people in the family system. This
-          site tries to facilitate that understanding.
-        </div>
-        <DescriptionSectionImages>
-          <PlaceholderImage fontSize="inherit" />
-          <PlaceholderImage fontSize="inherit" />
-          <PlaceholderImage fontSize="inherit" />
-        </DescriptionSectionImages>
+        <div>Highlighting the cost of family law disputes in Canada.</div>
       </DescriptiveSection>
       <ChoosePersonaMainSection item xs={12} container spacing={16}>
         <Grid item sm={4} xs={12}>
           <OutOfPocketHeader>
-            Out of Pocket Costs in Family Law
+            Out-of-Pocket: The Costs of Family Law
           </OutOfPocketHeader>
         </Grid>
         <Grid item sm={8} xs={12}>
           <ToolDescription>
             <p>
-              This tool calculates and compares typical costs including the
-              money people spend during their legal dispute and the money they
-              lose through missed work.
+              It is hard to calculate the real cost of a family law dispute in Canada. Without this information, it is hard for individuals, lawyers, governments and courts to understand the impact and to improve the system.
             </p>
             <p>
-              This tool can help individuals, government, media, and researchers
-              to understand the implications of family law.
+              The Out-of-Pocket tool helps to put a dollar figure on the out-of-pocket costs to individuals and families during a family law dispute.
             </p>
-          </ToolDescription>
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <OutOfPocketHeader>Methodology</OutOfPocketHeader>
-        </Grid>
-        <Grid item sm={8} xs={12}>
-          <ToolDescription>
             <p>
-              The calculations included in this tool are based on research of
-              litigants about their experiences in family law disputes, as well
-              as statistics from across the country.
+              This tool uses typical stories and experiences to provide snapshots of family law costs.
             </p>
           </ToolDescription>
         </Grid>
       </ChoosePersonaMainSection>
       <ChoosePersonaMainSection colour={colours.grayMediumLight} item xs={12}>
         <OutOfPocketSubHeader>
-          See family law impacts on a variety of litigants. Let us pick one, or
-          get choices below:
+          To learn more, click on one of the stories below or use the filters to find stories about specific experiences.
         </OutOfPocketSubHeader>
-        <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
+        <FiltersSectionTitle>Filter stories by:</FiltersSectionTitle>
         <Grid xs={12} container spacing={40} item>
           <Grid item xs={12} sm={6}>
             <FilterSet
@@ -94,7 +68,7 @@ export const ChoosePersonaComponent = props => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FilterSet
-              label="Stage"
+              label="Stage of the Court Proceeding"
               options={STAGE_OPTIONS}
               setFilter={setFilter}
               currentFilterValue={stageFilter}

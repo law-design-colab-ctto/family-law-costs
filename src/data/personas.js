@@ -45,9 +45,6 @@ export const PERSONAS = [
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
 
-    locationType: "rural",
-    //should default value be no selection?
-
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
     paymentmethodFactor: 2,
@@ -128,7 +125,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "application",
-    jobStability: "STABLE",
+    jobStability: "stable",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -143,9 +140,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -228,7 +222,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "separationWithChildren",
-    jobStability: "STABLE",
+    jobStability: "stable",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -243,9 +237,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -326,7 +317,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "divorce",
-    jobStability: "STABLE",
+    jobStability: "stable",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -341,9 +332,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -424,7 +412,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "trial",
-    jobStability: "STABLE",
+    jobStability: "stable",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -439,9 +427,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -522,7 +507,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "variation",
-    jobStability: "CONTRACT",
+    jobStability: "contract",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -537,9 +522,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -619,7 +601,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "variation",
-    jobStability: "BAD",
+    jobStability: "bad",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -634,9 +616,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)
@@ -719,7 +698,7 @@ export const PERSONAS = [
 
     //then display data from these 2 tags only
     stage: "divorce",
-    jobStability: "CONTRACT",
+    jobStability: "contract",
 
     //then quote is displayed on the Persona Card
     quote1:
@@ -734,9 +713,6 @@ export const PERSONAS = [
     income: 50000,
     //Sarah & Meredith would like default value for income to be 50K for all personas
     // for logic tests, note that dailyincome = annual income / 252 working days per year
-
-    locationType: "rural",
-    //should default value be no selection?
 
     //SECTION 3 - Summary
     // Instability Factors (use this data to calculate which temperature pic to display)

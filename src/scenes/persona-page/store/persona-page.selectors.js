@@ -37,11 +37,8 @@ const selectPersonaPage = path(["personaPage"]);
 const selectPersonaIncome = createSelector(selectPersonaPage, path(["income"]));
 const selectHasLawyer = createSelector(selectPersonaPage, path(["hasLawyer"]));
 const selectProvince = createSelector(selectPersonaPage, path(["province"]));
-const selectLocationType = createSelector(
-  selectPersonaPage,
-  selectCurrentPersona,
-  (personaPageData, currentPersona) =>
-    path(["locationType"])(personaPageData) || currentPersona.locationType
+const selectLocationType = createSelector(selectPersonaPage, personaPageData =>
+  path(["locationType"])(personaPageData)
 );
 const selectModalIsOpen = createSelector(
   selectPersonaPage,
@@ -95,8 +92,13 @@ const selectTransportationFees = createSelector(
   (persona, locationType) => {
     const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
     const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
-    return isNaN(fees) ? "" : numberToMoneyDisplay(fees);
+    return fees;
   }
+);
+
+const selectTransportationFeesDisplay = createSelector(
+  selectTransportationFees,
+  fees => (isNaN(fees) ? "" : numberToMoneyDisplay(fees))
 );
 
 const selectLegalFees = createSelector(
@@ -115,6 +117,17 @@ const selectLegalFees = createSelector(
     const legalFees = lawyerFees - legalAid + professionalCourtFees;
     return legalFees;
   }
+);
+
+const selectLegalFeesDisplay = createSelector(
+  selectLegalFees,
+  numberToMoneyDisplay
+);
+
+const selectCostsOfTheCase = createSelector(
+  selectLegalFees,
+  selectTransportationFees,
+  (legalFees, transportationFees) => legalFees + transportationFees
 );
 
 const selectMovingFees = createSelector(
@@ -136,6 +149,14 @@ const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(90000)
 );
 
+const selectDaysOffWork = createSelector(selectCurrentPersona, () => {
+  return {
+    courtDays: 5,
+    sickDays: 5,
+    totalDays: 10
+  };
+});
+
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
   incomeDisplay: selectPersonaIncomeDisplay,
@@ -144,10 +165,13 @@ export const personasConnector = createStructuredSelector({
   isEligibleForLegalAid: selectIsEligibleForLegalAid,
   eligibilityReasons: selectReasonsForLegalAidEligibility,
   locationType: selectLocationType,
-  transportationFees: selectTransportationFees,
-  legalFees: selectLegalFees,
+  transportationFees: selectTransportationFeesDisplay,
+  legalFees: selectLegalFeesDisplay,
   movingFees: selectMovingFees,
   childcareFees: selectChildcareFees,
   totalDirectFees: selectTotalDirectFees,
-  modalIsOpen: selectModalIsOpen
+  modalIsOpen: selectModalIsOpen,
+  daysOffWork: selectDaysOffWork,
+  province: selectProvince,
+  costsOfTheCase: selectCostsOfTheCase
 });
