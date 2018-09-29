@@ -3,10 +3,7 @@ import { SiteHeader, SiteFooter } from "src/components";
 import { InfoParagraph } from "../../components/info-paragraph/info-paragraph.component";
 import { InfoHeader } from "../../components/info-header/info-header.component";
 import { InfoSubheader } from "../../components/info-subheader/info-subheader.component";
-import { InfoTable } from "../../components/info-table/info-table.component";
-import { InfoTh } from "../../components/info-th/info-th.component";
-import { InfoTr } from "../../components/info-tr/info-tr.component";
-import { InfoTd } from "../../components/info-td/info-td.component";
+
 
 export default class InfoPage extends Component {
   render() {
@@ -43,7 +40,7 @@ export default class InfoPage extends Component {
         </InfoParagraph>
         <br />
 
-        
+
         <SiteFooter />
       </React.Fragment>
     );
