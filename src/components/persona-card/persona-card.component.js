@@ -7,7 +7,8 @@ import {
   PersonaCardMedia,
   PersonaAttr,
   StyledChip,
-  StyledQuote
+  StyledQuote,
+  PersonaImage
 } from "./persona-card.styles";
 
 import CardContent from '@material-ui/core/CardContent';
@@ -18,10 +19,11 @@ export const PersonaCard = ({ persona }) => (
   <StyledCard>
     <StyledLink key={`link-${persona.name}`} to={`/${persona.name}`}>
       <PersonaCardMedia
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image="/assets/Roberta.card@1x.png"
         title="Contemplative Reptile"
       />
       <CardContent>
+        <PersonaImage imageName="Roberta" />
         <Typography gutterBottom variant="headline" color="primary" >
           {capitalize(persona.name)}
         </Typography>

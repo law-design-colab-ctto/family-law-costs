@@ -53,3 +53,12 @@ export const StyledQuote = styled.h3`
   font-size: ${fontSizes.p};
   font-style: italic;
 `;
+
+export const PersonaImage = styled.div`
+  background-image: url("/assets/${props => props.imageName}.card@1x.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600 px;
+  widch: 600px;
+`;
