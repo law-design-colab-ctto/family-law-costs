@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import {
   SiteHeader,
-  PersonaCard,
+  PersonaCardHorizontal,
   PersonaSection,
   SiteFooter,
   CostsIncomeWithBars
@@ -61,7 +61,7 @@ export class PersonaPageComponent extends React.Component {
         <SiteHeader />
         <PersonaSection colours={colours.white}>
           <SectionBlock>
-            <PersonaCard persona={persona} quote={persona.quote1} />
+            <PersonaCardHorizontal persona={persona} quote={persona.quote1} />
           </SectionBlock>
           <PersonaTextRegular>{persona.intro}</PersonaTextRegular>
         </PersonaSection>
@@ -82,6 +82,7 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <TransportationCosts {...this.props} />
           </SectionBlock>
+          {/* GRAPH HERE */}
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader colour={colours.periwinkleBlue}>

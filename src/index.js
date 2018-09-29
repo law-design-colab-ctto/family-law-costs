@@ -18,6 +18,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "typeface-roboto";
 import InfoPage from "./scenes/methodology-page/methodology-page.component";
+import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component";
 
 injectGlobal`
   *,
@@ -66,16 +67,18 @@ const ReduxApp = () => (
     <CssBaseline />
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/" component={ChoosePersonaContainer} />
-          <Route exact path="/methodology" component={InfoPage} />
-          <Route exact path="/about" component={InfoPage} />
-          <Route
-            exact
-            path="/persona/:personaName"
-            component={PersonaPageContainer}
-          />
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/" component={ChoosePersonaContainer} />
+            <Route exact path="/methodology" component={InfoPage} />
+            <Route exact path="/about" component={InfoPage} />
+            <Route
+              exact
+              path="/persona/:personaName"
+              component={PersonaPageContainer}
+            />
+          </Switch>
+        </ScrollToTop>
       </ConnectedRouter>
     </Provider>
   </React.Fragment>

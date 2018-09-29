@@ -1,24 +1,33 @@
 import styled from "styled-components";
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
+import CardContent from "@material-ui/core/CardContent";
 
 import { spacing, colours, fontSizes } from "src/styles";
 
 export const StyledCard = styled(Card)`
-  min-width: 20rem;
+  padding: ${spacing.four};
+  background-color: ${colours.grayMediumLight};
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
-  flex-direction: "column";
+  flex-wrap: wrap;
 `;
 
-export const PersonaCardMedia = styled(CardMedia)`
-  width: 240px;
-  height: 240px;
+export const PersonaCardMedia = styled.div`
+  background-image: url("/assets/${props => props.name}.card@3x.png");
+  @media only screen and (max-device-width: 480px) {
+    background-image: url("/assets/${props => props.name}.card@1x.png");
+  }
+  background-position: top; 
+  background-repeat: no-repeat; 
+  background-size: contain; 
+  flex: 1 0 30%;
+  height: 15rem;
+  margin: ${spacing.three} 0;
 `;
 
 export const PersonaLabel = styled(Chip)`
@@ -29,6 +38,14 @@ export const PersonaLabel = styled(Chip)`
 export const PersonaDetails = styled.div`
   font-size: ${fontSizes.p};
   line-height: 1.4;
-  color: ${colours.grayDark};
+  color: ${colours.black};
   padding-bottom: ${spacing.two};
+`;
+
+export const PersonaContent = styled(CardContent)`
+  flex: 0 1 70%;
+`;
+export const PersonaQuote = styled.div`
+  padding: ${spacing.two} ${spacing.three};
+  color: ${colours.black};
 `;

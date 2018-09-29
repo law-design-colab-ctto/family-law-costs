@@ -10,7 +10,7 @@ export const FILTER_TYPES = {
   //stress capacity and depedents are no longer filters
   STRESS_CAPACITY: "stressCapacity",
   DEPENDENTS: "dependents"
-  };
+};
 
 export const FILTER_VALUES = {
   STABLE: "stable",
@@ -42,6 +42,17 @@ export const FILTER_VALUE_LABELS = {
   [FILTER_VALUES.LOW]: "Low",
   [FILTER_VALUES.MEDIUM]: "Medium",
   [FILTER_VALUES.HIGH]: "High"
+};
+
+export const FILTER_VALUE_TO_LABEL = {
+  stable: "Stable employment",
+  contract: "Contract work",
+  bad: "Precarious work or unemployment",
+  application: "Application",
+  separationWithChildren: "Separation",
+  divorce: "Divorce",
+  trial: "Trial",
+  variation: "Variation"
 };
 
 export const JOB_STABILITY_OPTIONS = [

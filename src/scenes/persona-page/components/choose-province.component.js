@@ -8,13 +8,13 @@ import {
 import { capitalize } from "src/utils";
 import Select from "@material-ui/core/Select";
 
-export const ChooseProvince = ({ setProvince, persona }) => (
+export const ChooseProvince = ({ setProvince, persona, province }) => (
   <DropdownControlWrapper>
     <div>{`${capitalize(persona.name)} lives in`}</div>
     <DropdownWrapper>
       <Select
         native
-        value={"on"}
+        value={province}
         onChange={e => setProvince({ province: e.target.value })}
         inputProps={{
           name: "province",
@@ -39,5 +39,6 @@ export const ChooseProvince = ({ setProvince, persona }) => (
 
 ChooseProvince.propTypes = {
   setProvince: PropTypes.func,
-  persona: PropTypes.any
+  persona: PropTypes.any,
+  province: PropTypes.string
 };

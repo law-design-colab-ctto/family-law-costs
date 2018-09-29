@@ -1,1 +1,1 @@
-export { PersonaCard } from "./persona-card.component";
+export { PersonaCardHorizontal } from "./persona-card.component";
