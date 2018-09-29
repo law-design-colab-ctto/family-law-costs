@@ -26,12 +26,12 @@ export const ChoosePersonaComponent = props => {
     <Grid container direction="column">
       <SiteHeader />
       <DescriptiveSection item xs={12}>
-        <div>Explore the costs of family law dispute in Canada.</div>
+        <div>Highlighting the cost of family law disputes in Canada.</div>
       </DescriptiveSection>
       <ChoosePersonaMainSection item xs={12} container spacing={16}>
         <Grid item sm={4} xs={12}>
           <OutOfPocketHeader>
-            Out of Pocket: The Costs of Family Law
+            Out-of-Pocket: The Costs of Family Law
           </OutOfPocketHeader>
         </Grid>
         <Grid item sm={8} xs={12}>
