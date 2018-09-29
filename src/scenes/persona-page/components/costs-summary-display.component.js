@@ -22,7 +22,7 @@ const impactToImage = {
 };
 
 export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
-  <React.Fragment>
+  <div>
     <SectionSmallSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
         persona.name
@@ -76,7 +76,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
         </CenteredContentColumn>
       </TallOutlinedDisplayCard>
     </DisplayItemsWrapper>
-  </React.Fragment>
+  </div>
 );
 
 CostsSummaryDisplay.propTypes = {
