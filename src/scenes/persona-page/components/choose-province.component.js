@@ -21,7 +21,17 @@ export const ChooseProvince = ({ setProvince, persona }) => (
           id: "province-input"
         }}
       >
+        <option value="ab">Alberta</option>
+        <option value="sk">Saskatchewan</option>
+        <option value="mb">Manitoba</option>
         <option value="on">Ontario</option>
+        <option value="qc">Quebec</option>
+        <option value="nb">New Brunswick</option>
+        <option value="pe">Prince Edward Island</option>
+        <option value="ns">Nova Scotia</option>
+        <option value="yt">Yukon Territories</option>
+        <option value="nt">Northwest Territories</option>
+        <option value="nu">Nunvaut</option>
       </Select>
     </DropdownWrapper>
   </DropdownControlWrapper>

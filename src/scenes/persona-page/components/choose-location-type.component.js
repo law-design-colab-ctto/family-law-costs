@@ -8,15 +8,10 @@ import {
   ImageButtonLabel,
   DistanceImage
 } from "../persona-page.styles";
-import { capitalize } from "src/utils";
 
-export const ChooseLocationType = ({
-  persona,
-  setLocationType,
-  locationType
-}) => (
+export const ChooseLocationType = ({ setLocationType, locationType }) => (
   <React.Fragment>
-    <div>{`${capitalize(persona.pronouns.subjective)} lives in a:`}</div>
+    <div>{`Distance from courthouse:`}</div>
     <DisplayItemsWrapper>
       <LabelledImageButton
         active={equals(locationType, "urban")}

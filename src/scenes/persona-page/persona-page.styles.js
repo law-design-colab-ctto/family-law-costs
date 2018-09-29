@@ -33,6 +33,11 @@ export const SectionHeader = styled.h2`
     props.textColour ? props.textColour : colours.periwinkleBlue};
   font-weight: 400;
   padding-bottom: ${spacing.three};
+
+  @media only screen and (max-device-width: 480px) {
+    line-height: 1.1;
+    font-size: ${fontSizes.display1};
+  }
 `;
 
 export const SectionSubheader = styled.h3`
@@ -40,6 +45,9 @@ export const SectionSubheader = styled.h3`
   font-size: ${fontSizes.display1};
   font-weight: 400;
   color: ${props => (props.textColour ? props.textColour : colours.black)};
+  @media only screen and (max-device-width: 480px) {
+    line-height: 1.1;
+  }
 `;
 
 export const SectionSmallSubheader = styled.h4`
@@ -206,6 +214,9 @@ export const DisplayItemsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-bottom: ${spacing.four};
+  @media only screen and (max-device-width: 480px) {
+    justify-content: center;
+  }
 `;
 
 export const SectionDivider = styled(HrReset)`
@@ -252,6 +263,9 @@ export const QuoteBlock = styled.div`
   padding: 0 ${spacing.three};
   background-color: ${props =>
     props.bgColour ? props.bgColour : colours.periwinkleBlueLighter};
+  @media only screen and (max-device-width: 480px) {
+    margin: 0 ${spacing.one};
+  }
 `;
 
 export const ImageDiv = styled.div`
