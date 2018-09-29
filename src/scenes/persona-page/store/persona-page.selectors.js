@@ -99,19 +99,21 @@ const selectTransportationFees = createSelector(
   }
 );
 
-const selectLegalFees = createSelector(selectCurrentPersona,
+const selectLegalFees = createSelector(
+  selectCurrentPersona,
   selectHasLawyer,
   selectIsEligibleForLegalAid,
   selectProvince,
   (persona, withLawyer, isEligibleForLegalAid, province) => {
-    let lawyer_fees = 0, legal_aid = 0, professional_court_fees = 0;
-    if (withLawyer) {
-      lawyer_fees = LEGAL_FEES[persona.stage] * persona.conflictmultiplier
-      isEligibleForLegalAid ? legal_aid = lawyer_fees : legal_aid = 0;
-    }
-    professional_court_fees = COURT_FEES_BY_STAGE[province][persona.stage] +
+    const lawyerFees = withLawyer
+      ? LEGAL_FEES[persona.stage] * persona.conflictMultiplier
+      : 0;
+    const legalAid = isEligibleForLegalAid ? lawyerFees : 0;
+    const professionalCourtFees =
+      COURT_FEES_BY_STAGE[province][persona.stage] +
       PROFESSIONAL_FEES[persona.stage];
-    return numberToMoneyDisplay(lawyer_fees - legal_aid + professional_court_fees)
+    const legalFees = lawyerFees - legalAid + professionalCourtFees;
+    return legalFees;
   }
 );
 

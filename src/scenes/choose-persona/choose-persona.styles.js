@@ -10,9 +10,9 @@ export const ChoosePersonaHeader = styled.h2`
 
 export const PersonaCardsContainerDiv = styled.div`
   display: flex;
-  flex-wrap: nowrap;
-  overflow: scroll;
+  flex-wrap: wrap;
   width: 100%;
+  justify-content: space-around;
   & > div {
     margin: 0 ${spacing.four} ${spacing.five} ${spacing.four};
   }
@@ -48,7 +48,7 @@ export const MissionHeader = styled.h3`
   font-size: ${fontSizes.subtitle};
 `;
 
-export const ChoosePersonaMainSection = styled.div`
+export const ChoosePersonaMainSection = styled(Grid)`
   background-color: ${props => (props.colour ? props.colour : colours.white)};
   padding: ${spacing.five};
 `;
@@ -81,7 +81,6 @@ export const PersonasHeader = styled.h3`
 export const ToolDescription = styled.div`
   font-size: ${fontSizes.title};
   line-height: 1.4;
-
   & p:first-child {
     margin-top: 0;
   }

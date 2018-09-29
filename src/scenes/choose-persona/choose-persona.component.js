@@ -41,48 +41,44 @@ export const ChoosePersonaComponent = props => {
           <PlaceholderImage fontSize="inherit" />
         </DescriptionSectionImages>
       </DescriptiveSection>
-      <ChoosePersonaMainSection>
-        <Grid item xs={12} container spacing={16}>
-          <Grid item sm={4} xs={12}>
-            <OutOfPocketHeader>
-              Out of Pocket Costs in Family Law
-            </OutOfPocketHeader>
-          </Grid>
-          <Grid item sm={8} xs={12}>
-            <ToolDescription>
-              <p>
-                This tool calculates and compares typical costs including the
-                money people spend during their legal dispute and the money they
-                lose through missed work.
-              </p>
-              <p>
-                This tool can help individuals, government, media, and
-                researchers to understand the implications of family law.
-              </p>
-            </ToolDescription>
-          </Grid>
-          <Grid item sm={4} xs={12}>
-            <OutOfPocketHeader>Methodology</OutOfPocketHeader>
-          </Grid>
-          <Grid item sm={8} xs={12}>
-            <ToolDescription>
-              <p>
-                The calculations included in this tool are based on research of
-                litigants about their experiences in family law disputes, as
-                well as statistics from across the country.
-              </p>
-            </ToolDescription>
-          </Grid>
+      <ChoosePersonaMainSection item xs={12} container spacing={16}>
+        <Grid item sm={4} xs={12}>
+          <OutOfPocketHeader>
+            Out of Pocket Costs in Family Law
+          </OutOfPocketHeader>
+        </Grid>
+        <Grid item sm={8} xs={12}>
+          <ToolDescription>
+            <p>
+              This tool calculates and compares typical costs including the
+              money people spend during their legal dispute and the money they
+              lose through missed work.
+            </p>
+            <p>
+              This tool can help individuals, government, media, and researchers
+              to understand the implications of family law.
+            </p>
+          </ToolDescription>
+        </Grid>
+        <Grid item sm={4} xs={12}>
+          <OutOfPocketHeader>Methodology</OutOfPocketHeader>
+        </Grid>
+        <Grid item sm={8} xs={12}>
+          <ToolDescription>
+            <p>
+              The calculations included in this tool are based on research of
+              litigants about their experiences in family law disputes, as well
+              as statistics from across the country.
+            </p>
+          </ToolDescription>
         </Grid>
       </ChoosePersonaMainSection>
-      <ChoosePersonaMainSection colour={colours.grayMediumLight}>
-        <Grid item xs={12}>
-          <OutOfPocketSubHeader>
-            See family law impacts on a variety of litigants. Let us pick one,
-            or get choices below:
-          </OutOfPocketSubHeader>
-          <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
-        </Grid>
+      <ChoosePersonaMainSection colour={colours.grayMediumLight} item xs={12}>
+        <OutOfPocketSubHeader>
+          See family law impacts on a variety of litigants. Let us pick one, or
+          get choices below:
+        </OutOfPocketSubHeader>
+        <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
         <Grid xs={12} container spacing={40} item>
           <Grid item xs={12} sm={6}>
             <FilterSet
@@ -111,7 +107,7 @@ export const ChoosePersonaComponent = props => {
         </Grid>
       </ChoosePersonaMainSection>
 
-      <ChoosePersonaMainSection>
+      <ChoosePersonaMainSection item xs={12}>
         <PersonaResults {...props} />
       </ChoosePersonaMainSection>
       <SiteFooter />
