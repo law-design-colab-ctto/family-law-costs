@@ -95,14 +95,21 @@ export class PersonaPageComponent extends React.Component {
               <PersonaTextRegular>
                 <em>{`"${persona.timeCostText}"`}</em>
               </PersonaTextRegular>
-              <PersonaTextRegular>
-                <em>{`"${persona.daysOffWorkText}"`}</em>
-              </PersonaTextRegular>
             </QuoteBlock>
           </SectionBlock>
 
           <SectionBlock>
             <DaysOffWork persona={persona} {...this.props} />
+              <QuoteBlock>
+                <PersonaTextRegular>
+                  <em>{`"${persona.daysOffWorkQuote}"`}</em>
+                </PersonaTextRegular>
+              </QuoteBlock>
+              <QuoteBlock>
+                <PersonaTextRegular>
+                  <em>{`"${persona.daysOffWorkText}"`}</em>
+                </PersonaTextRegular>
+              </QuoteBlock>
           </SectionBlock>
 
           <SectionBlock>
