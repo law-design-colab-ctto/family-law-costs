@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Chip from '@material-ui/core/Chip';
-import { Link } from "react-router-dom";
 
 export const PersonaCardDiv = styled.div`
   background-color: ${colours.white};
@@ -22,15 +21,13 @@ export const StyledCard = styled(Card)`
   margin: 0 ${spacing.five} ${spacing.five} 0;
   flex-shrink: 0;
   min-width: 20rem;
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const PersonaCardMedia = styled(CardMedia)`
-  width: 247px;
-  height: 146px;
+  width: 220px;
+  height: 290px;
 `;
 
 //styled.h3
@@ -41,11 +38,11 @@ export const PersonaName = styled.h3`
 
 //styled.span
 export const PersonaAttr = styled(Typography)`
-  color: ${colours.grayDark};
 `;
 
 export const StyledChip = styled(Chip)`
   margin-right: 8px;
+  margin-top: 20px;
 `;
 
 export const StyledQuote = styled.h3`
@@ -54,11 +51,7 @@ export const StyledQuote = styled.h3`
   font-style: italic;
 `;
 
-export const PersonaImage = styled.div`
-  background-image: url("/assets/${props => props.imageName}.card@1x.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 600 px;
-  widch: 600px;
+export const PersonaDetails = styled.h3`
+  color: ${colours.grayDark}
+  font-size: ${fontSizes.p};
 `;
