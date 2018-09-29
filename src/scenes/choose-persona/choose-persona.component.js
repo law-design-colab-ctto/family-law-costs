@@ -11,7 +11,6 @@ import {
   OutOfPocketSubHeader,
   ToolDescription,
   FiltersSectionTitle,
-  DescriptionSectionImages
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -20,7 +19,6 @@ import {
   FILTER_TYPES
 } from "./store/choose-persona.constants";
 import { FilterSet, SiteHeader } from "src/components";
-import { PlaceholderImage } from "src/assets/icons";
 import { PersonaResults } from "./components/persona-results.component";
 
 export const ChoosePersonaComponent = props => {
