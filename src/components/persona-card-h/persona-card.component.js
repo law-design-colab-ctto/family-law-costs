@@ -6,32 +6,34 @@ import {
   StyledLink,
   PersonaCardMedia,
   PersonaLabel,
-  PersonaDetails
+  PersonaDetails,
+  PersonaContent,
+  PersonaQuote
 } from "./persona-card.styles";
+import { capitalize } from "src/utils";
+import { FILTER_VALUE_TO_LABEL } from "src/scenes/choose-persona/store/choose-persona.constants";
 
-import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-export const PersonaCard = ({ persona }) => (
+export const PersonaCardHorizontal = ({ persona }) => (
   <StyledCard>
     <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
-      <PersonaCardMedia
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="Contemplative Reptile"
-      />
-      <CardContent>
+      <PersonaCardMedia name={persona.name} title={persona.name} />
+      <PersonaContent>
         <Typography gutterBottom variant="headline" color="primary">
-          {persona.displayName}
+          {capitalize(persona.name)}
         </Typography>
         <PersonaDetails>{persona.details}</PersonaDetails>
-        <PersonaLabel label={persona.jobStability} />
-        <PersonaLabel label={persona.stage} />
-        <PersonaLabel label={persona.stressCapacity} />
-      </CardContent>
+        <PersonaLabel label={FILTER_VALUE_TO_LABEL[persona.jobStability]} />
+        <PersonaLabel label={FILTER_VALUE_TO_LABEL[persona.stage]} />
+      </PersonaContent>
+      <PersonaQuote>
+        <em>{`"${persona.quote1}"`}</em>
+      </PersonaQuote>
     </StyledLink>
   </StyledCard>
 );
 
-PersonaCard.propTypes = {
+PersonaCardHorizontal.propTypes = {
   persona: PropTypes.object
 };

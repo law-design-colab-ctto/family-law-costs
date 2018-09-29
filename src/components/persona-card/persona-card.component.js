@@ -7,31 +7,28 @@ import {
   PersonaCardMedia,
   PersonaAttr
 } from "./persona-card.styles";
+import { FILTER_VALUE_TO_LABEL } from "src/scenes/choose-persona/store/choose-persona.constants";
 
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
-    <StyledLink key={`link-${persona.name}`} to={`/${persona.name}`}>
-      <PersonaCardMedia
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="Contemplative Reptile"
-      />
+    <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
+      <PersonaCardMedia name={persona.name} title="Contemplative Reptile" />
       <CardContent>
-        <Typography gutterBottom variant="headline" color="primary" >
+        <Typography gutterBottom variant="headline" color="primary">
           {persona.name}
         </Typography>
         <PersonaAttr>
-          Job Stability: {persona.jobStability} <br />
-          Stage: {persona.stage} <br />
-          Ability to handle stress: {persona.stressCapacity}
+          <p>{persona.details}</p>
+          Job Stability: {FILTER_VALUE_TO_LABEL[persona.jobStability]} <br />
+          Stage: {FILTER_VALUE_TO_LABEL[persona.stage]} <br />
         </PersonaAttr>
       </CardContent>
     </StyledLink>
   </StyledCard>
 );
-
 
 PersonaCard.propTypes = {
   persona: PropTypes.object

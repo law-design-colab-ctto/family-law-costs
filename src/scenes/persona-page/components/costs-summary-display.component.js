@@ -8,7 +8,9 @@ import {
   Label,
   CenteredContent,
   PersonaTextBold,
-  ThermometerImage
+  PersonaTextBoldNoPadding,
+  ThermometerImage,
+  CenteredContentColumn
 } from "../persona-page.styles";
 import { colours, fontSizes } from "src/styles";
 import { capitalize } from "src/utils";
@@ -38,7 +40,9 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
-          <PersonaTextBold textColour={colours.white}>See Why</PersonaTextBold>
+          <PersonaTextBold textColour={colours.white}>
+            <a href="#costs-of-the-case">See Why</a>
+          </PersonaTextBold>
         </CenteredContent>
       </TallOutlinedDisplayCard>
       <TallOutlinedDisplayCard borderWidth="3px">
@@ -52,7 +56,9 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
-          <PersonaTextBold textColour={colours.white}>See Why</PersonaTextBold>
+          <PersonaTextBold textColour={colours.white}>
+            <a href="#other-financial-impacts">See Why</a>
+          </PersonaTextBold>
         </CenteredContent>
       </TallOutlinedDisplayCard>
       <TallOutlinedDisplayCard borderWidth="3px">
@@ -60,9 +66,14 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
         <CenteredContent>
           <ThermometerImage imageName={impactToImage[impactOnStability]} />
         </CenteredContent>
-        <CenteredContent>
-          <PersonaTextBold textColour={colours.white}>Medium</PersonaTextBold>
-        </CenteredContent>
+        <CenteredContentColumn>
+          <PersonaTextBoldNoPadding textColour={colours.white}>
+            Medium
+          </PersonaTextBoldNoPadding>
+          <PersonaTextBoldNoPadding textColour={colours.white}>
+            <a href="#impact-on-stability">See Why</a>
+          </PersonaTextBoldNoPadding>
+        </CenteredContentColumn>
       </TallOutlinedDisplayCard>
     </DisplayItemsWrapper>
   </React.Fragment>
