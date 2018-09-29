@@ -4,18 +4,6 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
-export const PersonaCardDiv = styled.div`
-  background-color: ${colours.white};
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 3px;
-  padding: ${spacing.three};
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
-  height: 15rem;
-  margin: 1rem;
-`;
-
 export const StyledCard = styled(Card)`
   margin: 0 ${spacing.five} ${spacing.five} 0;
   flex-shrink: 0;
@@ -44,7 +32,6 @@ export const PersonaName = styled.h3`
 `;
 
 export const PersonaAttr = styled(Typography)`
-  color: ${colours.grayDark};
 `;
 
 export const Details = styled.div`

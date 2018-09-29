@@ -145,7 +145,7 @@ export class PersonaPageComponent extends React.Component {
           <Stress persona={persona} />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
-          <Conflict />
+          <Conflict {...this.props} />
         </PersonaSection>
         <SiteFooter />
       </Grid>
