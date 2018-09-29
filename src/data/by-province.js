@@ -196,9 +196,9 @@ export const INCOME_BAND = {
 };
 
 export const INSTABILITY_SCORE = {
-  maxscorelow: 5,
-  maxscoremed: 10
-  //if instability score < maxscorelow, then Low Temp Picture
-  //if maxscorelow < instability score < maxscoremed, then Med Temp Picture
+  maxscorelow: 11,
+  maxscoremed: 13,
+  //if instability score =< maxscorelow, then Low Temp Picture
+  //if maxscorelow < instability score =< maxscoremed, then Med Temp Picture
   //if instability score > maxscoremed, then High Temp Picture
 };
