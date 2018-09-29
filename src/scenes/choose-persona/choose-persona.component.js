@@ -5,13 +5,11 @@ import { colours } from "src/styles";
 import { SiteFooter } from "src/components";
 import {
   DescriptiveSection,
-  MissionHeader,
   ChoosePersonaMainSection,
   OutOfPocketHeader,
   OutOfPocketSubHeader,
   ToolDescription,
-  FiltersSectionTitle,
-  DescriptionSectionImages
+  FiltersSectionTitle
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -20,7 +18,6 @@ import {
   FILTER_TYPES
 } from "./store/choose-persona.constants";
 import { FilterSet, SiteHeader } from "src/components";
-import { PlaceholderImage } from "src/assets/icons";
 import { PersonaResults } from "./components/persona-results.component";
 
 export const ChoosePersonaComponent = props => {
@@ -29,26 +26,21 @@ export const ChoosePersonaComponent = props => {
     <Grid container direction="column">
       <SiteHeader />
       <DescriptiveSection item xs={12}>
-        <MissionHeader>Our mission</MissionHeader>
-        <div>
-          Its difficult to make changes to court processes or services without
-          an understanding of the costs to people in the family system. This
-          site tries to facilitate that understanding.
-        </div>
-        <DescriptionSectionImages>
-          <PlaceholderImage fontSize="inherit" />
-          <PlaceholderImage fontSize="inherit" />
-          <PlaceholderImage fontSize="inherit" />
-        </DescriptionSectionImages>
+        <div>Explore the costs of family law dispute in Canada.</div>
       </DescriptiveSection>
       <ChoosePersonaMainSection item xs={12} container spacing={16}>
         <Grid item sm={4} xs={12}>
           <OutOfPocketHeader>
-            Out of Pocket Costs in Family Law
+            Out of Pocket: The Costs of Family Law
           </OutOfPocketHeader>
         </Grid>
         <Grid item sm={8} xs={12}>
           <ToolDescription>
+            <p>
+              Its difficult to make changes to court processes or services
+              without an understanding of the costs to people in the family
+              system. This site tries to facilitate that understanding.
+            </p>
             <p>
               This tool calculates and compares typical costs including the
               money people spend during their legal dispute and the money they
@@ -58,13 +50,6 @@ export const ChoosePersonaComponent = props => {
               This tool can help individuals, government, media, and researchers
               to understand the implications of family law.
             </p>
-          </ToolDescription>
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <OutOfPocketHeader>Methodology</OutOfPocketHeader>
-        </Grid>
-        <Grid item sm={8} xs={12}>
-          <ToolDescription>
             <p>
               The calculations included in this tool are based on research of
               litigants about their experiences in family law disputes, as well

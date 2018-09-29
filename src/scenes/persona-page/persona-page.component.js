@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import {
   SiteHeader,
-  PersonaCard,
+  PersonaCardHorizontal,
   PersonaSection,
   SiteFooter,
   CostsIncomeWithBars
@@ -61,7 +61,7 @@ export class PersonaPageComponent extends React.Component {
         <SiteHeader />
         <PersonaSection colours={colours.white}>
           <SectionBlock>
-            <PersonaCard persona={persona} quote={persona.quote1} />
+            <PersonaCardHorizontal persona={persona} quote={persona.quote1} />
           </SectionBlock>
           <PersonaTextRegular>{persona.intro}</PersonaTextRegular>
         </PersonaSection>
@@ -72,7 +72,7 @@ export class PersonaPageComponent extends React.Component {
           <CostsSummaryDisplay persona={persona} {...this.props} />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <SectionHeader colour={colours.periwinkleBlue}>
+          <SectionHeader colour={colours.periwinkleBlue} id="costs-of-the-case">
             Costs of the Case
           </SectionHeader>
           <SectionBlock>
@@ -84,7 +84,10 @@ export class PersonaPageComponent extends React.Component {
           </SectionBlock>
         </PersonaSection>
         <PersonaSection colour={colours.white}>
-          <SectionHeader colour={colours.periwinkleBlue}>
+          <SectionHeader
+            colour={colours.periwinkleBlue}
+            id="other-financial-impacts"
+          >
             Other Financial Impacts
           </SectionHeader>
           <SectionBlock>
@@ -129,7 +132,7 @@ export class PersonaPageComponent extends React.Component {
           />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
-          <ImpactOnStability />
+          <ImpactOnStability persona={persona} />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueDark}>
           <Stress persona={persona} />
