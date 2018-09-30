@@ -12,9 +12,13 @@ import { COST_OF_CHILDCARE_PER_DAY, MOVING_FEES } from "src/data/by-province";
 import {
   LEGAL_FEES,
   COURT_FEES_BY_STAGE,
-  PROFESSIONAL_FEES
+  PROFESSIONAL_FEES,
+  INCOME_BAND,
+  INSTABILITY_SCORE
 } from "src/data/by-province";
 import { capitalize } from "../../../utils";
+
+//start creating selectors
 
 const selectCurrentPersonaName = pipe(
   path(["router", "location", "pathname"]),
@@ -50,17 +54,21 @@ const selectPersonaIncomeDisplay = createSelector(
   numberToMoneyDisplay
 );
 
+
+//check eligibility for legal aid, returns true or false
+
 const selectIsEligibleForLegalAid = createSelector(
   selectPersonaIncome,
   selectProvince,
   selectCurrentPersona,
   (income, province, persona) => {
-    return (
-      income <= LEGAL_AID_CUTOFF[province][persona.children] &&
+    const isEligibleForLegalAid = income <= LEGAL_AID_CUTOFF[province][persona.children] &&
       LEGAL_AID_ELIGIBILITY[persona.stage]
     );
   }
 );
+
+//legal aid notification, returns notification text where persona doesn't qualify for legal aid
 
 const selectReasonsForLegalAidEligibility = createSelector(
   selectPersonaIncome,
@@ -86,36 +94,40 @@ const selectReasonsForLegalAidEligibility = createSelector(
   }
 );
 
+//calculate and display transportation costs
+
 const selectTransportationFees = createSelector(
   selectCurrentPersona,
   selectLocationType,
   (persona, locationType) => {
-    const numberOfCourtEvents = NUMBER_OF_COURT_EVENTS[persona.stage];
-    const fees = TRANSPORT_FEES[locationType] * numberOfCourtEvents;
-    return fees;
+    const transportfees = TRANSPORT_FEES[locationType] * NUMBER_OF_COURT_EVENTS[persona.stage];
+    return transportfees;
   }
 );
 
 const selectTransportationFeesDisplay = createSelector(
   selectTransportationFees,
-  fees => (isNaN(fees) ? "" : numberToMoneyDisplay(fees))
+  transportfees => (isNaN(transportfees) ? "" : numberToMoneyDisplay(transportfees))
 );
+
+//calculate and display legal costs
 
 const selectLegalFees = createSelector(
   selectCurrentPersona,
   selectHasLawyer,
   selectIsEligibleForLegalAid,
   selectProvince,
-  (persona, withLawyer, isEligibleForLegalAid, province) => {
-    const lawyerFees = withLawyer
-      ? LEGAL_FEES[persona.stage] * persona.conflictMultiplier
+  (persona, hasLawyer, isEligibleForLegalAid, province) => {
+    const lawyerFees = hasLawyer?
+      LEGAL_FEES[persona.stage] * persona.conflictMultiplier
       : 0;
-    const legalAid = isEligibleForLegalAid ? lawyerFees : 0;
-    const professionalCourtFees =
-      COURT_FEES_BY_STAGE[province][persona.stage] +
-      PROFESSIONAL_FEES[persona.stage];
-    const legalFees = lawyerFees - legalAid + professionalCourtFees;
-    return parseInt(legalFees, 10);
+    const legalAid = isEligibleForLegalAid ?
+      lawyerFees
+      : 0;
+    const professional_and_court_fees = COURT_FEES_BY_STAGE[province][persona.stage] + PROFESSIONAL_FEES[persona.stage];
+    const legalFees = lawyerFees - legalAid + professional_and_court_fees;
+  }
+    return legalFees;
   }
 );
 
@@ -124,35 +136,93 @@ const selectLegalFeesDisplay = createSelector(
   numberToMoneyDisplay
 );
 
+//calculate Costs of the Case by adding legal costs and transportation costs
+
 const selectCostsOfTheCase = createSelector(
   selectLegalFees,
   selectTransportationFees,
-  (legalFees, transportationFees) => legalFees + transportationFees
+  const costsOfTheCase = legalFees + transportationFees
+  return costsOfTheCase
 );
+
+const selectCostsOfTheCaseDisplay = createSelector(
+  selectCostsOfTheCase,
+  numberToMoneyDisplay
+);
+
+//Calculate Other Financial Impacts
+
+// Calculate Days to Prep and attend
+// Calculate Days Feeling daysFeelingUnwell
+// Calculte Days Total
+
+
+INCOME_BAND,
+INSTABILITY_SCORE
+
+daysToPrepAndAttend
+
+const selectDaysOffWork = createSelector(
+  selectCurrentPersona,
+  selectPersonaIncome
+  (persona, income) => {
+    const days
+
+
+NUMBER_OF_COURT_EVENTS[persona.stage]
+  };
+);
+
+
+
+
+
+
+
+
+
+//Calculate and display moving costs
 
 const selectMovingFees = createSelector(
   selectCurrentPersona,
   selectProvince,
-  (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
+  (persona, province) => {
+    const movingFees = MOVING_FEES[province]
+    return movingFees
 );
 
-const selectDaysOffWork = createSelector(selectCurrentPersona, (persona) => {
-  return {
-    courtDays: persona.daysToPrepAndAttend,
-    sickDays: persona.daysFeelingUnwell,
-    totalDays: persona.daysToPrepAndAttend + persona.daysFeelingUnwell
-  };
-});
+const selectMovingFeesDisplay = createSelector(
+  selectMovingFees,
+  movingFees  => (
+    isNaN(movingFees) ?
+    "" : numberToMoneyDisplay(movingFees)
+  )
+);
+
+
+//Calculate and display childcare costs
 
 const selectChildcareFees = createSelector(
   selectCurrentPersona,
   selectProvince,
   selectDaysOffWork,
-  (persona, province, daysoff) =>
-    numberToMoneyDisplay(
-      daysoff.totalDays * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
-    )
+  (persona, province, daysoff) => {
+    childcarefees = daysoff.totalDays * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
+    return childcarefees
 );
+
+const selectChildcareFeesDisplay = createSelector(
+  selectChildcareFees,
+  childcarefees  => (
+    isNaN(childcarefees) ?
+     ""
+     : numberToMoneyDisplay(childcarefees)
+   )
+);
+
+
+
+// What If calculations
 
 const whatifMediation = createSelector(
   selectCurrentPersona,
@@ -230,10 +300,12 @@ const whatifHighConflict = createSelector(
   (whatifCourtResolution) => whatifCourtResolution * 6
 )
 
-const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
-  numberToMoneyDisplay(90000)
+
 );
 
+
+
+//Export All Values
 
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
@@ -245,13 +317,15 @@ export const personasConnector = createStructuredSelector({
   locationType: selectLocationType,
   transportationFees: selectTransportationFeesDisplay,
   legalFees: selectLegalFeesDisplay,
-  movingFees: selectMovingFees,
-  childcareFees: selectChildcareFees,
-  totalDirectFees: selectTotalDirectFees,
+  movingFees: selectMovingFeesDisplay,
+  childcareFees: selectChildcareFeesDisplay,
   modalIsOpen: selectModalIsOpen,
   daysOffWork: selectDaysOffWork,
+  daysToPrepAndAttend: daysToPrepAndAttendDisplay,
+  daysFeelingUnwell: daysFeelingUnwellDisplay,
+  daysTotal: daysTotalDisplay,
   province: selectProvince,
-  costsOfTheCase: selectCostsOfTheCase,
+  costsOfTheCase: selectCostsOfTheCaseDisplay,
   mediation: whatifMediation,
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,
