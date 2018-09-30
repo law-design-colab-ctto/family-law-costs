@@ -82,6 +82,10 @@ const selectReasonsForLegalAidEligibility = createSelector(
         province does not cover this type of proceeding.`
       );
     }
+    else  {  reasons.push(
+        `${capitalize(persona.name)}
+         is eligible for legal aid!`)
+       }
     return reasons;
   }
 );

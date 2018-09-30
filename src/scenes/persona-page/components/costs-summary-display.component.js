@@ -6,6 +6,7 @@ import {
   TallOutlinedDisplayCard,
   DisplayItemsWrapper,
   Label,
+  CostDisplay,
   CenteredContent,
   PersonaTextBold,
   PersonaTextBoldNoPadding,
@@ -21,7 +22,7 @@ const impactToImage = {
   high: "ThermoRed"
 };
 
-export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
+export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsOfTheCase }) => (
   <div>
     <SectionSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
@@ -36,7 +37,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
             textColour={colours.white}
             fontSize={fontSizes.display1}
           >
-            $52,025
+          <CostDisplay>{costsOfTheCase}</CostDisplay>
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
@@ -84,5 +85,6 @@ CostsSummaryDisplay.propTypes = {
   setIncome: PropTypes.func,
   persona: PropTypes.any,
   incomeDisplay: PropTypes.string,
+  costsOfTheCase: PropTypes.string,
   impactOnStability: PropTypes.string
 };
