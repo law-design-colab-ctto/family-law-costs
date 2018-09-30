@@ -17,7 +17,9 @@ export const DaysOffWork = ({ daysOffWork, persona }) => (
     <SectionSubheader>Days off work</SectionSubheader>
     <div>
     <QuoteBlock>
+      <PersonaTextRegular>
         <em>{`"${persona.daysOffWorkQuote}"`}</em>
+      </PersonaTextRegular>
     </QuoteBlock>
     </div>
       <PersonaTextRegular>{`${persona.daysOffWorkText}`}
