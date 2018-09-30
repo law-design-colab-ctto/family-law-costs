@@ -166,5 +166,6 @@ PersonaPageComponent.propTypes = {
   totalDirectFees: PropTypes.string,
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
   resetChoices: PropTypes.func,
-  otherFinancialImpacts: PropTypes.string
+  otherFinancialImpacts: PropTypes.string,
+  totalLostIncome: PropTypes.string
 };

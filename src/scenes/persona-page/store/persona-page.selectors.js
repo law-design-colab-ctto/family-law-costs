@@ -135,6 +135,7 @@ const selectCostsOfTheCase = createSelector(
 const selectCostsOfTheCaseDisplay = createSelector(
   selectCostsOfTheCase,
   fees => (isNaN(fees) ? "" : numberToMoneyDisplay(fees))
+);
 // Other Financial Impact Selectors
 
 const selectDailyIncome = createSelector(selectPersonaIncome, income => {
@@ -316,8 +317,19 @@ const whatifHighConflict = createSelector(
 const selectTotalLostIncome = createSelector(
   selectDailyIncome,
   selectTotalDaysMissed,
-  (dailyIncome, totalDays) => Math.round(dailyIncome + totalDays)
+  (dailyIncome, totalDays) => Math.round(dailyIncome * totalDays)
 );
+
+const selectTotalLostIncomeDisplay = createSelector(
+  selectTotalLostIncome,
+  income => {
+    if (income === 0 || isNaN(income)) {
+      return "";
+    } else {
+      return numberToMoneyDisplay(income);
+    }
+  }
+)
 
 const selectOtherFinancialImpactsDisplay = createSelector(
   selectTotalLostIncome,
@@ -348,5 +360,6 @@ export const personasConnector = createStructuredSelector({
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,
   highConflict: whatifHighConflict,
-  otherFinancialImpacts: selectOtherFinancialImpactsDisplay
+  otherFinancialImpacts: selectOtherFinancialImpactsDisplay,
+  totalLostIncome: selectTotalLostIncomeDisplay
 });
