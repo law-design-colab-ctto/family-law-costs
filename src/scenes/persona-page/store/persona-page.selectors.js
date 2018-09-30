@@ -152,33 +152,48 @@ const selectCostsOfTheCaseDisplay = createSelector(
 
 //Calculate Other Financial Impacts
 
+
 // Calculate Days to Prep and attend
-// Calculate Days Feeling daysFeelingUnwell
-// Calculte Days Total
-
-
-INCOME_BAND,
-INSTABILITY_SCORE
-
-daysToPrepAndAttend
-
-const selectDaysOffWork = createSelector(
+const selectdaysToPrepAndAttend = createSelector(
   selectCurrentPersona,
   selectPersonaIncome
   (persona, income) => {
-    const days
+    const daysToPrepAndAttend =
 
 
-NUMBER_OF_COURT_EVENTS[persona.stage]
-  };
+
+
+
+
+    NUMBER_OF_COURT_EVENTS[persona.stage]
+      };
+    );
+
+    INCOME_BAND,
 );
 
 
+const selectdaysToPrepAndAttendDisplay = createSelector(
+  selectdaysToPrepAndAttend
+);
 
 
+const selectdaysFeelingUnwell = createSelector(
+);
 
 
+const selectdaysFeelingUnwellDisplay = createSelector(
+  selectdaysFeelingUnwell
+);
 
+
+const selectdaysOffTotal = createSelector(
+);
+
+
+const selectdaysOffTotalDisplay = createSelector(
+  selectdaysOffTotal
+);
 
 
 //Calculate and display moving costs
@@ -195,7 +210,8 @@ const selectMovingFeesDisplay = createSelector(
   selectMovingFees,
   movingFees  => (
     isNaN(movingFees) ?
-    "" : numberToMoneyDisplay(movingFees)
+    ""
+    : numberToMoneyDisplay(movingFees)
   )
 );
 
@@ -219,6 +235,27 @@ const selectChildcareFeesDisplay = createSelector(
      : numberToMoneyDisplay(childcarefees)
    )
 );
+
+// Calculate Instability Score and Thermometer Image file imageName
+
+const selectInstabilityScore = createSelector(
+
+
+  persona.paymentmethodFactor
+  persona.jobflexibilityFactor
+  persona.stablejobFactor
+  persona.healthcostFactor
+  persona.healthimpactFactor
+
+
+INSTABILITY_SCORE.maxscorelow //11
+INSTABILITY_SCORE.maxscoremed //13
+
+);
+
+
+
+
 
 
 
@@ -250,10 +287,12 @@ const whatifMediation = createSelector(
     const child_care_total_days_off =
       COST_OF_CHILDCARE_PER_DAY[province] * persona.children * total_days_missed
 
-    const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0
+    const moving_cost = persona.hasToMove ?
+      MOVING_FEES[province]
+      : 0
 
-    return ( total_legal_costs + total_travel_cost + total_lost_income +
-      child_care_total_days_off + moving_cost )
+    return (total_legal_costs + total_travel_cost + total_lost_income +
+      child_care_total_days_off + moving_cost)
   }
 )
 
@@ -320,10 +359,9 @@ export const personasConnector = createStructuredSelector({
   movingFees: selectMovingFeesDisplay,
   childcareFees: selectChildcareFeesDisplay,
   modalIsOpen: selectModalIsOpen,
-  daysOffWork: selectDaysOffWork,
   daysToPrepAndAttend: daysToPrepAndAttendDisplay,
   daysFeelingUnwell: daysFeelingUnwellDisplay,
-  daysTotal: daysTotalDisplay,
+  daysOffTotal: daysOffTotalDisplay,
   province: selectProvince,
   costsOfTheCase: selectCostsOfTheCaseDisplay,
   mediation: whatifMediation,
