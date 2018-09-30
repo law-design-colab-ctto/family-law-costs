@@ -4,8 +4,7 @@ import { InfoParagraph } from "../../components/info-paragraph/info-paragraph.co
 import { InfoHeader } from "../../components/info-header/info-header.component";
 import { InfoSubheader } from "../../components/info-subheader/info-subheader.component";
 
-
-export default class InfoPage extends Component {
+export default class InfoPageAbout extends Component {
   render() {
     return (
       <React.Fragment>

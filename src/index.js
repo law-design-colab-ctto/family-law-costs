@@ -19,6 +19,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import "typeface-roboto";
 import InfoPage from "./scenes/methodology-page/methodology-page.component";
 import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component";
+import InfoPageAbout from "./scenes/about-page/about-page.component";
 
 injectGlobal`
   *,
@@ -71,7 +72,7 @@ const ReduxApp = () => (
           <Switch>
             <Route exact path="/" component={ChoosePersonaContainer} />
             <Route exact path="/methodology" component={InfoPage} />
-            <Route exact path="/about" component={InfoPage} />
+            <Route exact path="/about" component={InfoPageAbout} />
             <Route
               exact
               path="/persona/:personaName"
