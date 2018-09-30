@@ -2,13 +2,15 @@ import React from "react";
 import {
   XYPlot,
   XAxis,
-  YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  VerticalBarSeries
+  VerticalBarSeries,
+  LabelSeries
 } from 'react-vis';
 import PropTypes from "prop-types";
-import { PersonaTextRegular, SectionHeader, WhatIfCalculations } from "../persona-page.styles";
+import { PersonaTextRegular, SectionHeader } from "../persona-page.styles";
+import { colours } from "src/styles";
+import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
 export const Conflict = ({ persona, mediation, courtResolution, increasedConflict, highConflict }) => (
   <React.Fragment>
@@ -31,28 +33,28 @@ export const Conflict = ({ persona, mediation, courtResolution, increasedConflic
             resolved early through mediation or if it escalated due to increasing conflict.`}
     </PersonaTextRegular>
 
-    <WhatIfCalculations>
-      {persona.conflictMultiplier} <br />
-      {courtResolution} <br />
-      {increasedConflict} <br />
-      {highConflict}
-
-
-    </WhatIfCalculations>
-
-    <XYPlot height={300} width= {700}>
+    <XYPlot height={300} width={700}>
       <VerticalGridLines />
       <HorizontalGridLines />
       <XAxis />
-      <YAxis />
-      <VerticalBarSeries
+      <VerticalBarSeries color={colours.periwinkleBlueMedium} colorType="literal"
         data={[
           {x: 0, y: mediation},
-          {x: 1, y: 50000},
+          {x: 1, y: 50000, color: colours.periwinkleBlueDark},
           {x: 2, y: courtResolution},
           {x: 3, y: increasedConflict},
           {x: 4, y: highConflict}
         ]} />
+
+      <LabelSeries
+        data={[
+          {x: 0, label: numberToMoneyDisplay(50000)},
+          {x: 1, label: numberToMoneyDisplay(parseInt(mediation, 10))},
+          {x: 2, label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
+          {x: 3, label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
+          {x: 4, label: numberToMoneyDisplay(parseInt(highConflict, 10))}
+        ]} />
+
     </XYPlot>
 
   </React.Fragment>

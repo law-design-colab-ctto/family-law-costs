@@ -115,7 +115,7 @@ const selectLegalFees = createSelector(
       COURT_FEES_BY_STAGE[province][persona.stage] +
       PROFESSIONAL_FEES[persona.stage];
     const legalFees = lawyerFees - legalAid + professionalCourtFees;
-    return legalFees;
+    return parseInt(legalFees, 10);
   }
 );
 
@@ -136,12 +136,21 @@ const selectMovingFees = createSelector(
   (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
 );
 
+const selectDaysOffWork = createSelector(selectCurrentPersona, (persona) => {
+  return {
+    courtDays: persona.daysToPrepAndAttend,
+    sickDays: persona.daysFeelingUnwell,
+    totalDays: persona.daysToPrepAndAttend + persona.daysFeelingUnwell
+  };
+});
+
 const selectChildcareFees = createSelector(
   selectCurrentPersona,
   selectProvince,
-  (persona, province) =>
+  selectDaysOffWork,
+  (persona, province, daysoff) =>
     numberToMoneyDisplay(
-      10 * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
+      daysoff.totalDays * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
     )
 );
 
@@ -177,14 +186,6 @@ const whatifMediation = createSelector(
       child_care_total_days_off + moving_cost )
   }
 )
-
-const selectDaysOffWork = createSelector(selectCurrentPersona, (persona) => {
-  return {
-    courtDays: persona.daysToPrepAndAttend,
-    sickDays: persona.daysFeelingUnwell,
-    totalDays: persona.daysToPrepAndAttend + persona.daysFeelingUnwell
-  };
-});
 
 const whatifCourtResolution = createSelector(
   selectLegalFees,
