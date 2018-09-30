@@ -6,6 +6,7 @@ import {
   TallOutlinedDisplayCard,
   DisplayItemsWrapper,
   Label,
+  CostDisplay,
   CenteredContent,
   PersonaTextBold,
   PersonaTextBoldNoPadding,
@@ -84,5 +85,6 @@ CostsSummaryDisplay.propTypes = {
   setIncome: PropTypes.func,
   persona: PropTypes.any,
   incomeDisplay: PropTypes.string,
+  costsOfTheCase: PropTypes.string,
   impactOnStability: PropTypes.string
 };
