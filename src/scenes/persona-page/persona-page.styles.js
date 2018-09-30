@@ -357,3 +357,7 @@ export const InstabilityImage = ImageDiv.extend`
   width: 100%;
   height: 30rem;
 `;
+
+export const ComparisonGraph = styled.div`
+  margin: auto;
+`;

@@ -30,9 +30,8 @@ import { MovingCosts } from "./components/moving-costs.component";
 import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
+import { isEmpty } from "ramda";
 
-const costIsNotZero = costDisplay =>
-  parseInt(costDisplay.replace(/[,$]/g, ""), 10) > 0;
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
     const {
@@ -110,7 +109,7 @@ export class PersonaPageComponent extends React.Component {
             <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
 
-          {costIsNotZero(childcareFees) && (
+          {!isEmpty(childcareFees) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -119,7 +118,7 @@ export class PersonaPageComponent extends React.Component {
             </React.Fragment>
           )}
 
-          {costIsNotZero(movingFees) && (
+          {!isEmpty(movingFees) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -166,5 +165,7 @@ PersonaPageComponent.propTypes = {
   movingFees: PropTypes.string,
   totalDirectFees: PropTypes.string,
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
-  resetChoices: PropTypes.func
+  resetChoices: PropTypes.func,
+  otherFinancialImpacts: PropTypes.string,
+  totalLostIncome: PropTypes.string
 };

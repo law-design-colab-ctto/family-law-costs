@@ -15,6 +15,7 @@ import {
   PROFESSIONAL_FEES
 } from "src/data/by-province";
 import { capitalize } from "../../../utils";
+import { INCOME_BAND } from "../../../data/by-province";
 
 const selectCurrentPersonaName = pipe(
   path(["router", "location", "pathname"]),
@@ -135,29 +136,94 @@ const selectCostsOfTheCaseDisplay = createSelector(
   selectCostsOfTheCase,
   fees => (isNaN(fees) ? "" : numberToMoneyDisplay(fees))
 );
+// Other Financial Impact Selectors
+
+const selectDailyIncome = createSelector(selectPersonaIncome, income => {
+  return income / 252;
+});
+
+// should be displayed
+const selectDaysToPrepAndAttend = createSelector(
+  selectDailyIncome,
+  selectCurrentPersona,
+  selectHasLawyer,
+  (dailyIncome, persona, lawyer) => {
+    let days =
+      NUMBER_OF_COURT_EVENTS[persona.stage] * persona.daysToPrepAndAttend;
+    if (INCOME_BAND.maxband4 < dailyIncome < INCOME_BAND.maxband5 && lawyer) {
+      days *= 2 / 3;
+    } else if (INCOME_BAND.maxband5 < dailyIncome && lawyer) {
+      days *= 1 / 3;
+    }
+    return Math.round(days);
+  }
+);
+
+const selectDaysMissedForHealth = createSelector(
+  selectCurrentPersona,
+  persona => {
+    return Math.round(
+      NUMBER_OF_COURT_EVENTS[persona.stage] * persona.daysFeelingUnwell
+    );
+  }
+);
+
+const selectTotalDaysMissed = createSelector(
+  selectDaysMissedForHealth,
+  selectDaysToPrepAndAttend,
+  (health, prepAndAttend) => Math.round(health + prepAndAttend)
+);
 
 const selectMovingFees = createSelector(
   selectCurrentPersona,
   selectProvince,
-  (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
+  (persona, province) => {
+    if (persona.hasToMove) {
+      return MOVING_FEES[province];
+    } else {
+      return 0;
+    }
+  }
 );
 
-const selectDaysOffWork = createSelector(selectCurrentPersona, persona => {
-  return {
-    courtDays: persona.daysToPrepAndAttend,
-    sickDays: persona.daysFeelingUnwell,
-    totalDays: persona.daysToPrepAndAttend + persona.daysFeelingUnwell
-  };
+const selectMovingFeesDisplay = createSelector(selectMovingFees, moving => {
+  if (moving === 0 || isNaN(moving)) {
+    return "";
+  } else {
+    return numberToMoneyDisplay(moving);
+  }
 });
+
+const selectDaysOffWork = createSelector(
+  selectDaysMissedForHealth,
+  selectDaysToPrepAndAttend,
+  selectTotalDaysMissed,
+  (health, prepAndAttend, total) => {
+    return {
+      courtDays: prepAndAttend,
+      sickDays: health,
+      totalDays: total
+    };
+  }
+);
 
 const selectChildcareFees = createSelector(
   selectCurrentPersona,
+  selectTotalDaysMissed,
   selectProvince,
-  selectDaysOffWork,
-  (persona, province, daysoff) =>
-    numberToMoneyDisplay(
-      daysoff.totalDays * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
-    )
+  (persona, totalDays, province) =>
+    persona.children * COST_OF_CHILDCARE_PER_DAY[province] * totalDays
+);
+
+const selectChildcareFeesDisplay = createSelector(
+  selectChildcareFees,
+  childcare => {
+    if (childcare === 0 || isNaN(childcare)) {
+      return "";
+    } else {
+      return numberToMoneyDisplay(childcare);
+    }
+  }
 );
 
 const whatifMediation = createSelector(
@@ -247,9 +313,32 @@ const whatifHighConflict = createSelector(
   whatifCourtResolution => whatifCourtResolution * 6
 );
 
-const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
-  numberToMoneyDisplay(90000)
+// displayed
+const selectTotalLostIncome = createSelector(
+  selectDailyIncome,
+  selectTotalDaysMissed,
+  (dailyIncome, totalDays) => Math.round(dailyIncome * totalDays)
 );
+
+const selectTotalLostIncomeDisplay = createSelector(
+  selectTotalLostIncome,
+  income => {
+    if (income === 0 || isNaN(income)) {
+      return "";
+    } else {
+      return numberToMoneyDisplay(income);
+    }
+  }
+)
+
+const selectOtherFinancialImpactsDisplay = createSelector(
+  selectTotalLostIncome,
+  selectChildcareFees,
+  selectMovingFees,
+  (lostIncome, childcare, moving) =>
+    numberToMoneyDisplay(lostIncome + childcare + moving)
+);
+
 
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
@@ -261,9 +350,8 @@ export const personasConnector = createStructuredSelector({
   locationType: selectLocationType,
   transportationFees: selectTransportationFeesDisplay,
   legalFees: selectLegalFeesDisplay,
-  movingFees: selectMovingFees,
-  childcareFees: selectChildcareFees,
-  totalDirectFees: selectTotalDirectFees,
+  movingFees: selectMovingFeesDisplay,
+  childcareFees: selectChildcareFeesDisplay,
   modalIsOpen: selectModalIsOpen,
   daysOffWork: selectDaysOffWork,
   province: selectProvince,
@@ -271,5 +359,7 @@ export const personasConnector = createStructuredSelector({
   mediation: whatifMediation,
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,
-  highConflict: whatifHighConflict
+  highConflict: whatifHighConflict,
+  otherFinancialImpacts: selectOtherFinancialImpactsDisplay,
+  totalLostIncome: selectTotalLostIncomeDisplay
 });
