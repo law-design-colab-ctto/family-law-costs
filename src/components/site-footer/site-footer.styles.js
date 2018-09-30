@@ -21,4 +21,25 @@ export const Copyright = styled(Grid)`
 
 export const SponsorLogos = styled(Grid)`
   display: flex;
+  padding: ${spacing.three} 0;
+`;
+
+export const LogoRowsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
+export const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LogoDiv = styled.div`
+  background-image: url("/assets/${props => props.imageName}.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3rem;
+  width: 10rem;
 `;

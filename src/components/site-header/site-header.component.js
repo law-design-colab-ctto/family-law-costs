@@ -4,12 +4,14 @@ import {
   HeaderGrid,
   SiteTitleWrapper,
   LinksWrapper,
-  NavLink
+  NavLink,
+  SiteLogoDiv
 } from "./site-header.styles";
 
 export const SiteHeader = () => (
   <HeaderGrid item xs={12} container justify="space-between">
     <SiteTitleWrapper item>
+      <SiteLogoDiv />
       <NavLink to="/">Out-of-Pocket</NavLink>
     </SiteTitleWrapper>
     <LinksWrapper item>
