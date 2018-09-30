@@ -45,6 +45,10 @@ export class PersonaPageComponent extends React.Component {
     const persona = personasByName[toLower(personaName)];
     setIncome({ income: persona.income });
   }
+  componentWillUnmount() {
+    const { resetChoices } = this.props;
+    resetChoices();
+  }
   render() {
     const {
       match: {
@@ -161,5 +165,6 @@ PersonaPageComponent.propTypes = {
   childcareFees: PropTypes.string,
   movingFees: PropTypes.string,
   totalDirectFees: PropTypes.string,
-  eligibilityReasons: PropTypes.arrayOf(PropTypes.string)
+  eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
+  resetChoices: PropTypes.func
 };
