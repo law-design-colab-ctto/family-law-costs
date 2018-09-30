@@ -15,10 +15,12 @@ import {
 export const DaysOffWork = ({ daysOffWork, persona }) => (
   <React.Fragment>
     <SectionSubheader>Days off work</SectionSubheader>
+    <div>
     <QuoteBlock>
         <em>{`"${persona.daysOffWorkQuote}"`}</em>
     </QuoteBlock>
-      <PersonaTextRegular>{`"${persona.daysOffWorkText}"`}
+    </div>
+      <PersonaTextRegular>{`${persona.daysOffWorkText}`}
       </PersonaTextRegular>
 
     <DisplayItemsWrapper>
