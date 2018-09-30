@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {
   SectionSubheader,
-  PersonaTextRegular,
+  QuoteBlock,
   CostDisplay,
   CostSectionWrapper,
   CostTextContentWrapper
@@ -13,7 +13,7 @@ export const MovingCosts = ({ movingFees, persona }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Moving Costs</SectionSubheader>
-      <PersonaTextRegular>{persona.movingCostText}</PersonaTextRegular>
+      <QuoteBlock>{persona.movingCostText}</QuoteBlock>
     </CostTextContentWrapper>
 
     <CostDisplay>{movingFees}</CostDisplay>
