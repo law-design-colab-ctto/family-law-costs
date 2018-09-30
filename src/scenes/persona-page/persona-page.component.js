@@ -167,5 +167,6 @@ PersonaPageComponent.propTypes = {
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
   resetChoices: PropTypes.func,
   otherFinancialImpacts: PropTypes.string,
-  totalLostIncome: PropTypes.string
+  totalLostIncome: PropTypes.string,
+  impactOnStability: PropTypes.string
 };

@@ -15,7 +15,7 @@ import {
   PROFESSIONAL_FEES
 } from "src/data/by-province";
 import { capitalize } from "../../../utils";
-import { INCOME_BAND } from "../../../data/by-province";
+import { INCOME_BAND, INSTABILITY_SCORE } from "../../../data/by-province";
 
 const selectCurrentPersonaName = pipe(
   path(["router", "location", "pathname"]),
@@ -150,7 +150,11 @@ const selectDaysToPrepAndAttend = createSelector(
   (dailyIncome, persona, lawyer) => {
     let days =
       NUMBER_OF_COURT_EVENTS[persona.stage] * persona.daysToPrepAndAttend;
-    if (INCOME_BAND.maxband4 < dailyIncome < INCOME_BAND.maxband5 && lawyer) {
+    if (
+      INCOME_BAND.maxband4 < dailyIncome &&
+      dailyIncome < INCOME_BAND.maxband5 &&
+      lawyer
+    ) {
       days *= 2 / 3;
     } else if (INCOME_BAND.maxband5 < dailyIncome && lawyer) {
       days *= 1 / 3;
@@ -329,7 +333,7 @@ const selectTotalLostIncomeDisplay = createSelector(
       return numberToMoneyDisplay(income);
     }
   }
-)
+);
 
 const selectOtherFinancialImpactsDisplay = createSelector(
   selectTotalLostIncome,
@@ -339,6 +343,31 @@ const selectOtherFinancialImpactsDisplay = createSelector(
     numberToMoneyDisplay(lostIncome + childcare + moving)
 );
 
+// instability factor selectors
+
+const selectInstability = createSelector(
+  selectCurrentPersona,
+  selectPersonaIncome,
+  (persona, income) => {
+    let a = income > 100000 ? 1 : persona.paymentmethodFactor;
+    let b = income > 75000 ? 1 : persona.jobflexibilityFactor;
+    let c = persona.stablejobFactor;
+    let d = income > 75000 ? 1 : persona.healthcostFactor;
+    let e = persona.healthimpactFactor;
+    let f = persona.hasToMove === true ? 5 : 1;
+    let instabilityscore = a + b + c + d + e + f;
+    if (instabilityscore <= INSTABILITY_SCORE.maxscorelow) {
+      return "low";
+    } else if (
+      INSTABILITY_SCORE.maxscorelow < instabilityscore &&
+      instabilityscore <= INSTABILITY_SCORE.maxscoremed
+    ) {
+      return "medium";
+    } else {
+      return "high";
+    }
+  }
+);
 
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
@@ -361,5 +390,6 @@ export const personasConnector = createStructuredSelector({
   increasedConflict: whatifIncreasedConflict,
   highConflict: whatifHighConflict,
   otherFinancialImpacts: selectOtherFinancialImpactsDisplay,
-  totalLostIncome: selectTotalLostIncomeDisplay
+  totalLostIncome: selectTotalLostIncomeDisplay,
+  impactOnStability: selectInstability
 });
