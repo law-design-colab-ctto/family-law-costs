@@ -162,8 +162,8 @@ export const NUMBER_OF_COURT_EVENTS = {
   separationWithChildren: 10,
   divorce: 6.5,
   trial: 16,
-  variation: 8.6
-  //mediation: 2
+  variation: 8.6,
+  mediation: 2, //this one was just added in 
 };
 
 export const PROFESSIONAL_FEES = {
