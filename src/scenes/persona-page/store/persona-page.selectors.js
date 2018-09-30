@@ -158,27 +158,29 @@ const selectdaysToPrepAndAttend = createSelector(
   selectCurrentPersona,
   selectPersonaIncome
   (persona, income) => {
-    const daysToPrepAndAttend =
-
-
-
-
-
-
-    NUMBER_OF_COURT_EVENTS[persona.stage]
-      };
-    );
-
-    INCOME_BAND,
+    let daily_income = income / 252
+    let days = NUMBER_OF_COURT_EVENTS[persona.stage]*persona.daysToPrepAndAttend
+    if (daily_income >INCOME_BAND.maxband5) {
+      days*1/3
+      }
+      else if (daily_income >INCOME_BAND.maxband4 ) {
+        days*(2/3)
+      }
+      else if (daily_income <=INCOME_BAND.maxband4 ) {
+        days
+      }
+    return daysToPrepAndAttend = days
+  }
 );
-
 
 const selectdaysToPrepAndAttendDisplay = createSelector(
   selectdaysToPrepAndAttend
+    //display format?
 );
 
 
 const selectdaysFeelingUnwell = createSelector(
+  selectCurrentPersona,
 );
 
 
@@ -204,6 +206,7 @@ const selectMovingFees = createSelector(
   (persona, province) => {
     const movingFees = MOVING_FEES[province]
     return movingFees
+  }
 );
 
 const selectMovingFeesDisplay = createSelector(
@@ -225,6 +228,7 @@ const selectChildcareFees = createSelector(
   (persona, province, daysoff) => {
     childcarefees = daysoff.totalDays * COST_OF_CHILDCARE_PER_DAY[province] * persona.children
     return childcarefees
+  }
 );
 
 const selectChildcareFeesDisplay = createSelector(
@@ -294,7 +298,7 @@ const whatifMediation = createSelector(
     return (total_legal_costs + total_travel_cost + total_lost_income +
       child_care_total_days_off + moving_cost)
   }
-)
+);
 
 const whatifCourtResolution = createSelector(
   selectLegalFees,
@@ -327,17 +331,17 @@ const whatifCourtResolution = createSelector(
 
     return costs_of_the_case + other_financial_impacts
   }
-)
+);
 
 const whatifIncreasedConflict = createSelector(
   whatifCourtResolution,
   (whatifCourtResolution) => whatifCourtResolution * 2
-)
+);
 
 const whatifHighConflict = createSelector(
   whatifCourtResolution,
   (whatifCourtResolution) => whatifCourtResolution * 6
-)
+);
 
 
 );
