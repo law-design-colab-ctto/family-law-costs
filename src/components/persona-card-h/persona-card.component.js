@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {
   StyledCard,
-  StyledLink,
+  StyledContainer,
   PersonaCardMedia,
   PersonaLabel,
   PersonaDetails,
@@ -17,7 +17,7 @@ import Typography from "@material-ui/core/Typography";
 
 export const PersonaCardHorizontal = ({ persona }) => (
   <StyledCard>
-    <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
+    <StyledContainer>
       <PersonaCardMedia name={persona.name} title={persona.name} />
       <PersonaContent>
         <Typography gutterBottom variant="headline" color="primary">
@@ -30,7 +30,7 @@ export const PersonaCardHorizontal = ({ persona }) => (
       <PersonaQuote>
         <em>{`"${persona.quote1}"`}</em>
       </PersonaQuote>
-    </StyledLink>
+    </StyledContainer>
   </StyledCard>
 );
 

@@ -5,18 +5,26 @@ import {
   SectionSubheader,
   DisplayItemsWrapper,
   TallOutlinedDisplayCard,
+  QuoteBlock,
   Label,
   CenteredContentColumn,
   PersonaTextBold,
+  PersonaTextRegular,
   DaysOffWorkImage
 } from "../persona-page.styles";
 export const DaysOffWork = ({ daysOffWork, persona }) => (
   <React.Fragment>
     <SectionSubheader>Days off work</SectionSubheader>
-    <p>
-      <em>{`"${persona.daysOffWorkQuote}"`}</em>
-    </p>
-    <p>{persona.daysOffWorkText}</p>
+    <div>
+    <QuoteBlock>
+      <PersonaTextRegular>
+        <em>{`"${persona.daysOffWorkQuote}"`}</em>
+      </PersonaTextRegular>
+    </QuoteBlock>
+    </div>
+      <PersonaTextRegular>{`${persona.daysOffWorkText}`}
+      </PersonaTextRegular>
+
     <DisplayItemsWrapper>
       <TallOutlinedDisplayCard>
         <Label>Prep days and court events</Label>

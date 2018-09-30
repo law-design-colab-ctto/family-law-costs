@@ -37,16 +37,13 @@ export const ChoosePersonaComponent = props => {
         <Grid item sm={8} xs={12}>
           <ToolDescription>
             <p>
-              It is hard to calculate the real cost of a family law dispute in Canada. Without this information, It is hard for individuals, lawyers, governments and courts to understand the impact and to improve the system.
+              It is hard to calculate the real cost of a family law dispute in Canada. Without this information, it is hard for individuals, lawyers, governments and courts to understand the impact and to improve the system.
             </p>
             <p>
-            The Out-of-Pocket tool helps to put a dollar figure on the out-of-pocket costs to individuals and families during a family law dispute.
+              The Out-of-Pocket tool helps to put a dollar figure on the out-of-pocket costs to individuals and families during a family law dispute.
             </p>
             <p>
               This tool uses typical stories and experiences to provide snapshots of family law costs.
-            </p>
-            <p>
-              To learn more, click on one of the stories below or use the filters to find stories about specific experiences.
             </p>
           </ToolDescription>
         </Grid>
@@ -55,7 +52,7 @@ export const ChoosePersonaComponent = props => {
         <OutOfPocketSubHeader>
           To learn more, click on one of the stories below or use the filters to find stories about specific experiences.
         </OutOfPocketSubHeader>
-        <FiltersSectionTitle>Filter by:</FiltersSectionTitle>
+        <FiltersSectionTitle>Filter stories by:</FiltersSectionTitle>
         <Grid xs={12} container spacing={40} item>
           <Grid item xs={12} sm={6}>
             <FilterSet

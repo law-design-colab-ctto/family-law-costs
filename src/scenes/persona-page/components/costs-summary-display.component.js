@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {
-  SectionSmallSubheader,
+  SectionSubheader,
   TallOutlinedDisplayCard,
   DisplayItemsWrapper,
   Label,
+  CostDisplay,
   CenteredContent,
   PersonaTextBold,
   PersonaTextBoldNoPadding,
@@ -21,13 +22,13 @@ const impactToImage = {
   high: "ThermoRed"
 };
 
-export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
+export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsOfTheCase }) => (
   <div>
-    <SectionSmallSubheader textColour={colours.white}>
+    <SectionSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
         persona.name
       )}'s Out-of-Pocket Costs`}</strong>
-    </SectionSmallSubheader>
+    </SectionSubheader>
     <DisplayItemsWrapper>
       <TallOutlinedDisplayCard borderWidth="3px">
         <Label textColour={colours.white}>Costs of the Case</Label>
@@ -36,7 +37,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
             textColour={colours.white}
             fontSize={fontSizes.display1}
           >
-            $52,025
+          <CostDisplay>{costsOfTheCase}</CostDisplay>
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
@@ -84,5 +85,6 @@ CostsSummaryDisplay.propTypes = {
   setIncome: PropTypes.func,
   persona: PropTypes.any,
   incomeDisplay: PropTypes.string,
+  costsOfTheCase: PropTypes.string,
   impactOnStability: PropTypes.string
 };

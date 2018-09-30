@@ -95,9 +95,6 @@ export class PersonaPageComponent extends React.Component {
               <PersonaTextRegular>
                 <em>{`"${persona.timeCostText}"`}</em>
               </PersonaTextRegular>
-              <PersonaTextRegular>
-                <em>{`"${persona.daysOffWorkText}"`}</em>
-              </PersonaTextRegular>
             </QuoteBlock>
           </SectionBlock>
 
@@ -138,7 +135,7 @@ export class PersonaPageComponent extends React.Component {
           <Stress persona={persona} />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
-          <Conflict />
+          <Conflict persona={persona} {...this.props} />
         </PersonaSection>
         <SiteFooter />
       </Grid>

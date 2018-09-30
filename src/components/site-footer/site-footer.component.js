@@ -24,5 +24,4 @@ export const SiteFooter = () => (
 
     </SponsorLogos>
   </FooterWrapper>
-
 );
