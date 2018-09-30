@@ -43,6 +43,9 @@ export const personaPageReducer = (
         modalIsOpen: action.payload.modalIsOpen
       };
     }
+    case PERSONA_PAGE_ACTION_TYPES.RESET_CHOICES: {
+      return PERSONA_PAGE_INITIAL_STATE;
+    }
     default:
       return state;
   }

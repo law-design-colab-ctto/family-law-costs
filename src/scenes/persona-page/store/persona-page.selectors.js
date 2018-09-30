@@ -37,8 +37,9 @@ const selectPersonaPage = path(["personaPage"]);
 const selectPersonaIncome = createSelector(selectPersonaPage, path(["income"]));
 const selectHasLawyer = createSelector(selectPersonaPage, path(["hasLawyer"]));
 const selectProvince = createSelector(selectPersonaPage, path(["province"]));
-const selectLocationType = createSelector(selectPersonaPage, personaPageData =>
-  path(["locationType"])(personaPageData)
+const selectLocationType = createSelector(
+  selectPersonaPage,
+  personaPageData => path(["locationType"])(personaPageData) || "urban"
 );
 const selectModalIsOpen = createSelector(
   selectPersonaPage,
@@ -130,13 +131,18 @@ const selectCostsOfTheCase = createSelector(
   (legalFees, transportationFees) => legalFees + transportationFees
 );
 
+const selectCostsOfTheCaseDisplay = createSelector(
+  selectCostsOfTheCase,
+  fees => (isNaN(fees) ? "" : numberToMoneyDisplay(fees))
+);
+
 const selectMovingFees = createSelector(
   selectCurrentPersona,
   selectProvince,
   (persona, province) => numberToMoneyDisplay(MOVING_FEES[province])
 );
 
-const selectDaysOffWork = createSelector(selectCurrentPersona, (persona) => {
+const selectDaysOffWork = createSelector(selectCurrentPersona, persona => {
   return {
     courtDays: persona.daysToPrepAndAttend,
     sickDays: persona.daysFeelingUnwell,
@@ -159,33 +165,42 @@ const whatifMediation = createSelector(
   selectProvince,
   selectLocationType,
   selectPersonaIncome,
-  function (persona, province, locationType, income) {
-    const average_legal_fee_mediation = 4423
-    const actual_legal_fee = persona.conflictMultiplier * average_legal_fee_mediation
-    const court_fee = COURT_FEES_BY_STAGE[province]["application"]  // fee is set to "application" value
-    const professional_fee = PROFESSIONAL_FEES[persona.stage]
-    const total_legal_costs = actual_legal_fee + court_fee + professional_fee
+  function(persona, province, locationType, income) {
+    const average_legal_fee_mediation = 4423;
+    const actual_legal_fee =
+      persona.conflictMultiplier * average_legal_fee_mediation;
+    const court_fee = COURT_FEES_BY_STAGE[province]["application"]; // fee is set to "application" value
+    const professional_fee = PROFESSIONAL_FEES[persona.stage];
+    const total_legal_costs = actual_legal_fee + court_fee + professional_fee;
 
-    const avg_num_court_events = 2  // fixed for Mediation
-    const total_travel_cost = avg_num_court_events * TRANSPORT_FEES[locationType]
+    const avg_num_court_events = 2; // fixed for Mediation
+    const total_travel_cost =
+      avg_num_court_events * TRANSPORT_FEES[locationType];
 
-    const preparation_days = 2  // fixed for Mediation
-    const sick_days = 2  // fixed for mediation
-    const days_to_prep = preparation_days * avg_num_court_events
-    const days_missed_for_health = sick_days * avg_num_court_events
-    const total_days_missed = days_to_prep + days_missed_for_health
-    const daily_income = income / 252
-    const total_lost_income = total_days_missed * daily_income
+    const preparation_days = 2; // fixed for Mediation
+    const sick_days = 2; // fixed for mediation
+    const days_to_prep = preparation_days * avg_num_court_events;
+    const days_missed_for_health = sick_days * avg_num_court_events;
+    const total_days_missed = days_to_prep + days_missed_for_health;
+    const daily_income = income / 252;
+    const total_lost_income = total_days_missed * daily_income;
 
     const child_care_total_days_off =
-      COST_OF_CHILDCARE_PER_DAY[province] * persona.children * total_days_missed
+      COST_OF_CHILDCARE_PER_DAY[province] *
+      persona.children *
+      total_days_missed;
 
-    const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0
+    const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0;
 
-    return ( total_legal_costs + total_travel_cost + total_lost_income +
-      child_care_total_days_off + moving_cost )
+    return (
+      total_legal_costs +
+      total_travel_cost +
+      total_lost_income +
+      child_care_total_days_off +
+      moving_cost
+    );
   }
-)
+);
 
 const whatifCourtResolution = createSelector(
   selectLegalFees,
@@ -194,46 +209,47 @@ const whatifCourtResolution = createSelector(
   selectPersonaIncome,
   selectProvince,
   (selectLegalFees, selectTransportationFees, persona, income, province) => {
-    const costs_of_the_case = selectLegalFees + selectTransportationFees
+    const costs_of_the_case = selectLegalFees + selectTransportationFees;
 
-    const avg_num_court_events = 1
+    const avg_num_court_events = 1;
 
-    const preparation_days = persona.daysToPrepAndAttend
-    const sick_days = persona.daysFeelingUnwell
-    const daily_income = income / 252
+    const preparation_days = persona.daysToPrepAndAttend;
+    const sick_days = persona.daysFeelingUnwell;
+    const daily_income = income / 252;
 
     /* If daily income in band 5 and hire a lawyer, then reduce by 1/3
         If daily income in band 6 and hire a lawyer, then reduce by 2/3 */
-    const days_to_prep = preparation_days * avg_num_court_events
+    const days_to_prep = preparation_days * avg_num_court_events;
 
-    const days_missed_for_health = sick_days * avg_num_court_events
-    const total_days_missed = days_to_prep + days_missed_for_health
-    const total_lost_income = total_days_missed * daily_income
+    const days_missed_for_health = sick_days * avg_num_court_events;
+    const total_days_missed = days_to_prep + days_missed_for_health;
+    const total_lost_income = total_days_missed * daily_income;
 
     const child_care_total_days_off =
-      COST_OF_CHILDCARE_PER_DAY[province] * persona.children * total_days_missed
-    const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0
-    const other_financial_impacts = total_lost_income +
-      child_care_total_days_off + moving_cost
+      COST_OF_CHILDCARE_PER_DAY[province] *
+      persona.children *
+      total_days_missed;
+    const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0;
+    const other_financial_impacts =
+      total_lost_income + child_care_total_days_off + moving_cost;
 
-    return costs_of_the_case + other_financial_impacts
+    return costs_of_the_case + other_financial_impacts;
   }
-)
+);
 
 const whatifIncreasedConflict = createSelector(
   whatifCourtResolution,
-  (whatifCourtResolution) => whatifCourtResolution * 2
-)
+  whatifCourtResolution => whatifCourtResolution * 2
+);
 
 const whatifHighConflict = createSelector(
   whatifCourtResolution,
-  (whatifCourtResolution) => whatifCourtResolution * 6
-)
+  whatifCourtResolution => whatifCourtResolution * 6
+);
 
 const selectTotalDirectFees = createSelector(selectCurrentPersona, () =>
   numberToMoneyDisplay(90000)
 );
-
 
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,
@@ -251,7 +267,7 @@ export const personasConnector = createStructuredSelector({
   modalIsOpen: selectModalIsOpen,
   daysOffWork: selectDaysOffWork,
   province: selectProvince,
-  costsOfTheCase: selectCostsOfTheCase,
+  costsOfTheCase: selectCostsOfTheCaseDisplay,
   mediation: whatifMediation,
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,

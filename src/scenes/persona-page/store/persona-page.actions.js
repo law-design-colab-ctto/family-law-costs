@@ -24,3 +24,7 @@ export const setModal = ({ modalIsOpen }) => ({
   type: PERSONA_PAGE_ACTION_TYPES.SET_MODAL,
   payload: { modalIsOpen }
 });
+
+export const resetChoices = () => ({
+  type: PERSONA_PAGE_ACTION_TYPES.RESET_CHOICES
+});

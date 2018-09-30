@@ -18,7 +18,7 @@ import Typography from "@material-ui/core/Typography";
 export const PersonaCardHorizontal = ({ persona }) => (
   <StyledCard>
     <StyledContainer>
-      <PersonaCardMedia name={persona.name} title={persona.name} />
+      <PersonaCardMedia name={capitalize(persona.name)} title={persona.name} />
       <PersonaContent>
         <Typography gutterBottom variant="headline" color="primary">
           {capitalize(persona.name)}
