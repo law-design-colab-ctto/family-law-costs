@@ -185,6 +185,14 @@ const selectMovingFees = createSelector(
   }
 );
 
+const selectMovingFeesDisplay = createSelector(selectMovingFees, moving => {
+  if (moving === 0 || isNaN(moving)) {
+    return "";
+  } else {
+    return numberToMoneyDisplay(moving);
+  }
+});
+
 const selectDaysOffWork = createSelector(
   selectDaysMissedForHealth,
   selectDaysToPrepAndAttend,
@@ -204,6 +212,17 @@ const selectChildcareFees = createSelector(
   selectProvince,
   (persona, totalDays, province) =>
     persona.children * COST_OF_CHILDCARE_PER_DAY[province] * totalDays
+);
+
+const selectChildcareFeesDisplay = createSelector(
+  selectChildcareFees,
+  childcare => {
+    if (childcare === 0 || isNaN(childcare)) {
+      return "";
+    } else {
+      return numberToMoneyDisplay(childcare);
+    }
+  }
 );
 
 const whatifMediation = createSelector(
@@ -300,18 +319,12 @@ const selectTotalLostIncome = createSelector(
   (dailyIncome, totalDays) => Math.round(dailyIncome + totalDays)
 );
 
-const selectOtherFinancialImpacts = createSelector(
+const selectOtherFinancialImpactsDisplay = createSelector(
   selectTotalLostIncome,
   selectChildcareFees,
   selectMovingFees,
-  (lostIncome, childcare, moving) => {
-    console.log(lostIncome);
-    console.log(childcare);
-    console.log(moving);
-    let total = numberToMoneyDisplay(lostIncome + childcare + moving);
-    console.log(total);
-    return total;
-  }
+  (lostIncome, childcare, moving) =>
+    numberToMoneyDisplay(lostIncome + childcare + moving)
 );
 
 
@@ -325,8 +338,8 @@ export const personasConnector = createStructuredSelector({
   locationType: selectLocationType,
   transportationFees: selectTransportationFeesDisplay,
   legalFees: selectLegalFeesDisplay,
-  movingFees: selectMovingFees,
-  childcareFees: selectChildcareFees,
+  movingFees: selectMovingFeesDisplay,
+  childcareFees: selectChildcareFeesDisplay,
   modalIsOpen: selectModalIsOpen,
   daysOffWork: selectDaysOffWork,
   province: selectProvince,
@@ -335,5 +348,5 @@ export const personasConnector = createStructuredSelector({
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,
   highConflict: whatifHighConflict,
-  otherFinancialImpacts: selectOtherFinancialImpacts
+  otherFinancialImpacts: selectOtherFinancialImpactsDisplay
 });

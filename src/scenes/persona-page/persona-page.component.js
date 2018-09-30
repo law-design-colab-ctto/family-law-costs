@@ -30,6 +30,7 @@ import { MovingCosts } from "./components/moving-costs.component";
 import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
+import { isEmpty } from "ramda";
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -108,7 +109,7 @@ export class PersonaPageComponent extends React.Component {
             <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
 
-          {childcareFees !== 0 && (
+          {!isEmpty(childcareFees) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -117,7 +118,7 @@ export class PersonaPageComponent extends React.Component {
             </React.Fragment>
           )}
 
-          {movingFees !== 0 && (
+          {!isEmpty(movingFees) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -160,8 +161,8 @@ PersonaPageComponent.propTypes = {
   setLocationType: PropTypes.func,
   transportationFees: PropTypes.string,
   legalFees: PropTypes.string,
-  childcareFees: PropTypes.number,
-  movingFees: PropTypes.number,
+  childcareFees: PropTypes.string,
+  movingFees: PropTypes.string,
   totalDirectFees: PropTypes.string,
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
   resetChoices: PropTypes.func,
