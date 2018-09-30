@@ -36,7 +36,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
             textColour={colours.white}
             fontSize={fontSizes.display1}
           >
-            $52,025
+          <CostDisplay>{costsOfTheCase}</CostDisplay>
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
