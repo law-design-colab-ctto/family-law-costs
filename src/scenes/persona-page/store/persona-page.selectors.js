@@ -180,22 +180,35 @@ const selectMovingFees = createSelector(
     if (persona.hasToMove) {
       return MOVING_FEES[province];
     } else {
-      return 0;
+      return "null";
     }
   }
 );
 
-const selectDaysOffWork = createSelector(selectCurrentPersona, persona => {
-  return {
-    courtDays: persona.daysToPrepAndAttend,
-    sickDays: persona.daysFeelingUnwell,
-    totalDays: persona.daysToPrepAndAttend + persona.daysFeelingUnwell
-  };
-});
+const selectDaysOffWork = createSelector(
+  selectDaysMissedForHealth,
+  selectDaysToPrepAndAttend,
+  selectTotalDaysMissed,
+  (health, prepAndAttend, total) => {
+    return {
+      courtDays: prepAndAttend,
+      sickDays: health,
+      totalDays: total
+    };
+  }
+);
 
 const selectChildcareFees = createSelector(
   selectCurrentPersona,
-  selectProvince
+  selectTotalDaysMissed,
+  selectProvince,
+  (persona, totalDays, province) => {
+    if (persona.children === 0) {
+      return "null";
+    } else {
+      return persona.children * COST_OF_CHILDCARE_PER_DAY[province] * totalDays;
+    }
+  }
 );
 
 const whatifMediation = createSelector(

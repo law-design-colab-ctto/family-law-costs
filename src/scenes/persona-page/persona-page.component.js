@@ -31,8 +31,8 @@ import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
 
-const costIsNotZero = costDisplay =>
-  parseInt(costDisplay.replace(/[,$]/g, ""), 10) > 0;
+const costIsNotZero = costDisplay => !(costDisplay === "null");
+
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
     const {

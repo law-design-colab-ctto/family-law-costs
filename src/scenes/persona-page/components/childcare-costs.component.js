@@ -8,6 +8,7 @@ import {
   CostSectionWrapper,
   CostTextContentWrapper
 } from "../persona-page.styles";
+import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
 export const ChildcareCosts = ({ childcareFees, persona }) => (
   <CostSectionWrapper>
@@ -16,11 +17,11 @@ export const ChildcareCosts = ({ childcareFees, persona }) => (
       <PersonaTextRegular><em>{`"${persona.childcareCostText}"`}</em></PersonaTextRegular>
     </CostTextContentWrapper>
 
-    <CostDisplay>{childcareFees}</CostDisplay>
+    <CostDisplay>{numberToMoneyDisplay(childcareFees)}</CostDisplay>
   </CostSectionWrapper>
 );
 
 ChildcareCosts.propTypes = {
-  childcareFees: PropTypes.string,
+  childcareFees: PropTypes.number,
   persona: PropTypes.any
 };

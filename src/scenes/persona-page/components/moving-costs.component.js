@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
 import {
   SectionSubheader,
@@ -18,11 +19,11 @@ export const MovingCosts = ({ movingFees, persona }) => (
       </PersonaTextRegular>
     </CostTextContentWrapper>
 
-    <CostDisplay>{movingFees}</CostDisplay>
+    <CostDisplay>{numberToMoneyDisplay(movingFees)}</CostDisplay>
   </CostSectionWrapper>
 );
 
 MovingCosts.propTypes = {
-  movingFees: PropTypes.string,
+  movingFees: PropTypes.number,
   persona: PropTypes.any
 };
