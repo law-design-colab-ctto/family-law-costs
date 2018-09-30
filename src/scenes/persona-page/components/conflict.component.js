@@ -12,7 +12,7 @@ import { PersonaTextRegular, SectionHeader } from "../persona-page.styles";
 import { colours } from "src/styles";
 import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
-export const Conflict = ({ income, mediation, courtResolution, increasedConflict, highConflict }) => (
+export const Conflict = ({ persona, mediation, courtResolution, increasedConflict, highConflict }) => (
   <React.Fragment>
     <SectionHeader>What if</SectionHeader>
     <PersonaTextRegular>
@@ -40,7 +40,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
       <VerticalBarSeries color={colours.periwinkleBlueMedium} colorType="literal"
         data={[
           {x: 0, y: mediation},
-          {x: 1, y: income, color: colours.periwinkleBlueDark},
+          {x: 1, y: 50000, color: colours.periwinkleBlueDark},
           {x: 2, y: courtResolution},
           {x: 3, y: increasedConflict},
           {x: 4, y: highConflict}
@@ -48,7 +48,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
 
       <LabelSeries
         data={[
-          {x: 0, label: numberToMoneyDisplay(income)},
+          {x: 0, label: numberToMoneyDisplay(50000)},
           {x: 1, label: numberToMoneyDisplay(parseInt(mediation, 10))},
           {x: 2, label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
           {x: 3, label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
@@ -61,9 +61,5 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
 );
 
 Conflict.propTypes = {
-  income: PropTypes.number,
-  mediation: PropTypes.number,
-  courtResolution: PropTypes.number,
-  increasedConflict: PropTypes.number,
-  highConflict: PropTypes.number
+  persona: PropTypes.any
 };
