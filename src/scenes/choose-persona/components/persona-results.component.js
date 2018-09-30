@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { pipe, length, equals } from "ramda";
 
-import { PersonaCardDark } from "src/components";
+// import { PersonaCardDark } from "src/components";
+import { PersonaCard } from "src/components/persona-card/persona-card.component";
 import {
   PersonasHeader,
   ClearAllLabel,
@@ -41,7 +42,7 @@ export const PersonaResults = ({
         </NoPersonasTextSpan>
       ) : (
         personasToDisplay.map(persona => (
-          <PersonaCardDark key={persona.name} persona={persona} />
+          <PersonaCard key={persona.name} persona={persona} />
         ))
       )}
     </PersonaCardsContainerDiv>

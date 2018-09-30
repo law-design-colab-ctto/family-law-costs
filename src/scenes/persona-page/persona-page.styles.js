@@ -14,6 +14,18 @@ export const PersonaTextBold = styled.div`
   font-weight: 500;
   padding: ${spacing.three} 0;
   color: ${props => (props.textColour ? props.textColour : colours.black)};
+  & a {
+    color: ${props => (props.textColour ? props.textColour : colours.black)};
+  }
+`;
+
+export const PersonaTextBoldNoPadding = styled.div`
+  font-size: ${props => (props.fontSize ? props.fontSize : fontSizes.subtitle)};
+  font-weight: 500;
+  color: ${props => (props.textColour ? props.textColour : colours.black)};
+  & a {
+    color: ${props => (props.textColour ? props.textColour : colours.black)};
+  }
 `;
 
 export const MoreDetailsButton = styled(ButtonReset)`
@@ -339,4 +351,9 @@ export const DaysOffWorkImage = ImageDiv.extend`
 export const ThermometerImage = ImageDiv.extend`
   width: 4rem;
   height: 7rem;
+`;
+
+export const InstabilityImage = ImageDiv.extend`
+  width: 100%;
+  height: 30rem;
 `;

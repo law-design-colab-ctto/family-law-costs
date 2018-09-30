@@ -5,12 +5,11 @@ import { colours } from "src/styles";
 import { SiteFooter } from "src/components";
 import {
   DescriptiveSection,
-  MissionHeader,
   ChoosePersonaMainSection,
   OutOfPocketHeader,
   OutOfPocketSubHeader,
   ToolDescription,
-  FiltersSectionTitle,
+  FiltersSectionTitle
 } from "./choose-persona.styles";
 import Grid from "@material-ui/core/Grid";
 import {
@@ -27,7 +26,7 @@ export const ChoosePersonaComponent = props => {
     <Grid container direction="column">
       <SiteHeader />
       <DescriptiveSection item xs={12}>
-        <MissionHeader>Explore the costs of family law disputes in Canada</MissionHeader>
+        <div>Highlighting the cost of family law disputes in Canada.</div>
       </DescriptiveSection>
       <ChoosePersonaMainSection item xs={12} container spacing={16}>
         <Grid item sm={4} xs={12}>
