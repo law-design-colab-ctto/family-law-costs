@@ -285,9 +285,9 @@ export const ImageDiv = styled.div`
   @media only screen and (max-device-width: 480px) {
     background-image: url("/assets/${props => props.imageName}.png");
   }
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const DistanceImage = ImageDiv.extend`

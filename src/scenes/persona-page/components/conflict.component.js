@@ -2,23 +2,17 @@ import React from "react";
 import {
   XYPlot,
   XAxis,
-  YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  VerticalBarSeries
+  VerticalBarSeries,
+  LabelSeries
 } from 'react-vis';
-
+import PropTypes from "prop-types";
 import { PersonaTextRegular, SectionHeader } from "../persona-page.styles";
+import { colours } from "src/styles";
+import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
-const data = [
-  {x: 0, y: 8},
-  {x: 1, y: 5},
-  {x: 2, y: 4},
-  {x: 3, y: 9},
-  {x: 4, y: 1}
-];
-
-export const Conflict = () => (
+export const Conflict = ({ persona, mediation, courtResolution, increasedConflict, highConflict }) => (
   <React.Fragment>
     <SectionHeader>What if</SectionHeader>
     <PersonaTextRegular>
@@ -39,15 +33,33 @@ export const Conflict = () => (
             resolved early through mediation or if it escalated due to increasing conflict.`}
     </PersonaTextRegular>
 
-    <XYPlot height={300} width= {300}>
+    <XYPlot height={300} width={700}>
       <VerticalGridLines />
       <HorizontalGridLines />
       <XAxis />
-      <YAxis />
-      <VerticalBarSeries data={data} />
+      <VerticalBarSeries color={colours.periwinkleBlueMedium} colorType="literal"
+        data={[
+          {x: 0, y: mediation},
+          {x: 1, y: 50000, color: colours.periwinkleBlueDark},
+          {x: 2, y: courtResolution},
+          {x: 3, y: increasedConflict},
+          {x: 4, y: highConflict}
+        ]} />
+
+      <LabelSeries
+        data={[
+          {x: 0, label: numberToMoneyDisplay(50000)},
+          {x: 1, label: numberToMoneyDisplay(parseInt(mediation, 10))},
+          {x: 2, label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
+          {x: 3, label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
+          {x: 4, label: numberToMoneyDisplay(parseInt(highConflict, 10))}
+        ]} />
+
     </XYPlot>
 
   </React.Fragment>
 );
 
-Conflict.propTypes = {};
+Conflict.propTypes = {
+  persona: PropTypes.any
+};
