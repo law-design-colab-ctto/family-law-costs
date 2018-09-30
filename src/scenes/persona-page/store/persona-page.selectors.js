@@ -180,7 +180,7 @@ const selectMovingFees = createSelector(
     if (persona.hasToMove) {
       return MOVING_FEES[province];
     } else {
-      return "null";
+      return 0;
     }
   }
 );
@@ -202,13 +202,8 @@ const selectChildcareFees = createSelector(
   selectCurrentPersona,
   selectTotalDaysMissed,
   selectProvince,
-  (persona, totalDays, province) => {
-    if (persona.children === 0) {
-      return "null";
-    } else {
-      return persona.children * COST_OF_CHILDCARE_PER_DAY[province] * totalDays;
-    }
-  }
+  (persona, totalDays, province) =>
+    persona.children * COST_OF_CHILDCARE_PER_DAY[province] * totalDays
 );
 
 const whatifMediation = createSelector(
@@ -302,15 +297,21 @@ const whatifHighConflict = createSelector(
 const selectTotalLostIncome = createSelector(
   selectDailyIncome,
   selectTotalDaysMissed,
-  (dailyIncome, totalDays) => dailyIncome + totalDays
+  (dailyIncome, totalDays) => Math.round(dailyIncome + totalDays)
 );
 
 const selectOtherFinancialImpacts = createSelector(
   selectTotalLostIncome,
   selectChildcareFees,
   selectMovingFees,
-  (lostIncome, childcare, moving) =>
-    numberToMoneyDisplay(lostIncome + childcare + moving)
+  (lostIncome, childcare, moving) => {
+    console.log(lostIncome);
+    console.log(childcare);
+    console.log(moving);
+    let total = numberToMoneyDisplay(lostIncome + childcare + moving);
+    console.log(total);
+    return total;
+  }
 );
 
 
@@ -333,5 +334,6 @@ export const personasConnector = createStructuredSelector({
   mediation: whatifMediation,
   courtResolution: whatifCourtResolution,
   increasedConflict: whatifIncreasedConflict,
-  highConflict: whatifHighConflict
+  highConflict: whatifHighConflict,
+  otherFinancialImpacts: selectOtherFinancialImpacts
 });

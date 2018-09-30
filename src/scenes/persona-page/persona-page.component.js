@@ -31,8 +31,6 @@ import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
 
-const costIsNotZero = costDisplay => !(costDisplay === "null");
-
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
     const {
@@ -110,7 +108,7 @@ export class PersonaPageComponent extends React.Component {
             <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
 
-          {costIsNotZero(childcareFees) && (
+          {childcareFees !== 0 && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -119,7 +117,7 @@ export class PersonaPageComponent extends React.Component {
             </React.Fragment>
           )}
 
-          {costIsNotZero(movingFees) && (
+          {movingFees !== 0 && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -162,9 +160,10 @@ PersonaPageComponent.propTypes = {
   setLocationType: PropTypes.func,
   transportationFees: PropTypes.string,
   legalFees: PropTypes.string,
-  childcareFees: PropTypes.string,
-  movingFees: PropTypes.string,
+  childcareFees: PropTypes.number,
+  movingFees: PropTypes.number,
   totalDirectFees: PropTypes.string,
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
-  resetChoices: PropTypes.func
+  resetChoices: PropTypes.func,
+  otherFinancialImpacts: PropTypes.string
 };
