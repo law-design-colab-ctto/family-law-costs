@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {
-  SectionSmallSubheader,
+  SectionSubheader,
   TallOutlinedDisplayCard,
   DisplayItemsWrapper,
   Label,
@@ -23,11 +23,11 @@ const impactToImage = {
 
 export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
   <div>
-    <SectionSmallSubheader textColour={colours.white}>
+    <SectionSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
         persona.name
       )}'s Out-of-Pocket Costs`}</strong>
-    </SectionSmallSubheader>
+    </SectionSubheader>
     <DisplayItemsWrapper>
       <TallOutlinedDisplayCard borderWidth="3px">
         <Label textColour={colours.white}>Costs of the Case</Label>
