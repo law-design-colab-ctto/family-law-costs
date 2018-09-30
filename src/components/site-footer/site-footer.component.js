@@ -3,25 +3,41 @@ import React from "react";
 import {
   FooterWrapper,
   Copyright,
-  SponsorLogos
+  SponsorLogos,
+  LogoRowsWrapper,
+  ColumnWrapper,
+  LogoDiv
 } from "./site-footer.styles";
 
 export const SiteFooter = () => (
   <FooterWrapper>
-    Out of pocket costs
-    <p>
-    <strong>DISCLAIMER:</strong> This tool does not predict the legal costs of a specific case. It is not customizable and does not account for complexity or variation in issues and costs. It frequently calculates the lowest typical costs. No information in this tool constitutes legal or financial advice.
-    </p>
+    <LogoRowsWrapper>
+      <ColumnWrapper>
+        <div>Out of pocket costs</div>
+        <SponsorLogos>
+          <LogoDiv imageName="uvicacelogo" />
+          <LogoDiv imageName="calibratelogo" />
+        </SponsorLogos>
+      </ColumnWrapper>
+      <ColumnWrapper>
+        <div>
+          Supported by the Law Foundation <br />
+          of Ontario&#39;s Access to Justice Fund
+        </div>
+        <SponsorLogos>
+          <LogoDiv imageName="lawfoundationlogo" />
+        </SponsorLogos>
+      </ColumnWrapper>
+    </LogoRowsWrapper>
     <Copyright>
-    <p>
-      © Copyright 2018 CALIBRATE Solutions Inc.
-    </p>
-    <p>
-      Supported by the Law Foundation of Ontario&#39;s Access to Justice Fund
-    </p>
+      <p>© Copyright 2018 CALIBRATE Solutions Inc.</p>
     </Copyright>
-    <SponsorLogos>
-
-    </SponsorLogos>
+    <p>
+      <strong>DISCLAIMER:</strong> This tool does not predict the legal costs of
+      a specific case. It is not customizable and does not account for
+      complexity or variation in issues and costs. It frequently calculates the
+      lowest typical costs. No information in this tool constitutes legal or
+      financial advice.
+    </p>
   </FooterWrapper>
 );
