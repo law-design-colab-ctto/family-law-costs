@@ -20,6 +20,9 @@ export const SiteTitleWrapper = styled(Grid)`
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: ${colours.white};
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const LinksWrapper = styled(Grid)`

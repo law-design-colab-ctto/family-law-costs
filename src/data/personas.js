@@ -493,7 +493,7 @@ export const PERSONAS = [
     instabilityQuote1:
       "I feel like I’ve been perpetually stressed for the past three years. I had to take out a loan in order to cover all the expenses.",
 
-    Quote2:
+    instabilityQuote2:
       "I get very anxious in the days leading up to my court dates. I lose my appetite and stop eating. I’m getting sick more frequently and spending more on my medical costs."
   },
   {

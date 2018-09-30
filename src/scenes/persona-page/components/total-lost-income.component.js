@@ -9,7 +9,7 @@ import {
 } from "../persona-page.styles";
 
 //TODO: remove this default
-export const TotalLostIncome = ({ totalLostIncome = "$16,528" }) => (
+export const TotalLostIncome = ({ totalLostIncome }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Total Lost Income</SectionSubheader>

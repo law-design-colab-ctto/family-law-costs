@@ -12,11 +12,12 @@ import { FILTER_VALUE_TO_LABEL } from "src/scenes/choose-persona/store/choose-pe
 
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import { capitalize } from "src/utils";
 
 export const PersonaCard = ({ persona }) => (
   <StyledCard>
     <StyledLink key={`link-${persona.name}`} to={`/persona/${persona.name}`}>
-      <PersonaCardMedia name={persona.name} title={persona.name} />
+      <PersonaCardMedia name={capitalize(persona.name)} title={persona.name} />
       <CardContent>
         <Typography gutterBottom variant="headline" color="primary">
           {persona.name}

@@ -6,7 +6,8 @@ import {
   setProvince,
   setLawyer,
   setLocationType,
-  setModal
+  setModal,
+  resetChoices
 } from "./store/persona-page.actions";
 
 const dispatchers = {
@@ -14,7 +15,8 @@ const dispatchers = {
   setProvince,
   setLawyer,
   setLocationType,
-  setModal
+  setModal,
+  resetChoices
 };
 
 export const PersonaPageContainer = connect(
