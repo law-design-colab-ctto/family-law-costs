@@ -86,5 +86,6 @@ CostsSummaryDisplay.propTypes = {
   persona: PropTypes.any,
   incomeDisplay: PropTypes.string,
   costsOfTheCase: PropTypes.string,
-  impactOnStability: PropTypes.string
+  impactOnStability: PropTypes.string,
+  otherFinancialImpacts: PropTypes.string
 };
