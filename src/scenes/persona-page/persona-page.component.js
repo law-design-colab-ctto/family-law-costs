@@ -95,9 +95,6 @@ export class PersonaPageComponent extends React.Component {
               <PersonaTextRegular>
                 <em>{`"${persona.timeCostText}"`}</em>
               </PersonaTextRegular>
-              <PersonaTextRegular>
-                <em>{`"${persona.daysOffWorkText}"`}</em>
-              </PersonaTextRegular>
             </QuoteBlock>
           </SectionBlock>
 
