@@ -204,10 +204,10 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "Things have been really hard since the separation. I just started a new job with great colleagues but the hours are long. The work is challenging and I want to make a good impression, especially during my probation period,. I’m struggling to balance work, the separation, and making sure that I still pick my daughter up from daycare on time.",
 
-    instabiltiyQuote2:
+    instabilityQuote2:
       "My sister and best friend live nearby. Sometimes they come over for a glass of wine, but a lot of the time I feel lonely. The stress is getting to me."
   },
 
@@ -300,10 +300,10 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "I was already struggling to deal with everything after Barb left, but things have just gotten worse. I’m anxious and preparing for court takes up so much of my time and energy. Every time I go to court, I’m losing time with my kids. They have so many school and sporting events I want to be at and now I have to make it to all the court dates too.",
 
-    instabiltiyQuote2:
+    instabilityQuote2:
       "My kids are upset with me. They complain that I’m always busy with “paperwork”. They tell me that their mom is more fun. I’ve been so stressed out and on-edge lately. I’ve snapped at my kids and even people at work. I hung up on a long-time client one day. I managed to smooth things over with my boss, but I’ve been warned to keep my problems at home."
   },
 
@@ -395,9 +395,9 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "So far, I have been able to pay for divorce costs each month, but soon I’ll have to dip into my savings.",
-    instabiltiyQuote2:
+    instabilityQuote2:
       "Ever since we started the divorce process, I’ve been having problems sleeping. My doctor prescribed me sleeping pills for my insomnia, but sometimes I wake up feeling awful. On bad days, I call in sick."
   },
 
@@ -490,10 +490,10 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "I feel like I’ve been perpetually stressed for the past three years. I had to take out a loan in order to cover all the expenses.",
 
-    instabiltiyQuote2:
+    Quote2:
       "I get very anxious in the days leading up to my court dates. I lose my appetite and stop eating. I’m getting sick more frequently and spending more on my medical costs."
   },
   {
@@ -584,10 +584,10 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "I’m happy to be working again, but it’s been hard since the court proceedings began. I am worried about my business. Going to court leaves me feeling exhausted and drained. I often cancel my appointments for the next day.  I can tell my clients are unhappy with me.",
 
-    instabiltiyQuote2:
+    instabilityQuote2:
       "Because English is my second language, I’m nervous that I might not understand what happens in court. I’ve hired someone from the local community centre to help translate for me in court. I pay for everything on my credit cards. All this pressure is putting a strain on my relationships."
   },
   {
@@ -678,14 +678,11 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "My work is seasonal and I was laid off for the winter. I’ve been paying for everything using my credit cards. I worry about how I will pay off my credit card bills every month.",
 
-    instabiltiyQuote2:
-      "Going to court is very stressful. A friend helps me review my paperwork and sometimes comes with me to court. My neighbour sometimes offers to watch my children when I go to court. I feel guilty imposing on people but I don’t know how I would do it without their help.",
-
-    instabiltiyQuote3:
-      "The stress is getting to me. I've started drinking heavily after the children go to bed to deal with everything."
+    instabilityQuote2:
+      "Going to court is very stressful. A friend helps me review my paperwork and sometimes comes with me to court. My neighbour sometimes offers to watch my children when I go to court. I feel guilty imposing on people but I don’t know how I would do it without their help. The stress is getting to me. I've started drinking heavily after the children go to bed to deal with everything."
   },
   {
     name: "Ahmed",
@@ -775,9 +772,9 @@ export const PERSONAS = [
 
     //SECTION - Impact on stability
 
-    instabiltiyQuote1:
+    instabilityQuote1:
       "I feel like I can’t talk to anyone about what I’m going through. I’ve lost so many friends over the past 4 years and I feel isolated and alone.",
-    instabiltiyQuote2:
+    instabilityQuote2:
       "I have been using my retirement savings to pay the legal fees. I was hoping I could retire in the next 5 to 10 years, but now I’m worried that I won't be able to retire anytime soon."
   }
 ];
