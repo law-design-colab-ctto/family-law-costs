@@ -22,7 +22,7 @@ const impactToImage = {
   high: "ThermoRed"
 };
 
-export const CostsSummaryDisplay = ({ persona, impactOnStability = "low" }) => (
+export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsOfTheCase }) => (
   <div>
     <SectionSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
