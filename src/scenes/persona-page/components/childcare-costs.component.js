@@ -13,7 +13,7 @@ export const ChildcareCosts = ({ childcareFees, persona }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Childcare Costs</SectionSubheader>
-      <PersonaTextRegular>{persona.childcareCostText}</PersonaTextRegular>
+      <PersonaTextRegular><i>{persona.childcareCostText}</i></PersonaTextRegular>
     </CostTextContentWrapper>
 
     <CostDisplay>{childcareFees}</CostDisplay>

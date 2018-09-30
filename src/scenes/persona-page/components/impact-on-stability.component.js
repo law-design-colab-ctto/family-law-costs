@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {
   SectionHeader,
-  PersonaText,
+  PersonaTextRegular,
   InstabilityImage
 } from "../persona-page.styles";
 import { colours } from "src/styles";
@@ -14,11 +14,11 @@ export const ImpactOnStability = ({ persona }) => (
     <SectionHeader textColour={colours.black}>
       Impact on Stability
     </SectionHeader>
-    <PersonaText
+    <PersonaTextRegular
     >{`Legal processes affect people's health, employment, housing, and relationships,
       and can mean increased medical costs, risk of job loss or bankruptcy. Impact on Stability
       recognizes how the non-monetary impacts of the court process vary depending on someone's
-      circumstances and finances.`}</PersonaText>
+      circumstances and finances.`}</PersonaTextRegular>
     <InstabilityImage imageName={capitalize(persona.name)} />
   </div>
 );
