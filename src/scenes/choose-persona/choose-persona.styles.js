@@ -43,9 +43,9 @@ export const DescriptionSectionImages = styled.div`
 export const MissionHeader = styled.h3`
   margin: 0;
   padding-bottom: ${spacing.two};
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: ${fontSizes.subtitle};
+  font-weight: 500;
+  font-size: ${fontSizes.title};
+  color: ${colours.periwinkleBlue};
 `;
 
 export const ChoosePersonaMainSection = styled(Grid)`
