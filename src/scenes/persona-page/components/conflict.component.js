@@ -7,18 +7,10 @@ import {
   HorizontalGridLines,
   VerticalBarSeries
 } from 'react-vis';
+import PropTypes from "prop-types";
+import { PersonaTextRegular, SectionHeader, WhatIfCalculations } from "../persona-page.styles";
 
-import { PersonaTextRegular, SectionHeader } from "../persona-page.styles";
-
-const data = [
-  {x: 0, y: 8},
-  {x: 1, y: 5},
-  {x: 2, y: 4},
-  {x: 3, y: 9},
-  {x: 4, y: 1}
-];
-
-export const Conflict = () => (
+export const Conflict = ({ persona, mediation, courtResolution, increasedConflict, highConflict }) => (
   <React.Fragment>
     <SectionHeader>What if</SectionHeader>
     <PersonaTextRegular>
@@ -39,15 +31,33 @@ export const Conflict = () => (
             resolved early through mediation or if it escalated due to increasing conflict.`}
     </PersonaTextRegular>
 
-    <XYPlot height={300} width= {300}>
+    <WhatIfCalculations>
+      {persona.conflictMultiplier} <br />
+      {courtResolution} <br />
+      {increasedConflict} <br />
+      {highConflict}
+
+
+    </WhatIfCalculations>
+
+    <XYPlot height={300} width= {700}>
       <VerticalGridLines />
       <HorizontalGridLines />
       <XAxis />
       <YAxis />
-      <VerticalBarSeries data={data} />
+      <VerticalBarSeries
+        data={[
+          {x: 0, y: mediation},
+          {x: 1, y: 50000},
+          {x: 2, y: courtResolution},
+          {x: 3, y: increasedConflict},
+          {x: 4, y: highConflict}
+        ]} />
     </XYPlot>
 
   </React.Fragment>
 );
 
-Conflict.propTypes = {};
+Conflict.propTypes = {
+  persona: PropTypes.any
+};
