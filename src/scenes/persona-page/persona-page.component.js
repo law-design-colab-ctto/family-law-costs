@@ -100,16 +100,6 @@ export class PersonaPageComponent extends React.Component {
 
           <SectionBlock>
             <DaysOffWork persona={persona} {...this.props} />
-              <QuoteBlock>
-                <PersonaTextRegular>
-                  <em>{`"${persona.daysOffWorkQuote}"`}</em>
-                </PersonaTextRegular>
-              </QuoteBlock>
-              <QuoteBlock>
-                <PersonaTextRegular>
-                  <em>{`"${persona.daysOffWorkText}"`}</em>
-                </PersonaTextRegular>
-              </QuoteBlock>
           </SectionBlock>
 
           <SectionBlock>
