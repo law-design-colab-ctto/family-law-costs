@@ -34,7 +34,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
     </PersonaTextRegular>
 
     <ComparisonGraph>
-      <XYPlot height={525} width={700} xType="ordinal" margin={{bottom: 200, top: 50}}>
+      <XYPlot height={525} width={600} xType="ordinal" margin={{bottom: 200, top: 50}}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis tickLabelAngle={-45} />
@@ -44,16 +44,16 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
             {x: "Resolved Early through Mediation", y: mediation},
             {x: "Court Resolution as Described Above", y: courtResolution},
             {x: "Court Resolution: Increased Conflict", y: increasedConflict},
-            {x: "Court ResolutionL High Conflict", y: highConflict}
+            {x: "Court Resolution: High Conflict", y: highConflict}
           ]} />
 
         <LabelSeries
           data={[
-            {x: "Selected income", label: numberToMoneyDisplay(income)},
-            {x: "Resolved early through mediation", label: numberToMoneyDisplay(parseInt(mediation, 10))},
-            {x: "Court described resolution", label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
-            {x: "Increased Conflict: Court Resolution", label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
-            {x: "High Conflict: Court Resolution", label: numberToMoneyDisplay(parseInt(highConflict, 10))}
+            {x: "Selected Income", label: numberToMoneyDisplay(income)},
+            {x: "Resolved Early through Mediation", label: numberToMoneyDisplay(parseInt(mediation, 10))},
+            {x: "Court Resolution as Described Above", label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
+            {x: "Court Resolution: Increased Conflict", label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
+            {x: "Court Resolution: High Conflict", label: numberToMoneyDisplay(parseInt(highConflict, 10))}
           ]} />
       </XYPlot>
     </ComparisonGraph>
