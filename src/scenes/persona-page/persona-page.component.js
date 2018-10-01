@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { toLower } from "ramda";
 import Grid from "@material-ui/core/Grid";
+import { numberToMoneyDisplay } from "./store/persona-page.utils";
 
 import {
   SiteHeader,
@@ -54,7 +55,8 @@ export class PersonaPageComponent extends React.Component {
       },
       personasByName,
       movingFees,
-      childcareFees
+      childcareFees,
+      costsOfTheCase
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -124,6 +126,16 @@ export class PersonaPageComponent extends React.Component {
               </SectionBlock>
             </React.Fragment>
           )}
+
+          <CostsIncomeWithBars
+            totalDirectCosts={numberToMoneyDisplay(
+                parseInt(costsOfTheCase.replace(/[,$]/g, ""), 10) +
+                parseInt(childcareFees.replace(/[,$]/g, ""), 10) +
+                parseInt(movingFees.replace(/[,$]/g, ""), 10)
+              )}
+            income={incomeDisplay}
+          />
+
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />
