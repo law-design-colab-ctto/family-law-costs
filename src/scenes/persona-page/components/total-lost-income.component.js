@@ -8,8 +8,8 @@ import {
   CostTextContentWrapper
 } from "../persona-page.styles";
 
-//TODO: remove this default
-export const TotalLostIncome = ({ totalLostIncome }) => (
+export const TotalLostIncome = ({ totalLostIncome }) => {
+  return (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Total Lost Income</SectionSubheader>
@@ -17,7 +17,7 @@ export const TotalLostIncome = ({ totalLostIncome }) => (
 
     <CostDisplay>{totalLostIncome}</CostDisplay>
   </CostSectionWrapper>
-);
+)};
 
 TotalLostIncome.propTypes = {
   totalLostIncome: PropTypes.string
