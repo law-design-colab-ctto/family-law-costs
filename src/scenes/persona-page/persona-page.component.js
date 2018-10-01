@@ -7,8 +7,7 @@ import {
   SiteHeader,
   PersonaCardHorizontal,
   PersonaSection,
-  SiteFooter,
-  CostsIncomeWithBars
+  SiteFooter
 } from "src/components";
 import { colours } from "src/styles";
 
@@ -54,7 +53,6 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      incomeDisplay,
       movingFees,
       childcareFees
     } = this.props;
