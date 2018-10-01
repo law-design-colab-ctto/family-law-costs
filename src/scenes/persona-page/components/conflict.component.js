@@ -34,7 +34,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
     </PersonaTextRegular>
 
     <ComparisonGraph>
-      <XYPlot height={525} width={600} xType="ordinal" margin={{bottom: 200, top: 50}}>
+      <XYPlot height={525} width={640} xType="ordinal" margin={{bottom: 200, top: 50}}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis tickLabelAngle={-45} />
@@ -47,13 +47,13 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
             {x: "Court Resolution: High Conflict", y: highConflict}
           ]} />
 
-        <LabelSeries
+        <LabelSeries labelAnchorX="middle"
           data={[
-            {x: "Selected Income", label: numberToMoneyDisplay(income)},
-            {x: "Resolved Early through Mediation", label: numberToMoneyDisplay(parseInt(mediation, 10))},
-            {x: "Court Resolution as Described Above", label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
-            {x: "Court Resolution: Increased Conflict", label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
-            {x: "Court Resolution: High Conflict", label: numberToMoneyDisplay(parseInt(highConflict, 10))}
+            {x: "Selected Income", y: income, label: numberToMoneyDisplay(income)},
+            {x: "Resolved Early through Mediation", y: mediation, label: numberToMoneyDisplay(parseInt(mediation, 10))},
+            {x: "Court Resolution as Described Above", y: courtResolution, label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
+            {x: "Court Resolution: Increased Conflict", y: increasedConflict, label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
+            {x: "Court Resolution: High Conflict", y: highConflict, label: numberToMoneyDisplay(parseInt(highConflict, 10))}
           ]} />
       </XYPlot>
     </ComparisonGraph>

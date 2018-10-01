@@ -5,15 +5,15 @@ import {
   CenteredContent,
   LargeCostDisplay
 } from "../../scenes/persona-page/persona-page.styles";
-import { BlueBar, GreyBar } from "./costs-income-total.styles";
+import { CostsBar, IncomeBar } from "./costs-income-total.styles";
 
 export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
   <InformationCard>
     <CenteredContent>
       <LargeCostDisplay>{topMoney}</LargeCostDisplay>
     </CenteredContent>
-    Costs{" "}
-    <BlueBar
+    Costs{originalCost ? " and other financial impacts" : " "}
+    <CostsBar
       variant="buffer"
       value={
         parseInt(topMoney.replace(/[,$]/g, ""), 10) <
@@ -23,18 +23,33 @@ export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
             100
           : 100
       }
+      valueBuffer={(parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost) <
+        parseInt(income.replace(/[,$]/g, ""), 10)
+          ? (parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost) /
+            parseInt(income.replace(/[,$]/g, ""), 10) *
+            100
+          : 100
+      }
     />
-  Plus Total Costs : {originalCost} 
+
     <br />
     Income{" "}
-    <GreyBar
-      variant="determinate"
+    <IncomeBar
+      variant="buffer"
       value={
-        parseInt(topMoney.replace(/[,$]/g, ""), 10) <
+        parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost <
         parseInt(income.replace(/[,$]/g, ""), 10)
           ? 100
           : (parseInt(income.replace(/[,$]/g, ""), 10) /
-              parseInt(topMoney.replace(/[,$]/g, ""), 10)) *
+            (originalCost + parseInt(topMoney.replace(/[,$]/g, ""), 10))) *
+            100
+      }
+      valueBuffer={
+        parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost <
+        parseInt(income.replace(/[,$]/g, ""), 10)
+          ? 100
+          : (parseInt(income.replace(/[,$]/g, ""), 10) /
+            (originalCost + parseInt(topMoney.replace(/[,$]/g, ""), 10))) *
             100
       }
     />
@@ -44,5 +59,5 @@ export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
 CostsIncomeWithBars.propTypes = {
   topMoney: PropTypes.string,
   income: PropTypes.string,
-  originalCost: PropTypes.string
+  originalCost: PropTypes.number
 };
