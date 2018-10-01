@@ -8,7 +8,8 @@ import {
   SiteHeader,
   PersonaCardHorizontal,
   PersonaSection,
-  SiteFooter
+  SiteFooter,
+  CostsIncomeWithBars
 } from "src/components";
 import { colours } from "src/styles";
 
@@ -56,7 +57,10 @@ export class PersonaPageComponent extends React.Component {
       personasByName,
       movingFees,
       childcareFees,
-      costsOfTheCase
+      incomeDisplay,
+      totalLostIncome,
+      legalFees,
+      transportationFees
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -85,6 +89,17 @@ export class PersonaPageComponent extends React.Component {
           <SectionBlock>
             <TransportationCosts {...this.props} />
           </SectionBlock>
+          <SectionDivider />
+          <br /><strong><center>Total Costs of The Case</center></strong>
+          <CostsIncomeWithBars
+            persona={persona}
+            totalDirectCosts={numberToMoneyDisplay(
+                parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+                parseInt(transportationFees.replace(/[,$]/g, ""), 10)
+              )}
+            income={incomeDisplay}
+          />
+
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader
@@ -127,14 +142,19 @@ export class PersonaPageComponent extends React.Component {
             </React.Fragment>
           )}
 
+          <SectionDivider />
+          <br /><strong><center>Total Life Costs</center></strong>
+
           <CostsIncomeWithBars
+            
             totalDirectCosts={numberToMoneyDisplay(
-                parseInt(costsOfTheCase.replace(/[,$]/g, ""), 10) +
+                parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
                 parseInt(childcareFees.replace(/[,$]/g, ""), 10) +
                 parseInt(movingFees.replace(/[,$]/g, ""), 10)
               )}
             income={incomeDisplay}
           />
+
 
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
