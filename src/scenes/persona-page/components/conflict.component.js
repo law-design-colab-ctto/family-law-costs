@@ -40,11 +40,11 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
         <XAxis tickLabelAngle={-45} />
         <VerticalBarSeries color={colours.periwinkleBlueMedium} colorType="literal"
           data={[
-            {x: "Selected income", y: income, color: colours.periwinkleBlueDark},
-            {x: "Resolved early through mediation", y: mediation},
-            {x: "Court described resolution", y: courtResolution},
-            {x: "Increased Conflict: Court Resolution", y: increasedConflict},
-            {x: "High Conflict: Court Resolution", y: highConflict}
+            {x: "Selected Income", y: income, color: colours.periwinkleBlueDark},
+            {x: "Resolved Early through Mediation", y: mediation},
+            {x: "Court Resolution as Described Above", y: courtResolution},
+            {x: "Court Resolution: Increased Conflict", y: increasedConflict},
+            {x: "Court ResolutionL High Conflict", y: highConflict}
           ]} />
 
         <LabelSeries
