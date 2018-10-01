@@ -54,6 +54,15 @@ export const ChooseRepresentation = ({
           </InformationNotice>
         </SectionBlock>
       )}
+      {isEligibleForLegalAid &&
+      hasLawyer && (
+        <SectionBlock>
+          <InformationNotice>
+            {`${capitalize(persona.name)} is`}
+            <strong>{` eligible for legal aid!`}</strong>
+          </InformationNotice>
+        </SectionBlock>
+      )}
   </React.Fragment>
 );
 
