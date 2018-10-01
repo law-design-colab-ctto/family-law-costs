@@ -70,7 +70,9 @@ const selectReasonsForLegalAidEligibility = createSelector(
   selectCurrentPersona,
   (income, province, persona) => {
     let reasons = [];
-    if (income > LEGAL_AID_CUTOFF[province][persona.children]) {
+    let childindex = [];
+    (persona.children > 2) ? childindex = 2 : childindex = persona.children;
+    if (income > LEGAL_AID_CUTOFF[province][childindex]) {
       reasons.push(
         `${capitalize(persona.pronouns.possessive)}
         income is above the legal aid cut-off in
