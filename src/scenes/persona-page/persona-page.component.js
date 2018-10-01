@@ -93,7 +93,7 @@ export class PersonaPageComponent extends React.Component {
           <br /><strong><center>Total Costs of The Case</center></strong>
           <CostsIncomeWithBars
             persona={persona}
-            totalDirectCosts={numberToMoneyDisplay(
+            topMoney={numberToMoneyDisplay(
                 parseInt(legalFees.replace(/[,$]/g, ""), 10) +
                 parseInt(transportationFees.replace(/[,$]/g, ""), 10)
               )}
@@ -146,11 +146,16 @@ export class PersonaPageComponent extends React.Component {
           <br /><strong><center>Other Financial Impacts</center></strong>
 
           <CostsIncomeWithBars
-
-            totalDirectCosts={numberToMoneyDisplay(
+            originalCost={numberToMoneyDisplay(
+                parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+                parseInt(transportationFees.replace(/[,$]/g, ""), 10)
+              )}
+            topMoney={numberToMoneyDisplay(
                 parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
-                parseInt(childcareFees.replace(/[,$]/g, ""), 10) +
-                parseInt(movingFees.replace(/[,$]/g, ""), 10)
+                (!isEmpty(childcareFees) ?
+                parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
+                (!isEmpty(movingFees) ?
+                parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)
               )}
             income={incomeDisplay}
           />
