@@ -20,6 +20,8 @@ export const ChooseLocationType = ({ setLocationType, locationType }) => (
         <DistanceImage imageName="urban" />
         <ImageButtonLabel>Under 20 km</ImageButtonLabel>
       </LabelledImageButton>
+
+
       <LabelledImageButton
         active={equals(locationType, "suburban")}
         onClick={() => setLocationType({ locationType: "suburban" })}
@@ -27,18 +29,22 @@ export const ChooseLocationType = ({ setLocationType, locationType }) => (
         <DistanceImage imageName="suburban" />
         <ImageButtonLabel>20-100 km</ImageButtonLabel>
       </LabelledImageButton>
-      <LabelledImageButton
-        active={equals(locationType, "remote")}
-        onClick={() => setLocationType({ locationType: "remote" })}
-      >
-        <DistanceImage imageName="remote" />
-        <ImageButtonLabel>100-250 km</ImageButtonLabel>
-      </LabelledImageButton>
+
+
       <LabelledImageButton
         active={equals(locationType, "rural")}
         onClick={() => setLocationType({ locationType: "rural" })}
       >
         <DistanceImage imageName="rural" />
+        <ImageButtonLabel>100-250 km</ImageButtonLabel>
+      </LabelledImageButton>
+
+
+      <LabelledImageButton
+        active={equals(locationType, "remote")}
+        onClick={() => setLocationType({ locationType: "remote" })}
+      >
+        <DistanceImage imageName="remote" />
         <ImageButtonLabel>250 km or more</ImageButtonLabel>
       </LabelledImageButton>
     </DisplayItemsWrapper>
