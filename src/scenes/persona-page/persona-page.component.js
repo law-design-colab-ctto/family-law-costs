@@ -126,10 +126,6 @@ export class PersonaPageComponent extends React.Component {
               </SectionBlock>
             </React.Fragment>
           )}
-          <CostsIncomeWithBars
-            totalDirectCosts={"$100000"}
-            income={incomeDisplay}
-          />
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />
