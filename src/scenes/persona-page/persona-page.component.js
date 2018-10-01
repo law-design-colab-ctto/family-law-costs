@@ -146,10 +146,10 @@ export class PersonaPageComponent extends React.Component {
           <br /><strong><center>Other Financial Impacts</center></strong>
 
           <CostsIncomeWithBars
-            originalCost={numberToMoneyDisplay(
+            originalCost={
                 parseInt(legalFees.replace(/[,$]/g, ""), 10) +
                 parseInt(transportationFees.replace(/[,$]/g, ""), 10)
-              )}
+              }
             topMoney={numberToMoneyDisplay(
                 parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
                 (!isEmpty(childcareFees) ?
