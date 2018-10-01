@@ -25,7 +25,7 @@ export const ChooseIncome = ({ income, setIncome, persona, incomeDisplay }) => (
           value={income}
           min={0}
           max={250000}
-          step={10000}
+          step={5000}
           onChange={(e, val) => setIncome({ income: val })}
         />
       </SliderWrapper>
