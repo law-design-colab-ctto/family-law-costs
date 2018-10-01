@@ -7,18 +7,18 @@ import {
 } from "../../scenes/persona-page/persona-page.styles";
 import { BlueBar, GreyBar } from "./costs-income-total.styles";
 
-export const CostsIncomeWithBars = ({ totalDirectCosts, income }) => (
+export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
   <InformationCard>
     <CenteredContent>
-      <LargeCostDisplay>{totalDirectCosts}</LargeCostDisplay>
+      <LargeCostDisplay>{topMoney}</LargeCostDisplay>
     </CenteredContent>
     Costs{" "}
     <BlueBar
-      variant="determinate"
+      variant="buffer"
       value={
-        parseInt(totalDirectCosts.replace(/[,$]/g, ""), 10) <
+        parseInt(topMoney.replace(/[,$]/g, ""), 10) <
         parseInt(income.replace(/[,$]/g, ""), 10)
-          ? (parseInt(totalDirectCosts.replace(/[,$]/g, ""), 10) /
+          ? (parseInt(topMoney.replace(/[,$]/g, ""), 10) /
               parseInt(income.replace(/[,$]/g, ""), 10)) *
             100
           : 100
@@ -29,11 +29,11 @@ export const CostsIncomeWithBars = ({ totalDirectCosts, income }) => (
     <GreyBar
       variant="determinate"
       value={
-        parseInt(totalDirectCosts.replace(/[,$]/g, ""), 10) <
+        parseInt(topMoney.replace(/[,$]/g, ""), 10) <
         parseInt(income.replace(/[,$]/g, ""), 10)
           ? 100
           : (parseInt(income.replace(/[,$]/g, ""), 10) /
-              parseInt(totalDirectCosts.replace(/[,$]/g, ""), 10)) *
+              parseInt(topMoney.replace(/[,$]/g, ""), 10)) *
             100
       }
     />
@@ -41,6 +41,7 @@ export const CostsIncomeWithBars = ({ totalDirectCosts, income }) => (
 );
 
 CostsIncomeWithBars.propTypes = {
-  totalDirectCosts: PropTypes.string,
-  income: PropTypes.string
+  topMoney: PropTypes.string,
+  income: PropTypes.string,
+  originalCost: PropTypes.string
 };
