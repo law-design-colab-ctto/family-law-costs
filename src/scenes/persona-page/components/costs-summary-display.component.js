@@ -22,7 +22,12 @@ const impactToImage = {
   high: "ThermoRed"
 };
 
-export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsOfTheCase, otherFinancialImpacts}) => (
+export const CostsSummaryDisplay = ({
+  persona,
+  impactOnStability,
+  costsOfTheCase,
+  otherFinancialImpacts
+}) => (
   <div>
     <SectionSubheader textColour={colours.white}>
       <strong>{`These are ${capitalize(
@@ -37,7 +42,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsO
             textColour={colours.white}
             fontSize={fontSizes.display1}
           >
-          <CostDisplay>{costsOfTheCase}</CostDisplay>
+            <CostDisplay>{costsOfTheCase}</CostDisplay>
           </PersonaTextBold>
         </CenteredContent>
         <CenteredContent>
@@ -69,7 +74,7 @@ export const CostsSummaryDisplay = ({ persona, impactOnStability = "low", costsO
         </CenteredContent>
         <CenteredContentColumn>
           <PersonaTextBoldNoPadding textColour={colours.white}>
-            Medium
+            {capitalize(impactOnStability)}
           </PersonaTextBoldNoPadding>
           <PersonaTextBoldNoPadding textColour={colours.white}>
             <a href="#impact-on-stability">See Why</a>
