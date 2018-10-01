@@ -7,9 +7,8 @@ import {
 } from "../../scenes/persona-page/persona-page.styles";
 import { BlueBar, GreyBar } from "./costs-income-total.styles";
 
-export const CostsIncomeWithBars = ({ totalDirectCosts, income }) => (
+export const CostsIncomeWithBars = ({ persona, totalDirectCosts, income }) => (
   <InformationCard>
-    <CenteredContent>Total Direct Costs</CenteredContent>
     <CenteredContent>
       <LargeCostDisplay>{totalDirectCosts}</LargeCostDisplay>
     </CenteredContent>
