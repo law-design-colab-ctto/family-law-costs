@@ -287,28 +287,27 @@ const whatifMediation = createSelector(
   selectLocationType,
   selectPersonaIncome,
   function(persona, province, locationType, income) {
-    const average_legal_fee_mediation = 4423;
-    const actual_legal_fee =
-      persona.conflictMultiplier * average_legal_fee_mediation;
+  //  const average_legal_fee_mediation = 4423;
+    const actual_legal_fee = persona.conflictMultiplier * 4423;
     const court_fee = COURT_FEES_BY_STAGE[province]["application"]; // fee is set to "application" value
     const professional_fee = PROFESSIONAL_FEES[persona.stage];
     const total_legal_costs = actual_legal_fee + court_fee + professional_fee;
 
-    const avg_num_court_events = 2; // fixed for Mediation
-    const total_travel_cost =avg_num_court_events * TRANSPORT_FEES[locationType];
+    //const avg_num_court_events = 2; // fixed for Mediation
+    const total_travel_cost = 2 * TRANSPORT_FEES[locationType];
 
-    const preparation_days = 2; // fixed for Mediation
-    const sick_days = 2; // fixed for mediation
+  //  const preparation_days = 2; // fixed for Mediation
+  //  const sick_days = 2; // fixed for mediation
 
-    const days_to_prep = preparation_days * avg_num_court_events;
-    const days_missed_for_health = sick_days * avg_num_court_events;
+  //  const days_to_prep = preparation_days * avg_num_court_events;
+  //  const days_missed_for_health = sick_days * avg_num_court_events;
 
-    const total_days_missed = days_to_prep + days_missed_for_health;
+//    const total_days_missed = days_to_prep + days_missed_for_health;
     const daily_income = income / 252;
 
-    const total_lost_income = total_days_missed * daily_income;
+    const total_lost_income = 8 * daily_income;
 
-    const child_care_total_days_off = COST_OF_CHILDCARE_PER_DAY[province] * persona.children * total_days_missed;
+    const child_care_total_days_off = COST_OF_CHILDCARE_PER_DAY[province] * persona.children * 8;
 
     const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0;
 
