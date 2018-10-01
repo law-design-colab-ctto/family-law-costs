@@ -8,8 +8,7 @@ import {
   SiteHeader,
   PersonaCardHorizontal,
   PersonaSection,
-  SiteFooter,
-  CostsIncomeWithBars
+  SiteFooter
 } from "src/components";
 import { colours } from "src/styles";
 
@@ -55,7 +54,6 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      incomeDisplay,
       movingFees,
       childcareFees,
       costsOfTheCase
@@ -137,6 +135,7 @@ export class PersonaPageComponent extends React.Component {
               )}
             income={incomeDisplay}
           />
+
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />
@@ -174,5 +173,6 @@ PersonaPageComponent.propTypes = {
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
   resetChoices: PropTypes.func,
   otherFinancialImpacts: PropTypes.string,
-  totalLostIncome: PropTypes.string
+  totalLostIncome: PropTypes.string,
+  impactOnStability: PropTypes.string
 };
