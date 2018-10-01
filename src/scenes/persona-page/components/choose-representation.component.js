@@ -42,8 +42,9 @@ export const ChooseRepresentation = ({
         </ButtonOption>
       </ButtonSetWrapper>
     </ButtonControlWrapper>
-    {!isEligibleForLegalAid &&
-      hasLawyer && (
+
+    if(!isEligibleForLegalAid &&
+      hasLawyer)(
         <SectionBlock>
           <InformationNotice>
             {`${capitalize(persona.name)} is`}
@@ -51,9 +52,19 @@ export const ChooseRepresentation = ({
             {eligibilityReasons.map(reason => (
               <div key={reason}>- {reason}</div>
             ))}
-          </InformationNotice>
-        </SectionBlock>
-      )}
+            </InformationNotice>
+          </SectionBlock>
+          )
+
+      else if (isEligibleForLegalAid &&
+        hasLawyer)(
+          <SectionBlock>
+            <InformationNotice>
+              {`${capitalize(persona.name)} is`}
+              <strong>{` eligible for legal aid!`}</strong>
+              </InformationNotice>
+            </SectionBlock>
+          )
   </React.Fragment>
 );
 
