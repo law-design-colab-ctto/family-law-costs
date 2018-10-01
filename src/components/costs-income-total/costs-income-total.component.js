@@ -24,6 +24,7 @@ export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
           : 100
       }
     />
+  Plus Total Costs : {originalCost} 
     <br />
     Income{" "}
     <GreyBar
