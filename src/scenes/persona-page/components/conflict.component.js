@@ -44,7 +44,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
             {x: "Resolved Early through Mediation", y: mediation},
             {x: "Court Resolution as Described Above", y: courtResolution},
             {x: "Court Resolution: Increased Conflict", y: increasedConflict},
-            {x: "Court ResolutionL High Conflict", y: highConflict}
+            {x: "Court Resolution: High Conflict", y: highConflict}
           ]} />
 
         <LabelSeries
@@ -53,7 +53,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
             {x: "Resolved Early through Mediation", label: numberToMoneyDisplay(parseInt(mediation, 10))},
             {x: "Court Resolution as Described Above", label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
             {x: "Court Resolution: Increased Conflict", label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
-            {x: "Court ResolutionL High Conflict", label: numberToMoneyDisplay(parseInt(highConflict, 10))}
+            {x: "Court Resolution: High Conflict", label: numberToMoneyDisplay(parseInt(highConflict, 10))}
           ]} />
       </XYPlot>
     </ComparisonGraph>
