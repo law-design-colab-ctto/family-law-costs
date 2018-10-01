@@ -143,10 +143,10 @@ export class PersonaPageComponent extends React.Component {
           )}
 
           <SectionDivider />
-          <br /><strong><center>Total Life Costs</center></strong>
+          <br /><strong><center>Other Financial Impacts</center></strong>
 
           <CostsIncomeWithBars
-            
+
             totalDirectCosts={numberToMoneyDisplay(
                 parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
                 parseInt(childcareFees.replace(/[,$]/g, ""), 10) +

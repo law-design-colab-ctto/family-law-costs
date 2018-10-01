@@ -141,9 +141,9 @@ export const MOVING_FEES = {
 };
 
 export const TRANSPORT_FEES = {
-  rural: 20,
-  urban: 50,
-  suburban: 120,
+  urban: 20,
+  suburban: 50,
+  rural: 120,
   remote: 300
 };
 
@@ -163,7 +163,7 @@ export const NUMBER_OF_COURT_EVENTS = {
   divorce: 6.5,
   trial: 16,
   variation: 8.6,
-  mediation: 2, //this one was just added in 
+  mediation: 2, //this one was just added in
 };
 
 export const PROFESSIONAL_FEES = {
