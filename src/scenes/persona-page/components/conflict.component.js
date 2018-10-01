@@ -34,7 +34,7 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
     </PersonaTextRegular>
 
     <ComparisonGraph>
-      <XYPlot height={525} width={700} xType="ordinal" margin={{bottom: 200, top: 50}}>
+      <XYPlot height={525} width={600} xType="ordinal" margin={{bottom: 200, top: 50}}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis tickLabelAngle={-45} />
