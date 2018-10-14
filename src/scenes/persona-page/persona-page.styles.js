@@ -313,7 +313,7 @@ export const DistanceImage = ImageDiv.extend`
 `;
 
 export const ModalContentWrapper = styled.div`
-  top: 60vh;
+  top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
   background-color: ${colours.white};
