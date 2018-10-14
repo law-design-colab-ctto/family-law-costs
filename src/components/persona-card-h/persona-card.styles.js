@@ -8,6 +8,9 @@ import { spacing, colours, fontSizes } from "src/styles";
 export const StyledCard = styled(Card)`
   padding: ${spacing.four};
   background-color: ${colours.grayMediumLight};
+  @media only screen and (max-device-width: 480px) {
+    padding: ${spacing.two};
+  }
 `;
 
 export const StyledContainer = styled.div`
@@ -47,4 +50,7 @@ export const PersonaContent = styled(CardContent)`
 export const PersonaQuote = styled.div`
   padding: ${spacing.two} ${spacing.three};
   color: ${colours.black};
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.description};
+  }
 `;

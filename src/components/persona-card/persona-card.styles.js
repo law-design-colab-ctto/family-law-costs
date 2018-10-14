@@ -18,7 +18,7 @@ export const StyledLink = styled(Link)`
 export const PersonaCardMedia = styled.div`
   background-image: url("/assets/${props => props.name}-card@3x.png");
   @media only screen and (max-device-width: 480px) {
-    background-image: url("/assets/${props => props.name}-card.png");
+    background-image: url("/assets/${props => props.name}-card@1x.png");
   }
   background-position: center; 
   background-repeat: no-repeat; 
@@ -31,8 +31,7 @@ export const PersonaName = styled.h3`
   font-size: ${fontSizes.title};
 `;
 
-export const PersonaAttr = styled(Typography)`
-`;
+export const PersonaAttr = styled(Typography)``;
 
 export const Details = styled.div`
   padding: ${spacing.three} 0;
