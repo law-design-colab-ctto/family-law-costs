@@ -167,6 +167,12 @@ export const ButtonOption = styled(ButtonReset)`
     width: 50%;
   }
 `;
+
+export const SeeMoreButton = styled(ButtonOption)`
+  margin-top: ${spacing.four};
+  color: ${colours.black};
+`;
+
 export const ButtonLabelWrapper = styled.div`
   display: flex;
   flex-grow: 0;

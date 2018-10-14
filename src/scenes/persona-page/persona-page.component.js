@@ -17,7 +17,8 @@ import {
   SectionHeader,
   SectionBlock,
   SectionDivider,
-  QuoteBlock
+  QuoteBlock,
+  ButtonOption
 } from "./persona-page.styles";
 import { PersonaChoices } from "./components/persona-choices.component";
 import { CostsSummaryDisplay } from "./components/costs-summary-display.component";
@@ -31,6 +32,8 @@ import { ImpactOnStability } from "./components/impact-on-stability.component";
 import { Stress } from "./components/stress.component";
 import { Conflict } from "./components/conflict.component";
 import { isEmpty } from "ramda";
+import { NavLink } from "../../components/site-header/site-header.styles";
+import { SeeMorePersonas } from "./components/see-more-personas.component";
 
 export class PersonaPageComponent extends React.Component {
   componentDidMount() {
@@ -167,6 +170,7 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <Conflict persona={persona} {...this.props} />
+          <SeeMorePersonas/>
         </PersonaSection>
         <SiteFooter />
       </Grid>
