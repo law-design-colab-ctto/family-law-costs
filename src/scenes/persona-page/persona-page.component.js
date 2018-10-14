@@ -90,16 +90,17 @@ export class PersonaPageComponent extends React.Component {
             <TransportationCosts {...this.props} />
           </SectionBlock>
           <SectionDivider />
-          <br /><strong><center>Total Costs of The Case</center></strong>
+          <strong>
+            <center>Total Costs of The Case</center>
+          </strong>
           <CostsIncomeWithBars
             persona={persona}
             topMoney={numberToMoneyDisplay(
-                parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+              parseInt(legalFees.replace(/[,$]/g, ""), 10) +
                 parseInt(transportationFees.replace(/[,$]/g, ""), 10)
-              )}
+            )}
             income={incomeDisplay}
           />
-
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader
@@ -143,24 +144,27 @@ export class PersonaPageComponent extends React.Component {
           )}
 
           <SectionDivider />
-          <br /><strong><center>Other Financial Impacts</center></strong>
+          <br />
+          <strong>
+            <center>Other Financial Impacts</center>
+          </strong>
 
           <CostsIncomeWithBars
             originalCost={
-                parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-                parseInt(transportationFees.replace(/[,$]/g, ""), 10)
-              }
+              parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+              parseInt(transportationFees.replace(/[,$]/g, ""), 10)
+            }
             topMoney={numberToMoneyDisplay(
-                parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
-                (!isEmpty(childcareFees) ?
-                parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
-                (!isEmpty(movingFees) ?
-                parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)
-              )}
+              parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
+                (!isEmpty(childcareFees)
+                  ? parseInt(childcareFees.replace(/[,$]/g, ""), 10)
+                  : 0) +
+                (!isEmpty(movingFees)
+                  ? parseInt(movingFees.replace(/[,$]/g, ""), 10)
+                  : 0)
+            )}
             income={incomeDisplay}
           />
-
-
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />

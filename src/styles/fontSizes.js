@@ -6,6 +6,7 @@ export const fontSizes = {
   subtitle: "1.125rem", // 18px
   title: "1.25rem", // 20px
   heading: "1.35rem",
+  smallDisplay: "1.6rem",
   display1: "2rem", // 32px
   display2: "3rem", // 48px
   display3: "4rem", // 64px

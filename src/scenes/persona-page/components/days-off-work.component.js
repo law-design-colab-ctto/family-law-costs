@@ -10,20 +10,20 @@ import {
   CenteredContentColumn,
   PersonaTextBold,
   PersonaTextRegular,
-  DaysOffWorkImage
+  DaysOffWorkImage,
+  SectionBlock
 } from "../persona-page.styles";
 export const DaysOffWork = ({ daysOffWork, persona }) => (
   <React.Fragment>
     <SectionSubheader>Days off work</SectionSubheader>
-    <div>
-    <QuoteBlock>
-      <PersonaTextRegular>
-        <em>{`"${persona.daysOffWorkQuote}"`}</em>
-      </PersonaTextRegular>
-    </QuoteBlock>
-    </div>
-      <PersonaTextRegular>{`${persona.daysOffWorkText}`}
-      </PersonaTextRegular>
+    <SectionBlock>
+      <QuoteBlock>
+        <PersonaTextRegular>
+          <em>{`"${persona.daysOffWorkQuote}"`}</em>
+        </PersonaTextRegular>
+      </QuoteBlock>
+    </SectionBlock>
+    <PersonaTextRegular>{`${persona.daysOffWorkText}`}</PersonaTextRegular>
 
     <DisplayItemsWrapper>
       <TallOutlinedDisplayCard>

@@ -12,17 +12,21 @@ export const HeaderGrid = styled(Grid)`
   justify-content: space-between;
   @media only screen and (max-device-width: 480px) {
     flex-direction: column;
+    padding: ${spacing.four} ${spacing.four};
   }
 `;
 
 export const SiteTitleWrapper = styled(Grid)`
-  max-width:
   font-size: ${fontSizes.subtitle};
   line-height: 1.2;
   display: flex;
   align-items: center;
   @media only screen and (max-device-width: 480px) {
-    padding-bottom: ${spacing.three};
+    padding-bottom: ${spacing.four};
+    font-size: ${fontSizes.subtitle};
+    justify-content: center;
+    position: relative;
+    left: -${spacing.three};
   }
 `;
 
@@ -45,6 +49,12 @@ export const LinksWrapper = styled(Grid)`
   }
   & > a:last-child {
     padding-right: 0;
+  }
+  @media only screen and (max-device-width: 480px) {
+    & > a {
+      font-size: ${fontSizes.p};
+    }
+    justify-content: center;
   }
 `;
 

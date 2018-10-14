@@ -9,7 +9,7 @@ import {
 } from "./site-header.styles";
 
 export const SiteHeader = () => (
-  <HeaderGrid item xs={12} container justify="space-between">
+  <HeaderGrid item xs={12} container>
     <SiteTitleWrapper item>
       <SiteLogoDiv />
       <NavLink to="/">Out-of-Pocket</NavLink>
