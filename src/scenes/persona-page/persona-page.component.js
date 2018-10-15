@@ -89,6 +89,7 @@ export class PersonaPageComponent extends React.Component {
             <TransportationCosts {...this.props} />
           </SectionBlock>
           <SectionDivider />
+
           <br /><strong><center>Total Costs of The Case</center></strong>
 
           <CostsIncomeWithBars
@@ -98,7 +99,6 @@ export class PersonaPageComponent extends React.Component {
             display={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
               parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
           />
-
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <SectionHeader
@@ -142,7 +142,10 @@ export class PersonaPageComponent extends React.Component {
           )}
 
           <SectionDivider />
-          <br /><strong><center>Other Financial Impacts</center></strong>
+          <br />
+          <strong>
+            <center>Other Financial Impacts</center>
+          </strong>
 
           <CostsIncomeWithBars
             income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
@@ -159,7 +162,7 @@ export class PersonaPageComponent extends React.Component {
               (!isEmpty(movingFees) ?
               parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)}
           />
-
+              
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />

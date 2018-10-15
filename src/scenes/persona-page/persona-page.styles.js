@@ -7,6 +7,9 @@ export const PersonaTextRegular = styled.div`
   padding: ${spacing.three} 0;
   font-size: ${fontSizes.subtitle};
   color: ${props => (props.textColour ? props.textColour : colours.black)};
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.p};
+  }
 `;
 
 export const PersonaTextBold = styled.div`
@@ -48,7 +51,7 @@ export const SectionHeader = styled.h2`
 
   @media only screen and (max-device-width: 480px) {
     line-height: 1.1;
-    font-size: ${fontSizes.display1};
+    font-size: ${fontSizes.smallDisplay};
   }
 `;
 
@@ -59,6 +62,7 @@ export const SectionSubheader = styled.h3`
   color: ${props => (props.textColour ? props.textColour : colours.black)};
   @media only screen and (max-device-width: 480px) {
     line-height: 1.1;
+    font-size: ${fontSizes.heading};
   }
 `;
 
@@ -67,6 +71,9 @@ export const SectionSmallSubheader = styled.h4`
   font-size: ${fontSizes.heading};
   font-weight: 400;
   color: ${props => (props.textColour ? props.textColour : colours.black)};
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.title};
+  }
 `;
 
 export const SectionBlock = styled.div`
@@ -148,6 +155,10 @@ export const ButtonOption = styled(ButtonReset)`
   &:last-child {
     border-radius: 0 5px 5px 0;
     margin-right: 0;
+  }
+  @media only screen and (max-device-width: 480px) {
+    padding: ${spacing.three};
+    width: 50%;
   }
 `;
 export const ButtonLabelWrapper = styled.div`
@@ -261,6 +272,9 @@ export const HighlightedNote = styled.div`
 export const CostSectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media only screen and (max-device-width: 480px) {
+    flex-direction: column;
+  }
 `;
 export const CostTextContentWrapper = styled.div`
   flex-grow: 1;
@@ -288,6 +302,9 @@ export const ImageDiv = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @media only screen and (max-device-width: 480px) {
+    background-size: contain;
+  }
 `;
 
 export const DistanceImage = ImageDiv.extend`
@@ -296,21 +313,21 @@ export const DistanceImage = ImageDiv.extend`
 `;
 
 export const ModalContentWrapper = styled.div`
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
   background-color: ${colours.white};
   color: ${colours.black};
   position: relative;
   padding: ${spacing.five};
   border-radius: 1rem;
-  max-width: 60%;
-  max-height: 90%;
+  max-width: 60vw;
+  max-height: 90vh;
   overflow-y: scroll;
   outline: 0;
   font-weight: 500;
   @media only screen and (max-device-width: 480px) {
-    max-width: 90%;
+    max-width: 90vw;
     padding: ${spacing.four};
   }
 `;
@@ -334,12 +351,19 @@ export const OpenModalButton = styled(ButtonReset)`
   &:hover {
     color: ${colours.violet};
   }
+  @media only screen and (max-device-width: 480px) {
+    padding-bottom: ${spacing.four};
+  }
 `;
 
 export const TallOutlinedDisplayCard = OutlinedDisplayCard.extend`
   height: 14rem;
   width: 10rem;
-  padding-bottom: 0;
+  @media only screen and (max-device-width: 480px) {
+    height: 11rem;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const DaysOffWorkImage = ImageDiv.extend`
@@ -351,13 +375,21 @@ export const DaysOffWorkImage = ImageDiv.extend`
 export const ThermometerImage = ImageDiv.extend`
   width: 4rem;
   height: 7rem;
+  @media only screen and (max-device-width: 480px) {
+    height: 5rem;
+  }
 `;
 
 export const InstabilityImage = ImageDiv.extend`
   width: 100%;
   height: 30rem;
+  @media only screen and (max-device-width: 480px) {
+    height: 15rem;
+  }
 `;
 
 export const ComparisonGraph = styled.div`
   margin: auto;
+  max-width: 100%;
+  overflow: scroll;
 `;

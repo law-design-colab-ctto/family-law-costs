@@ -11,6 +11,7 @@ import {
   ToolDescription,
   FiltersSectionTitle
 } from "./choose-persona.styles";
+import { Divider } from "src/components/filter-set/filter-set.styles";
 import Grid from "@material-ui/core/Grid";
 import {
   JOB_STABILITY_OPTIONS,
@@ -37,47 +38,50 @@ export const ChoosePersonaComponent = props => {
         <Grid item sm={8} xs={12}>
           <ToolDescription>
             <p>
-              It is hard to calculate the real cost of a family law dispute in Canada. Without this information, it is hard for individuals, lawyers, governments and courts to understand the impact and to improve the system.
+              It is hard to calculate the real cost of a family law dispute in
+              Canada. Without this information, it is hard for individuals,
+              lawyers, governments and courts to understand the impact and to
+              improve the system.
             </p>
             <p>
-              The Out-of-Pocket tool helps to put a dollar figure on the out-of-pocket costs to individuals and families during a family law dispute.
+              The Out-of-Pocket tool helps to put a dollar figure on the
+              out-of-pocket costs to individuals and families during a family
+              law dispute.
             </p>
             <p>
-              This tool uses typical stories and experiences to provide snapshots of family law costs.
+              This tool uses typical stories and experiences to provide
+              snapshots of family law costs.
             </p>
           </ToolDescription>
         </Grid>
       </ChoosePersonaMainSection>
       <ChoosePersonaMainSection colour={colours.grayMediumLight} item xs={12}>
         <OutOfPocketSubHeader>
-          To learn more, click on one of the stories below or use the filters to find stories about specific experiences.
+          To learn more, click on one of the stories below or use the filters to
+          find stories about specific experiences.
         </OutOfPocketSubHeader>
         <FiltersSectionTitle>Filter stories by:</FiltersSectionTitle>
-        <Grid xs={12} container spacing={40} item>
-          <Grid item xs={12} sm={6}>
-            <FilterSet
-              label="Job Stability"
-              options={JOB_STABILITY_OPTIONS}
-              setFilter={setFilter}
-              currentFilterValue={jobStabilityFilter}
-              clearFilter={() =>
-                clearFilter({ filterType: FILTER_TYPES.JOB_STABILITY })
-              }
-              styleColor="gray"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <FilterSet
-              label="Stage of the Court Proceeding"
-              options={STAGE_OPTIONS}
-              setFilter={setFilter}
-              currentFilterValue={stageFilter}
-              clearFilter={() =>
-                clearFilter({ filterType: FILTER_TYPES.STAGE })
-              }
-              styleColor="violet"
-            />
-          </Grid>
+        <Grid xs={12} item>
+          <FilterSet
+            label="Job Stability"
+            options={JOB_STABILITY_OPTIONS}
+            setFilter={setFilter}
+            currentFilterValue={jobStabilityFilter}
+            clearFilter={() =>
+              clearFilter({ filterType: FILTER_TYPES.JOB_STABILITY })
+            }
+            styleColor="gray"
+            labelSize="large"
+          />
+          <Divider />
+          <FilterSet
+            label="Stage of the Court Proceeding"
+            options={STAGE_OPTIONS}
+            setFilter={setFilter}
+            currentFilterValue={stageFilter}
+            clearFilter={() => clearFilter({ filterType: FILTER_TYPES.STAGE })}
+            styleColor="violet"
+          />
         </Grid>
       </ChoosePersonaMainSection>
 
