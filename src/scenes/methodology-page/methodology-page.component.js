@@ -179,16 +179,16 @@ export default class InfoPage extends Component {
           processes on other areas of people’s lives. Depending on someone’s
           income level, they may not pay more for this stage, but it may have a
           different impact, increasing their instability and decreasing their
-          wellbeing. This calculation is based on a combination of: The risk of
+          wellbeing. This calculation is based on a combination of: the risk of
           bankruptcy when low and middle income people pay for legal processes
-          through loans or credit cards The level of flexibility people have to
-          attend meetings or court without risking their jobs The level of job
-          security they have The extent to which they pay for prescriptions,
-          medical treatments or health costs The impact of the legal process on
+          through loans or credit cards; the level of flexibility people have to
+          attend meetings or court without risking their jobs; the level of job
+          security they have; the extent to which they pay for prescriptions,
+          medical treatments or health costs; and the impact of the legal process on
           their well-being, sleeping patterns, substance abuse, and
           relationships. Each of these risks is factored in to assess the Impact
-          on Stability based on the circumstances of the persona. That risk
-          factor changes as their income changes, recognizing that some of these
+          on Stability based on the circumstances of the persona. Some risk
+          factors change with income, recognizing that some of these
           risks are easier to manage when someone has greater savings, extended
           health coverage or job protection.
         </InfoParagraph>
