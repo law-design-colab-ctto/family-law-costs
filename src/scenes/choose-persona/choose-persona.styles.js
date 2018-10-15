@@ -18,21 +18,17 @@ export const PersonaCardsContainerDiv = styled.div`
   }
 `;
 
-export const MainHeader = styled(Grid)`
-  background-color: ${colours.periwinkleBlue};
-  color: ${colours.white};
-  font-weight: 400;
-  font-size: ${fontSizes.p};
-  padding: ${spacing.four} ${spacing.five};
-`;
-
 export const DescriptiveSection = styled(Grid)`
   background-color: ${colours.grayMediumLight};
   color: ${colours.black};
   font-size: ${fontSizes.display1};
-  padding: ${spacing.five} ${spacing.five};
+  padding: ${spacing.five};
   font-weight: 500;
   line-height: 1.4;
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.title};
+    padding: ${spacing.four};
+  }
 `;
 
 export const DescriptionSectionImages = styled.div`
@@ -51,6 +47,9 @@ export const MissionHeader = styled.h3`
 export const ChoosePersonaMainSection = styled(Grid)`
   background-color: ${props => (props.colour ? props.colour : colours.white)};
   padding: ${spacing.five};
+  @media only screen and (max-device-width: 480px) {
+    padding: ${spacing.four};
+  }
 `;
 
 export const OutOfPocketHeader = styled.h1`
@@ -60,12 +59,19 @@ export const OutOfPocketHeader = styled.h1`
   line-height: 1.2;
   padding-right: ${spacing.two};
   color: ${colours.periwinkleBlue};
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.heading};
+    font-weight: 600;
+  }
 `;
 
 export const OutOfPocketSubHeader = styled.h2`
   margin: 0;
   font-weight: 400;
   padding-bottom: ${spacing.four};
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.subtitle};
+  }
 `;
 
 export const ChoosePersonaPersonasSection = styled(Grid)`
@@ -85,6 +91,9 @@ export const ToolDescription = styled.div`
   line-height: 1.4;
   & p:first-child {
     margin-top: 0;
+  }
+  @media only screen and (max-device-width: 480px) {
+    font-size: ${fontSizes.p};
   }
 `;
 

@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { equals, not, isEmpty, pipe } from "ramda";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import { ControlLabel, ClearIcon, FilterSetWrapper } from "./filter-set.styles";
+import {
+  FilterButton,
+  FilterButtonSet,
+  FilterButtonSetLabel,
+  ClearIcon
+} from "./filter-set.styles";
+import Grid from "@material-ui/core/Grid";
 import { colours } from "src/styles";
 
 const isFilterSelected = pipe(
@@ -18,37 +21,43 @@ export const FilterSet = ({
   currentFilterValue,
   setFilter,
   clearFilter,
-  styleColor = "gray"
+  labelSize = "small"
 }) => (
-  <FilterSetWrapper>
-    <ControlLabel>
+  <React.Fragment>
+    <FilterButtonSetLabel>
       {label}
       {isFilterSelected(currentFilterValue) ? (
         <ClearIcon nativeColor={colours.grayDark} onClick={clearFilter} />
       ) : null}
-    </ControlLabel>
-    <List component="ul">
-      {options.map(({ optionLabel, filterType, filterValue }) => (
-        <ListItem
-          button
-          key={`${optionLabel}${filterType}${filterValue}`}
-          selected={equals(currentFilterValue, filterValue)}
-          onClick={() =>
-            setFilter({
-              filterType,
-              filterValue
-            })
-          }
-          classes={{
-            root: `filter-set-root-${styleColor}`,
-            selected: `selected`
-          }}
-        >
-          {optionLabel}
-        </ListItem>
-      ))}
-    </List>
-  </FilterSetWrapper>
+    </FilterButtonSetLabel>
+    <FilterButtonSet>
+      <Grid container spacing={8}>
+        {options.map(({ optionLabel, filterType, filterValue }) => (
+          <Grid
+            item
+            xs={12}
+            sm={labelSize === "small" ? 4 : 12}
+            md={4}
+            key={`${optionLabel}${filterType}${filterValue}`}
+          >
+            <FilterButton
+              key={`${optionLabel}${filterType}${filterValue}`}
+              active={equals(currentFilterValue, filterValue)}
+              numberOfButtons={options.length}
+              onClick={() =>
+                setFilter({
+                  filterType,
+                  filterValue
+                })
+              }
+            >
+              {optionLabel}
+            </FilterButton>
+          </Grid>
+        ))}
+      </Grid>
+    </FilterButtonSet>
+  </React.Fragment>
 );
 
 FilterSet.propTypes = {
@@ -57,5 +66,5 @@ FilterSet.propTypes = {
   currentFilterValue: PropTypes.string,
   setFilter: PropTypes.func.isRequired,
   clearFilter: PropTypes.func,
-  styleColor: PropTypes.string
+  labelSize: PropTypes.oneOf(["small", "large"])
 };

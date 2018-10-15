@@ -6,13 +6,23 @@ import {
   HorizontalGridLines,
   VerticalBarSeries,
   LabelSeries
-} from 'react-vis';
+} from "react-vis";
 import PropTypes from "prop-types";
-import { PersonaTextRegular, SectionHeader, ComparisonGraph } from "../persona-page.styles";
+import {
+  PersonaTextRegular,
+  SectionHeader,
+  ComparisonGraph
+} from "../persona-page.styles";
 import { colours } from "src/styles";
 import { numberToMoneyDisplay } from "../store/persona-page.utils";
 
-export const Conflict = ({ income, mediation, courtResolution, increasedConflict, highConflict }) => (
+export const Conflict = ({
+  income,
+  mediation,
+  courtResolution,
+  increasedConflict,
+  highConflict
+}) => (
   <React.Fragment>
     <SectionHeader>What if</SectionHeader>
     <PersonaTextRegular>
@@ -34,30 +44,59 @@ export const Conflict = ({ income, mediation, courtResolution, increasedConflict
     </PersonaTextRegular>
 
     <ComparisonGraph>
-      <XYPlot height={525} width={640} xType="ordinal" margin={{bottom: 200, top: 50}}>
+      <XYPlot
+        height={525}
+        width={640}
+        xType="ordinal"
+        margin={{ bottom: 200, top: 50 }}
+      >
         <VerticalGridLines />
         <HorizontalGridLines />
         <XAxis tickLabelAngle={-45} />
-        <VerticalBarSeries color={colours.periwinkleBlueMedium} colorType="literal"
+        <VerticalBarSeries
+          color={colours.periwinkleBlueMedium}
+          colorType="literal"
           data={[
-            {x: "Selected Income", y: income, color: colours.incomeyellow},
-            {x: "Resolved Early through Mediation", y: mediation},
-            {x: "Court Resolution as Described Above", y: courtResolution},
-            {x: "Court Resolution: Increased Conflict", y: increasedConflict},
-            {x: "Court Resolution: High Conflict", y: highConflict}
-          ]} />
+            { x: "Selected Income", y: income, color: colours.incomeyellow },
+            { x: "Resolved Early through Mediation", y: mediation },
+            { x: "Court Resolution as Described Above", y: courtResolution },
+            { x: "Court Resolution: Increased Conflict", y: increasedConflict },
+            { x: "Court Resolution: High Conflict", y: highConflict }
+          ]}
+        />
 
-        <LabelSeries labelAnchorX="middle"
+        <LabelSeries
+          labelAnchorX="middle"
           data={[
-            {x: "Selected Income", y: income, label: numberToMoneyDisplay(income)},
-            {x: "Resolved Early through Mediation", y: mediation, label: numberToMoneyDisplay(parseInt(mediation, 10))},
-            {x: "Court Resolution as Described Above", y: courtResolution, label: numberToMoneyDisplay(parseInt(courtResolution, 10))},
-            {x: "Court Resolution: Increased Conflict", y: increasedConflict, label: numberToMoneyDisplay(parseInt(increasedConflict, 10))},
-            {x: "Court Resolution: High Conflict", y: highConflict, label: numberToMoneyDisplay(parseInt(highConflict, 10))}
-          ]} />
+            {
+              x: "Selected Income",
+              y: income,
+              label: numberToMoneyDisplay(income)
+            },
+            {
+              x: "Resolved Early through Mediation",
+              y: mediation,
+              label: numberToMoneyDisplay(parseInt(mediation, 10))
+            },
+            {
+              x: "Court Resolution as Described Above",
+              y: courtResolution,
+              label: numberToMoneyDisplay(parseInt(courtResolution, 10))
+            },
+            {
+              x: "Court Resolution: Increased Conflict",
+              y: increasedConflict,
+              label: numberToMoneyDisplay(parseInt(increasedConflict, 10))
+            },
+            {
+              x: "Court Resolution: High Conflict",
+              y: highConflict,
+              label: numberToMoneyDisplay(parseInt(highConflict, 10))
+            }
+          ]}
+        />
       </XYPlot>
     </ComparisonGraph>
-
   </React.Fragment>
 );
 
