@@ -48,8 +48,8 @@ export const LFOLogoDiv = styled.div`
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 8rem;
-  width: 18rem;
+  height: 5rem;
+  width: 15rem;
 `
 
 ;
