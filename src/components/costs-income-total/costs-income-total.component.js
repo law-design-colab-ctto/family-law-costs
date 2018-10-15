@@ -1,63 +1,54 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  InformationCard,
   CenteredContent,
   LargeCostDisplay
 } from "../../scenes/persona-page/persona-page.styles";
-import { CostsBar, IncomeBar } from "./costs-income-total.styles";
+import { numberToMoneyDisplay } from "src/scenes/persona-page/store/persona-page.utils.js";
 
-export const CostsIncomeWithBars = ({ topMoney, income, originalCost }) => (
-  <InformationCard>
+import {
+  XYPlot,
+  VerticalGridLines,
+  HorizontalGridLines,
+  HorizontalBarSeries,
+  LabelSeries
+} from 'react-vis';
+
+import { colours } from "src/styles";
+
+
+export const CostsIncomeWithBars = ({ income, originalCost, addedCosts }) => (
+  <React.Fragment>
     <CenteredContent>
-      <LargeCostDisplay>{topMoney}</LargeCostDisplay>
+      <LargeCostDisplay>{numberToMoneyDisplay(
+        addedCosts ? addedCosts : originalCost)}</LargeCostDisplay>
     </CenteredContent>
-    Costs{originalCost ? " and other financial impacts" : " "}
-    <CostsBar
-      variant="buffer"
-      value={
-        parseInt(topMoney.replace(/[,$]/g, ""), 10) <
-        parseInt(income.replace(/[,$]/g, ""), 10)
-          ? (parseInt(topMoney.replace(/[,$]/g, ""), 10) /
-              parseInt(income.replace(/[,$]/g, ""), 10)) *
-            100
-          : 100
-      }
-      valueBuffer={(parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost) <
-        parseInt(income.replace(/[,$]/g, ""), 10)
-          ? (parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost) /
-            parseInt(income.replace(/[,$]/g, ""), 10) *
-            100
-          : 100
-      }
-    />
+    <center>
+    <XYPlot height={180} width={640} stackBy="x">
+      <VerticalGridLines />
+      <HorizontalGridLines />
+      <HorizontalBarSeries color={colours.indigoDark} colorType="literal"
+        data={[{ y: 0, x: 0 },
+               { y: 1, x: originalCost }]} />
 
-    <br />
-    Income{" "}
-    <IncomeBar
-      variant="buffer"
-      value={
-        parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost <
-        parseInt(income.replace(/[,$]/g, ""), 10)
-          ? 100
-          : (parseInt(income.replace(/[,$]/g, ""), 10) /
-            (originalCost + parseInt(topMoney.replace(/[,$]/g, ""), 10))) *
-            100
-      }
-      valueBuffer={
-        parseInt(topMoney.replace(/[,$]/g, ""), 10) + originalCost <
-        parseInt(income.replace(/[,$]/g, ""), 10)
-          ? 100
-          : (parseInt(income.replace(/[,$]/g, ""), 10) /
-            (originalCost + parseInt(topMoney.replace(/[,$]/g, ""), 10))) *
-            100
-      }
-    />
-  </InformationCard>
-);
+      <HorizontalBarSeries color={colours.indigoLight} colorType="literal"
+        data={[{ y: 0, x: 0 },
+               { y: 1, x: addedCosts }]} />
+
+      <HorizontalBarSeries color={colours.incomeyellow} colorType="literal"
+        data={[{ y: 0, x: income },
+               { y: 1, x: 0 }]} />
+
+      <LabelSeries
+        data={[{y: 1, label: "Costs", style: {fontSize: 12} },
+               {y: 0, label: "Income", style: {fontSize: 12} }]} />
+    </XYPlot>
+    </center>
+  </React.Fragment>
+)
 
 CostsIncomeWithBars.propTypes = {
-  topMoney: PropTypes.string,
-  income: PropTypes.string,
+  addedCosts: PropTypes.number,
+  income: PropTypes.number,
   originalCost: PropTypes.number
 };
