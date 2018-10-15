@@ -28,15 +28,19 @@ export const CostsIncomeWithBars = ({ income, originalCost, addedCosts }) => (
       <VerticalGridLines />
       <HorizontalGridLines />
       <HorizontalBarSeries color={colours.indigoDark} colorType="literal"
-        data={[{ y: 0, x: income },
+        data={[{ y: 0, x: 0 },
                { y: 1, x: originalCost }]} />
 
       <HorizontalBarSeries color={colours.indigoLight} colorType="literal"
         data={[{ y: 0, x: 0 },
                { y: 1, x: addedCosts }]} />
 
+      <HorizontalBarSeries color={colours.incomeyellow} colorType="literal"
+        data={[{ y: 0, x: income },
+               { y: 1, x: 0 }]} />
+
       <LabelSeries
-        data={[{y: 1, label: "Costs", style: {fontSize: 15} },
+        data={[{y: 1, label: "Costs", style: {fontSize: 12} },
                {y: 0, label: "Income", style: {fontSize: 12} }]} />
     </XYPlot>
     </center>
