@@ -42,4 +42,14 @@ export const LogoDiv = styled.div`
   background-size: contain;
   height: 3rem;
   width: 10rem;
-`;
+`
+export const LFOLogoDiv = styled.div`
+  background-image: url("/assets/${props => props.imageName}.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 8rem;
+  width: 18rem;
+`
+
+;
