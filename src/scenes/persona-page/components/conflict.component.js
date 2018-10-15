@@ -29,7 +29,7 @@ export const Conflict = ({
     <PersonaTextRegular>
       {`The costs and timing of a family law process can vary dramatically
             depending on how much conflict there is between partners. The legal costs
-            in this scenario are based on a relatively low level of conflict - however, legal
+            in this scenario are based on a relatively low level of conflict \u2014 however, legal
             costs can escalate quickly. Longer court processes also take a toll on
             people's well-being, increasing their health costs and other financial expenses.`}
     </PersonaTextRegular>
