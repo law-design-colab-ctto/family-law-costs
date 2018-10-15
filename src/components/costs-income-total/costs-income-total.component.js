@@ -17,7 +17,7 @@ import {
 import { colours } from "src/styles";
 
 
-export const CostsIncomeWithBars = ({ income, originalCost, addedCosts , display }) => (
+export const CostsIncomeWithBars = ({ income, originalCost, addedCosts }) => (
   <React.Fragment>
     <CenteredContent>
       <LargeCostDisplay>{numberToMoneyDisplay(
@@ -45,7 +45,6 @@ export const CostsIncomeWithBars = ({ income, originalCost, addedCosts , display
 
 CostsIncomeWithBars.propTypes = {
   addedCosts: PropTypes.number,
-  display: PropTypes.number,
   income: PropTypes.number,
   originalCost: PropTypes.number
 };

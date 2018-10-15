@@ -98,8 +98,6 @@ export class PersonaPageComponent extends React.Component {
             income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
             originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
               parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
-            display={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
           />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
@@ -154,11 +152,6 @@ export class PersonaPageComponent extends React.Component {
             originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
               parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
             addedCosts={parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
-              (!isEmpty(childcareFees) ?
-              parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
-              (!isEmpty(movingFees) ?
-              parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)}
-            display={parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
               (!isEmpty(childcareFees) ?
               parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
               (!isEmpty(movingFees) ?
