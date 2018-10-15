@@ -7,5 +7,5 @@ export { SiteHeader } from "./site-header";
 export { PersonaSection } from "./persona-section";
 export { SiteFooter } from "./site-footer";
 export { PersonaCardDark } from "./persona-card-dark";
-export { CostsIncomeWithBars } from "./costs-income-total";
+export { CostsIncomeWithBars, CostsIncomeWithBars2 } from "./costs-income-total";
 export { CostsIncomeGraph } from "./costs-income-graph";

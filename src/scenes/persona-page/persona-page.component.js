@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { toLower } from "ramda";
 import Grid from "@material-ui/core/Grid";
-import { numberToMoneyDisplay } from "./store/persona-page.utils";
 
 import {
   SiteHeader,
   PersonaCardHorizontal,
   PersonaSection,
   SiteFooter,
-  CostsIncomeWithBars
+  CostsIncomeWithBars,
 } from "src/components";
 import { colours } from "src/styles";
 
@@ -90,16 +89,15 @@ export class PersonaPageComponent extends React.Component {
             <TransportationCosts {...this.props} />
           </SectionBlock>
           <SectionDivider />
-          <strong>
-            <center>Total Costs of The Case</center>
-          </strong>
+
+          <br /><strong><center>Total Costs of The Case</center></strong>
+
           <CostsIncomeWithBars
-            persona={persona}
-            topMoney={numberToMoneyDisplay(
-              parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-                parseInt(transportationFees.replace(/[,$]/g, ""), 10)
-            )}
-            income={incomeDisplay}
+            income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
+            originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
+            display={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
           />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
@@ -150,21 +148,21 @@ export class PersonaPageComponent extends React.Component {
           </strong>
 
           <CostsIncomeWithBars
-            originalCost={
-              parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-              parseInt(transportationFees.replace(/[,$]/g, ""), 10)
-            }
-            topMoney={numberToMoneyDisplay(
-              parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
-                (!isEmpty(childcareFees)
-                  ? parseInt(childcareFees.replace(/[,$]/g, ""), 10)
-                  : 0) +
-                (!isEmpty(movingFees)
-                  ? parseInt(movingFees.replace(/[,$]/g, ""), 10)
-                  : 0)
-            )}
-            income={incomeDisplay}
+            income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
+            originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
+              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
+            addedCosts={parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
+              (!isEmpty(childcareFees) ?
+              parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
+              (!isEmpty(movingFees) ?
+              parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)}
+            display={parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
+              (!isEmpty(childcareFees) ?
+              parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
+              (!isEmpty(movingFees) ?
+              parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)}
           />
+              
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />

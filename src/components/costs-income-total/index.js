@@ -1,1 +1,1 @@
-export { CostsIncomeWithBars } from "./costs-income-total.component"
+export { CostsIncomeWithBars, CostsIncomeWithBars2 } from "./costs-income-total.component"
