@@ -90,6 +90,12 @@ export const CenteredContent = styled.div`
   justify-content: center;
 `;
 
+export const LeftAlignContent = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: left;
+`;
+
 export const CenteredContentColumn = styled.div`
   display: flex;
   width: 100%;

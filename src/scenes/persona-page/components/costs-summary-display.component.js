@@ -8,6 +8,7 @@ import {
   Label,
   CostDisplay,
   CenteredContent,
+  LeftAlignContent,
   PersonaTextBold,
   PersonaTextBoldNoPadding,
   ThermometerImage,
@@ -82,6 +83,11 @@ export const CostsSummaryDisplay = ({
         </CenteredContentColumn>
       </TallOutlinedDisplayCard>
     </DisplayItemsWrapper>
+    <LeftAlignContent>
+    <PersonaTextBold textColour={colours.white}>
+      <a href="#what-if">See what happens to costs when the conflict escalates</a>
+    </PersonaTextBold>
+    </LeftAlignContent>
   </div>
 );
 

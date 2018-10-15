@@ -24,6 +24,7 @@ export const Conflict = ({
   highConflict
 }) => (
   <React.Fragment>
+  <div id="what-if">
     <SectionHeader>What if</SectionHeader>
     <PersonaTextRegular>
       {`The costs and timing of a family law process can vary dramatically
@@ -97,6 +98,7 @@ export const Conflict = ({
         />
       </XYPlot>
     </ComparisonGraph>
+  </div>
   </React.Fragment>
 );
 
