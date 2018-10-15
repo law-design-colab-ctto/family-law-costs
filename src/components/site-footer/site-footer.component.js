@@ -14,7 +14,7 @@ export const SiteFooter = () => (
   <FooterWrapper>
     <LogoRowsWrapper>
       <ColumnWrapper>
-        <div>Out-of-Pocket</div>
+        <div>Out-of-Pocket was created by</div>
         <SponsorLogos>
           <LogoDiv imageName="uvicacelogo" />
           <LogoDiv imageName="calibratelogo" />
