@@ -36,8 +36,8 @@ export const CostsIncomeWithBars = ({ income, originalCost, addedCosts , display
                { y: 1, x: addedCosts }]} />
 
       <LabelSeries
-        data={[{y: 1, label: "Costs"},
-               {y: 0, label: "Income"}]} />
+        data={[{y: 1, label: "Costs", style: {fontSize: 15} },
+               {y: 0, label: "Income", style: {fontSize: 12} }]} />
     </XYPlot>
     </center>
   </React.Fragment>
