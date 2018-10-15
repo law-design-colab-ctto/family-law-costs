@@ -34,7 +34,7 @@ export const DaysOffWork = ({ daysOffWork, persona }) => (
         </CenteredContentColumn>
       </TallOutlinedDisplayCard>
       <TallOutlinedDisplayCard>
-        <Label>Days missed for Health Reasons</Label>
+        <Label>Days missed for health reasons</Label>
         <CenteredContentColumn>
           <DaysOffWorkImage imageName="SickDays" />
           <PersonaTextBold>{daysOffWork.sickDays} days</PersonaTextBold>

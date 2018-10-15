@@ -22,6 +22,7 @@ export const ChooseProvince = ({ setProvince, persona, province }) => (
         }}
       >
         <option value="ab">Alberta</option>
+        <option value="bc">British Columbia</option>
         <option value="sk">Saskatchewan</option>
         <option value="mb">Manitoba</option>
         <option value="on">Ontario</option>

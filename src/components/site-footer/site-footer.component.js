@@ -6,7 +6,8 @@ import {
   SponsorLogos,
   LogoRowsWrapper,
   ColumnWrapper,
-  LogoDiv
+  LogoDiv,
+  LFOLogoDiv
 } from "./site-footer.styles";
 
 export const SiteFooter = () => (
@@ -25,7 +26,7 @@ export const SiteFooter = () => (
           of Ontario&#39;s Access to Justice Fund
         </div>
         <SponsorLogos>
-          <LogoDiv imageName="lawfoundationlogo" />
+          <LFOLogoDiv imageName="lawfoundationlogo" />
         </SponsorLogos>
       </ColumnWrapper>
     </LogoRowsWrapper>

@@ -463,7 +463,7 @@ export const PERSONAS = [
 
     //then display days off text as regular text (if days off work Text = null, then don't display)
     daysOffWorkText:
-      "Pryia work is shift work and has some flexibility if she needs to appear in court during a scheduled work shift.",
+      "Priya work is shift work and has some flexibility if she needs to appear in court during a scheduled work shift.",
 
     //then display days to prep and attend, days missed for health reasons, and total days missed - persona properties for these calculations:
     daysToPrepAndAttend: 4,
