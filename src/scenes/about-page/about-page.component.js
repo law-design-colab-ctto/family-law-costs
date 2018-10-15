@@ -27,27 +27,13 @@ export default class InfoPageAbout extends Component {
         </InfoParagraph>
         <InfoSubheader>Who made this tool?</InfoSubheader>
         <InfoParagraph>
-          This tool was developed by CALIBRATE and UVIC’s Access to Justice Centre of Excellence. It was funded by the Law Foundation of Ontario. These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
+          This tool was developed by <a href="calibratesolutions.ca">CALIBRATE</a> and UVIC’s <a href="uvicace.com">Access to Justice Centre of Excellence</a>. This website was designed and built by the <a href="lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The project was funded by the Law Foundation of Ontario. These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
         </InfoParagraph>
-
-  <InfoHeader>Law & Design CoLab</InfoHeader>
         <InfoParagraph>
-          This website was designed and built by the <a href="lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with Calibrate Solutions.
+          The Law & Design CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. We conceive, scope, and run projects in partnership with organizations working to improve access to justice. Our projects emphasize iterative design, user testing, and an open work process. We meet weekly at <a href="civictech.ca">Civic Tech Toronto</a> and at the <a href="socialinnovation.org">Centre for Social Innovation</a>. We’re always looking for volunteers and collaborators – whether you’d like to propose a project or if you’re interested in learning more about us, let’s chat!
         </InfoParagraph>
 
-        <InfoParagraph>
-          The Law & Design CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. We conceive, scope, and run projects in partnership with organizations working to improve access to justice. Our projects emphasize iterative design, user testing, and an open work process. We meet weekly at <a href="civictech.ca">Civic Tech Toronto</a> and at the <a href="socialinnovation.org">Centre for Social Innovation</a>.
-        </InfoParagraph>
-
-
-        <InfoParagraph>
-          We’re always looking for volunteers and collaborators – whether you’d like to propose a project or if you’re interested in learning more about us, let’s chat!
-        </InfoParagraph>
-
-        <InfoParagraph>
-          <i>Out-of-Pocket Credits:</i>
-        </InfoParagraph>
-
+<InfoSubheader>Law & Design CoLab Credits:</InfoSubheader>
         <InfoParagraph>
             Thank you to our amazing team of volunteers who developed the project: <b>Sam Horodezky</b> and <b>Veronica Wojnas</b> (UX concept and design); <b>Ariana Cuvin</b> and <b>Francesca Oprandi</b> (visual design and illustrations); <b>Sheau Lih Vong</b> (persona design and narratives); <b>Michael Macrae</b> (supporting legal research); <b>Sarah Boo</b> (website design and coding lead); <b>Nick Yang</b> and <b>Eric Babak</b> (coding team); <b>Avery Au</b> and <b>Mari Zhou</b> (project leads).
         </InfoParagraph>

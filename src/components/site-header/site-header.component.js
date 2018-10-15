@@ -15,7 +15,7 @@ export const SiteHeader = () => (
       <NavLink to="/">Out-of-Pocket</NavLink>
     </SiteTitleWrapper>
     <LinksWrapper item>
-      <NavLink to="/about">About Out-of-Pocket</NavLink>
+      <NavLink to="/about">About</NavLink>
       <NavLink to="/methodology">Methodology</NavLink>
     </LinksWrapper>
   </HeaderGrid>
