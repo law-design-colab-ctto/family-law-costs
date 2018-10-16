@@ -19,23 +19,23 @@ import { colours } from "src/styles";
 
 export const CostsIncomeWithBars = ({ income, originalCost, addedCosts }) => (
   <React.Fragment>
-    <CenteredContent>
-      <LargeCostDisplay>{numberToMoneyDisplay(
-        addedCosts ? addedCosts : originalCost)}</LargeCostDisplay>
-    </CenteredContent>
-    <center>
+  <CenteredContent>
+  <LargeCostDisplay>{numberToMoneyDisplay(
+    addedCosts ? addedCosts : originalCost)}</LargeCostDisplay>
+</CenteredContent>
+      <center>
     <XYPlot height={180} width={640} stackBy="x">
       <VerticalGridLines />
       <HorizontalGridLines />
-      <HorizontalBarSeries color={colours.indigoDark} colorType="literal"
+      <HorizontalBarSeries color={colours.indigoMedium} colorType="literal"
         data={[{ y: 0, x: 0 },
                { y: 1, x: originalCost }]} />
 
-      <HorizontalBarSeries color={colours.indigoLight} colorType="literal"
+      <HorizontalBarSeries color={colours.periwinkleBlueDark} colorType="literal"
         data={[{ y: 0, x: 0 },
                { y: 1, x: addedCosts }]} />
 
-      <HorizontalBarSeries color={colours.incomeyellow} colorType="literal"
+      <HorizontalBarSeries color={colours.periwinkleBlue} colorType="literal"
         data={[{ y: 0, x: income },
                { y: 1, x: 0 }]} />
 
