@@ -58,7 +58,7 @@ export const Conflict = ({
           color={colours.periwinkleBlueMedium}
           colorType="literal"
           data={[
-            { x: "Selected Income", y: income, color: colours.incomeyellow },
+            { x: "Selected Income", y: income, color: colours.periwinkleBlue},
             { x: "Resolved Early through Mediation", y: mediation },
             { x: "Court Resolution as Described Above", y: courtResolution },
             { x: "Court Resolution: Increased Conflict", y: increasedConflict },
