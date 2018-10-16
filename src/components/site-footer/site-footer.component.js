@@ -18,6 +18,7 @@ export const SiteFooter = () => (
         <SponsorLogos>
           <LogoLink imageName="uvicacelogo" href="http://www.uvicace.com/" />
           <LogoLink imageName="calibratelogo" href="http://www.calibratesolutions.ca/" />
+          <LogoLink imageName="lawdesignlogo" href="http://www.lawdesigncolab.ca/" />
         </SponsorLogos>
       </ColumnWrapper>
       <ColumnWrapper>

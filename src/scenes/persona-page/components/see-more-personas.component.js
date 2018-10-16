@@ -6,7 +6,7 @@ import React from "react";
 export const SeeMorePersonas = () => {
   return(
     <SeeMoreButton>
-      <NavLink to="/">See More Personas </NavLink>
+      <NavLink to="/">See More Stories </NavLink>
     </SeeMoreButton>
   )
 }
