@@ -24,7 +24,7 @@ export const PersonaResults = ({
 }) => (
   <React.Fragment>
     <PersonasHeader>
-      PERSONAS
+    Stories
       {(jobStabilityFilter || stageFilter) && (
         <ClearAllLabel onClick={clearAllFilters}>
           Clear all filters
@@ -35,9 +35,9 @@ export const PersonaResults = ({
     <PersonaCardsContainerDiv>
       {noneToDisplay(personasToDisplay) ? (
         <NoPersonasTextSpan>
-          {`Sorry, no personas match these criteria. `}
+          {`Sorry, no stories match these criteria. `}
           <InlineTextLinkSpan onClick={clearAllFilters}>
-            {`See all personas.`}
+            {`See all stories.`}
           </InlineTextLinkSpan>
         </NoPersonasTextSpan>
       ) : (
