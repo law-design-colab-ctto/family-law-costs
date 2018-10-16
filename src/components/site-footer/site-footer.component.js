@@ -6,8 +6,8 @@ import {
   SponsorLogos,
   LogoRowsWrapper,
   ColumnWrapper,
-  LogoDiv,
-  LFOLogoDiv
+  LogoLink,
+  LFOLogoLink
 } from "./site-footer.styles";
 
 export const SiteFooter = () => (
@@ -16,8 +16,8 @@ export const SiteFooter = () => (
       <ColumnWrapper>
         <div>Out-of-Pocket was created by</div>
         <SponsorLogos>
-          <LogoDiv imageName="uvicacelogo" />
-          <LogoDiv imageName="calibratelogo" />
+          <LogoLink imageName="uvicacelogo" href="http://www.uvicace.com/" />
+          <LogoLink imageName="calibratelogo" href="http://www.calibratesolutions.ca/" />
         </SponsorLogos>
       </ColumnWrapper>
       <ColumnWrapper>
@@ -26,7 +26,7 @@ export const SiteFooter = () => (
           of Ontario&#39;s Access to Justice Fund
         </div>
         <SponsorLogos>
-          <LFOLogoDiv imageName="lawfoundationlogo" />
+          <LFOLogoLink href="http://www.lawfoundation.on.ca/" imageName="lawfoundationlogo" />
         </SponsorLogos>
       </ColumnWrapper>
     </LogoRowsWrapper>

@@ -63,8 +63,12 @@ export const SiteLogoDiv = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
+  @media only screen and (max-device-width: 480px) {
+    width: 3rem;
+    height: 3rem;
+  }
   border-radius: 50%;
   margin-right: ${spacing.three};
 `;

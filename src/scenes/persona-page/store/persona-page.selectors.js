@@ -57,8 +57,9 @@ const selectIsEligibleForLegalAid = createSelector(
   selectProvince,
   selectCurrentPersona,
   (income, province, persona) => {
+    let childindex = persona.children > 2 ? 2 : persona.children;
     return (
-      income <= LEGAL_AID_CUTOFF[province][persona.children] &&
+      income <= LEGAL_AID_CUTOFF[province][childindex] &&
       LEGAL_AID_ELIGIBILITY[persona.stage]
     );
   }
@@ -70,8 +71,7 @@ const selectReasonsForLegalAidEligibility = createSelector(
   selectCurrentPersona,
   (income, province, persona) => {
     let reasons = [];
-    let childindex = [];
-    (persona.children > 2) ? childindex = 2 : childindex = persona.children;
+    let childindex = persona.children > 2 ? 2 : persona.children;
     if (income > LEGAL_AID_CUTOFF[province][childindex]) {
       reasons.push(
         `${capitalize(persona.pronouns.possessive)}
@@ -297,7 +297,8 @@ const whatifMediation = createSelector(
     const total_legal_costs = actual_legal_fee + court_fee + professional_fee;
 
     const avg_num_court_events = 2; // fixed for Mediation
-    const total_travel_cost =avg_num_court_events * TRANSPORT_FEES[locationType];
+    const total_travel_cost =
+      avg_num_court_events * TRANSPORT_FEES[locationType];
 
     const preparation_days = 2; // fixed for Mediation
     const sick_days = 2; // fixed for mediation
@@ -310,7 +311,10 @@ const whatifMediation = createSelector(
 
     const total_lost_income = total_days_missed * daily_income;
 
-    const child_care_total_days_off = COST_OF_CHILDCARE_PER_DAY[province] * persona.children * total_days_missed;
+    const child_care_total_days_off =
+      COST_OF_CHILDCARE_PER_DAY[province] *
+      persona.children *
+      total_days_missed;
 
     const moving_cost = persona.hasToMove ? MOVING_FEES[province] : 0;
 
@@ -329,8 +333,9 @@ const whatifCourtResolution = createSelector(
   selectTotalLostIncome,
   selectChildcareFees,
   selectMovingFees,
-  (costs, lostincome, childcare, moving) => costs + lostincome + childcare + moving
-  );
+  (costs, lostincome, childcare, moving) =>
+    costs + lostincome + childcare + moving
+);
 
 const whatifIncreasedConflict = createSelector(
   whatifCourtResolution,
@@ -341,10 +346,6 @@ const whatifHighConflict = createSelector(
   whatifCourtResolution,
   whatifCourtResolution => whatifCourtResolution * 6
 );
-
-
-
-
 
 export const personasConnector = createStructuredSelector({
   personasByName: selectPersonasByName,

@@ -35,7 +35,7 @@ export const ColumnWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const LogoDiv = styled.div`
+export const LogoLink = styled.a`
   background-image: url("/assets/${props => props.imageName}.png");
   background-position: left;
   background-repeat: no-repeat;
@@ -43,7 +43,7 @@ export const LogoDiv = styled.div`
   height: 3rem;
   width: 10rem;
 `
-export const LFOLogoDiv = styled.div`
+export const LFOLogoLink = styled.a`
   background-image: url("/assets/${props => props.imageName}.png");
   background-position: left;
   background-repeat: no-repeat;
