@@ -17,31 +17,30 @@ export default class InfoPageAbout extends Component {
         <InfoParagraph>
           This tool calculates and compares typical costs including the money people spend during their legal dispute and the money they lose through missed work. It is NOT a tool to predict anyone’s individual costs or provide a customizable estimate. Instead, it uses typical stories, and generalizes typically consequences to produce a dollar amount.
         </InfoParagraph>
+
         <InfoSubheader>What is this for?</InfoSubheader>
         <InfoParagraph>
           This tool can help individuals, governments, media and researchers to understand the implications of family law. It can be used to compare between provinces or between income levels to better understand how family law disputes affect people’s finances.
         </InfoParagraph>
+
         <InfoSubheader>How does it work?</InfoSubheader>
         <InfoParagraph>
           The calculations included in this tool are based on research of litigants about their experiences in family law disputes, as well as statistics from across the country about the cost of childcare, legal services, and other related expenses. These have been grouped by region and provide a snapshot of family law costs, not a specific estimate. You can click on each calculation to see how it was calculated and to examine the sources of the data.
         </InfoParagraph>
+
         <InfoSubheader>Who made this tool?</InfoSubheader>
         <InfoParagraph>
           This tool was developed by <a href="http://www.calibratesolutions.ca">CALIBRATE</a> and the University of Victoria's <a href="http://www.uvicace.com">Access to Justice Centre of Excellence</a>. The project was funded by the Law Foundation of Ontario's Access to Justice Fund.
-</InfoParagraph>
-
-  <InfoParagraph>
-      This interactive website was designed and built by the <a href="http://www.lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. Thank you to our amazing volunteers who conceived and built the UX, visual design, illustrations, narrative elements, and interactive website.
-
-      </InfoParagraph>
-
+        </InfoParagraph>
         <InfoParagraph>
-
-These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
-
+          This interactive website was designed and built by the <a href="http://www.lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. Thank you to our amazing volunteers who conceived and built the UX, visual design, illustrations, narrative elements, and interactive website.
+        </InfoParagraph>
+        <InfoParagraph>
+          These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
         </InfoParagraph>
 
-          <InfoHeader>Disclaimer</InfoHeader>
+        <InfoHeader>Disclaimer</InfoHeader>
+
         <InfoParagraph>
           This tool cannot predict or estimate anyone’s legal costs. It is not customizable to your situation. It cannot factor in many of the variables that affect legal costs including the complexity of an issue, the choices that people make in their disputes or the specific legal rates, medical costs or other expenses that people agree to. In some cases, the tool uses the lowest typical costs in its calculation. Any individual may face higher legal fees or a longer process.
         </InfoParagraph>
