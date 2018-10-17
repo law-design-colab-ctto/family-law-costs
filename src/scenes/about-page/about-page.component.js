@@ -30,11 +30,10 @@ export default class InfoPageAbout extends Component {
         </InfoParagraph>
         <InfoSubheader>Who made this tool?</InfoSubheader>
         <InfoParagraph>
-
-
+          This tool was developed by <a href="http://www.calibratesolutions.ca">CALIBRATE</a> and the University of Victoria’s <a href="http://www.uvicace.com">Access to Justice Centre of Excellence</a>. The project was funded by the Law Foundation of Ontario’s Access to Justice Fund.
         </InfoParagraph>
         <InfoParagraph>
-
+          This interactive website was designed and built by the <a href="http://www.lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. Thank you to our amazing volunteers who conceived and built the UX, visual design, illustrations, narrative elements, and interactive website.
         </InfoParagraph>
         <InfoHeader>Disclaimer</InfoHeader>
         <InfoParagraph>
