@@ -68,6 +68,7 @@ export class PersonaPageComponent extends React.Component {
       movingFees
     } = this.props;
     const persona = personasByName[toLower(personaName)];
+    console.log(childcareFees);
     return (
       <Grid container>
         <SiteHeader />
@@ -164,7 +165,11 @@ export class PersonaPageComponent extends React.Component {
 
           <CenteredContent>
             <LargeCostDisplay>
-              {numberToMoneyDisplay(legalFees + transportationFees)}
+              {numberToMoneyDisplay(
+                (totalLostIncome || 0) +
+                  (childcareFees || 0) +
+                  (movingFees || 0)
+              )}
             </LargeCostDisplay>
           </CenteredContent>
           <CostsIncomeGraph
@@ -178,7 +183,9 @@ export class PersonaPageComponent extends React.Component {
               {
                 label: "Other financial impacts",
                 value:
-                  totalLostIncome || 0 + childcareFees || 0 + movingFees || 0
+                  (totalLostIncome || 0) +
+                  (childcareFees || 0) +
+                  (movingFees || 0)
               }
             ]}
           />
