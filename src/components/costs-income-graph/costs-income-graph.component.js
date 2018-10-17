@@ -37,12 +37,12 @@ export const CostsIncomeGraph = ({ income = 0, costs = [], id }) => {
                   data={[
                     {
                       y: 3.2,
-                      yOffset: isCompact ? -i * 15 : 0,
+                      yOffset: isCompact ? -i * 15 - 5 : 0,
                       x: labelXPosition,
                       label
                     }
                   ]}
-                  style={{ font: "bold 0.75rem sans-serif" }}
+                  style={{ font: `bold ${isCompact ? 0.75 : 1}rem sans-serif` }}
                   labelAnchorY="baseline"
                   labelAnchorX="start"
                 />,
@@ -57,9 +57,16 @@ export const CostsIncomeGraph = ({ income = 0, costs = [], id }) => {
 
             <LabelSeries
               animation
-              data={[{ y: 1.2, x: 0, label: "Income" }]}
+              data={[
+                {
+                  y: 1.2,
+                  x: 0,
+                  yOffset: isCompact ? -5 : 0,
+                  label: "Income"
+                }
+              ]}
               labelAnchorY="baseline"
-              style={{ font: "bold 0.8rem sans-serif" }}
+              style={{ font: `bold ${isCompact ? 0.75 : 1}rem sans-serif` }}
             />
             <BarSeries
               animation
