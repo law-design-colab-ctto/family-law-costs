@@ -27,20 +27,23 @@ export default class InfoPageAbout extends Component {
         </InfoParagraph>
         <InfoSubheader>Who made this tool?</InfoSubheader>
         <InfoParagraph>
-          This tool was developed by <a href="http://www.calibratesolutions.ca">CALIBRATE</a> and UVIC’s <a href="http://www.uvicace.com">Access to Justice Centre of Excellence</a>. This website was designed and built by the <a href="http://www.lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The project was funded by the Law Foundation of Ontario. These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
-        </InfoParagraph>
+          This tool was developed by <a href="http://www.calibratesolutions.ca">CALIBRATE</a> and the University of Victoria's <a href="http://www.uvicace.com">Access to Justice Centre of Excellence</a>. The project was funded by the Law Foundation of Ontario's Access to Justice Fund.
+</InfoParagraph>
+
+  <InfoParagraph>
+      This interactive website was designed and built by the <a href="http://www.lawdesigncolab.ca">Law & Design CoLab</a> in collaboration with CALIBRATE. The CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. Thank you to our amazing volunteers who conceived and built the UX, visual design, illustrations, narrative elements, and interactive website.
+
+      </InfoParagraph>
+
         <InfoParagraph>
-          The Law & Design CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. We conceive, scope, and run projects in partnership with organizations working to improve access to justice. Our projects emphasize iterative design, user testing, and an open work process. We meet weekly at <a href="http://www.civictech.ca">Civic Tech Toronto</a> and at the <a href="http://www.socialinnovation.org">Centre for Social Innovation</a>. We’re always looking for volunteers and collaborators – whether you’d like to propose a project or if you’re interested in learning more about us, let’s chat!
+
+These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
+
         </InfoParagraph>
 
-<InfoSubheader>Law & Design CoLab Credits:</InfoSubheader>
+          <InfoHeader>Disclaimer</InfoHeader>
         <InfoParagraph>
-            Thank you to our amazing team of volunteers who developed the project: <b>Sam Horodezky</b> and <b>Veronica Wojnas</b> (UX concept and design); <b>Ariana Cuvin</b> and <b>Francesca Oprandi</b> (visual design and illustrations); <b>Sheau Lih Vong</b> (persona design and narratives); <b>Michael Macrae</b> (supporting legal research); <b>Sarah Boo</b> (website design and coding lead); <b>Nick Yang</b> and <b>Eric Babak</b> (coding team); <b>Avery Au</b> and <b>Mari Zhou</b> (project leads).
-        </InfoParagraph>
-
-        <InfoHeader>Disclaimer</InfoHeader>
-        <InfoParagraph>
-        This tool cannot predict or estimate anyone’s legal costs. It is not customizable to your situation. It cannot factor in many of the variables that affect legal costs including the complexity of an issue, the choices that people make in their disputes or the specific legal rates, medical costs or other expenses that people agree to. In some cases, the tool uses the lowest typical costs in its calculation. Any individual may face higher legal fees or a longer process.
+          This tool cannot predict or estimate anyone’s legal costs. It is not customizable to your situation. It cannot factor in many of the variables that affect legal costs including the complexity of an issue, the choices that people make in their disputes or the specific legal rates, medical costs or other expenses that people agree to. In some cases, the tool uses the lowest typical costs in its calculation. Any individual may face higher legal fees or a longer process.
         </InfoParagraph>
         <InfoParagraph>
           Planning of your legal costs should be done explicitly with your legal service provider. The team behind this tool accepts no responsibility for reliance on these figures.
