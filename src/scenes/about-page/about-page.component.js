@@ -27,7 +27,20 @@ export default class InfoPageAbout extends Component {
         </InfoParagraph>
         <InfoSubheader>Who made this tool?</InfoSubheader>
         <InfoParagraph>
-          This tool was developed by CALIBRATE and UVIC’s Access to Justice Centre of Excellence. It was funded by the Law Foundation of Ontario. These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
+        This tool was developed by CALIBRATE and the University of Victoria's Access to Justice Centre of Excellence.  The project was funded by the Law Foundation of Ontario's Access to Justice Fund.
+        </InfoParagraph>
+        <InfoParagraph>
+        This interactive website was designed and built by the Law & Design CoLab in collaboration with CALIBRATE. The CoLab gratefully acknowledges financial support provided by The Action Group on Access to Justice at the Law Society of Ontario.
+        </InfoParagraph>
+        <InfoParagraph>
+        These organizations are committed to advancing access to justice in Canada. They are not advocacy groups or promoting any particular reform or approach to family law. They worked together to help provide one more piece of the picture to better understand family law.
+        </InfoParagraph>
+        <InfoSubheader>Law & Design CoLab</InfoSubheader>
+        <InfoParagraph>
+        The Law & Design CoLab is a team of volunteers that works to bring more design thinking and cross-sector collaboration to Ontario’s justice sector. We conceive, scope, and run projects in partnership with organizations working to improve access to justice. Our projects emphasize iterative design, user testing, and an open work process. We meet weekly at Civic Tech Toronto and at the Centre for Social Innovation. We’re always looking for volunteers and collaborators – whether you’d like to propose a project or if you’re interested in learning more about us, let’s chat!
+        </InfoParagraph>
+        <InfoParagraph>
+          Thank you to our amazing team of volunteers who conceived and built the UX, visual design, illustrations, narrative elements, and interactive website.
         </InfoParagraph>
 
         <InfoHeader>Disclaimer</InfoHeader>
