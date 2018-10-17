@@ -8,17 +8,18 @@ import {
   CostTextContentWrapper
 } from "../persona-page.styles";
 
-export const TotalLostIncome = ({ totalLostIncome }) => {
+export const TotalLostIncome = ({ totalLostIncomeDisplay }) => {
   return (
-  <CostSectionWrapper>
-    <CostTextContentWrapper>
-      <SectionSubheader>Total Lost Income</SectionSubheader>
-    </CostTextContentWrapper>
+    <CostSectionWrapper>
+      <CostTextContentWrapper>
+        <SectionSubheader>Total Lost Income</SectionSubheader>
+      </CostTextContentWrapper>
 
-    <CostDisplay>{totalLostIncome}</CostDisplay>
-  </CostSectionWrapper>
-)};
+      <CostDisplay>{totalLostIncomeDisplay}</CostDisplay>
+    </CostSectionWrapper>
+  );
+};
 
 TotalLostIncome.propTypes = {
-  totalLostIncome: PropTypes.string
+  totalLostIncomeDisplay: PropTypes.string
 };

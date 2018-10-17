@@ -9,18 +9,20 @@ import {
   CostTextContentWrapper
 } from "../persona-page.styles";
 
-export const ChildcareCosts = ({ childcareFees, persona }) => (
+export const ChildcareCosts = ({ childcareFeesDisplay, persona }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Childcare Costs</SectionSubheader>
-      <PersonaTextRegular><em>{`"${persona.childcareCostText}"`}</em></PersonaTextRegular>
+      <PersonaTextRegular>
+        <em>{`"${persona.childcareCostText}"`}</em>
+      </PersonaTextRegular>
     </CostTextContentWrapper>
 
-    <CostDisplay>{childcareFees}</CostDisplay>
+    <CostDisplay>{childcareFeesDisplay}</CostDisplay>
   </CostSectionWrapper>
 );
 
 ChildcareCosts.propTypes = {
-  childcareFees: PropTypes.string,
+  childcareFeesDisplay: PropTypes.string,
   persona: PropTypes.any
 };
