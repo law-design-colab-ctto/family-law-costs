@@ -16,6 +16,7 @@ const barColours = [colours.indigoMedium, colours.periwinkleBlueDark];
 export const CostsIncomeGraph = ({ income = 0, costs = [], id }) => {
   const BarSeries = HorizontalRectSeries;
   const sumOfCosts = costs.reduce((sum, cost) => sum + cost.value, 0);
+  const isSmallRelativeCost = sumOfCosts / income < 0.35;
   let currentCostSum = 0;
   return (
     <div>
@@ -37,7 +38,8 @@ export const CostsIncomeGraph = ({ income = 0, costs = [], id }) => {
                   data={[
                     {
                       y: 3.2,
-                      yOffset: isCompact ? -i * 15 - 5 : 0,
+                      yOffset:
+                        isCompact || isSmallRelativeCost ? -i * 15 - 5 : 0,
                       x: labelXPosition,
                       label
                     }
@@ -81,18 +83,27 @@ export const CostsIncomeGraph = ({ income = 0, costs = [], id }) => {
                   x: 1,
                   yOffset: -19,
                   label: numberToMoneyDisplay(sumOfCosts),
-                  xOffset: isCompact && costs.length === 1 ? 10 : -10
+                  xOffset:
+                    (isCompact && costs.length === 1) || isSmallRelativeCost
+                      ? 10
+                      : -10
                 }
               ]}
               style={{
                 font: "bold 1.5rem sans-serif",
                 fill:
-                  costs.length > 1 || (isCompact && costs.length === 1)
+                  costs.length > 1 ||
+                  (isCompact && costs.length === 1) ||
+                  isSmallRelativeCost
                     ? "black"
                     : "white"
               }}
               labelAnchorY="middle"
-              labelAnchorX={isCompact && costs.length === 1 ? "start" : "end"}
+              labelAnchorX={
+                (isCompact && costs.length === 1) || isSmallRelativeCost
+                  ? "start"
+                  : "end"
+              }
             />
             <LabelSeries
               animation
