@@ -7,10 +7,11 @@ import {
   SiteHeader,
   PersonaCardHorizontal,
   PersonaSection,
-  SiteFooter,
-  CostsIncomeWithBars,
+  SiteFooter
 } from "src/components";
+import { CostsIncomeGraph } from "src/components/costs-income-graph";
 import { colours } from "src/styles";
+import { numberToMoneyDisplay } from "./store/persona-page.utils";
 
 import {
   PersonaTextRegular,
@@ -18,6 +19,8 @@ import {
   SectionBlock,
   SectionDivider,
   QuoteBlock,
+  CenteredContent,
+  LargeCostDisplay
 } from "./persona-page.styles";
 import { PersonaChoices } from "./components/persona-choices.component";
 import { CostsSummaryDisplay } from "./components/costs-summary-display.component";
@@ -55,12 +58,14 @@ export class PersonaPageComponent extends React.Component {
         params: { personaName }
       },
       personasByName,
-      movingFees,
-      childcareFees,
-      incomeDisplay,
+      movingFeesDisplay,
+      childcareFeesDisplay,
+      income,
       totalLostIncome,
       legalFees,
-      transportationFees
+      transportationFees,
+      childcareFees,
+      movingFees
     } = this.props;
     const persona = personasByName[toLower(personaName)];
     return (
@@ -94,11 +99,20 @@ export class PersonaPageComponent extends React.Component {
           <strong>
             <center>Total Costs of The Case</center>
           </strong>
-
-          <CostsIncomeWithBars
-            income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
-            originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
+          <CenteredContent>
+            <LargeCostDisplay>
+              {numberToMoneyDisplay(legalFees + transportationFees)}
+            </LargeCostDisplay>
+          </CenteredContent>
+          <CostsIncomeGraph
+            income={income}
+            id="cost-income-1"
+            costs={[
+              {
+                label: "Costs of the case",
+                value: legalFees + transportationFees
+              }
+            ]}
           />
         </PersonaSection>
         <PersonaSection colour={colours.white}>
@@ -124,7 +138,7 @@ export class PersonaPageComponent extends React.Component {
             <TotalLostIncome persona={persona} {...this.props} />
           </SectionBlock>
 
-          {!isEmpty(childcareFees) && (
+          {!isEmpty(childcareFeesDisplay) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -133,7 +147,7 @@ export class PersonaPageComponent extends React.Component {
             </React.Fragment>
           )}
 
-          {!isEmpty(movingFees) && (
+          {!isEmpty(movingFeesDisplay) && (
             <React.Fragment>
               <SectionDivider />
               <SectionBlock>
@@ -148,17 +162,26 @@ export class PersonaPageComponent extends React.Component {
             <center>Other Financial Impacts</center>
           </strong>
 
-          <CostsIncomeWithBars
-            income={parseInt(incomeDisplay.replace(/[,$]/g, ""), 10)}
-            originalCost={parseInt(legalFees.replace(/[,$]/g, ""), 10) +
-              parseInt(transportationFees.replace(/[,$]/g, ""), 10)}
-            addedCosts={parseInt(totalLostIncome.replace(/[,$]/g, ""), 10) +
-              (!isEmpty(childcareFees) ?
-              parseInt(childcareFees.replace(/[,$]/g, ""), 10) : 0) +
-              (!isEmpty(movingFees) ?
-              parseInt(movingFees.replace(/[,$]/g, ""), 10) : 0)}
+          <CenteredContent>
+            <LargeCostDisplay>
+              {numberToMoneyDisplay(legalFees + transportationFees)}
+            </LargeCostDisplay>
+          </CenteredContent>
+          <CostsIncomeGraph
+            income={income}
+            id="cost-income-2"
+            costs={[
+              {
+                label: "Costs of the case",
+                value: legalFees + transportationFees
+              },
+              {
+                label: "Other financial impacts",
+                value:
+                  totalLostIncome || 0 + childcareFees || 0 + movingFees || 0
+              }
+            ]}
           />
-
         </PersonaSection>
         <PersonaSection colour={colours.periwinkleBlueLighter}>
           <ImpactOnStability persona={persona} />
@@ -168,10 +191,10 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <Conflict persona={persona} {...this.props} />
+          <CenteredContent>
+            <SeeMorePersonas />
+          </CenteredContent>
         </PersonaSection>
-        <PersonaSection colour={colours.white}>
-        <SeeMorePersonas/>
-          </PersonaSection>
         <SiteFooter />
       </Grid>
     );
@@ -191,14 +214,16 @@ PersonaPageComponent.propTypes = {
   legalFeesDisplay: PropTypes.string,
   locationType: PropTypes.string,
   setLocationType: PropTypes.func,
-  transportationFees: PropTypes.string,
-  legalFees: PropTypes.string,
-  childcareFees: PropTypes.string,
-  movingFees: PropTypes.string,
+  transportationFees: PropTypes.number,
+  legalFees: PropTypes.number,
+  childcareFees: PropTypes.number,
+  movingFees: PropTypes.number,
   totalDirectFees: PropTypes.string,
   eligibilityReasons: PropTypes.arrayOf(PropTypes.string),
   resetChoices: PropTypes.func,
   otherFinancialImpacts: PropTypes.string,
-  totalLostIncome: PropTypes.string,
-  impactOnStability: PropTypes.string
+  totalLostIncome: PropTypes.number,
+  impactOnStability: PropTypes.string,
+  movingFeesDisplay: PropTypes.string,
+  childcareFeesDisplay: PropTypes.string
 };

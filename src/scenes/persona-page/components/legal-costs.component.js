@@ -14,7 +14,12 @@ import {
 } from "../persona-page.styles";
 import { capitalize } from "src/utils";
 
-export const LegalCosts = ({ legalFees, persona, setModal, modalIsOpen }) => (
+export const LegalCosts = ({
+  legalFeesDisplay,
+  persona,
+  setModal,
+  modalIsOpen
+}) => (
   <React.Fragment>
     <Modal
       aria-labelledby="simple-modal-title"
@@ -49,14 +54,14 @@ export const LegalCosts = ({ legalFees, persona, setModal, modalIsOpen }) => (
           Value of having a lawyer
         </OpenModalButton>
       </CostTextContentWrapper>
-      <CostDisplay>{legalFees}</CostDisplay>
+      <CostDisplay>{legalFeesDisplay}</CostDisplay>
     </CostSectionWrapper>
   </React.Fragment>
 );
 
 LegalCosts.propTypes = {
   persona: PropTypes.any,
-  legalFees: PropTypes.string,
+  legalFeesDisplay: PropTypes.string,
   hasLawyer: PropTypes.bool,
   setModal: PropTypes.func,
   modalIsOpen: PropTypes.bool

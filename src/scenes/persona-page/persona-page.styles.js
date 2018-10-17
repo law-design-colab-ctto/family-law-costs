@@ -154,11 +154,11 @@ export const ButtonOption = styled(ButtonReset)`
     color: ${props => (props.active ? colours.white : colours.white)};
   }
 
-  &:first-child {
+  ${ButtonSetWrapper} &:first-child {
     border-radius: 5px 0 0 5px;
   }
 
-  &:last-child {
+  ${ButtonSetWrapper} &:last-child {
     border-radius: 0 5px 5px 0;
     margin-right: 0;
   }
@@ -171,6 +171,8 @@ export const ButtonOption = styled(ButtonReset)`
 export const SeeMoreButton = styled(ButtonOption)`
   margin-top: ${spacing.four};
   color: ${colours.black};
+  border-radius: 3px;
+  width: 100%;
 `;
 
 export const ButtonLabelWrapper = styled.div`

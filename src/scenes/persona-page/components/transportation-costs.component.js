@@ -9,7 +9,7 @@ import {
   CostTextContentWrapper
 } from "../persona-page.styles";
 
-export const TransportationCosts = ({ transportationFees }) => (
+export const TransportationCosts = ({ transportationFeesDisplay }) => (
   <CostSectionWrapper>
     <CostTextContentWrapper>
       <SectionSubheader>Transportation Costs</SectionSubheader>
@@ -18,10 +18,10 @@ export const TransportationCosts = ({ transportationFees }) => (
       </PersonaTextRegular>
     </CostTextContentWrapper>
 
-    <CostDisplay>{transportationFees}</CostDisplay>
+    <CostDisplay>{transportationFeesDisplay}</CostDisplay>
   </CostSectionWrapper>
 );
 
 TransportationCosts.propTypes = {
-  transportationFees: PropTypes.string
+  transportationFeesDisplay: PropTypes.string
 };
