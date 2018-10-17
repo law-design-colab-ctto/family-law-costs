@@ -13,6 +13,9 @@ export default class InfoPageAbout extends Component {
         <InfoParagraph>
           It is hard to calculate the real cost of a family law disputes in Canada. Yet it is difficult to improve the system or make changes to court processes or services without an understanding of the costs to people in the family system. The Out-of-Pocket tool is transferable to any Canadian jurisdiction and generates concrete, local costs information about family law processes to influence public policy, legal reform and media conversations about access to justice in the family context. This site helps to put a dollar figure on the out-of-pockets costs to individuals and families during a family law dispute.
         </InfoParagraph>
+        <InfoParagraph>
+          <b>This website is best viewed on desktop.</b>
+        </InfoParagraph>
         <InfoSubheader>What does it do?</InfoSubheader>
         <InfoParagraph>
           This tool calculates and compares typical costs including the money people spend during their legal dispute and the money they lose through missed work. It is NOT a tool to predict anyone’s individual costs or provide a customizable estimate. Instead, it uses typical stories, and generalizes typically consequences to produce a dollar amount.

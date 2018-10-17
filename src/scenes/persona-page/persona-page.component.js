@@ -168,8 +168,10 @@ export class PersonaPageComponent extends React.Component {
         </PersonaSection>
         <PersonaSection colour={colours.white}>
           <Conflict persona={persona} {...this.props} />
-          <SeeMorePersonas/>
         </PersonaSection>
+        <PersonaSection colour={colours.white}>
+        <SeeMorePersonas/>
+          </PersonaSection>
         <SiteFooter />
       </Grid>
     );
