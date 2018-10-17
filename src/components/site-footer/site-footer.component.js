@@ -17,8 +17,14 @@ export const SiteFooter = () => (
         <div>Out-of-Pocket was created by</div>
         <SponsorLogos>
           <LogoLink imageName="uvicacelogo" href="http://www.uvicace.com/" />
-          <LogoLink imageName="calibratelogo" href="http://www.calibratesolutions.ca/" />
-          <LogoLink imageName="lawdesignlogo" href="http://www.lawdesigncolab.ca/" />
+          <LogoLink
+            imageName="calibratelogo"
+            href="http://www.calibratesolutions.ca/"
+          />
+          <LogoLink
+            imageName="lawdesignlogo"
+            href="http://www.lawdesigncolab.ca/"
+          />
         </SponsorLogos>
       </ColumnWrapper>
       <ColumnWrapper>
@@ -27,7 +33,10 @@ export const SiteFooter = () => (
           of Ontario&#39;s Access to Justice Fund
         </div>
         <SponsorLogos>
-          <LFOLogoLink href="http://www.lawfoundation.on.ca/" imageName="lawfoundationlogo" />
+          <LFOLogoLink
+            href="http://www.lawfoundation.on.ca/"
+            imageName="lawfoundationlogo"
+          />
         </SponsorLogos>
       </ColumnWrapper>
     </LogoRowsWrapper>

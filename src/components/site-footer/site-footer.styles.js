@@ -22,6 +22,7 @@ export const Copyright = styled(Grid)`
 export const SponsorLogos = styled(Grid)`
   display: flex;
   padding: ${spacing.three} 0;
+  flex-wrap: wrap;
 `;
 
 export const LogoRowsWrapper = styled.div`
@@ -42,7 +43,7 @@ export const LogoLink = styled.a`
   background-size: contain;
   height: 3rem;
   width: 10rem;
-`
+`;
 export const LFOLogoLink = styled.a`
   background-image: url("/assets/${props => props.imageName}.png");
   background-position: left;
@@ -50,6 +51,4 @@ export const LFOLogoLink = styled.a`
   background-size: contain;
   height: 5rem;
   width: 15rem;
-`
-
-;
+`;
